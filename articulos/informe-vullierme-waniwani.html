@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raphael Vullierme — Del naufragio de Luko al impacto sistémico de Waniwani</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #183577;
+    --gold: #C89646;
+    --red: #E4382E;
+    --coral: #F1957C;
+    --charcoal: #595959;
+    --ink: #1a1a2e;
+    --paper: #fafaf8;
+    --mist: #f0f2f7;
+    --rule: #dde0e8;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ── HEADER ─────────────────────────────── */
+  .masthead {
+    background: var(--navy);
+    color: white;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .masthead::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 45%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 40%, rgba(200,150,70,0.12) 100%);
+    pointer-events: none;
+  }
+  .masthead-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 52px 40px 44px;
+  }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .eyebrow::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(200,150,70,0.35);
+    max-width: 120px;
+  }
+  .masthead h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+    font-weight: 900;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    color: white;
+    margin-bottom: 18px;
+    max-width: 640px;
+  }
+  .masthead h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .masthead-meta {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+  }
+  .meta-item {
+    font-size: 11.5px;
+    letter-spacing: 0.04em;
+    color: rgba(255,255,255,0.6);
+  }
+  .meta-item strong { color: rgba(255,255,255,0.9); display: block; font-size: 12.5px; }
+
+  /* ── BODY ────────────────────────────────── */
+  .report-body {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 40px 60px;
+  }
+
+  /* ── LEAD ────────────────────────────────── */
+  .lead-block {
+    border-left: 3px solid var(--gold);
+    margin: 40px 0 36px;
+    padding: 20px 28px;
+    background: white;
+    box-shadow: 0 2px 12px rgba(24,53,119,0.06);
+  }
+  .lead-block p {
+    font-size: 1.08rem;
+    line-height: 1.75;
+    color: var(--charcoal);
+    font-weight: 400;
+  }
+
+  /* ── SECTIONS ────────────────────────────── */
+  .section {
+    margin: 44px 0;
+  }
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--navy);
+    opacity: 0.55;
+    margin-bottom: 8px;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1.5px solid var(--rule);
+  }
+  p { margin-bottom: 14px; color: #2e2e3a; }
+  p:last-child { margin-bottom: 0; }
+
+  /* ── DATA CARDS ──────────────────────────── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 14px;
+    margin: 28px 0;
+  }
+  .card {
+    background: white;
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--navy);
+    padding: 18px 20px;
+    border-radius: 2px;
+  }
+  .card-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.75rem;
+    font-weight: 900;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .card-value span {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--gold);
+  }
+  .card-label {
+    font-size: 11.5px;
+    color: var(--charcoal);
+    letter-spacing: 0.03em;
+    line-height: 1.4;
+  }
+
+  /* ── ALERT BOX ───────────────────────────── */
+  .impact-box {
+    background: linear-gradient(135deg, #fff8f0, #fff);
+    border: 1px solid rgba(228,56,46,0.2);
+    border-left: 4px solid var(--red);
+    padding: 22px 26px;
+    margin: 28px 0;
+    border-radius: 2px;
+  }
+  .impact-box .impact-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 10px;
+    display: block;
+  }
+  .impact-box p { color: #3a2020; margin-bottom: 0; }
+  .impact-box strong { color: var(--red); }
+
+  /* ── TIMELINE ────────────────────────────── */
+  .timeline {
+    margin: 28px 0;
+    position: relative;
+  }
+  .tl-item {
+    display: flex;
+    gap: 20px;
+    padding: 0 0 24px 0;
+    position: relative;
+  }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: 43px;
+    top: 22px;
+    bottom: 0;
+    width: 1px;
+    background: var(--rule);
+  }
+  .tl-item:last-child::before { display: none; }
+  .tl-date {
+    min-width: 88px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    font-weight: 500;
+    padding-top: 2px;
+    text-align: right;
+  }
+  .tl-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--navy);
+    border: 2px solid var(--paper);
+    box-shadow: 0 0 0 1.5px var(--navy);
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
+  .tl-content strong {
+    display: block;
+    font-size: 13.5px;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .tl-content p { font-size: 13px; color: var(--charcoal); margin: 0; }
+
+  /* ── INVESTOR TABLE ──────────────────────── */
+  .table-wrap { overflow-x: auto; margin: 24px 0; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  thead th {
+    background: var(--navy);
+    color: white;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    font-size: 11.5px;
+  }
+  tbody tr { border-bottom: 1px solid var(--rule); }
+  tbody tr:nth-child(even) { background: var(--mist); }
+  tbody td { padding: 9px 14px; color: var(--charcoal); }
+  tbody td:first-child { font-weight: 600; color: var(--ink); }
+  .badge {
+    display: inline-block;
+    background: var(--mist);
+    border: 1px solid var(--rule);
+    padding: 1px 8px;
+    font-size: 10.5px;
+    border-radius: 20px;
+    color: var(--navy);
+    font-weight: 500;
+  }
+
+  /* ── ANALYSIS BLOCK ──────────────────────── */
+  .analysis {
+    background: var(--navy);
+    color: white;
+    padding: 32px 36px;
+    margin: 36px 0;
+    border-radius: 2px;
+  }
+  .analysis .analysis-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+    display: block;
+  }
+  .analysis h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 14px;
+  }
+  .analysis p { color: rgba(255,255,255,0.8); margin-bottom: 12px; font-size: 14px; }
+  .analysis p:last-child { margin-bottom: 0; }
+
+  /* ── FOOTER ──────────────────────────────── */
+  .footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.5);
+    padding: 24px 40px;
+    font-size: 11.5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-width: 100%;
+  }
+  .footer strong { color: var(--gold); }
+  .data-note {
+    background: var(--mist);
+    border: 1px solid var(--rule);
+    padding: 14px 20px;
+    margin: 30px 0 10px;
+    font-size: 12px;
+    color: var(--charcoal);
+    border-radius: 2px;
+  }
+  .data-note strong { color: var(--navy); }
+
+  @media (max-width: 600px) {
+    .masthead h1 { font-size: 1.9rem; }
+    .report-body { padding: 0 20px 40px; }
+    .masthead-inner { padding: 36px 20px 32px; }
+    .card-value { font-size: 1.4rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="eyebrow">Community of Insurance · Insur·Insights · Análisis de Perfil</div>
+    <h1>Del naufragio de Luko<br>al impacto <em>sistémico</em><br>de Waniwani</h1>
+    <div class="masthead-meta">
+      <div class="meta-item"><strong>Protagonista</strong>Raphaël Vullierme</div>
+      <div class="meta-item"><strong>Publicación</strong>Agosto 2026</div>
+      <div class="meta-item"><strong>Fuentes</strong>Verificadas · Públicas</div>
+      <div class="meta-item"><strong>Ámbito</strong>Francia · España · EE.UU.</div>
+    </div>
+  </div>
+</header>
+
+<div class="report-body">
+
+  <!-- LEAD -->
+  <div class="lead-block">
+    <p>Raphaël Vullierme protagonizó uno de los fracasos más sonoros de la insurtech europea —Luko adjudicada a Allianz por 4,32 MM€ tras levantar 70 MM€— y, en menos de dos años, co-fundó la infraestructura que el 9 de febrero de 2026 sacudió las bolsas mundiales con una caída de 26.000 millones de dólares en capitalización de los grandes brokers. La pregunta ya no es si se recuperó, sino si estaba orquestando el siguiente movimiento antes de que cayera la última pieza de Luko.</p>
+  </div>
+
+  <!-- SECCIÓN 1: LUKO Y SU FIN -->
+  <div class="section">
+    <div class="section-label">01 · Antecedentes</div>
+    <h2>Luko: auge, colapso y adjudicación a Allianz</h2>
+    <p><strong>Luko Cover SAS</strong> fue fundada el 6 de diciembre de 2016 por Raphaël Vullierme y Benoît Bourdel. Su propuesta inicial no era seguro: fabricaba sensores conectados para monitorizar consumo de agua y electricidad. El pivote hacia el seguro del hogar 100 % digital llegó en 2018, con un discurso de transparencia radical y precios entre un 20 % y 25 % inferiores a los aseguradores tradicionales.</p>
+    <p>La compañía captó 70 MM€ en sucesivas rondas —semilla, Serie A y Serie B de 50 MM€— de fondos de primer nivel. Llegó a gestionar 450.000 asegurados y expandirse a España, Alemania y Bélgica, adquiriendo el asegurador alemán Coya en enero de 2022 para obtener una licencia de asegurador europeo.</p>
+    <p>El modelo financiero no aguantó la corrección del mercado. El 24 de enero de 2024, el Tribunal de Comercio de Bobigny adjudicó los activos clave —incluida la marca Luko— a <strong>Allianz Direct Versicherungs-AG</strong> por <strong>4,32 MM€</strong>, convirtiendo el proceso de recuperación judicial en liquidación. Un retorno catastrófico para los inversores de la Serie B.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-value">70 <span>MM€</span></div>
+        <div class="card-label">Capital levantado total<br><em>Estimación</em> · Fuentes: Les Echos, Frenchweb</div>
+      </div>
+      <div class="card">
+        <div class="card-value">4,32 <span>MM€</span></div>
+        <div class="card-label">Precio de adjudicación a Allianz<br><em>Verificado</em> · Tribunal de Bobigny, ene. 2024</div>
+      </div>
+      <div class="card">
+        <div class="card-value">450k</div>
+        <div class="card-label">Asegurados en máximo histórico<br><em>Estimación</em> · Fuente: 321founded.com</div>
+      </div>
+    </div>
+
+    <p>Vullierme, diplomado en INSA Lyon e Ingeniería del Emprendimiento en HEC, reconocía que Luko no era su primer fracaso: una empresa de entrega de comida y una plataforma de jets privados habían precedido al experimento insurtech. Este patrón —proyectos de alta ambición con final abrupto— resulta clave para interpretar su siguiente jugada.</p>
+  </div>
+
+  <!-- SECCIÓN 2: TRANSICIÓN -->
+  <div class="section">
+    <div class="section-label">02 · Post-Luko</div>
+    <h2>El período de transición: inversión ángel y Hexa</h2>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">2021–2024</div>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <strong>Angel Investor & Accel Scout</strong>
+          <p>Actividad de inversión ángel en insurtechs y fintechs francesas (Stoïk, Finary, Evy, entre otras) y como scout de Accel Partners para el mercado europeo.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Ene. 2024</div>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <strong>Salida de Luko tras adjudicación a Allianz</strong>
+          <p>Supervisa el proceso de integración con Allianz Direct y cierra su etapa como CEO y co-fundador.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Feb. 2026</div>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <strong>Partner en Hexa (ex-eFounders)</strong>
+          <p>Se incorpora al studio franco-belga como Partner para lanzar startups de IA física en defensa, robótica, salud y finanzas. Reside en California.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2026</div>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <strong>Co-fundador & Chairman de Waniwani</strong>
+          <p>El proyecto que surge directamente del ecosistema Hexa y que concentra su mayor apuesta post-Luko.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECCIÓN 3: WANIWANI -->
+  <div class="section">
+    <div class="section-label">03 · Proyecto Central</div>
+    <h2>Waniwani: la infraestructura de distribución agentica</h2>
+
+    <p><strong>Waniwani</strong> se define como "infraestructura de ingresos y cumplimiento normativo para la distribución agéntica de servicios financieros". En términos operativos: un SDK de código abierto y una capa de infraestructura que permite a aseguradoras, hipotecarias y otras entidades financieras colocar sus productos —con cotización en tiempo real— dentro de plataformas de IA como ChatGPT, Claude y Copilot.</p>
+
+    <p>La compañía fue co-fundada en 2026 por <strong>Robin Diligent</strong> (CEO), <strong>Maxime Antoine</strong>, <strong>Luiza Gusmao</strong> y <strong>Raphaël Vullierme</strong>, quien ejerce de <em>Chairman</em>. Tiene sede en San Francisco con oficinas en Nueva York y París.</p>
+
+    <h3 style="font-family:'Inter',sans-serif; font-size:13.5px; font-weight:600; color:var(--navy); margin:22px 0 12px; text-transform:uppercase; letter-spacing:0.06em;">Estructura de inversores — Ronda Semilla</h3>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Inversor</th>
+            <th>Tipo</th>
+            <th>Observaciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Seedcamp</td>
+            <td><span class="badge">Lead</span></td>
+            <td>Fondo europeo de referencia en early-stage</td>
+          </tr>
+          <tr>
+            <td>Hexa (ex-eFounders)</td>
+            <td><span class="badge">Pre-seed + Seed</span></td>
+            <td>Venture studio; inversión total pre-seed ~0,7 MM$</td>
+          </tr>
+          <tr>
+            <td>Redstone VC</td>
+            <td><span class="badge">Participante</span></td>
+            <td>Fondo alemán centrado en deep tech</td>
+          </tr>
+          <tr>
+            <td>Plug & Play Tech Center</td>
+            <td><span class="badge">Participante</span></td>
+            <td>Aceleradora-fondo silicon valley</td>
+          </tr>
+          <tr>
+            <td>Zone II Ventures</td>
+            <td><span class="badge">Participante</span></td>
+            <td>Fondo de capital riesgo</td>
+          </tr>
+          <tr>
+            <td>Kima Ventures</td>
+            <td><span class="badge">Participante</span></td>
+            <td>Fondo de Xavier Niel (también inversor en Luko)</td>
+          </tr>
+          <tr>
+            <td>OPRTRs Club</td>
+            <td><span class="badge">Participante</span></td>
+            <td>Club de operadores / angels</td>
+          </tr>
+          <tr>
+            <td>Angels varios</td>
+            <td><span class="badge">Ángel</span></td>
+            <td>No identificados públicamente</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-value">8,7 <span>MM$</span></div>
+        <div class="card-label">Financiación total (pre-seed + seed)<br><em>Verificado</em> · Junio 2026</div>
+      </div>
+      <div class="card">
+        <div class="card-value">8,0 <span>MM$</span></div>
+        <div class="card-label">Ronda semilla liderada por Seedcamp<br><em>Verificado</em> · 15 jun. 2026</div>
+      </div>
+      <div class="card">
+        <div class="card-value">6</div>
+        <div class="card-label">Empleados en plantilla (PitchBook)<br><em>Verificado</em> · 2026</div>
+      </div>
+    </div>
+
+    <p><strong>Naturaleza jurídica:</strong> Waniwani opera como empresa privada con capital de riesgo, domiciliada en San Francisco. No ejerce actividad aseguradora ni mediadora: es un proveedor de infraestructura tecnológica B2B. Su SDK es de código abierto, lo que le permite escalar sin restricciones regulatorias propias —la carga de licencias recae sobre los clientes que distribuyen a través de su plataforma. La empresa ya ha cerrado alianzas de integración con <strong>Deloitte</strong> y es <strong>OpenAI Select Partner</strong>.</p>
+
+    <p>Según sus propias proyecciones publicadas, Waniwani prevé alcanzar "varios millones de dólares de ingresos en su primer año de operación", con clientes en EE.UU., Europa, Latinoamérica, Oriente Medio, Corea y Australia.</p>
+  </div>
+
+  <!-- SECCIÓN 4: EL EVENTO DEL 9 DE FEBRERO -->
+  <div class="impact-box">
+    <span class="impact-label">⚡ Impacto sistémico verificado · 9 feb. 2026</span>
+    <p>La puesta en producción de la app de Tuio dentro de ChatGPT —sobre la infraestructura de Waniwani— provocó una caída de <strong>hasta el 13 %</strong> en Willis Towers Watson (su peor jornada desde 2008), entre el 8 % y el 11 % en Aon y Arthur J. Gallagher, y una corrección del 1,3 % en el índice STOXX 600 de seguros europeo (Hiscox, Aviva, AXA). Goldman Sachs estimó la reacción como exagerada; Bank of America avisó de que <strong>15.000 millones de dólares</strong> en ingresos de brokers están en riesgo por la distribución vía IA. La capitalización bursátil destruida en ese episodio: <strong>26.000 millones de dólares</strong>.</p>
+  </div>
+
+  <!-- SECCIÓN 5: TUIO Y TUIO HOME INSURANCE EXPLORER -->
+  <div class="section">
+    <div class="section-label">04 · El cliente que lo detonó</div>
+    <h2>Tuio y Tuio Home Insurance Explorer</h2>
+
+    <p><strong>Tuio</strong> es una aseguradora digital española fundada en 2020 (nacida comercialmente en octubre de 2021), con sede en Madrid. Cuenta con aproximadamente <strong>100.000 clientes</strong>, 50 empleados y unos ingresos anuales próximos a los 15 MM€ (Estimación · StartMag, feb. 2026). Opera como agencia de suscripción regulada y correduría; las pólizas están suscritas por <strong>Allianz Direct</strong> —el mismo comprador de Luko—, habiendo reemplazado en este rol a la mutualidad Murimar.</p>
+
+    <p>La relación de Vullierme con Tuio es la de <strong>proveedor de infraestructura</strong> a través de Waniwani, no la de accionista, fundador ni directivo. Waniwani proporcionó la plataforma tecnológica sobre la que Tuio construyó su aplicación de ChatGPT. No existe evidencia pública de participación de Vullierme en el capital de Tuio.</p>
+
+    <p><strong>Tuio Home Insurance Explorer</strong> es el nombre oficial de la aplicación desplegada en el directorio de OpenAI. Según su descripción verificada en ChatGPT, "ofrece una vía transparente para visualizar y comprender las opciones del seguro del hogar de Tuio directamente en ChatGPT", permitiendo al usuario describir su vivienda mediante conversación natural y recibir una cotización personalizada en tiempo real. La herramienta clarifica términos, explica coberturas y permite ajustar límites y franquicias. La compra en línea dentro de ChatGPT está prevista como siguiente paso, pero no estaba disponible en el lanzamiento.</p>
+
+    <p>Esta app fue <strong>la primera aplicación construida por un asegurador</strong> en obtener aprobación de OpenAI para operar dentro de ChatGPT —hito que desencadenó el impacto bursátil descrito y posicionó a Waniwani como referente de la categoría.</p>
+  </div>
+
+  <!-- SECCIÓN 6: VALORACIÓN EDITORIAL -->
+  <div class="analysis">
+    <span class="analysis-eyebrow">Valoración editorial · COI / Insur·Insights</span>
+    <h3>¿Reinvención genuina o continuidad del patrón?</h3>
+    <p>Vullierme ha convertido la lección más costosa de su carrera en el argumento central de su siguiente empresa: "Pasé casi una década dirigiendo un asegurador, sentado dentro de la cadena de valor del seguro. Podía prever cómo la IA iba a reformar la distribución." El credencial de haber quemado y reconstruido dentro del sector le otorga una autoridad que pocos en Waniwani pueden reclamar.</p>
+    <p>El modelo de Waniwani evita deliberadamente los riesgos que hundieron a Luko: no asume riesgo asegurador, no necesita licencias propias, no compite con sus clientes. Es infraestructura pura, con SDK en código abierto para democratizar la entrada, y una capa propietaria de cumplimiento y optimización de ingresos para monetizar el uso institucional.</p>
+    <p>El interrogante válido es si la posición de <em>Chairman</em> —no CEO— refleja una apuesta real o un rol de fachada para sumar credibilidad a un equipo muy joven (6 empleados, fundada en 2026). La respuesta llegará cuando el pipeline de clientes europeos, latinoamericanos y del Medio Oriente que Waniwani anuncia se traduzca en ingresos auditables. Por ahora, el impacto del 9 de febrero habla por sí solo: pocos lanzamientos insurtechs han movido 26.000 millones en capitalización bursátil global en un solo día.</p>
+  </div>
+
+  <!-- NOTA DE DATOS -->
+  <div class="data-note">
+    <strong>Protocolo de verificación:</strong> Todos los datos de este informe provienen de fuentes públicas contrastadas (tribunales, prensa especializada, comunicados de financiación, directorios regulados). Los datos marcados como <em>Estimación</em> proceden de medios de referencia pero no han sido confirmados directamente por las compañías. No se incluye ninguna cifra no atribuible a fuente verificable. La relación entre Vullierme y Tuio es estrictamente B2B-tecnológica; no existe evidencia pública de participación accionarial o de gestión.
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div><strong>Community of Insurance</strong> · Insur·Insights · Agosto 2026</div>
+  <div>carlos.biurrun@communityofinsurance.com</div>
+</footer>
+
+</body>
+</html>
