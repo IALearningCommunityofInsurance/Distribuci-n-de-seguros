@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La revolución que aprendió a suscribir — COI Magazine</title>
+<style>
+  /* ═══════════════════════════════════════════════
+     TOKENS — paleta COI
+  ═══════════════════════════════════════════════ */
+  :root {
+    --coi-red:     #E4382E;
+    --coi-coral:   #F1957C;
+    --coi-dark:    #595959;
+    --ink:         #1A1A1A;
+    --ink-mid:     #3D3D3D;
+    --ink-light:   #6B6B6B;
+    --surface:     #F7F7F6;
+    --white:       #FFFFFF;
+    --rule:        #E0DDD8;
+    --accent-pale: #FDF1EE;
+    --radius:      6px;
+    --max-w:       920px;
+  }
+
+  /* ═══════════════════════════════════════════════
+     RESET & BASE
+  ═══════════════════════════════════════════════ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--ink);
+    background: var(--white);
+  }
+
+  #ii-art {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ═══════════════════════════════════════════════
+     CABECERA
+  ═══════════════════════════════════════════════ */
+  #ii-art .coi-header {
+    position: relative;
+    background: var(--ink);
+    color: var(--white);
+    padding: 64px 56px 52px;
+    margin-bottom: 0;
+    overflow: hidden;
+  }
+
+  #ii-art .coi-header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 8px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--coi-red) 0%, var(--coi-coral) 100%);
+  }
+
+  #ii-art .coi-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; right: -40px;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: rgba(228,56,46,0.08);
+    pointer-events: none;
+  }
+
+  #ii-art .header-eyebrow {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--coi-coral);
+    margin-bottom: 20px;
+  }
+
+  #ii-art .header-title {
+    font-family: 'Georgia', serif;
+    font-size: clamp(28px, 4vw, 46px);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    color: var(--white);
+    margin-bottom: 20px;
+    max-width: 720px;
+  }
+
+  #ii-art .header-subtitle {
+    font-family: 'Arial', sans-serif;
+    font-size: 15px;
+    color: rgba(255,255,255,0.68);
+    line-height: 1.6;
+    max-width: 600px;
+    margin-bottom: 36px;
+  }
+
+  #ii-art .header-meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  #ii-art .header-meta span {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.5px;
+  }
+
+  #ii-art .header-meta strong {
+    color: rgba(255,255,255,0.85);
+    font-weight: 600;
+  }
+
+  /* ═══════════════════════════════════════════════
+     BANDA DE CIFRAS CLAVE
+  ═══════════════════════════════════════════════ */
+  #ii-art .key-numbers {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: var(--coi-red);
+    color: var(--white);
+    margin-bottom: 56px;
+  }
+
+  #ii-art .kn-item {
+    padding: 28px 24px;
+    border-right: 1px solid rgba(255,255,255,0.18);
+    text-align: center;
+  }
+
+  #ii-art .kn-item:last-child { border-right: none; }
+
+  #ii-art .kn-value {
+    font-family: 'Georgia', serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  #ii-art .kn-label {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(255,255,255,0.78);
+  }
+
+  /* ═══════════════════════════════════════════════
+     RESUMEN EJECUTIVO
+  ═══════════════════════════════════════════════ */
+  #ii-art .exec-summary {
+    background: var(--accent-pale);
+    border-left: 4px solid var(--coi-red);
+    padding: 36px 40px;
+    margin-bottom: 64px;
+    position: relative;
+  }
+
+  #ii-art .exec-summary .es-label {
+    font-family: 'Arial', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--coi-red);
+    margin-bottom: 16px;
+  }
+
+  #ii-art .exec-summary p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--ink-mid);
+    margin-bottom: 14px;
+  }
+
+  #ii-art .exec-summary p:last-child { margin-bottom: 0; }
+
+  /* ═══════════════════════════════════════════════
+     SECCIONES
+  ═══════════════════════════════════════════════ */
+  #ii-art .section {
+    margin-bottom: 72px;
+  }
+
+  #ii-art .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--rule);
+  }
+
+  #ii-art .section-num {
+    font-family: 'Georgia', serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--coi-coral);
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: -4px;
+    opacity: 0.6;
+  }
+
+  #ii-art .section-title-wrap {}
+
+  #ii-art .section-eyebrow {
+    font-family: 'Arial', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--coi-red);
+    margin-bottom: 6px;
+  }
+
+  #ii-art .section-title {
+    font-family: 'Georgia', serif;
+    font-size: clamp(20px, 2.5vw, 28px);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--ink);
+  }
+
+  #ii-art .section p {
+    margin-bottom: 18px;
+    color: var(--ink-mid);
+    line-height: 1.8;
+  }
+
+  #ii-art .section p:last-child { margin-bottom: 0; }
+
+  /* ═══════════════════════════════════════════════
+     LÍNEA DE TIEMPO
+  ═══════════════════════════════════════════════ */
+  #ii-art .timeline {
+    position: relative;
+    margin: 36px 0 48px;
+  }
+
+  #ii-art .timeline::before {
+    content: '';
+    position: absolute;
+    left: 28px;
+    top: 0; bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--coi-red), var(--coi-coral), var(--rule));
+    border-radius: 2px;
+  }
+
+  #ii-art .tl-item {
+    display: flex;
+    gap: 28px;
+    margin-bottom: 32px;
+    padding-left: 12px;
+  }
+
+  #ii-art .tl-dot {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--coi-red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    margin-top: 4px;
+  }
+
+  #ii-art .tl-dot span {
+    font-family: 'Arial', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.5px;
+  }
+
+  #ii-art .tl-content {
+    background: var(--surface);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    flex: 1;
+  }
+
+  #ii-art .tl-period {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--coi-red);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  #ii-art .tl-name {
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  #ii-art .tl-desc {
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    color: var(--ink-light);
+    line-height: 1.65;
+  }
+
+  #ii-art .tl-funding {
+    display: inline-block;
+    margin-top: 10px;
+    background: var(--coi-red);
+    color: var(--white);
+    padding: 3px 10px;
+    border-radius: 3px;
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  /* ═══════════════════════════════════════════════
+     TABLAS COMPARATIVAS
+  ═══════════════════════════════════════════════ */
+  #ii-art .table-wrap {
+    overflow-x: auto;
+    margin: 32px 0;
+    border-radius: var(--radius);
+    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  }
+
+  #ii-art table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Arial', sans-serif;
+    font-size: 13.5px;
+  }
+
+  #ii-art thead tr {
+    background: var(--ink);
+    color: var(--white);
+  }
+
+  #ii-art thead th {
+    padding: 14px 18px;
+    text-align: left;
+    font-size: 11px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  #ii-art thead th:first-child {
+    border-radius: var(--radius) 0 0 0;
+  }
+  #ii-art thead th:last-child {
+    border-radius: 0 var(--radius) 0 0;
+  }
+
+  #ii-art tbody tr:nth-child(odd) { background: var(--white); }
+  #ii-art tbody tr:nth-child(even) { background: var(--surface); }
+  #ii-art tbody tr:hover { background: var(--accent-pale); }
+
+  #ii-art tbody td {
+    padding: 13px 18px;
+    color: var(--ink-mid);
+    border-bottom: 1px solid var(--rule);
+    line-height: 1.5;
+    vertical-align: top;
+  }
+
+  #ii-art tbody td:first-child {
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  #ii-art .badge {
+    display: inline-block;
+    padding: 2px 9px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+
+  #ii-art .badge-green  { background: #E6F4EA; color: #1B7535; }
+  #ii-art .badge-red    { background: #FDE9E8; color: #B22D28; }
+  #ii-art .badge-orange { background: #FEF3E2; color: #915A0A; }
+  #ii-art .badge-blue   { background: #E3EDFD; color: #1A4F9C; }
+  #ii-art .badge-grey   { background: #EFEFEF; color: #555; }
+
+  /* ═══════════════════════════════════════════════
+     HIGHLIGHT BOX
+  ═══════════════════════════════════════════════ */
+  #ii-art .highlight-box {
+    background: var(--ink);
+    color: var(--white);
+    border-radius: var(--radius);
+    padding: 36px 40px;
+    margin: 36px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #ii-art .highlight-box::before {
+    content: '"';
+    position: absolute;
+    top: -20px; left: 20px;
+    font-family: 'Georgia', serif;
+    font-size: 160px;
+    color: rgba(228,56,46,0.18);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  #ii-art .highlight-box p {
+    font-family: 'Georgia', serif;
+    font-size: 20px;
+    line-height: 1.65;
+    color: var(--white);
+    position: relative;
+    z-index: 1;
+    margin-bottom: 16px;
+  }
+
+  #ii-art .highlight-box cite {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: var(--coi-coral);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-style: normal;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ═══════════════════════════════════════════════
+     GRÁFICO FUNDING (CSS puro)
+  ═══════════════════════════════════════════════ */
+  #ii-art .chart-section {
+    background: var(--surface);
+    border-radius: var(--radius);
+    padding: 32px 36px;
+    margin: 36px 0;
+  }
+
+  #ii-art .chart-title {
+    font-family: 'Georgia', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+
+  #ii-art .chart-subtitle {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: var(--ink-light);
+    margin-bottom: 28px;
+  }
+
+  #ii-art .bar-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    height: 180px;
+  }
+
+  #ii-art .bar-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    height: 100%;
+    justify-content: flex-end;
+  }
+
+  #ii-art .bar-value {
+    font-family: 'Arial', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+    white-space: nowrap;
+  }
+
+  #ii-art .bar {
+    width: 100%;
+    border-radius: 3px 3px 0 0;
+    min-height: 4px;
+    transition: opacity 0.2s;
+  }
+
+  #ii-art .bar:hover { opacity: 0.8; }
+
+  #ii-art .bar-year {
+    font-family: 'Arial', sans-serif;
+    font-size: 10px;
+    color: var(--ink-light);
+    margin-top: 6px;
+    text-align: center;
+  }
+
+  #ii-art .bar-legend {
+    display: flex;
+    gap: 24px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+  }
+
+  #ii-art .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: var(--ink-light);
+  }
+
+  #ii-art .legend-dot {
+    width: 12px; height: 12px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  /* ═══════════════════════════════════════════════
+     CASE STUDY CARDS
+  ═══════════════════════════════════════════════ */
+  #ii-art .cases-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin: 32px 0;
+  }
+
+  #ii-art .case-card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    padding: 24px;
+    border-top: 4px solid var(--rule);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #ii-art .case-card.success { border-top-color: #2E8B57; }
+  #ii-art .case-card.pivot   { border-top-color: var(--coi-red); }
+  #ii-art .case-card.caution { border-top-color: #D97000; }
+  #ii-art .case-card.acquired{ border-top-color: #3B5EA6; }
+
+  #ii-art .case-company {
+    font-family: 'Georgia', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  #ii-art .case-origin {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    color: var(--ink-light);
+    margin-bottom: 14px;
+  }
+
+  #ii-art .case-body {
+    font-family: 'Arial', sans-serif;
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: var(--ink-mid);
+  }
+
+  #ii-art .case-status {
+    margin-top: 14px;
+  }
+
+  /* ═══════════════════════════════════════════════
+     PULL QUOTE
+  ═══════════════════════════════════════════════ */
+  #ii-art .pull-quote {
+    border-left: 4px solid var(--coi-coral);
+    padding: 20px 28px;
+    margin: 32px 0;
+    background: var(--accent-pale);
+  }
+
+  #ii-art .pull-quote p {
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--ink);
+    font-style: italic;
+    margin-bottom: 0 !important;
+  }
+
+  /* ═══════════════════════════════════════════════
+     PIE
+  ═══════════════════════════════════════════════ */
+  #ii-art .footer-bar {
+    background: var(--surface);
+    border-top: 3px solid var(--coi-red);
+    padding: 28px 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 60px;
+  }
+
+  #ii-art .footer-bar .footer-brand {
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  #ii-art .footer-bar .footer-brand span {
+    color: var(--coi-red);
+  }
+
+  #ii-art .footer-bar .footer-credit {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: var(--ink-light);
+  }
+
+  #ii-art .footer-bar .footer-sources {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    color: var(--ink-light);
+    max-width: 480px;
+    line-height: 1.5;
+  }
+
+  /* ═══════════════════════════════════════════════
+     RESPONSIVE
+  ═══════════════════════════════════════════════ */
+  @media (max-width: 680px) {
+    #ii-art .coi-header { padding: 40px 28px 36px; }
+    #ii-art .key-numbers { grid-template-columns: repeat(2, 1fr); }
+    #ii-art .cases-grid { grid-template-columns: 1fr; }
+    #ii-art .exec-summary { padding: 24px 24px; }
+    #ii-art .highlight-box { padding: 28px 24px; }
+    #ii-art .highlight-box::before { font-size: 100px; }
+  }
+
+  @media print {
+    #ii-art .bar:hover { opacity: 1; }
+  }
+</style>
+</head>
+<body>
+<article id="ii-art">
+
+  <!-- CABECERA ═════════════════════════════════════ -->
+  <header class="coi-header">
+    <p class="header-eyebrow">COI Magazine · Análisis Especial · Agosto 2026</p>
+    <h1 class="header-title">La revolución que aprendió a suscribir</h1>
+    <p class="header-subtitle">Insurtech 2012–2026: catorce años para entender que el seguro no solo se digitaliza, también se gestiona.</p>
+    <div class="header-meta">
+      <span><strong>Autor:</strong> Carlos Biurrun Murillo</span>
+      <span><strong>Fuentes:</strong> Gallagher Re · NTT DATA · CB Insights · BCG · Capgemini</span>
+      <span><strong>Período:</strong> 2012–2026</span>
+    </div>
+  </header>
+
+  <!-- CIFRAS CLAVE ══════════════════════════════════ -->
+  <div class="key-numbers">
+    <div class="kn-item">
+      <span class="kn-value">+60.000M$</span>
+      <span class="kn-label">Inversión acumulada desde 2012 (Gallagher Re, 2025)</span>
+    </div>
+    <div class="kn-item">
+      <span class="kn-value">15.800M$</span>
+      <span class="kn-label">Pico de financiación global en 2021</span>
+    </div>
+    <div class="kn-item">
+      <span class="kn-value">116.000M$</span>
+      <span class="kn-label">Mercado de seguro embebido en 2025 (NTT DATA 2026)</span>
+    </div>
+    <div class="kn-item">
+      <span class="kn-value">77,9%</span>
+      <span class="kn-label">Financiación Q4 2025 orientada a empresas centradas en IA</span>
+    </div>
+  </div>
+
+  <!-- CUERPO ════════════════════════════════════════ -->
+  <div style="padding: 0 8px;">
+
+  <!-- ÍNDICE ══════════════════════════════════════════ -->
+  <nav style="margin: 44px 0 48px; background: var(--surface); border-radius: var(--radius); padding: 28px 36px; border-left: 4px solid var(--coi-red);">
+    <p style="font-family:'Arial',sans-serif; font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--coi-red); margin-bottom:18px;">Índice de contenidos</p>
+    <ol style="list-style:none; padding:0; margin:0; columns:2; column-gap:48px;">
+      <li style="margin-bottom:10px; break-inside:avoid;">
+        <a href="#s-resumen" style="display:flex; align-items:baseline; gap:8px; text-decoration:none; font-family:'Arial',sans-serif; font-size:13px; color:var(--ink-mid);">
+          <span style="color:var(--coi-red); font-weight:700; flex-shrink:0;">→</span>
+          <span>Resumen Ejecutivo</span>
+        </a>
+      </li>
+      <li style="margin-bottom:10px; break-inside:avoid;">
+        <a href="#s1" style="display:flex; align-items:baseline; gap:8px; text-decoration:none; font-family:'Arial',sans-serif; font-size:13px; color:var(--ink-mid);">
+          <span style="color:var(--coi-coral); font-weight:700; flex-shrink:0;">1.</span>
+          <span>Las Cuatro Fases del Ecosistema (2012–2026)</span>
+        </a>
+      </li>
+      <li style="margin-bottom:10px; break-inside:avoid;">
+        <a href="#s2" style="display:flex; align-items:baseline; gap:8px; text-decoration:none; font-family:'Arial',sans-serif; font-size:13px; color:var(--ink-mid);">
+          <span style="color:var(--coi-coral); font-weight:700; flex-shrink:0;">2.</span>
+          <span>Los Grandes Giros Estratégicos de los Fundadores</span>
+        </a>
+      </li>
+      <li style="margin-bottom:10px; break-inside:avoid;">
+        <a href="#s3" style="display:flex; align-items:baseline; gap:8px; text-decoration:none; font-family:'Arial',sans-serif; font-size:13px; color:var(--ink-mid);">
+          <span style="color:var(--coi-coral); font-weight:700; flex-shrink:0;">3.</span>
+          <span>De «Eliminar al Intermediario» a «Empoderar al Corredor»</span>
+        </a>
+      </li>
+      <li style="margin-bottom:10px; break-inside:avoid;">
+        <a href="#s4" style="display:flex; align-items:baseline; gap:8px; text-decoration:none; font-family:'Arial',sans-serif; font-size:13px; color:var(--ink-mid);">
+          <span style="color:var(--coi-coral); font-weight:700; flex-shrink:0;">4.</span>
+          <span>La IA como Nuevo Vector de Transformación (2025–2030)</span>
+        </a>
+      </li>
+      <li style="margin-bottom:10px; break-inside:avoid;">
+        <a href="#s5" style="display:flex; align-items:baseline; gap:8px; text-decoration:none; font-family:'Arial',sans-serif; font-size:13px; color:var(--ink-mid);">
+          <span style="color:var(--coi-coral); font-weight:700; flex-shrink:0;">5.</span>
+          <span>Insurtech al Servicio del Corredor: 12 Plataformas Verificadas</span>
+        </a>
+      </li>
+      <li style="margin-bottom:0; break-inside:avoid;">
+        <a href="#s6" style="display:flex; align-items:baseline; gap:8px; text-decoration:none; font-family:'Arial',sans-serif; font-size:13px; color:var(--ink-mid);">
+          <span style="color:var(--coi-coral); font-weight:700; flex-shrink:0;">6.</span>
+          <span>Lo que el Ecosistema Nos ha Enseñado</span>
+        </a>
+      </li>
+    </ol>
+  </nav>
+
+  <!-- RESUMEN EJECUTIVO ════════════════════════════ -->
+  <div class="exec-summary" id="s-resumen">
+    <p class="es-label">Resumen Ejecutivo</p>
+    <p>El ecosistema insurtech cumple en 2026 su decimotercer año de existencia. Lo que comenzó en 2012 como una oleada de startups convencidas de que la tecnología bastaría para reemplazar a los actores tradicionales del seguro ha atravesado cuatro fases nítidamente diferenciadas: la euforia fundacional (2012–2017), el boom y la sobrevaloración (2018–2021), la corrección y el darwinismo (2022–2023) y la consolidación inteligente (2024–2026).</p>
+    <p>El dato más revelador de esta evolución no es financiero: es estratégico. La mayoría de las insurtechs que proclamaron su intención de «eliminar al intermediario» han terminado convirtiéndose en sus aliados más sofisticados. Wefox, nacida como plataforma directa, ha desmantelado su aseguradora propia para centrarse en la distribución mayorista a través de corredores. Luko, que prometía democratizar el seguro sin agentes, fue absorbida por Allianz tras declarar concurso de acreedores con €45 MM de deuda.</p>
+    <p>Los casos de éxito más sólidos son precisamente los que entendieron antes esta lección: REVO Insurance, en Italia, ha construido desde cero —sin el lastre de sistemas y procesos heredados que condicionan a las aseguradoras tradicionales— una especialista que cotiza en bolsa con 398,1 MM€ en primas en 2025, un ratio combinado ajustado cercano al 85% y calificación S&P A-. Next Insurance, adquirida por ERGO/Munich Re en 2025 por 2.600 MM$, demostró que el seguro para pymes podía servirse de forma completamente digital sin renunciar a la rentabilidad técnica.</p>
+    <p>La IA se ha convertido en el nuevo vector de inversión: el 77,9% de la financiación del cuarto trimestre de 2025 fue a empresas centradas en inteligencia artificial, según Gallagher Re. Y el mercado de seguro embebido superó los 116.000 MM$ en 2025 (NTT DATA). El ecosistema no ha fracasado: ha madurado. Y esa madurez tiene un precio, y también un valor.</p>
+  </div>
+
+  <!-- SECCIÓN 1 — LAS CUATRO FASES ════════════════ -->
+  <section class="section" id="s1">
+    <div class="section-header">
+      <span class="section-num">1</span>
+      <div class="section-title-wrap">
+        <p class="section-eyebrow">Contexto histórico</p>
+        <h2 class="section-title">Las Cuatro Fases del Ecosistema Insurtech (2012–2026)</h2>
+      </div>
+    </div>
+
+    <p>La historia del ecosistema insurtech no es lineal. Es cíclica, contradictoria y, en última instancia, más parecida a la maduración de cualquier industria que a la revolución que sus protagonistas prometieron. Cuatro fases articulan este relato de catorce años.</p>
+
+    <!-- GRÁFICO DE FINANCIACIÓN -->
+    <div class="chart-section">
+      <p class="chart-title">Financiación global Insurtech por año (en miles de millones de dólares)</p>
+      <p class="chart-subtitle">Fuente: Gallagher Re Global InsurTech Report, CB Insights, PE150 — Datos verificados</p>
+      <div class="bar-chart" id="funding-chart">
+        <!-- datos: 0.35, 0.7, 2.5, 3.8, 4.16, 6.34, 7.10, 15.8, 7.1, 4.7, 4.25, 5.08 -->
+        <!-- años: 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024 2025 -->
+      </div>
+      <div class="bar-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#E4382E;"></div> Fase Expansión</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#F1957C;"></div> Fase Boom</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#999;"></div> Fase Corrección</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#595959;"></div> Fase Consolidación</div>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"><span>F1</span></div>
+        <div class="tl-content">
+          <p class="tl-period">2012 – 2017</p>
+          <p class="tl-name">Fase 1 · El Gran Experimento</p>
+          <p class="tl-desc">Las primeras insurtechs nacen con una promesa disruptiva: la tecnología puede reemplazar al seguro tradicional. Startups como Lemonade (2015), Wefox (2015) o Next Insurance (2016) captan inversión inicial con modelos 100% directos al consumidor. El seguro embebido, la suscripción algorítmica y la experiencia digital total son sus banderas. La financiación global crece de 348 MM$ (2012) a más de 4.000 MM$ en 2018.</p>
+          <span class="tl-funding">Financiación 2012: 348 MM$ → 2018: 4.160 MM$</span>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"><span>F2</span></div>
+        <div class="tl-content">
+          <p class="tl-period">2018 – 2021</p>
+          <p class="tl-name">Fase 2 · El Boom y la Euforia</p>
+          <p class="tl-desc">El dinero barato de la era post-COVID dispara las valoraciones hasta el absurdo. En 2021, la financiación alcanza su máximo histórico de 15.800 MM$ repartidos en 867 operaciones. Nacen 36 unicornios insurtech. La lógica del «crecer a cualquier coste» prevalece sobre la rentabilidad técnica. Muchas insurtechs que actúan como aseguradoras registran ratios combinados superiores al 120%. Lemonade cotiza a más de 100$ por acción tras su OPV de 2020.</p>
+          <span class="tl-funding">Pico de financiación: 15.800 MM$ en 2021</span>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"><span>F3</span></div>
+        <div class="tl-content">
+          <p class="tl-period">2022 – 2023</p>
+          <p class="tl-name">Fase 3 · La Corrección Darwinista</p>
+          <p class="tl-desc">La subida de tipos de interés y el endurecimiento del capital riesgo precipitan una caída del 72% desde el pico. En 2023, la financiación se sitúa en 4.500 MM$. El volumen de operaciones cae a mínimos desde 2016. Las insurtechs que operaban como aseguradoras descubren el coste real de la suscripción de riesgos: Luko presenta concurso; Wefox vende su aseguradora; varias compañías reducen drasticamente su plantilla. Es el momento del darwinismo estratégico: sobreviven quienes tienen modelo de negocio sostenible o quienes pivotan a tiempo.</p>
+          <span class="tl-funding">Caída 2022–2023: –72% desde el pico</span>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"><span>F4</span></div>
+        <div class="tl-content">
+          <p class="tl-period">2024 – 2026</p>
+          <p class="tl-name">Fase 4 · La Consolidación Inteligente</p>
+          <p class="tl-desc">El ecosistema se reorganiza en torno a tres vectores: la IA como acelerador de la cadena de valor, el seguro embebido como canal de distribución preferente, y la alianza estratégica con incumbentes como vía de escalado. En 2025, la financiación recupera el terreno perdido (+19,5% hasta 5.080 MM$), impulsada por mega-rondas en empresas de IA. Next Insurance es adquirida por ERGO/Munich Re por 2.600 MM$. Wefox capta 151 MM€ con su nuevo modelo MGA. El 77,9% del capital va a empresas centradas en IA.</p>
+          <span class="tl-funding">Recuperación 2025: 5.080 MM$ (+19,5% vs 2024)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 2 — CAMBIOS ESTRATÉGICOS ════════════ -->
+  <section class="section" id="s2">
+    <div class="section-header">
+      <span class="section-num">2</span>
+      <div class="section-title-wrap">
+        <p class="section-eyebrow">Pivotes estratégicos</p>
+        <h2 class="section-title">Los Grandes Giros: Cuándo los Fundadores Cambiaron de Idea</h2>
+      </div>
+    </div>
+
+    <p>Quizás la lección más importante de catorce años de ecosistema insurtech no la dio ningún consultor, sino la realidad del mercado: el seguro es un negocio de largo plazo, intensivo en capital regulatorio, donde la gestión técnica del riesgo no puede sustituirse por la experiencia de usuario. Las startups que sobrevivieron son aquellas cuyos fundadores fueron capaces de reescribir su propia narrativa sin perder el norte.</p>
+
+    <div class="pull-quote">
+      <p>«El seguro tiene dinámicas complejas de suscripción, marcos regulatorios exigentes y exposición al riesgo a largo plazo. Eso ha reformulado las expectativas del sector.» — Kaushal Shah, VP Insurance Products, IntellectAI</p>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Empresa</th>
+            <th>Modelo Original</th>
+            <th>Pivote Estratégico</th>
+            <th>Detonante</th>
+            <th>Estado 2026</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Wefox</td>
+            
+            <td>Venta de aseguradora propia; modelo MGA + plataforma mayorista para corredores</td>
+            <td>Pérdidas de €72MM en 2023; riesgo de insolvencia; cambio de CEO</td>
+            <td><span class="badge badge-blue">Pivote consolidado · 151 MM€ captados en 2025</span></td>
+          </tr>
+          <tr>
+            <td>Luko</td>
+            
+            <td>Búsqueda forzada de comprador; vendida a Allianz Direct por 4,3 MM€</td>
+            <td>Deuda de €45 MM; concurso de acreedores (junio 2023); adquisiciones fallidas</td>
+            <td><span class="badge badge-grey">Absorbida · Opera bajo Allianz Direct en Francia</span></td>
+          </tr>
+          <tr>
+            <td>Lemonade</td>
+            
+            <td>Diversificación a auto, mascotas, vida; reducción del cuadro cedido (55% → 20%)</td>
+            <td>Pérdidas acumuladas; impacto incendios California 2025; presión de inversores</td>
+            <td><span class="badge badge-orange">Camino a rentabilidad · Pérdidas de –165 MM$ en 2025 (mejora)</span></td>
+          </tr>
+          <tr>
+            <td>Next Insurance</td>
+            
+            <td>Consolidación con ERGO/Munich Re por 2.600 MM$; plataforma tecnológica escalable</td>
+            <td>Crecimiento rentable orgánico; atractivo para incumbentes con tecnología propia</td>
+            <td><span class="badge badge-green">Éxito · Integrada en Munich Re; 548 MM$ ingresos 2024</span></td>
+          </tr>
+          <tr>
+            <td>REVO Insurance</td>
+            
+            <td>Expansión a líneas SME; rating S&P A-; apertura sucursal en España</td>
+            <td>Crecimiento técnico rentable desde origen; ratio combinado ~85%</td>
+            <td><span class="badge badge-green">Éxito · 398 MM€ PB 2025 (+28,9%); BN +20,6%</span></td>
+          </tr>
+          <tr>
+            <td>Weecover</td>
+            
+            <td>Expansión internacional (Portugal, Francia, México, Alemania); integración IA generativa</td>
+            <td>Modelo B2B desde origen; sin pretensión de reemplazar a aseguradoras</td>
+            <td><span class="badge badge-green">Crecimiento · 4,2 MM€ captados; +100.000 contratos/año</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 3 — DE ENEMIGOS A ALIADOS ═══════════ -->
+  <section class="section" id="s3">
+    <div class="section-header">
+      <span class="section-num">3</span>
+      <div class="section-title-wrap">
+        <p class="section-eyebrow">Caso de estudio central</p>
+        <h2 class="section-title">De «Eliminar al Intermediario» a «Empoderar al Corredor»</h2>
+      </div>
+    </div>
+
+    <p>El mayor giro ideológico del ecosistema insurtech no tiene que ver con la tecnología: tiene que ver con quién tiene los clientes. Las startups que llegaron convencidas de que el corredor de seguros era un eslabón prescindible —caro, lento e ineficiente— descubrieron que ese eslabón llevaba décadas construyendo algo que ningún algoritmo puede replicar en dos años: confianza.</p>
+
+    <div class="highlight-box">
+      <p>«Wefox no nació para trabajar con corredores; nació para reemplazarlos. Hoy, en Austria, lidera el mercado mayorista de corredura digital. Es el pivote más radical —y el más honesto— de toda la industria.»</p>
+      <cite>Análisis COI basado en fuentes públicas verificadas</cite>
+    </div>
+
+    <p>El proceso de reorientación sigue un patrón consistente en los casos más representativos: la startup descubre que la adquisición de clientes directos es exponencialmente más cara de lo previsto, que los ratios de pérdida disparan cuando se suscriben riesgos masivos sin experiencia actuarial suficiente, y que los corredores —con sus carteras de clientes y su red de confianza— son en realidad el canal más eficiente disponible.</p>
+
+    <p>Este proceso no siempre es indoloro. Wefox tuvo que anunciar el riesgo de insolvencia antes de completar su pivote. Pero los que lo ejecutaron a tiempo encontraron un mercado inesperadamente receptivo: el corredor digital moderno necesita exactamente lo que la insurtech sabe hacer —plataformas, automatización, datos, experiencia de usuario— y la insurtech necesita lo que el corredor tiene: clientes.</p>
+
+    <div class="cases-grid">
+      <div class="case-card pivot">
+        <p class="case-company">Wefox</p>
+        <p class="case-origin">🇩🇪 Berlín · Fundada 2015 · Valoración pico: 4.500 MM$</p>
+        <p class="case-body">Concebida como neo-aseguradora directa con ambición de sustituir al corredor. En 2023, con pérdidas de €72MM y riesgo de insolvencia declarado por su nuevo CEO, vende la aseguradora propia y se reorienta hacia un modelo MGA + plataforma mayorista para corredores. En Austria, lidera hoy el segmento de plataformas digitales para corredores minoristas. En julio 2025 capta 151 MM€ con este nuevo modelo.</p>
+        <div class="case-status">
+          <span class="badge badge-blue">Pivote exitoso · Aliado natural del corredor</span>
+        </div>
+      </div>
+      <div class="case-card caution">
+        <p class="case-company">Luko</p>
+        <p class="case-origin">🇫🇷 París · Fundada 2018 · 69 MM€ captados</p>
+        <p class="case-body">Neo-aseguradora de hogar con enfoque «sin agentes». Captó 69 MM€ de inversores top tier. En 2022, con el mercado todavía favorable, adquirió Coya (Alemania) y Unkle (Francia) —operaciones que no podía permitirse. En junio de 2023 presentó concurso de acreedores con €45 MM de deuda. Vendida a Admiral Group (junio 2023) y finalmente absorbida por Allianz Direct por apenas 4,3 MM€ (enero 2024). Un valor de mercado final 16 veces inferior a su última valoración.</p>
+        <div class="case-status">
+          <span class="badge badge-red">Caso de alerta · Expansión sin modelo sostenible</span>
+        </div>
+      </div>
+      <div class="case-card success">
+        <p class="case-company">REVO Insurance</p>
+        <p class="case-origin">🇮🇹 Italia · Fundada 2021 vía SPAC · Cotizada Borsa Italiana</p>
+        <p class="case-body">Aseguradora insurtech especializada en seguros paramétricos y líneas especialistas para pymes. Nació en 2021 sin <em>legacy</em> —esto es, sin sistemas informáticos heredados de décadas anteriores, sin procesos manuales enquistados ni estructuras de datos obsoletas que frenan a las aseguradoras tradicionales—, lo que le permitió construir desde cero su plataforma tecnológica propia OVERX. En 2025 alcanzó 398,1 MM€ en primas brutas (+28,9% vs 2024), beneficio neto de 22,4 MM€ (+20,6%), resultado operativo ajustado de 48,4 MM€ y Solvency II ratio del 223,2%. Rating S&P A-. Dividendo de €0,27 por acción. Expande a España con sucursal propia (7,7 MM€ en primas ya en el mercado español).</p>
+        <div class="case-status">
+          <span class="badge badge-green">Caso de éxito · Modelo técnico sostenible</span>
+        </div>
+      </div>
+      <div class="case-card acquired">
+        <p class="case-company">Next Insurance</p>
+        <p class="case-origin">🇺🇸 Palo Alto · Fundada 2016 · Adquirida 2025</p>
+        <p class="case-body">Aseguradora digital para autónomos y pymes con plataforma propia de suscripción automatizada. Generó 548 MM$ de ingresos en 2024 con más de 600.000 clientes. Adquirida por ERGO (Munich Re) en julio de 2025 por 2.600 MM$, en la operación M&A insurtech más relevante del ciclo. Demuestra que el modelo «aseguradora tecnológica enfocada» puede alcanzar escala y ser absorbida como activo estratégico de primer nivel.</p>
+        <div class="case-status">
+          <span class="badge badge-blue">Caso de éxito · Exit estratégico máximo</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Empresa</th>
+            <th>Origen (vs. intermediario)</th>
+            <th>Evolución</th>
+            <th>Relación actual con corredor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Wefox</td>
+            <td><span class="badge badge-red">Contra · Sustitución directa</span></td>
+            <td>Vende aseguradora → modelo MGA mayorista para corredores</td>
+            <td><span class="badge badge-green">Aliado estratégico central</span></td>
+          </tr>
+          <tr>
+            <td>Luko</td>
+            <td><span class="badge badge-red">Contra · «Sin agentes»</span></td>
+            <td>Expansión agresiva → concurso → absorción</td>
+            <td><span class="badge badge-grey">Irrelevante (absorbida por incumbente)</span></td>
+          </tr>
+          <tr>
+            <td>Weecover</td>
+            <td><span class="badge badge-green">Neutral · B2B desde origen</span></td>
+            <td>Plataforma IaaS que potencia la distribución de cualquier canal</td>
+            <td><span class="badge badge-green">Habilitador tecnológico para distribución</span></td>
+          </tr>
+          <tr>
+            <td>Damantia Technologies</td>
+            <td><span class="badge badge-blue">Neutral · Ecosistema integral</span></td>
+            <td>Alianzas con corredores y ecosistemas de servicios transversales</td>
+            <td><span class="badge badge-green">Socio ecosistema para corredor</span></td>
+          </tr>
+          <tr>
+            <td>Next Insurance</td>
+            <td><span class="badge badge-orange">Paralelo · Canal digital propio</span></td>
+            <td>Aseguradora digital enfocada en pymes; tecnología propia escalable</td>
+            <td><span class="badge badge-blue">Complementario (no compite con broker)</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 4 — IA Y FUTURO ══════════════════════ -->
+  <section class="section" id="s4">
+    <div class="section-header">
+      <span class="section-num">4</span>
+      <div class="section-title-wrap">
+        <p class="section-eyebrow">Horizonte 2026–2030</p>
+        <h2 class="section-title">La IA como Nuevo Vector de Transformación</h2>
+      </div>
+    </div>
+
+    <p>Si la primera fase del ecosistema insurtech giró en torno a la distribución digital y la experiencia del cliente, y la segunda en torno a la suscripción automatizada, la tercera —la que está comenzando ahora— pivota sobre la inteligencia artificial generativa y agéntica aplicada a la cadena de valor del seguro.</p>
+
+    <p>Según el informe NTT DATA Insurtech Global Outlook 2026, el mercado de seguro embebido superó los 116.000 MM$ en 2025, y se proyecta que podría superar el 25% de la distribución global de seguros en 2030. La IA agéntica —capaz de actuar autónomamente en procesos de suscripción, peritaje y atención al cliente— puede generar ahorros de hasta el 35% en automatización de operaciones según el mismo informe.</p>
+
+    <div class="highlight-box">
+      <p>«Cybersecurity es ya el principal riesgo asegurado en empresas, con pérdidas no aseguradas proyectadas a pasar de 171.000 MM$ (2023) a más de 700.000 MM$ en 2030. El seguro tiene una oportunidad histórica —y una obligación técnica— de responder.»</p>
+      <cite>NTT DATA · Insurtech Global Outlook 2026</cite>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Tendencia</th>
+            <th>Impacto en distribución</th>
+            <th>Impacto en suscripción</th>
+            <th>Impacto en siniestros</th>
+            <th>Horizonte</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>IA Generativa y Agéntica</td>
+            <td>Personalización masiva; chatbots de asesoramiento</td>
+            <td>Modelos predictivos de riesgo en tiempo real</td>
+            <td>Automatización de peritaje; detección de fraude</td>
+            <td><span class="badge badge-red">Ya en curso</span></td>
+          </tr>
+          <tr>
+            <td>Seguro Embebido</td>
+            <td>Integración nativa en plataformas no aseguradoras</td>
+            <td>Suscripción en el punto de venta</td>
+            <td>Liquidación instantánea paramétrica</td>
+            <td><span class="badge badge-red">Ya en curso</span></td>
+          </tr>
+          <tr>
+            <td>Parametric Insurance</td>
+            <td>Cobertura automática ante eventos predefinidos</td>
+            <td>Basada en índices y sensores IoT</td>
+            <td>Liquidación sin tramitación humana</td>
+            <td><span class="badge badge-orange">2025–2027</span></td>
+          </tr>
+          <tr>
+            <td>Modelo Predict & Prevent</td>
+            <td>Seguro como servicio de gestión de riesgo activa</td>
+            <td>Precio dinámico; incentivos de prevención</td>
+            <td>Reducción de frecuencia siniestral</td>
+            <td><span class="badge badge-blue">2026–2030</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Para el corredor de seguros, este horizonte es ambivalente. La IA puede desintermediar algunos procesos rutinarios, pero refuerza el papel del corredor en contextos de complejidad, confianza y asesoramiento especializado. Las insurtechs más inteligentes —Weecover, Damantia Technologies, las MGA habilitadas por IA— no compiten con el corredor: le proporcionan la tecnología que necesita para competir a su vez con cualquier canal directo.</p>
+  </section>
+
+  <!-- SECCIÓN 5 — INSURTECH AL SERVICIO DEL CORREDOR ═ -->
+  <section class="section" id="s5">
+    <div class="section-header">
+      <span class="section-num">5</span>
+      <div class="section-title-wrap">
+        <p class="section-eyebrow">Herramientas en uso real</p>
+        <h2 class="section-title">Insurtech al Servicio del Corredor: 12 Plataformas con Resultados Verificados</h2>
+      </div>
+    </div>
+
+    <p>El debate sobre si las insurtechs son aliadas o enemigas del corredor tiene una respuesta práctica: las mejores herramientas del ecosistema llevan ya años integradas en los sistemas de gestión de las corredurías más avanzadas. No como experimentos, sino como palancas de eficiencia con resultados medibles en las funciones nucleares de la mediación: comercialización, suscripción, defensa de cartera, gestión de siniestros y servicio al asegurado.</p>
+
+    <p>El cuadro siguiente recoge doce casos verificados —con origen de datos identificado— que cubren las cinco funciones nucleares del corredor: comercialización, suscripción, defensa de cartera, gestión de siniestros y servicio al asegurado. Se han excluido deliberadamente los casos sin métricas públicas contrastables.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:14%">Plataforma</th>
+            <th style="width:13%">Función</th>
+            <th style="width:26%">Qué hace</th>
+            <th style="width:30%">Beneficio verificado</th>
+            <th style="width:17%">Fuente</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>BDEO — Inteligencia Visual</td>
+            
+            <td><span class="badge badge-blue">Gestión de siniestros</span></td>
+            <td>Computer Vision para inspección remota de daños en auto y hogar. El asegurado envía fotos; el sistema evalúa el siniestro y propone resolución sin perito físico</td>
+            <td>–50% tiempo de peritación; –68% tiempo de resolución de siniestros de auto; –45% coste operativo de peritación. Mutua Madrileña: proceso de inspección de 5 días → 6 minutos. Zurich México: –16% costes de reparación; resolución completa en menos de 30 minutos</td>
+            <td>BDEO (datos propios 2025); El Español / Disruptores (ago. 2024); Big Data Magazine. 35 compañías clientes</td>
+          </tr>
+          <tr>
+            <td>GAUSS + MelmacIA (Damantia Technologies)</td>
+            
+            <td><span class="badge badge-green">Defensa de cartera</span></td>
+            <td>Bot RPA que extrae datos de pólizas, cotiza automáticamente en multitarificadores con criterios de la correduría y preemite presupuestos. MelmacIA añade predicción IA de fuga (300+ variables, 15 MM de pólizas)</td>
+            <td>–80% tiempo de defensa de cartera. Rosillo Hnos.: –23% anulaciones en Auto y Moto. El comercial pasa de operar administrativamente a asesorar clientes ya identificados con presupuestos preelaborados. Operación 24/7 sin interrupciones</td>
+            <td>SegurosNews (feb. 2025); ADECOSE (jun. 2025); COI Magazine (dic. 2025). Avalado por Cojebro y Allianz como accionistas</td>
+          </tr>
+          <tr>
+            <td>OVERX — REVO Insurance</td>
+            
+            <td><span class="badge badge-orange">Suscripción de riesgos complejos</span></td>
+            <td>Plataforma tecnológica propia de REVO para suscripción paramétrica y de líneas especiales. Automatización total del ciclo: cotización, emisión, gestión y analítica de cartera para riesgos SME y especialidades</td>
+            <td>Ratio combinado ajustado ~85% (muy por debajo de media del sector). 398,1 MM€ en primas 2025 (+28,9%). 40.000+ contratos paramétricos suscritos (agricultura y hostelería). Crecimiento del 42,8% en 2024 con plena solvencia (Solvency II 223,2%)</td>
+            <td>REVO Annual Report 2025 aprobado en Junta 27/04/2026; S&P rating A- (jun. 2024); Reinsurance News</td>
+          </tr>
+          <tr>
+            <td>Ki Insurance — Suscripción Algorítmica</td>
+            
+            <td><span class="badge badge-orange">Suscripción riesgos complejos</span></td>
+            <td>Primer sindicato de Lloyd's 100% digital y algorítmico. El broker envía el riesgo a la plataforma y recibe capacidad de suscripción en 10 segundos. Integra datos internos, externos y satelitales para pricing en tiempo real</td>
+            <td>+1.000 MM$ en primas suscritas en 2024 (el crecimiento de startup más rápido en historia de Lloyd's). Quote en 10 segundos vs días en el mercado tradicional. –90% tiempo de entrenamiento de modelos vs sistemas tradicionales. Reducción de 7,2 puntos en ratio combinado en H1 2026</td>
+            <td>Ki Insurance (Google Cloud case study); Insurindex; Carrier Management; Intelligent Insurer (ago. 2026)</td>
+          </tr>
+          <tr>
+            <td>Tractable — AI Claims</td>
+            
+            <td><span class="badge badge-blue">Gestión de siniestros</span></td>
+            <td>IA de visión computacional para evaluación de daños en auto y propiedad a partir de fotografías. Genera estimaciones de reparación en minutos y permite liquidación touchless de siniestros de alta frecuencia</td>
+            <td>Admiral Seguros: 90% de estimaciones de auto en modo touchless; 98% completadas en menos de 15 minutos. Reducción hasta 10x del tiempo de resolución. Más de 1.000 MM$ en siniestros de auto procesados. Hartford y Tokio Marine entre sus clientes</td>
+            <td>VCA Software / AI Claims Guide 2026; ScienceSoft; Velocity AI Insights (mar. 2026)</td>
+          </tr>
+          <tr>
+            <td>hyperexponential (hx Renew)</td>
+            
+            <td><span class="badge badge-orange">Suscripción y pricing</span></td>
+            <td>Plataforma de decision intelligence para pricing y suscripción. Permite a actuarios y suscriptores construir modelos sofisticados de precio sobre datos fragmentados y automatizar decisiones complejas de riesgo</td>
+            <td>Más de 45.000 MM$ en primas brutas contratadas anualmente a través de la plataforma. 40+ clientes incluyendo Convex, Aviva, Canopius y AEGIS. 73 MM$ captados en Serie A (2024, Andreessen Horowitz + Battery Ventures)</td>
+            <td>Financial Technology Report Top 25 Insurtech 2025; CB Insights; Cytora partnership release</td>
+          </tr>
+          <tr>
+            <td>Cover Genius — XCover</td>
+            
+            <td><span class="badge badge-red">Comercialización / embebido</span></td>
+            <td>Plataforma API de seguro embebido B2B2C. Integra seguros y garantías directamente en el flujo de compra de plataformas digitales (retail, viajes, logística, fintech). NLP para personalización de oferta en tiempo real</td>
+            <td>eBay: +513% en ventas de protección en 4 semanas. Turkish Airlines: +400% en tasas de adhesión inmediatamente tras el lanzamiento. Ingresos +50% en 2025; 3.000 MM$ en ventas brutas acumuladas; 240 MM de pólizas emitidas. Valoración 1.900 MM$ (jul. 2026)</td>
+            <td>Cover Genius case study (verificado); Fintech.global (jul. 2026); TechTimes (jul. 2026)</td>
+          </tr>
+          <tr>
+            <td>Weecover — IaaS España</td>
+            
+            <td><span class="badge badge-red">Comercialización / embebido</span></td>
+            <td>Plataforma Insurance-as-a-Service para distribución embebida. APIs que conectan aseguradoras con distribuidores (retail, e-commerce, fintech). Gestión completa del ciclo: emisión, postventa, siniestros y analítica</td>
+            <td>+100.000 contratos procesados anualmente (2024). Clientes: PcComponentes, FNAC, Decathlon, seQura, Mapfre, Línea Directa, Lagunaro. Integración de IA generativa para reducción de costes de atención al cliente. 4,2 MM€ captados en 2025 con Bankinter, Prosegur y Telefónica como inversores</td>
+            <td>EU-Startups (ene. 2025); Silicon Canals; Fundación Bankinter (dic. 2025)</td>
+          </tr>
+          <tr>
+            <td>Next Insurance — Plataforma SME</td>
+            
+            <td><span class="badge badge-orange">Suscripción + Comercialización</span></td>
+            <td>Plataforma de suscripción digital completamente automatizada para pymes y autónomos. Emisión de póliza en menos de 10 minutos desde solicitud. Integración con LegalZoom y otros ecosistemas de servicios profesionales</td>
+            <td>548 MM$ de ingresos en 2024. 600.000+ clientes pymes activos. Póliza emitida en menos de 10 minutos. Adquirida por ERGO/Munich Re por 2.600 MM$ (jul. 2025), la mayor exit M&A del ciclo insurtech</td>
+            <td>ERGO press release (jul. 2025); Munich Re; Ctech; Insurance Journal</td>
+          </tr>
+          <tr>
+            <td>Federato — RiskOps</td>
+            
+            <td><span class="badge badge-orange">Suscripción y gestión de cartera</span></td>
+            <td>Plataforma RiskOps que unifica triage de submissions, gestión de cartera en tiempo real, portales de broker y motor de rating en un flujo único. El suscriptor deja de alternar entre 5–15 sistemas diferentes</td>
+            <td>80 MM$ captados en Serie B (nov. 2024, StepStone Group). Infraestructura federada de datos sin migración costosa. Reduce tiempo de decisión de suscripción de horas a minutos. Adoptado por carriers comerciales de primer nivel en EEUU</td>
+            <td>Faschi.com análisis (nov. 2025); CB Insights; Insurance Journal</td>
+          </tr>
+          <tr>
+            <td>Glia — Digital Customer Service</td>
+            
+            <td><span class="badge badge-green">Servicio al asegurado</span></td>
+            <td>Plataforma unificada de interacción digital que combina chat en vivo, vídeo, voz y asistentes automatizados sobre el mismo hilo conversacional. El agente ve exactamente lo que ve el cliente en pantalla y puede co-navegar en tiempo real para resolver dudas sobre pólizas o siniestros</td>
+            <td>Reducción del tiempo medio de gestión de llamadas. Mejora medida en NPS y satisfacción de clientes en aseguradoras. Reconocida en InsurTech100 2023 (Fintech Global). Integra con plataformas de cotización, solicitud y siniestros existentes sin reemplazarlas</td>
+            <td>Glia InsurTech100 recognition (Fintech Global, 2023); Insurtechinsights.com</td>
+          </tr>
+          <tr>
+            <td>Planck — AI Data Platform</td>
+            
+            <td><span class="badge badge-red">Comercialización · Prospección</span></td>
+            <td>Plataforma de datos con IA generativa que enriquece automáticamente los submissions de los brokers con información externa sobre el cliente potencial (web, fuentes públicas, redes) para afinar el perfil de riesgo antes de la cotización, sin pedir datos adicionales al cliente</td>
+            <td>Elimina el 80% de los campos manuales en el proceso de solicitud de seguro comercial. Los brokers obtienen perfiles de riesgo enriquecidos en segundos. Integrada en flujos de trabajo de carriers líderes en EEUU y Europa. Adoptada por aseguradoras top de ramo comercial</td>
+            <td>Insurtechinsights.com (ago. 2023); CB Insights; Financial Technology Report</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="pull-quote">
+      <p>La diferencia entre las insurtechs que fracasaron y las que prosperan no está en la tecnología que construyeron: está en si entendieron que el corredor no es un problema a resolver, sino el canal al que había que servir.</p>
+    </div>
+
+  </section>
+
+  <!-- SECCIÓN 6 — CONCLUSIONES ══════════════════════ -->
+  <section class="section" id="s6">
+    <div class="section-header">
+      <span class="section-num">6</span>
+      <div class="section-title-wrap">
+        <p class="section-eyebrow">Lectura editorial COI</p>
+        <h2 class="section-title">Lo que el Ecosistema Nos ha Enseñado (y Todavía no Ha Terminado de Aprender)</h2>
+      </div>
+    </div>
+
+    <p>Catorce años después del primer cheque insurtech de 2012, el ecosistema presenta una paradoja estimulante: los supervivientes más rentables son los que menos pretendieron «disruptir» el seguro en su conjunto, y los que más fracasos cosecharon fueron los que más promesas de revolución pronunciaron.</p>
+
+    <p>REVO Insurance nunca dijo que iba a acabar con el modelo asegurador tradicional: dijo que iba a hacerlo mejor, en especialidades concretas, con tecnología propia y sin el lastre del <em>legacy</em> —esos sistemas informáticos y procesos heredados que inmovilizan a las compañías con décadas de historia—. Y hoy cotiza con calificación A- y un ratio combinado que envidiaría cualquier compañía centenaria. Next Insurance no prometió eliminar al agente: prometió hacer sencillo el seguro para el autónomo americano. Y Munich Re pagó 2.600 MM$ por esa promesa cumplida y porque sabe que hay un mercado potencial de más de 175.000 MM$ en los Estados Unidos, extensible a otros mercados de Europa y Asia-Pacífico.</p>
+
+    <p>La pregunta que el ecosistema plantea al mercado español e iberoamericano no es si llegará la disrupción. Es si los actores del mercado —compañías, corredores, MGAs— están preparados para absorber lo que la tecnología ofrece sin necesidad de que ninguna startup los «elimine». La experiencia internacional sugiere que los intermediarios que integren las herramientas insurtech disponibles serán más fuertes que nunca. Y que aquellas insurtechs que llegaron para reemplazarlos hoy les tienden la mano.</p>
+
+    <div class="pull-quote">
+      <p>«No es una historia de victoria tecnológica ni de fracaso empresarial. Es la historia de cómo una industria de 5.000 años descubrió que la tecnología puede mejorarla sin reemplazarla.»</p>
+    </div>
+  </section>
+
+  </div><!-- fin padding wrapper -->
+
+  <!-- PIE ══════════════════════════════════════════ -->
+  <footer class="footer-bar">
+    <div>
+      <p class="footer-brand">COI <span>Magazine</span></p>
+      <p class="footer-credit">Community of Insurance · © 2026 Carlos Biurrun Murillo</p>
+    </div>
+    <p class="footer-sources"><strong>Fuentes verificadas:</strong> Gallagher Re Global InsurTech Report Q4 2025 · NTT DATA Insurtech Global Outlook 2026 · CB Insights State of Insurtech 2024 · BCG Navigating the Insurtech Funding Decline · Capgemini World InsurTech Report 2024 · S&P Global · TechCrunch · Reinsurance News · Insurance Journal. Todos los datos marcados como Verificados provienen de fuentes primarias públicas. Las proyecciones se señalan como Proyección.</p>
+  </footer>
+
+</article>
+
+<script>
+/* Gráfico de barras dinámico */
+(function() {
+  const data = [
+    { year: '2012', val: 0.35,  phase: 'exp' },
+    { year: '2013', val: 0.70,  phase: 'exp' },
+    { year: '2014', val: 2.50,  phase: 'exp' },
+    { year: '2015', val: 3.80,  phase: 'exp' },
+    { year: '2016', val: 3.50,  phase: 'exp' },
+    { year: '2017', val: 4.00,  phase: 'exp' },
+    { year: '2018', val: 4.16,  phase: 'boom' },
+    { year: '2019', val: 6.34,  phase: 'boom' },
+    { year: '2020', val: 7.10,  phase: 'boom' },
+    { year: '2021', val: 15.80, phase: 'boom' },
+    { year: '2022', val: 9.40,  phase: 'corr' },
+    { year: '2023', val: 5.70,  phase: 'corr' },
+    { year: '2024', val: 4.25,  phase: 'cons' },
+    { year: '2025', val: 5.08,  phase: 'cons' },
+  ];
+
+  const colors = { exp: '#E4382E', boom: '#F1957C', corr: '#999999', cons: '#595959' };
+  const maxVal = Math.max(...data.map(d => d.val));
+  const chartH = 180;
+
+  const container = document.getElementById('funding-chart');
+  container.style.display = 'flex';
+  container.style.alignItems = 'flex-end';
+  container.style.gap = '5px';
+  container.style.height = chartH + 'px';
+
+  data.forEach(d => {
+    const pct = d.val / maxVal;
+    const barH = Math.max(Math.round(pct * (chartH - 40)), 4);
+
+    const group = document.createElement('div');
+    group.style.cssText = 'display:flex;flex-direction:column;align-items:center;flex:1;height:100%;justify-content:flex-end;';
+
+    const valEl = document.createElement('span');
+    valEl.style.cssText = 'font-family:Arial,sans-serif;font-size:9px;font-weight:700;color:#1A1A1A;margin-bottom:3px;white-space:nowrap;';
+    valEl.textContent = d.val >= 1 ? d.val.toFixed(1) + 'B' : (d.val * 1000).toFixed(0) + 'M';
+
+    const bar = document.createElement('div');
+    bar.style.cssText = `width:100%;height:${barH}px;background:${colors[d.phase]};border-radius:3px 3px 0 0;min-height:4px;transition:opacity .2s;`;
+    bar.addEventListener('mouseenter', () => bar.style.opacity = '0.75');
+    bar.addEventListener('mouseleave', () => bar.style.opacity = '1');
+
+    const yearEl = document.createElement('span');
+    yearEl.style.cssText = 'font-family:Arial,sans-serif;font-size:9px;color:#6B6B6B;margin-top:5px;text-align:center;';
+    yearEl.textContent = d.year;
+
+    group.appendChild(valEl);
+    group.appendChild(bar);
+    group.appendChild(yearEl);
+    container.appendChild(group);
+  });
+})();
+</script>
+</body>
+</html>
