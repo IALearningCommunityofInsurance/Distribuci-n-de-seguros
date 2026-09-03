@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Damantia Technologies · COI Magazine</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+
+/* ─── RESET & BASE ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --red:     #E4382E;
+  --coral:   #F1957C;
+  --navy:    #1B2A4A;
+  --navy-mid:#243660;
+  --charcoal:#4A4A4A;
+  --ink:     #2C2C2C;
+  --stone:   #F7F5F2;
+  --fog:     #EEF1F5;
+  --rule:    #D8DCE4;
+  --white:   #FFFFFF;
+  --mono:    'Space Mono', monospace;
+  --serif:   'Playfair Display', Georgia, serif;
+  --sans:    'Inter', system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--stone);
+  color: var(--ink);
+  line-height: 1.75;
+  font-size: 16px;
+}
+
+/* ─── MASTHEAD ─── */
+.masthead {
+  background: var(--navy);
+  padding: 14px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid var(--red);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.masthead-brand {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.02em;
+}
+.masthead-brand span { color: var(--coral); }
+.masthead-date {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #7a93b8;
+  text-transform: uppercase;
+}
+
+/* ─── BREAKING STRIP ─── */
+.breaking {
+  background: var(--red);
+  padding: 10px 48px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.breaking-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--white);
+  background: rgba(0,0,0,0.25);
+  padding: 3px 10px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+.breaking-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--white);
+}
+
+/* ─── HERO PORTADA ─── */
+.hero {
+  background: var(--navy);
+  padding: 72px 48px 60px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--red) 0%, var(--coral) 60%, transparent 100%);
+}
+.hero-kicker {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--coral);
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(34px, 5.5vw, 64px);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.08;
+  max-width: 780px;
+  margin-bottom: 20px;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--coral);
+}
+.hero-deck {
+  font-size: 17px;
+  color: #9aadcc;
+  max-width: 640px;
+  line-height: 1.6;
+  margin-bottom: 36px;
+}
+.hero-byline {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  border-top: 1px solid #2a3d5e;
+  padding-top: 20px;
+}
+.byline-name {
+  font-weight: 700;
+  color: var(--white);
+  font-size: 14px;
+}
+.byline-role {
+  font-size: 13px;
+  color: #7a93b8;
+}
+.byline-sep {
+  width: 1px;
+  height: 28px;
+  background: #2a3d5e;
+}
+
+/* ─── KPI STRIP ─── */
+.kpi-strip {
+  background: var(--white);
+  border-bottom: 1px solid var(--rule);
+  padding: 0 48px;
+  display: flex;
+}
+.kpi-item {
+  flex: 1;
+  padding: 28px 24px;
+  border-right: 1px solid var(--rule);
+  text-align: center;
+}
+.kpi-item:last-child { border-right: none; }
+.kpi-num {
+  font-family: var(--mono);
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--red);
+  display: block;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.kpi-label {
+  font-size: 11px;
+  color: #8096b0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.4;
+}
+
+/* ─── LAYOUT ─── */
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 32px 80px;
+}
+
+/* ─── INTRO LEAD ─── */
+.lead {
+  padding: 52px 0 40px;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 56px;
+}
+.lead p {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--ink);
+}
+.lead p strong {
+  font-weight: 700;
+  color: var(--navy);
+}
+
+/* ─── SECCIONES ─── */
+.section {
+  margin-bottom: 64px;
+  padding-bottom: 64px;
+  border-bottom: 1px solid var(--rule);
+}
+.section:last-of-type {
+  border-bottom: none;
+}
+
+.sec-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 10px;
+  display: block;
+}
+.sec-title {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 28px;
+  padding-bottom: 18px;
+  border-bottom: 2px solid var(--navy);
+}
+
+.body-text {
+  font-size: 16px;
+  color: var(--charcoal);
+  line-height: 1.8;
+  margin-bottom: 22px;
+}
+.body-text strong { color: var(--navy); font-weight: 600; }
+
+/* ─── INTRO NOTICIA (caja destacada) ─── */
+.noticia-box {
+  background: #FEF3F0;
+  border-left: 5px solid var(--red);
+  border-radius: 0 8px 8px 0;
+  padding: 24px 28px;
+  margin-bottom: 36px;
+}
+.noticia-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 8px;
+  display: block;
+}
+.noticia-hl {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.25;
+}
+
+/* ─── CITAS ─── */
+.quote {
+  background: var(--fog);
+  border-left: 4px solid var(--red);
+  border-radius: 0 6px 6px 0;
+  padding: 22px 26px;
+  margin: 32px 0;
+}
+.quote blockquote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 17px;
+  color: var(--charcoal);
+  line-height: 1.65;
+  margin-bottom: 12px;
+}
+.quote-author {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--red);
+  font-weight: 700;
+}
+
+/* ─── CITA CORAL (secundaria) ─── */
+.quote-coral {
+  border-left-color: var(--coral);
+}
+.quote-coral blockquote { color: var(--charcoal); }
+.quote-coral .quote-author { color: var(--coral); }
+
+/* ─── PROCESO GAUSS ─── */
+.process {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  margin: 36px 0;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.process-step {
+  padding: 20px 14px;
+  text-align: center;
+  border-right: 1px solid var(--rule);
+  background: var(--white);
+  position: relative;
+}
+.process-step:last-child { border-right: none; }
+.process-step::after {
+  content: '→';
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--red);
+  font-size: 16px;
+  font-weight: 700;
+  z-index: 2;
+}
+.process-step:last-child::after { display: none; }
+.step-n {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--red);
+  font-weight: 700;
+  margin-bottom: 8px;
+  display: block;
+}
+.step-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+.step-desc {
+  font-size: 11px;
+  color: #7a8fa8;
+  line-height: 1.4;
+}
+
+/* ─── RESULTADO DESTACADO ─── */
+.result-bar {
+  background: var(--navy);
+  border-radius: 8px;
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: 28px 0;
+}
+.result-num {
+  font-family: var(--mono);
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--red);
+  white-space: nowrap;
+  line-height: 1;
+}
+.result-text {
+  font-size: 15px;
+  color: #9aadcc;
+  line-height: 1.5;
+}
+.result-text strong { color: var(--white); }
+
+/* ─── MELMACIA GRID ─── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin: 28px 0;
+}
+.col-card {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 24px;
+}
+.col-card-head {
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 14px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.col-card p {
+  font-size: 14px;
+  color: var(--charcoal);
+  line-height: 1.65;
+}
+.col-card p em { color: #6a7f9a; }
+
+/* ─── TABLA ACCIONARIAL ─── */
+.table-wrap { overflow-x: auto; margin: 28px 0; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+thead th {
+  background: var(--navy);
+  color: var(--white);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 12px 16px;
+  text-align: left;
+}
+tbody tr { border-bottom: 1px solid var(--rule); }
+tbody tr:nth-child(even) { background: var(--fog); }
+tbody tr:hover { background: #E8EFF7; }
+tbody td {
+  padding: 13px 16px;
+  color: var(--charcoal);
+  vertical-align: top;
+  line-height: 1.5;
+}
+tbody td:first-child { color: var(--navy); font-weight: 700; }
+.tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 700;
+  font-family: var(--mono);
+  letter-spacing: 0.5px;
+}
+.tag-red    { background: rgba(228,56,46,0.1);   color: var(--red); }
+.tag-navy   { background: rgba(27,42,74,0.1);    color: var(--navy); }
+.tag-coral  { background: rgba(241,149,124,0.15); color: #b05a3a; }
+.tag-green  { background: rgba(40,160,100,0.1);  color: #1a8050; }
+.tag-today  { background: var(--red); color: var(--white); }
+
+/* ─── TIMELINE ─── */
+.timeline {
+  position: relative;
+  padding-left: 32px;
+  margin: 28px 0;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 9px; top: 8px; bottom: 8px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--red), var(--rule));
+}
+.tl-item {
+  position: relative;
+  margin-bottom: 28px;
+  padding-left: 18px;
+}
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: -23px; top: 5px;
+  width: 12px; height: 12px;
+  background: var(--white);
+  border: 2.5px solid var(--red);
+  border-radius: 50%;
+}
+.tl-item.today::before {
+  background: var(--red);
+}
+.tl-date {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--red);
+  margin-bottom: 4px;
+}
+.tl-content {
+  font-size: 15px;
+  color: var(--charcoal);
+  line-height: 1.6;
+}
+.tl-content strong { color: var(--navy); }
+
+/* ─── MATRIZ QUÉ GANA CADA PARTE ─── */
+.matrix {
+  display: grid;
+  grid-template-columns: 140px 1fr 1fr;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 28px 0;
+  font-size: 14px;
+}
+.matrix-cell {
+  padding: 14px 18px;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  line-height: 1.5;
+  color: var(--charcoal);
+}
+.matrix-cell:last-child, .matrix-cell:nth-child(3n) { border-right: none; }
+.matrix-head {
+  background: var(--navy);
+  color: var(--white);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.matrix-row-label {
+  background: var(--fog);
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 13px;
+}
+.matrix-cell:nth-last-child(-n+3) { border-bottom: none; }
+
+/* ─── ANÁLISIS COI ─── */
+.analysis {
+  background: var(--navy);
+  border-radius: 10px;
+  padding: 40px 44px;
+  margin: 56px 0 0;
+}
+.analysis .sec-label { color: var(--coral); }
+.analysis h3 {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 24px;
+  line-height: 1.25;
+}
+.analysis p {
+  font-size: 16px;
+  color: #9aadcc;
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+.analysis p strong { color: var(--white); }
+.analysis p.highlight {
+  color: var(--coral);
+  font-style: italic;
+  font-weight: 500;
+}
+.analysis-rule {
+  border: none;
+  border-top: 1px solid #2a3d5e;
+  margin: 28px 0;
+}
+
+/* ─── CONCLUSIÓN ─── */
+.conclusion {
+  background: var(--fog);
+  border: 1px solid var(--rule);
+  border-top: 4px solid var(--red);
+  border-radius: 0 0 8px 8px;
+  padding: 36px 40px;
+  margin-top: 56px;
+}
+.conclusion .sec-label { margin-bottom: 10px; }
+.conclusion h3 {
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 20px;
+}
+.conclusion p {
+  font-size: 15px;
+  color: var(--charcoal);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+.conclusion .cierre {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 700;
+  color: var(--red);
+  font-size: 17px;
+  line-height: 1.55;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+/* ─── FIRMA ─── */
+.firma {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+}
+.firma-name {
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+.firma-role {
+  font-size: 13px;
+  color: #8096b0;
+}
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--navy);
+  border-top: 3px solid var(--red);
+  padding: 28px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 80px;
+}
+.footer-brand {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--white);
+}
+.footer-brand span { color: var(--coral); }
+.footer-meta {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: #4a6380;
+  text-transform: uppercase;
+  text-align: right;
+  line-height: 1.8;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 720px) {
+  .masthead, .breaking { padding: 12px 20px; }
+  .hero { padding: 48px 20px 40px; }
+  .kpi-strip { flex-wrap: wrap; padding: 0 20px; }
+  .kpi-item { flex: 1 1 33%; border-bottom: 1px solid var(--rule); }
+  .page { padding: 0 20px 60px; }
+  .process { grid-template-columns: 1fr; border-radius: 8px; }
+  .process-step::after { display: none; }
+  .two-col { grid-template-columns: 1fr; }
+  .matrix { grid-template-columns: 100px 1fr 1fr; font-size: 13px; }
+  .analysis { padding: 28px 24px; }
+  .conclusion { padding: 28px 24px; }
+  footer { padding: 24px 20px; flex-direction: column; }
+  .footer-meta { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-brand">Community of Insurance <span>·</span> COI Magazine</div>
+  <div class="masthead-date">17 de julio de 2026 · Análisis editorial</div>
+</header>
+
+<!-- BREAKING -->
+<div class="breaking">
+  <span class="breaking-tag">🔴 Hoy</span>
+  <span class="breaking-text">Allianz Seguros se incorpora al capital de Damantia Technologies — acuerdo estratégico anunciado esta mañana</span>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-kicker">COI Magazine · Insurtech · Mediación · Transformación digital</div>
+  <h1>Cuando el corredor lidera<br><em>su propia transformación</em></h1>
+  <p class="hero-deck">Damantia Technologies y la entrada de Allianz en su capital: el caso que confirma que compañías y corredores alineados en la mejora del servicio al asegurado es el único modelo que funciona a largo plazo.</p>
+  <div class="hero-byline">
+    <div>
+      <div class="byline-name">Carlos Biurrun Murillo</div>
+      <div class="byline-role">Presidente, Community of Insurance</div>
+    </div>
+    <div class="byline-sep"></div>
+    <div class="byline-role">Insur·Insights · 17 de julio de 2026</div>
+  </div>
+</div>
+
+<!-- KPI STRIP -->
+<div class="kpi-strip">
+  <div class="kpi-item">
+    <span class="kpi-num">−80%</span>
+    <span class="kpi-label">Tiempo de defensa<br>de cartera con GAUSS</span>
+  </div>
+  <div class="kpi-item">
+    <span class="kpi-num">300+</span>
+    <span class="kpi-label">Variables en el modelo<br>predictivo de Melmacia</span>
+  </div>
+  <div class="kpi-item">
+    <span class="kpi-num">15M</span>
+    <span class="kpi-label">Pólizas analizadas<br>en la base de datos</span>
+  </div>
+  <div class="kpi-item">
+    <span class="kpi-num">2021</span>
+    <span class="kpi-label">Año de fundación<br>por dos mediadores</span>
+  </div>
+</div>
+
+<!-- CONTENIDO -->
+<div class="page">
+
+  <!-- INTRODUCCIÓN / LEAD -->
+  <div class="lead">
+    <!-- Caja noticia -->
+    <div class="noticia-box" style="margin-bottom:32px">
+      <span class="noticia-tag">🔴 Noticia del viernes 17 de julio de 2026</span>
+      <div class="noticia-hl">Allianz acelera la digitalización del seguro junto a Damantia Technologies</div>
+    </div>
+
+    <p>Hay historias que no necesitan adornos. Dos corredores de seguros —<strong>Carlos Rosillo</strong>, CEO de Rosillo Hnos., y <strong>Jesús Rodríguez</strong>, director general de Aenus Correduría de Seguros— decidieron hace cinco años que la tecnología no era algo que les pasaría encima, sino algo en lo que invertirían y orientarían desde dentro. El resultado es <strong>Damantia Technologies</strong>, una empresa de programación informática especializada en soluciones de automatización para corredurías, que hoy cotiza al alza en el mercado de la distribución aseguradora española después de que <strong>Allianz Seguros</strong> anunciara el pasado viernes 17 de julio su entrada en el capital de la compañía.</p>
+
+    <p style="margin-top:18px; font-family:var(--serif); font-size:20px; line-height:1.65; color:var(--ink);">Desde <strong>Community of Insurance</strong> llevamos tiempo defendiendo que el entendimiento estratégico entre compañías y corredores es la palanca más potente para acelerar la digitalización del sector. El acuerdo Allianz–Damantia es un ejemplo preciso de esa tesis en acción.</p>
+  </div>
+
+  <!-- SECCIÓN 1: ORIGEN -->
+  <div class="section">
+    <span class="sec-label">01 · Origen</span>
+    <h2 class="sec-title">Tecnología construida desde el conocimiento real de la mediación</h2>
+
+    <p class="body-text">Damantia Technologies es una <strong>empresa de programación informática</strong> —objeto social registrado en el BORME desde su constitución en agosto de 2021, CNAE 6201— especializada en soluciones tecnológicas para la automatización de procesos en el sector asegurador. No es una correduría de seguros ni opera como mediadora: es una sociedad tecnológica que desarrolla herramientas para que los corredores sean más eficientes en la gestión de su cartera de clientes.</p>
+
+    <p class="body-text">Su singularidad radica en quiénes la fundaron: <strong>Carlos Rosillo</strong>, CEO de Rosillo Hnos., y <strong>Jesús Rodríguez</strong>, director general de Aenus Correduría de Seguros —dos mediadores activos que, como socios accionistas, entraron en el capital de Damantia para orientar y validar el desarrollo tecnológico desde el conocimiento real del negocio. Aenus Correduría de Seguros SL figura en el primer acto registral del BORME como vinculada a la compañía, con un capital inicial de 90.000 euros. No llegaron a la tecnología desde la consultoría o la ingeniería: llegaron desde el día a día de gestionar carteras, procesar renovaciones y defender pólizas de la competencia.</p>
+
+    <p class="body-text">Al frente de la arquitectura técnica desde el primer día, <strong>Miguel Ángel Calzado</strong> asumió la dirección ejecutiva de Damantia, aportando la capacidad tecnológica necesaria para convertir el conocimiento de negocio de los fundadores en producto real. El resultado: herramientas testadas en corredurías activas antes de salir al mercado, con el entorno real de la mediación como banco de pruebas permanente.</p>
+
+    <p class="body-text">Este origen —tecnólogos que trabajan con y para mediadores, con mediadores como accionistas que validan cada decisión de producto— es el rasgo que distingue a Damantia de cualquier otra propuesta insurtech dirigida al canal de distribución. Su stack tecnológico combina <strong>RPA (Robotic Process Automation)</strong>, <strong>BPM</strong>, analítica Big Data, inteligencia artificial predictiva y blockchain, pero la clave no está en las tecnologías: está en saber exactamente qué problema resolver y cómo validarlo donde los corredores trabajan cada día.</p>
+
+    <div class="quote">
+      <blockquote>"El compromiso de la correduría para mejorar la experiencia de los empleados y la calidad de los servicios a través de la automatización, con beneficio para el cliente final, supone un valor añadido a nuestra empresa y un paso decisivo en la transformación digital que pusimos en marcha hace un tiempo y en la que seguimos trabajando y avanzando."</blockquote>
+      <div class="quote-author">Carlos Rosillo · CEO, Rosillo Hnos. (2022)</div>
+    </div>
+  </div>
+
+  <!-- SECCIÓN 2: GAUSS -->
+  <div class="section">
+    <span class="sec-label">02 · Producto</span>
+    <h2 class="sec-title">GAUSS: el tiempo que el corredor recupera para asesorar</h2>
+
+    <p class="body-text">El producto que puso a Damantia en el mapa de la mediación española se llama <strong>GAUSS</strong>: un bot de recotización automática diseñado para defender la cartera de pólizas de Auto, Hogar y Moto. Su mecánica es directa y completa:</p>
+
+    <!-- Proceso -->
+    <div class="process">
+      <div class="process-step">
+        <span class="step-n">01</span>
+        <div class="step-title">Acceso</div>
+        <div class="step-desc">Entra en la web de la compañía aseguradora</div>
+      </div>
+      <div class="process-step">
+        <span class="step-n">02</span>
+        <div class="step-title">Extracción</div>
+        <div class="step-desc">Obtiene datos de pólizas próximas a vencimiento</div>
+      </div>
+      <div class="process-step">
+        <span class="step-n">03</span>
+        <div class="step-title">Cotización</div>
+        <div class="step-desc">Aplica criterios específicos de cada correduría</div>
+      </div>
+      <div class="process-step">
+        <span class="step-n">04</span>
+        <div class="step-title">Preemisión</div>
+        <div class="step-desc">Cotiza en el multitarificador automáticamente</div>
+      </div>
+      <div class="process-step">
+        <span class="step-n">05</span>
+        <div class="step-title">Entrega</div>
+        <div class="step-desc">Envía proyectos al equipo comercial</div>
+      </div>
+    </div>
+
+    <!-- Resultado -->
+    <div class="result-bar">
+      <div class="result-num">−80%</div>
+      <div class="result-text"><strong>Reducción en el tiempo de defensa de cartera.</strong> El comercial deja de ser un operador administrativo y recupera su función esencial: orientar al cliente, asesorarle, fidelizarle. Los bots operan 24 horas sin interrupciones.</div>
+    </div>
+
+    <div class="quote quote-coral">
+      <blockquote>"Con esta nueva solución, damos la oportunidad a los corredores de focalizar los esfuerzos en el asesoramiento al cliente y eliminar procesos repetitivos y sin ningún valor. En este momento, renunciar a cuidar minuciosamente la cartera no es una opción viable para las corredurías."</blockquote>
+      <div class="quote-author">Miguel Ángel Calzado · CTO, Damantia Technologies</div>
+    </div>
+
+    <p class="body-text">En junio de 2025, Damantia amplió el alcance de GAUSS con la alianza con <strong>Melmacia</strong>, empresa especializada en modelos predictivos de caída de cartera mediante IA. Juntos forman la primera solución end-to-end del mercado español:</p>
+
+    <div class="two-col">
+      <div class="col-card">
+        <div class="col-card-head">🧠 Melmacia: Predicción</div>
+        <p>Analiza más de <strong style="color:var(--navy)">300 variables</strong> sobre una base de <strong style="color:var(--navy)">15 millones de pólizas</strong> para identificar qué clientes van a marcharse antes de que lo hagan. <em>"La necesidad ineludible a la que se enfrentan los corredores de eliminar ineficiencias."</em> — Román Mestre, CEO Melmacia.</p>
+      </div>
+      <div class="col-card">
+        <div class="col-card-head">⚡ GAUSS: Acción</div>
+        <p>Una vez identificadas las pólizas en riesgo, GAUSS actúa automáticamente: cotiza, preemite y entrega los proyectos al comercial. La correduría solo interviene en el momento que crea valor: hablar con el cliente.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECCIÓN 3: CAPITAL -->
+  <div class="section">
+    <span class="sec-label">03 · Capital</span>
+    <h2 class="sec-title">Un ecosistema de socios que refleja la madurez del proyecto</h2>
+
+    <p class="body-text">La progresión del accionariado de Damantia en cinco años es en sí misma un relato de credibilidad acumulada. Primero los propios fundadores, con capital propio y riesgo propio. Luego socios que conocen el negocio desde dentro. El registro mercantil añade un dato elocuente: Damantia realizó tres ampliaciones de capital sucesivas antes de la entrada de Allianz —<strong>+50.000€ en junio de 2024</strong>, <strong>+100.000€ en marzo de 2025</strong> y <strong>+67.060€ en octubre de 2025</strong>— alcanzando un capital social de 447.060€. Un crecimiento progresivo y ordenado, no una apuesta de una sola vez.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Socio / Accionista</th>
+            <th>Perfil</th>
+            <th>Cuándo</th>
+            <th>Qué aporta</th>
+            <th>Rol</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Carlos Rosillo<br><span style="font-weight:400;color:#6a7f9a;font-size:12px">Rosillo Hnos.</span></td>
+            <td><span class="tag tag-red">Fundador</span></td>
+            <td>2021</td>
+            <td>CEO de Rosillo Hnos. Accionista y validador del producto en correduría real</td>
+            <td>Administrador</td>
+          </tr>
+          <tr>
+            <td>Jesús Rodríguez<br><span style="font-weight:400;color:#6a7f9a;font-size:12px">Aenus Correduría</span></td>
+            <td><span class="tag tag-red">Fundador</span></td>
+            <td>2021</td>
+            <td>Director general. 30+ años en mediación. Red nacional</td>
+            <td>Administrador</td>
+          </tr>
+          <tr>
+            <td>Melmacia</td>
+            <td><span class="tag tag-coral">Tecnológica</span></td>
+            <td>Jun 2025</td>
+            <td>IA predictiva de fuga de cartera. Integración end-to-end con GAUSS</td>
+            <td>Socio tecnológico</td>
+          </tr>
+          <tr>
+            <td>Cojebro</td>
+            <td><span class="tag tag-navy">Asociación</span></td>
+            <td>Jul 2025</td>
+            <td>Socios corredores. Validación de mercado. Voz colectiva de la mediación</td>
+            <td>Accionista estratégico</td>
+          </tr>
+          <tr>
+            <td>Colegio de Madrid</td>
+            <td><span class="tag tag-coral">Institucional</span></td>
+            <td>Mar 2026</td>
+            <td>Partner tecnológico oficial para colegiados (Segurtech 2026)</td>
+            <td>Aliado institucional</td>
+          </tr>
+          <tr>
+            <td>Allianz Seguros</td>
+            <td><span class="tag tag-today">★ HOY</span></td>
+            <td>17 Jul 2026</td>
+            <td>Capital. Red mediación Allianz. Aceleración de producto a escala</td>
+            <td>Accionista estratégico</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:12px;color:#8096b0;font-family:var(--mono);margin-top:10px">* Porcentajes de participación no divulgados. Capital social verificado vía BORME.</p>
+  </div>
+
+  <!-- SECCIÓN 4: ALLIANZ -->
+  <div class="section">
+    <span class="sec-label">04 · El acuerdo</span>
+    <h2 class="sec-title">Allianz–Damantia: compañías y corredores alineados en la mejora del servicio al asegurado</h2>
+
+    <p class="body-text">El viernes 17 de julio, Allianz Seguros y Damantia Technologies emitieron conjuntamente un comunicado que confirmaba la entrada de la aseguradora en el capital de la startup. Los términos financieros no se han hecho públicos, pero la naturaleza del acuerdo es clara: no es una alianza comercial sino una <strong>participación accionarial con implicación activa en el desarrollo de producto</strong>, orientada a acelerar la adopción de soluciones de automatización y analítica avanzada en el canal de mediación.</p>
+
+    <div class="quote">
+      <blockquote>"La transformación de la mediación requiere combinar cercanía, conocimiento y tecnología. Con Damantia compartimos la visión de que la innovación debe estar al servicio de los mediadores, ayudándoles a ganar eficiencia, simplificar procesos y dedicar más tiempo a lo que realmente aporta valor al cliente. Por eso hemos decidido acompañar su crecimiento y contribuir activamente al desarrollo de soluciones que impulsen el futuro de la distribución aseguradora."</blockquote>
+      <div class="quote-author">Veit Stutz · CEO, Allianz España</div>
+    </div>
+
+    <div class="quote quote-coral">
+      <blockquote>"La incorporación de Allianz a nuestro proyecto supone un importante respaldo a nuestra visión de transformar la distribución aseguradora a través de la tecnología. Esta colaboración nos permitirá acelerar el desarrollo de soluciones innovadoras y seguir contribuyendo a la modernización del ecosistema asegurador."</blockquote>
+      <div class="quote-author">Carlos Rosillo y Jesús Rodríguez · Administradores, Damantia Technologies</div>
+    </div>
+
+    <p class="body-text">El acuerdo importa por lo que revela, no solo por lo que dice. Allianz no invierte en Damantia para tener una participación minoritaria en una startup interesante. Lo hace porque tiene un interés directo en que <strong>sus mediadores sean más eficientes</strong>. Un mediador que recupera horas gracias a GAUSS tiene más capacidad para vender, asesorar y fidelizar. Un mediador más productivo sirve mejor al asegurado. La alineación de incentivos es perfecta.</p>
+
+    <p class="body-text">Esta lógica —la aseguradora que invierte en la productividad del canal en lugar de competir con él— es todavía infrecuente en el mercado español, pero apunta con precisión al modelo de relación que desde Community of Insurance llevamos tiempo defendiendo.</p>
+
+    <p class="body-text" style="font-weight:600;color:var(--navy)">¿Qué gana cada parte?</p>
+
+    <!-- Matriz -->
+    <div class="matrix">
+      <div class="matrix-cell matrix-head" style="background:var(--stone);color:var(--navy);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)"></div>
+      <div class="matrix-cell matrix-head">Allianz</div>
+      <div class="matrix-cell matrix-head">Damantia</div>
+
+      <div class="matrix-cell matrix-row-label">Estrategia</div>
+      <div class="matrix-cell">Posiciona la innovación como palanca de canal, no solo de back-office</div>
+      <div class="matrix-cell">Validación del modelo por una marca global de primer nivel</div>
+
+      <div class="matrix-cell matrix-row-label">Red</div>
+      <div class="matrix-cell">Sus mediadores acceden antes a herramientas que mejoran su productividad y fidelización</div>
+      <div class="matrix-cell">Acceso a la red de mediación Allianz para escalar GAUSS en producción real</div>
+
+      <div class="matrix-cell matrix-row-label">Velocidad</div>
+      <div class="matrix-cell">Acelera su transformación digital sin construir desde cero</div>
+      <div class="matrix-cell">Aceleración del desarrollo con recursos y capital adicionales</div>
+
+      <div class="matrix-cell matrix-row-label">Reputación</div>
+      <div class="matrix-cell">Refuerza su imagen de aseguradora comprometida con la mediación</div>
+      <div class="matrix-cell">La entrada de Allianz actúa como aval ante clientes, socios e inversores</div>
+    </div>
+  </div>
+
+  <!-- CRONOLOGÍA -->
+  <div class="section">
+    <span class="sec-label">05 · Cronología</span>
+    <h2 class="sec-title">Cinco años de Damantia en clave de hitos</h2>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">Ago 2021</div>
+        <div class="tl-content"><strong>Fundación.</strong> Se constituye Damantia Technologies SL en Madrid como empresa de programación informática (CNAE 6201). Capital inicial: 90.000€. Carlos Rosillo (Rosillo Hnos.) y Jesús Rodríguez (Aenus) entran como accionistas mediadores. Miguel Ángel Calzado asume la dirección ejecutiva.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Sep 2022</div>
+        <div class="tl-content"><strong>Primera alianza pública.</strong> Rosillo Hnos. y Damantia formalizan su colaboración en transformación digital de la correduría. Primera evidencia pública del modelo: empresa tecnológica que trabaja con y para corredores que son sus propios accionistas.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Feb 2025</div>
+        <div class="tl-content"><strong>Lanzamiento de GAUSS.</strong> Bot de recotización automática para defensa de cartera en Auto, Hogar y Moto. Primera solución RPA testada en corredurías reales.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Jun 2025</div>
+        <div class="tl-content"><strong>Alianza con Melmacia.</strong> Primera solución end-to-end del mercado español: predicción IA (Melmacia) + automatización (GAUSS). Reducción del 80% en tiempo de defensa de cartera.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Jul 2025</div>
+        <div class="tl-content"><strong>Cojebro entra en el capital.</strong> La mayor asociación de corredores de España respalda el proyecto. Capital social alcanza los 280.000€.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Oct 2025</div>
+        <div class="tl-content"><strong>Tercera ampliación de capital.</strong> +67.060€. Capital total: 447.060€. Crecimiento progresivo y ordenado antes de la gran entrada institucional.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Mar 2026</div>
+        <div class="tl-content"><strong>Partner del Colegio de Madrid.</strong> Elegido partner tecnológico oficial en Segurtech 2026 para el asesoramiento tecnológico a los colegiados.</div>
+      </div>
+      <div class="tl-item today">
+        <div class="tl-date">17 Jul 2026 ★</div>
+        <div class="tl-content"><strong>Allianz entra en el capital.</strong> La mayor aseguradora del mundo por volumen de activos se incorpora al accionariado de Damantia. Punto de inflexión en la escala del proyecto.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ANÁLISIS EDITORIAL COI -->
+  <div class="analysis">
+    <span class="sec-label">Análisis editorial · Community of Insurance</span>
+    <h3>Lo que Damantia revela sobre el futuro de la mediación</h3>
+    <hr class="analysis-rule">
+
+    <p>Damantia es una empresa tecnológica —programación informática, CNAE 6201, BORME 2021— pero con un rasgo que la hace singular: <strong>fue concebida y validada por mediadores en activo que son sus accionistas</strong>. El hecho de que Carlos Rosillo y Jesús Rodríguez participen en el capital no es un detalle anecdótico: es la razón por la que GAUSS resuelve un problema real y funciona en producción, no solo en demos. La tecnología viene de fuera; el conocimiento del problema, de dentro.</p>
+
+    <p>La entrada de Cojebro primero, y de Allianz hoy, confirma una tendencia que se está acelerando en el mercado español: <strong>las aseguradoras ya no solo quieren vender a través de los mediadores; quieren que los mediadores sean más eficientes para que puedan hacer más negocio con ellos</strong>. La apuesta de Allianz por Damantia es también una apuesta por la mediación como canal estratégico irreemplazable.</p>
+
+    <p>El modelo GAUSS apunta al corazón del problema estructural de las corredurías: el tiempo. Un corredor que pasa horas haciendo recotizaciones manuales es un corredor que no asesora, no fideliza, no crece. La promesa de reducir ese tiempo en un 80% es, si se sostiene en la práctica generalizada, uno de los impactos más relevantes que una sola herramienta puede generar en el sector.</p>
+
+    <p>Y estamos convencidos de que <strong>no será el último movimiento de este tipo</strong>. En los próximos meses y años veremos más operaciones similares que van a reforzar la influencia y el posicionamiento estratégico de los corredores de seguros a escala mundial. La mediación no está en retirada: está en proceso de transformación acelerada.</p>
+
+    <p class="highlight">La pregunta que queda abierta: ¿hasta qué punto la automatización de la defensa de cartera cambia el perfil de las personas que necesita una correduría? ¿Menos gestores administrativos, más asesores consultivos? Esa transición, si ocurre, no es solo tecnológica. Es cultural.</p>
+  </div>
+
+  <!-- CONCLUSIÓN -->
+  <div class="conclusion">
+    <span class="sec-label">Conclusión</span>
+    <h3>Una señal que apunta al futuro de la mediación</h3>
+
+    <p>Damantia no es una anomalía. Es una señal. La entrada de Allianz en su capital confirma que el ecosistema asegurador está empezando a premiar a los mediadores que apuestan por la tecnología con visión propia, no a los que la reciben de forma pasiva.</p>
+
+    <p>Desde Community of Insurance lo venimos defendiendo: compañías y corredores alineados en la mejora del servicio al asegurado, con la tecnología como acelerador —no como sustituto—, es el único modelo que funciona a largo plazo.</p>
+
+    <p class="cierre">La tecnología acelera. La relación humana fideliza. Y los corredores que entiendan cómo combinar ambas cosas van a liderar la distribución aseguradora del próximo decenio.</p>
+
+    <div class="firma">
+      <div class="firma-name">Carlos Biurrun Murillo</div>
+      <div class="firma-role">Presidente, Community of Insurance · Insur·Insights · 17 de julio de 2026</div>
+    </div>
+  </div>
+
+</div><!-- /page -->
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-brand">Community of Insurance <span>·</span> COI Magazine</div>
+    <div style="font-family:var(--mono);font-size:10px;color:#4a6380;margin-top:6px;letter-spacing:1px">carlos@communityofinsurance.es</div>
+  </div>
+  <div class="footer-meta">
+    <div>Fuentes: SegurosNews · Grupo Aseguranza · El Español</div>
+    <div>El Economista · ADECOSE · BORME · Cantabria Económica</div>
+    <div style="margin-top:4px;color:#2a3d5e">Publicado: 17 Jul 2026</div>
+  </div>
+</footer>
+
+</body>
+</html>
