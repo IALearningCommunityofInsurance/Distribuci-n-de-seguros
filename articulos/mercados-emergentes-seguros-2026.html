@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mercados Emergentes del Seguro 2026 · COI</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --coi-red:    #E4382E;
+    --coi-coral:  #F1957C;
+    --coi-dark:   #595959;
+    --navy:       #183577;
+    --gold:       #C89646;
+    --ink:        #111827;
+    --slate:      #374151;
+    --mist:       #F3F5F9;
+    --line:       #E5E9F0;
+    --white:      #FFFFFF;
+    --green:      #0E7C4A;
+    --amber:      #B45309;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--mist);
+    color: var(--ink);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* ── HEADER ── */
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  header {
+    background: var(--navy);
+    padding: 40px 0 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      -55deg,
+      transparent,
+      transparent 40px,
+      rgba(255,255,255,.03) 40px,
+      rgba(255,255,255,.03) 41px
+    );
+  }
+  .header-inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .eyebrow::after {
+    content: '';
+    flex: 1;
+    max-width: 80px;
+    height: 1px;
+    background: var(--gold);
+    opacity: .4;
+  }
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(22px, 4vw, 36px);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.15;
+  }
+  h1 span { color: var(--gold); }
+  .header-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,.6);
+    max-width: 640px;
+  }
+  .header-meta {
+    margin-top: 8px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 3px;
+    background: rgba(255,255,255,.1);
+    color: rgba(255,255,255,.7);
+    border: 1px solid rgba(255,255,255,.15);
+  }
+  .badge.gold { background: rgba(200,150,70,.15); color: var(--gold); border-color: rgba(200,150,70,.3); }
+
+  /* ── LEGEND ── */
+  .legend-bar {
+    background: var(--white);
+    border-bottom: 1px solid var(--line);
+    padding: 10px 0;
+  }
+  .legend-inner {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .legend-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-right: 4px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--slate);
+  }
+  .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .dot.verified   { background: var(--green); }
+  .dot.estimated  { background: var(--amber); }
+  .dot.projection { background: var(--navy); }
+
+  /* ── MAIN GRID ── */
+  main { padding: 32px 0 48px; }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--coi-red);
+    margin-bottom: 16px;
+    padding-left: 12px;
+    border-left: 3px solid var(--coi-red);
+  }
+
+  /* ── HERO NUMBERS ── */
+  .kpi-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .kpi-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--navy);
+    padding: 20px 20px 16px;
+    border-radius: 4px;
+  }
+  .kpi-card.red   { border-top-color: var(--coi-red); }
+  .kpi-card.gold  { border-top-color: var(--gold); }
+  .kpi-card.green { border-top-color: var(--green); }
+  .kpi-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-bottom: 8px;
+  }
+  .kpi-value {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .kpi-value small {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--slate);
+    display: block;
+    margin-top: 4px;
+  }
+  .kpi-tag {
+    margin-top: 10px;
+    font-size: 10px;
+    color: var(--slate);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .cagr-pill {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 2px;
+    background: rgba(14,124,74,.1);
+    color: var(--green);
+  }
+
+  /* ── MAIN TABLE ── */
+  .table-wrap {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 28px;
+  }
+  .table-wrap table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  thead {
+    background: var(--navy);
+  }
+  thead th {
+    padding: 12px 14px;
+    text-align: left;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.8);
+    white-space: nowrap;
+  }
+  thead th:not(:first-child) { text-align: right; }
+
+  tbody tr:nth-child(even) { background: var(--mist); }
+  tbody tr:hover { background: #EFF3FB; }
+  tbody tr { border-bottom: 1px solid var(--line); transition: background .15s; }
+
+  td {
+    padding: 13px 14px;
+    vertical-align: top;
+    font-size: 13px;
+  }
+  td:not(:first-child) { text-align: right; }
+
+  .cat-header td {
+    background: var(--navy) !important;
+    color: var(--white);
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 8px 14px;
+    border: none !important;
+  }
+
+  .risk-name {
+    font-weight: 600;
+    color: var(--ink);
+    display: block;
+  }
+  .risk-sub {
+    font-size: 11px;
+    color: var(--slate);
+    display: block;
+    margin-top: 2px;
+    font-weight: 400;
+  }
+
+  .num { font-weight: 600; color: var(--ink); }
+  .num.big { color: var(--navy); font-weight: 700; }
+
+  .source-note {
+    font-size: 10px;
+    color: var(--slate);
+    font-style: italic;
+  }
+
+  .tag-v   { color: var(--green); font-weight: 700; font-size: 10px; letter-spacing: .05em; }
+  .tag-e   { color: var(--amber); font-weight: 700; font-size: 10px; letter-spacing: .05em; }
+  .tag-p   { color: var(--navy);  font-weight: 700; font-size: 10px; letter-spacing: .05em; }
+
+  .cagr-cell {
+    font-weight: 700;
+    color: var(--green);
+    font-size: 13px;
+  }
+
+  /* ── BROKER BOX ── */
+  .broker-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .broker-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .broker-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--coi-red);
+  }
+  .broker-card.navy::before { background: var(--navy); }
+  .broker-card.gold::before { background: var(--gold); }
+  .broker-card.green::before { background: var(--green); }
+
+  .broker-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+  .broker-icon {
+    font-size: 20px;
+    margin-bottom: 6px;
+    display: block;
+  }
+  .broker-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .broker-items li {
+    font-size: 12px;
+    color: var(--slate);
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .broker-items li::before {
+    content: '→';
+    color: var(--coi-red);
+    font-weight: 700;
+    flex-shrink: 0;
+    font-size: 11px;
+    margin-top: 1px;
+  }
+  .broker-card.navy .broker-items li::before { color: var(--navy); }
+  .broker-card.gold .broker-items li::before { color: var(--gold); }
+  .broker-card.green .broker-items li::before { color: var(--green); }
+
+  /* ── GAP CHART ── */
+  .gap-section {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 24px;
+    margin-bottom: 28px;
+  }
+  .gap-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 20px;
+  }
+  .gap-bars { display: flex; flex-direction: column; gap: 14px; }
+  .gap-row { display: flex; flex-direction: column; gap: 4px; }
+  .gap-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 12px;
+  }
+  .gap-rname { font-weight: 600; color: var(--ink); }
+  .gap-nums  { font-size: 11px; color: var(--slate); }
+  .bar-track {
+    height: 8px;
+    background: var(--mist);
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+  }
+  .bar-insured {
+    height: 100%;
+    border-radius: 4px 0 0 4px;
+    background: var(--navy);
+  }
+  .bar-gap {
+    height: 100%;
+    border-radius: 0 4px 4px 0;
+    background: var(--coi-coral);
+    opacity: .5;
+  }
+  .bar-legend {
+    display: flex;
+    gap: 16px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+  .bar-legend-item {
+    display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--slate);
+  }
+  .bl-dot {
+    width: 10px; height: 10px; border-radius: 2px;
+  }
+
+  /* ── FOOTER ── */
+  .footer-notes {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin-bottom: 12px;
+  }
+  .fn-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-bottom: 10px;
+  }
+  .fn-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .fn-item {
+    font-size: 11px;
+    color: var(--slate);
+    line-height: 1.5;
+  }
+  .fn-item strong { color: var(--ink); display: block; margin-bottom: 2px; }
+
+  footer {
+    text-align: center;
+    padding: 16px;
+    font-size: 10px;
+    color: var(--slate);
+    letter-spacing: .05em;
+  }
+  footer span { color: var(--coi-red); }
+
+  @media (max-width: 700px) {
+    .kpi-strip { grid-template-columns: 1fr; }
+    .broker-grid { grid-template-columns: 1fr; }
+    .fn-grid { grid-template-columns: 1fr; }
+    thead th, td { font-size: 11px; padding: 10px 8px; }
+    .kpi-value { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="header-inner">
+      <div class="eyebrow">Community of Insurance · Insur·Insights</div>
+      <h1>Riesgos emergentes, riesgos complejos<br>y <span>seguros embebidos</span><br>— Cuantificación global 2026</h1>
+      <p class="header-sub">
+        Mapa de mercados potenciales para brokers e intermediarios. Datos actualizados a agosto de 2026 procedentes de Swiss Re, WTW, Mordor Intelligence, Grand View Research, Fortune Business Insights, Aon, Munich Re y otras fuentes especializadas.
+      </p>
+      <div class="header-meta">
+        <span class="badge gold">Agosto 2026</span>
+        <span class="badge">Fuentes verificadas</span>
+        <span class="badge">Oportunidad para Brokers</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="legend-bar">
+  <div class="wrap">
+    <div class="legend-inner">
+      <span class="legend-label">Clasificación de datos:</span>
+      <span class="legend-item"><span class="dot verified"></span> Verificado (fuente oficial)</span>
+      <span class="legend-item"><span class="dot estimated"></span> Estimación (consenso de mercado)</span>
+      <span class="legend-item"><span class="dot projection"></span> Proyección (previsión de analistas)</span>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="wrap">
+
+    <!-- KPI STRIP -->
+    <div class="section-title">Volumen total de los tres grandes mercados</div>
+    <div class="kpi-strip">
+      <div class="kpi-card red">
+        <div class="kpi-label">Seguros Embebidos · Global 2026</div>
+        <div class="kpi-value">~145–188 MM$
+          <small>rango consenso de mercado (2025–2026)</small>
+        </div>
+        <div class="kpi-tag"><span class="cagr-pill">CAGR ~30 %</span> hasta 2033 → 1,2–1,5 billones $</div>
+      </div>
+      <div class="kpi-card navy">
+        <div class="kpi-label">Seguros Especializados / Riesgos Complejos · 2026</div>
+        <div class="kpi-value">~126–148 MM$
+          <small>mercado global de specialty insurance</small>
+        </div>
+        <div class="kpi-tag"><span class="cagr-pill">CAGR ~10–13 %</span> hasta 2031 → 235–338 MM$</div>
+      </div>
+      <div class="kpi-card gold">
+        <div class="kpi-label">Seguros Paramétricos · Global 2026</div>
+        <div class="kpi-value">~4–24 MM$
+          <small>según segmento considerado</small>
+        </div>
+        <div class="kpi-tag"><span class="cagr-pill">CAGR ~13 %</span> hasta 2031 → 7–39 MM$</div>
+      </div>
+    </div>
+
+    <!-- TABLA PRINCIPAL -->
+    <div class="section-title">Cuantificación por categoría de riesgo</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:28%">Riesgo / Segmento</th>
+            <th>Mercado 2025</th>
+            <th>Mercado 2026</th>
+            <th>Horizonte 2030–35</th>
+            <th>CAGR</th>
+            <th>Fiabilidad</th>
+            <th>Cuota broker</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <!-- BLOQUE 1: RIESGOS EMERGENTES -->
+          <tr class="cat-header">
+            <td colspan="7">① Riesgos emergentes — nuevas coberturas necesarias</td>
+          </tr>
+
+          <tr>
+            <td>
+              <span class="risk-name">🔐 Seguro de Ciber Riesgo</span>
+              <span class="risk-sub">Ransomware, IA adversarial, privacidad</span>
+            </td>
+            <td><span class="num">16–20 MM$</span></td>
+            <td><span class="num big">~21–24 MM$</span></td>
+            <td>30–50 MM$ (2030)</td>
+            <td class="cagr-cell">15–20 %</td>
+            <td><span class="tag-v">VERIF.</span><br><span class="source-note">WTW / Gallagher 2026</span></td>
+            <td>Significativa<br><span class="source-note">posicionamiento técnico clave</span></td>
+          </tr>
+
+          <tr>
+            <td>
+              <span class="risk-name">🌡️ Seguro Paramétrico Climático</span>
+              <span class="risk-sub">CAT, sequía, inundación, energía renovable</span>
+            </td>
+            <td><span class="num">18–21 MM$</span></td>
+            <td><span class="num big">~23–24 MM$</span></td>
+            <td>39–60 MM$ (2031–35)</td>
+            <td class="cagr-cell">12–14 %</td>
+            <td><span class="tag-e">ESTIM.</span><br><span class="source-note">Mordor / R&amp;Markets 2026</span></td>
+            <td>Alta (41 % canal broker)</td>
+          </tr>
+
+          <tr>
+            <td>
+              <span class="risk-name">🤖 Responsabilidad por IA</span>
+              <span class="risk-sub">E&amp;O, D&amp;O, media liability con IA</span>
+            </td>
+            <td><span class="num">Sin segmento propio<br>aún en 2025</span></td>
+            <td><span class="num big">Emerging 2026</span></td>
+            <td>Mercado IA EE.UU. crece<br>173 MM$ → 976 MM$ (2035)</td>
+            <td class="cagr-cell">N/D — acelerado</td>
+            <td><span class="tag-e">ESTIM.</span><br><span class="source-note">Munich Re / Aon 2026</span></td>
+            <td>Muy alta — asesoramiento<br>especializado imprescindible</td>
+          </tr>
+
+          <tr>
+            <td>
+              <span class="risk-name">🌿 Riesgos de Transición Climática</span>
+              <span class="risk-sub">ESG, bonos de carbono, créditos verdes</span>
+            </td>
+            <td><span class="num">Incipiente</span></td>
+            <td><span class="num big">White space 2026</span></td>
+            <td>Pérdidas aseguradas CAT: 107 MM$ en 2025<br>→ crecimiento estructural</td>
+            <td class="cagr-cell">CAT: +100 MM$<br>anuales ya</td>
+            <td><span class="tag-v">VERIF.</span><br><span class="source-note">Swiss Re Institute 2026</span></td>
+            <td>Alta — gap de protección</td>
+          </tr>
+
+          <tr>
+            <td>
+              <span class="risk-name">🚗 Nuevas movilidades (EV, autónomo)</span>
+              <span class="risk-sub">Flotas eléctricas, vehículo autónomo, drones</span>
+            </td>
+            <td><span class="num">En desarrollo</span></td>
+            <td><span class="num big">Creciente</span></td>
+            <td>Integrado en embedded<br>+ specialty automotive</td>
+            <td class="cagr-cell">Doble dígito</td>
+            <td><span class="tag-e">ESTIM.</span><br><span class="source-note">Markel / WTW 2026</span></td>
+            <td>Alta — nichos sin cubrir</td>
+          </tr>
+
+          <tr>
+            <td>
+              <span class="risk-name">💊 Ciencias de la Vida / Biotech</span>
+              <span class="risk-sub">Ensayos clínicos, responsabilidad farmacéutica</span>
+            </td>
+            <td><span class="num">Integrado en specialty</span></td>
+            <td><span class="num big">Especialidad en alza</span></td>
+            <td>Parte de los 126–337 MM$<br>del mercado specialty</td>
+            <td class="cagr-cell">~13 %</td>
+            <td><span class="tag-e">ESTIM.</span><br><span class="source-note">Costero Brokers Q2 2026</span></td>
+            <td>Muy alta — técnica exigente</td>
+          </tr>
+
+          <!-- BLOQUE 2: RIESGOS COMPLEJOS -->
+          <tr class="cat-header">
+            <td colspan="7">② Riesgos complejos — asesoramiento especializado</td>
+          </tr>
+
+          <tr>
+            <td>
+              <span class="risk-name">⚖️ Specialty Insurance Global</span>
+              <span class="risk-sub">Marine, aviation, political risk, energy, D&amp;O</span>
+            </td>
+            <td><span class="num">110–135 MM$</span></td>
+            <td><span class="num big">126–148 MM$</span></td>
+            <td>235–362 MM$ (2031–35)</td>
+            <td class="cagr-cell">10–13 %</td>
+            <td><span class="tag-v">VERIF.</span><br><span class="source-note">Fortune BI / SNS Insider 2026</span></td>
+            <td><strong>65,9 % canal broker</strong><br><span class="source-note">Mayor cuota de todos los mercados</span></td>
+          </tr>
+
+          <tr>
+            <td>
+              <span class="risk-name">🏗️ Grandes Proyectos / Infraestructura</span>
+              <span class="risk-sub">Construcción, energía, suministro crítico</span>
+            </td>
+            <td><span class="num">Integrado en specialty</span></td>
+            <td><span class="num big">Mercado blando / estable</span></td>
+            <td>Demanda estructural por<br>transición energética</td>
+            <td class="cagr-cell">~9–10 %</td>
+            <td><span class="tag-e">ESTIM.</span><br><span class="source-note">WTW Mkt Realities 2026</span></td>
+            <td>Alta — colocaciones complejas</td>
+          </tr>
+
+          <tr>
+            <td>
+              <span class="risk-name">🌍 Riesgo Político y Crédito</span>
+              <span class="risk-sub">Geopolítica, cadena de suministro, guerra</span>
+            </td>
+            <td><span class="num">Integrado en specialty</span></td>
+            <td><span class="num big">Demanda muy alta 2026</span></td>
+            <td>Tensión geopolítica persistente<br>(Mar Rojo, Ucrania)</td>
+            <td class="cagr-cell">Firme / al alza</td>
+            <td><span class="tag-v">VERIF.</span><br><span class="source-note">Costero Brokers / Marsh 2026</span></td>
+            <td>Alta — brokers en primera línea</td>
+          </tr>
+
+          <tr>
+            <td>
+              <span class="risk-name">💼 Responsabilidad Profesional (D&amp;O / E&amp;O)</span>
+              <span class="risk-sub">Directors, brokers, abogados, arquitectos</span>
+            </td>
+            <td><span class="num">Mercado blando</span></td>
+            <td><span class="num big">Blando, pockets de endurecimiento</span></td>
+            <td>AI añade exposición nueva<br>no cuantificada aún</td>
+            <td class="cagr-cell">Estable + tensión IA</td>
+            <td><span class="tag-e">ESTIM.</span><br><span class="source-note">Amwins / WTW 2026</span></td>
+            <td>Alta — asesoramiento técnico</td>
+          </tr>
+
+          <!-- BLOQUE 3: SEGUROS EMBEBIDOS -->
+          <tr class="cat-header">
+            <td colspan="7">③ Seguros embebidos — el mayor crecimiento del mercado</td>
+          </tr>
+
+          <tr>
+            <td>
+              <span class="risk-name">📱 Embedded Insurance Global</span>
+              <span class="risk-sub">Electrónica, viaje, auto, salud, retail digital</span>
+            </td>
+            <td><span class="num">112–145 MM$</span></td>
+            <td><span class="num big">145–188 MM$</span></td>
+            <td>1,2–1,5 billones $ (2033–34)</td>
+            <td class="cagr-cell">~30 %</td>
+            <td><span class="tag-e">ESTIM.</span><br><span class="source-note">Grand View / Straits 2026</span></td>
+            <td>Emergente — modelos MGA/<br>API-first para intermediarios</td>
+          </tr>
+
+          <tr>
+            <td>
+              <span class="risk-name">🏦 Canal Fintech / Banca Digital</span>
+              <span class="risk-sub">Pagos, préstamos, neobancos</span>
+            </td>
+            <td><span class="num">Subsegmento dominante</span></td>
+            <td><span class="num big">CAGR 33 % previsto</span></td>
+            <td>El canal más rápido del mercado</td>
+            <td class="cagr-cell">33 %</td>
+            <td><span class="tag-p">PROYE.</span><br><span class="source-note">Straits Research Jul.2026</span></td>
+            <td>Oportunidad para insurtechs<br>y corredores digitales</td>
+          </tr>
+
+          <tr>
+            <td>
+              <span class="risk-name">🛒 E-commerce / Retail digital</span>
+              <span class="risk-sub">Protección de compra, devoluciones, garantías</span>
+            </td>
+            <td><span class="num">Mayor segmento (45,8 %)</span></td>
+            <td><span class="num big">Electrónica: 45,8 % cuota</span></td>
+            <td>Asia-Pacífico lidera<br>(47,6 % del mercado global)</td>
+            <td class="cagr-cell">~29–30 %</td>
+            <td><span class="tag-e">ESTIM.</span><br><span class="source-note">Fortune BI / Grand View 2026</span></td>
+            <td>Partnerships tecnológicos<br>con plataformas</td>
+          </tr>
+
+          <tr>
+            <td>
+              <span class="risk-name">🇪🇸 Mercado Embebido en España</span>
+              <span class="risk-sub">Primas generadas por canal digital</span>
+            </td>
+            <td><span class="num">&lt;300 MM€</span></td>
+            <td><span class="num big">Objetivo: &gt;500 MM€</span></td>
+            <td>El 67 % de aseguradoras<br>trabaja ya con una insurtech</td>
+            <td class="cagr-cell">Fuerte</td>
+            <td><span class="tag-e">ESTIM.</span><br><span class="source-note">Upliora / ICEA 2025–26</span></td>
+            <td>Alta — corredores digitales<br>como canal prioritario</td>
+          </tr>
+
+          <tr>
+            <td>
+              <span class="risk-name">🌎 Ecosistema Insurtech Latinoamérica</span>
+              <span class="risk-sub">536 startups activas; IA agéntica, embedded</span>
+            </td>
+            <td><span class="num">199 MM$ financiación<br>(+117 % interanual)</span></td>
+            <td><span class="num big">2026: mejor año post-pandemia</span></td>
+            <td>IA agéntica + Life&amp;Care<br>como vectores clave</td>
+            <td class="cagr-cell">Acelerado</td>
+            <td><span class="tag-v">VERIF.</span><br><span class="source-note">Mapfre Innovation Jul.2026</span></td>
+            <td>Muy alta para CICA / COI<br>como comunidad iberoamericana</td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <!-- GAP DE PROTECCIÓN -->
+    <div class="section-title">El gran argumento: la brecha de protección no asegurada</div>
+    <div class="gap-section">
+      <div class="gap-title">Pérdidas económicas vs. pérdidas aseguradas en 2025 — Swiss Re Institute</div>
+      <div class="gap-bars">
+
+        <div class="gap-row">
+          <div class="gap-meta">
+            <span class="gap-rname">Catástrofes naturales globales</span>
+            <span class="gap-nums">107 MM$ asegurados / 220 MM$ totales</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-insured" style="width:49%"></div>
+            <div class="bar-gap"    style="width:51%"></div>
+          </div>
+        </div>
+
+        <div class="gap-row">
+          <div class="gap-meta">
+            <span class="gap-rname">Economías emergentes — gap estructural</span>
+            <span class="gap-nums">80–90 % de pérdidas SIN cobertura</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-insured" style="width:12%"></div>
+            <div class="bar-gap"    style="width:88%"></div>
+          </div>
+        </div>
+
+        <div class="gap-row">
+          <div class="gap-meta">
+            <span class="gap-rname">Incendios California 2025 (catástrofe singular)</span>
+            <span class="gap-nums">~40 MM$ asegurados / ~60 MM$ pérdidas estimadas</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-insured" style="width:65%"></div>
+            <div class="bar-gap"    style="width:35%"></div>
+          </div>
+        </div>
+
+        <div class="gap-row">
+          <div class="gap-meta">
+            <span class="gap-rname">Ciberataques — coste medio por brecha 2026</span>
+            <span class="gap-nums">4,9 MM$ por incidente · ransomware +45 % frecuencia interanual</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-insured" style="width:30%"></div>
+            <div class="bar-gap"    style="width:70%"></div>
+          </div>
+        </div>
+
+      </div>
+      <div class="bar-legend" style="margin-top:18px">
+        <div class="bar-legend-item"><div class="bl-dot" style="background:var(--navy)"></div> Pérdida asegurada</div>
+        <div class="bar-legend-item"><div class="bl-dot" style="background:var(--coi-coral); opacity:.8"></div> Brecha sin asegurar (oportunidad de mercado)</div>
+      </div>
+    </div>
+
+    <!-- OPORTUNIDADES BROKER -->
+    <div class="section-title">¿Qué significa esto para los brokers? — Palancas de negocio</div>
+    <div class="broker-grid">
+
+      <div class="broker-card">
+        <span class="broker-icon">🔐</span>
+        <div class="broker-title">Ciberseguridad y IA</div>
+        <ul class="broker-items">
+          <li>Mercado cyber: 16–20 MM$ en 2025, camino a 40–50 MM$ en 2030</li>
+          <li>Ransomware +45 % en frecuencia; coste medio brecha: 4,9 MM$</li>
+          <li>El broker debe dominar la lectura de cuestionarios técnicos y exclusiones silenciosas de IA</li>
+          <li>Lloyd's y el mercado de Londres: primera línea para riesgos complejos de IA</li>
+        </ul>
+      </div>
+
+      <div class="broker-card navy">
+        <span class="broker-icon">🌡️</span>
+        <div class="broker-title">Clima y Paramétrico</div>
+        <ul class="broker-items">
+          <li>107 MM$ en pérdidas aseguradas CAT en 2025; 220 MM$ de pérdida total</li>
+          <li>Seguros paramétricos: CAGR 13 % → el broker distribuye el 41 % del mercado</li>
+          <li>Economías emergentes: 80–90 % sin cobertura → enorme potencial iberoamericano</li>
+          <li>Productos ESG, bonos de carbono y energías renovables: white space sin explorar</li>
+        </ul>
+      </div>
+
+      <div class="broker-card gold">
+        <span class="broker-icon">📱</span>
+        <div class="broker-title">Embedded Insurance</div>
+        <ul class="broker-items">
+          <li>Mercado global 2026: 145–188 MM$; proyección 2033: 1,2–1,5 billones $</li>
+          <li>España: objetivo &gt;500 MM€ en primas embedded en los próximos años</li>
+          <li>Canal fintech crece al 33 % CAGR — el más rápido de todos</li>
+          <li>El broker puede actuar como MGA, distribuidor API o partner de plataforma digital</li>
+        </ul>
+      </div>
+
+      <div class="broker-card green">
+        <span class="broker-icon">⚖️</span>
+        <div class="broker-title">Especialidades Complejas</div>
+        <ul class="broker-items">
+          <li>Specialty global 2026: 126–148 MM$; brokers controlan el 65,9 % del mercado</li>
+          <li>Political risk, marine war, cadena de suministro: alta demanda geopolítica</li>
+          <li>D&amp;O y E&amp;O: nuevas exposiciones por IA y normas de gobernanza (NAIC 2025)</li>
+          <li>Asesoramiento especializado: la diferenciación competitiva del corredor profesional</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- NOTAS METODOLÓGICAS -->
+    <div class="footer-notes">
+      <div class="fn-title">Notas metodológicas y fuentes principales</div>
+      <div class="fn-grid">
+        <div class="fn-item">
+          <strong>Divergencia de estimaciones</strong>
+          Las distintas casas de análisis presentan rangos amplios (ej.: embedded insurance: 14,8 MM$ MRFR vs. 145 MM$ Grand View). La diferencia refleja distintas definiciones del perímetro de mercado. Se ha optado por presentar el rango de consenso de las fuentes más citadas.
+        </div>
+        <div class="fn-item">
+          <strong>Fuentes utilizadas</strong>
+          Swiss Re Institute (2026), WTW Insurance Marketplace Realities 2026, Mordor Intelligence, Grand View Research, Fortune Business Insights, Straits Research, Aon AI Risk 2026, Munich Re / Triple-I RiskScan 2026, Mapfre Innovation, Upliora / ICEA, Costero Brokers Q2-2026, Amwins State of Market 2026.
+        </div>
+        <div class="fn-item">
+          <strong>Moneda y notación</strong>
+          Cifras en dólares estadounidenses salvo indicación expresa en euros (€). MM$ = miles de millones de dólares. Billoness en notación continental española. Los datos de mercado español en MM€.
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /wrap -->
+</main>
+
+<footer>
+  Elaborado por <span>Community of Insurance · COI</span> para uso editorial e informativo · agosto 2026 · Insur·Insights
+</footer>
+
+</body>
+</html>

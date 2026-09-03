@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CIMA y la conectividad del seguro</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --navy: #183577;
+    --gold: #C89646;
+    --red: #E4382E;
+    --coral: #F1957C;
+    --teal: #57BFBD;
+    --charcoal: #595959;
+    --ink: #1A1A2E;
+    --offwhite: #F8F7F4;
+    --white: #FFFFFF;
+    --border: rgba(200,150,70,0.25);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--offwhite);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--navy);
+    padding: 56px 60px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 340px; height: 100%;
+    background: linear-gradient(135deg, transparent 40%, rgba(200,150,70,0.12));
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold) 0%, var(--teal) 50%, transparent 100%);
+  }
+
+  .header-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .header-label::after {
+    content: '';
+    flex: 1;
+    max-width: 60px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.5;
+  }
+
+  .header-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 6vw, 68px);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.05;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+  }
+  .header-title span {
+    color: var(--gold);
+  }
+
+  .header-subtitle {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.72);
+    max-width: 580px;
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+
+  .header-meta {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+  .meta-pill {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.14);
+    padding: 7px 16px;
+    border-radius: 2px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.65);
+    letter-spacing: 0.5px;
+  }
+  .meta-pill strong {
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  /* MAIN */
+  .main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 56px 40px 80px;
+  }
+
+  /* KPI RAIL */
+  .kpi-rail {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--border);
+    margin-bottom: 52px;
+    background: var(--white);
+  }
+  .kpi {
+    padding: 28px 24px;
+    border-right: 1px solid var(--border);
+    position: relative;
+  }
+  .kpi:last-child { border-right: none; }
+  .kpi-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .kpi-value .accent { color: var(--gold); }
+  .kpi-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--charcoal);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    line-height: 1.4;
+  }
+  .kpi-note {
+    font-size: 10px;
+    color: var(--teal);
+    font-weight: 500;
+    margin-top: 6px;
+    letter-spacing: 0.3px;
+  }
+  .kpi-bar {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 3px;
+  }
+
+  /* SECTIONS */
+  .section {
+    margin-bottom: 44px;
+  }
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-tag {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    white-space: nowrap;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+  }
+
+  .prose {
+    font-size: 14.5px;
+    color: #2C2C3E;
+    line-height: 1.8;
+    max-width: 700px;
+  }
+  .prose strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  /* FEATURE GRID */
+  .feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 20px;
+  }
+  .feature-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 22px 24px;
+    border-left: 3px solid var(--navy);
+  }
+  .feature-card.accent-red { border-left-color: var(--red); }
+  .feature-card.accent-teal { border-left-color: var(--teal); }
+  .feature-card.accent-gold { border-left-color: var(--gold); }
+  .feature-title {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .feature-card.accent-red .feature-title { color: var(--red); }
+  .feature-card.accent-teal .feature-title { color: var(--teal); }
+  .feature-card.accent-gold .feature-title { color: #9a7130; }
+  .feature-text {
+    font-size: 13.5px;
+    color: var(--charcoal);
+    line-height: 1.65;
+  }
+
+  /* TIMELINE */
+  .timeline {
+    position: relative;
+    margin-top: 20px;
+    padding-left: 24px;
+    border-left: 2px solid var(--border);
+  }
+  .tl-item {
+    margin-bottom: 22px;
+    position: relative;
+  }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -30px;
+    top: 5px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--offwhite);
+    box-shadow: 0 0 0 2px var(--gold);
+  }
+  .tl-year {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 3px;
+  }
+  .tl-text {
+    font-size: 13.5px;
+    color: var(--charcoal);
+    line-height: 1.6;
+  }
+  .tl-text strong { color: var(--ink); }
+
+  /* LATAM BLOCK */
+  .latam-block {
+    background: var(--navy);
+    padding: 40px 44px;
+    margin-top: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .latam-block::before {
+    content: 'LATAM';
+    position: absolute;
+    right: -12px; top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Playfair Display', serif;
+    font-size: 120px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.04);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .latam-pretitle {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+  .latam-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 18px;
+    line-height: 1.2;
+  }
+  .latam-arguments {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 24px;
+  }
+  .latam-arg {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 18px 20px;
+    border-top: 2px solid var(--teal);
+  }
+  .latam-arg-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--teal);
+    margin-bottom: 7px;
+  }
+  .latam-arg-text {
+    font-size: 13px;
+    color: rgba(255,255,255,0.78);
+    line-height: 1.6;
+  }
+
+  /* SOURCE BADGES */
+  .source-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--charcoal);
+    background: rgba(0,0,0,0.04);
+    border: 1px solid var(--border);
+    padding: 3px 9px;
+    border-radius: 2px;
+    margin-top: 12px;
+    margin-right: 6px;
+    letter-spacing: 0.3px;
+  }
+  .badge-verified { border-color: var(--teal); color: var(--teal); background: rgba(87,191,189,0.06); }
+  .badge-estimated { border-color: var(--gold); color: #9a7130; background: rgba(200,150,70,0.06); }
+
+  /* FOOTER */
+  .footer {
+    background: var(--navy);
+    padding: 24px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 3px solid var(--gold);
+  }
+  .footer-left {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.3px;
+  }
+  .footer-left strong { color: var(--gold); }
+  .footer-right {
+    font-size: 10px;
+    color: rgba(255,255,255,0.3);
+    text-align: right;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 700px) {
+    .kpi-rail { grid-template-columns: 1fr 1fr; }
+    .kpi { border-right: none; border-bottom: 1px solid var(--border); }
+    .kpi:nth-child(odd) { border-right: 1px solid var(--border); }
+    .feature-grid, .latam-arguments { grid-template-columns: 1fr; }
+    .header { padding: 40px 28px 36px; }
+    .main { padding: 40px 20px 60px; }
+    .footer { flex-direction: column; gap: 12px; padding: 24px 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-label">Community of Insurance · APECOSE Lima 2026</div>
+  <h1 class="header-title">CIMA:<br><span>el estándar</span><br>que conecta<br>al corredor</h1>
+  <p class="header-subtitle">Plataforma sectorial española de conectividad e innovación para la mediación aseguradora. Un modelo de gobernanza compartida replicable en Iberoamérica.</p>
+  <div class="header-meta">
+    <div class="meta-pill">Promovido por <strong>TIREA · UNESPA · AETMA · CGCMS · FECOR · ADECOSE</strong></div>
+    <div class="meta-pill">Operativo desde <strong>2019</strong></div>
+    <div class="meta-pill">Referencia europea única en <strong>conectividad sectorial</strong></div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- KPI RAIL -->
+  <div class="kpi-rail">
+    <div class="kpi">
+      <div class="kpi-bar" style="background: linear-gradient(90deg, #183577, #57BFBD);"></div>
+      <div class="kpi-value">+2.000<span class="accent">.</span></div>
+      <div class="kpi-label">Corredores<br>adheridos</div>
+      <div class="kpi-note">▲ +35% vs año anterior</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-bar" style="background: linear-gradient(90deg, #57BFBD, #C89646);"></div>
+      <div class="kpi-value">45<span class="accent">.</span></div>
+      <div class="kpi-label">Entidades<br>aseguradoras</div>
+      <div class="kpi-note">100% del mercado relevante</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-bar" style="background: linear-gradient(90deg, #C89646, #E4382E);"></div>
+      <div class="kpi-value">800k<span class="accent">+</span></div>
+      <div class="kpi-label">Ficheros intercambiados<br>al mes</div>
+      <div class="kpi-note">90% del volumen de primas</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-bar" style="background: linear-gradient(90deg, #E4382E, #183577);"></div>
+      <div class="kpi-value">7,4M<span class="accent">+</span></div>
+      <div class="kpi-label">Ficheros intercambiados<br>en 2024</div>
+      <div class="kpi-note">▲ +47% vs cierre 2022</div>
+    </div>
+  </div>
+  <div style="margin-top:-36px; margin-bottom:44px;">
+    <span class="source-badge badge-verified">✓ Verificado · Fuente: CIMA (octubre 2025)</span>
+    <span class="source-badge badge-verified">✓ Verificado · Fuente: CIMA Newsletter / UNESPA feb. 2025</span>
+  </div>
+
+  <!-- QUÉ ES CIMA -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-tag">Qué es</span>
+      <h2 class="section-title">Una sola conexión para todo el mercado</h2>
+    </div>
+    <p class="prose">
+      CIMA (<em>Conectividad e Innovación para la Mediación Aseguradora</em>) es la plataforma tecnológica sectorial que permite a corredores, compañías y proveedores de software intercambiar información bajo un <strong>único estándar</strong> —el EIAC— a través de una sola integración. Antes de CIMA, cada aseguradora publicaba su información por un canal propio: portales web, FTP, servicios web, correos ad hoc. El corredor debía multiplicar desarrollos e integraciones. <strong>CIMA lo resuelve con una conexión única</strong> que da acceso a todas las entidades integradas.
+    </p>
+    <p class="prose" style="margin-top: 14px;">
+      Es gestionada por <strong>TIREA</strong> (Tecnologías de la Información y Redes para las Entidades Aseguradoras), con el respaldo de <strong>UNESPA</strong> y la participación activa de la industria tecnológica a través de <strong>AETMA</strong>. En el plano de la mediación, el proyecto cuenta con el apoyo institucional del <strong>Consejo General de Mediadores de Seguros (CGCMS)</strong>, <strong>FECOR</strong> y <strong>ADECOSE</strong>, las tres principales organizaciones representativas del corredor en España.
+    </p>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-title">Estándar EIAC</div>
+        <div class="feature-text">Formato homogéneo de intercambio de datos de cartera, recibos, liquidaciones y siniestros entre corredor y aseguradora. CIMA distribuye la versión actualizada (v6, próxima v7.1) a todo el ecosistema de forma simultánea.</div>
+      </div>
+      <div class="feature-card accent-teal">
+        <div class="feature-title">Póliza Digital</div>
+        <div class="feature-text">El corredor controla el proceso completo de firma. El cliente firma en menos de <strong>2 minutos</strong>, desde cualquier lugar, sin presencia física. Integra mediante middleware a múltiples proveedores de firma electrónica bajo un único entorno encriptado.</div>
+      </div>
+      <div class="feature-card accent-gold">
+        <div class="feature-title">28 ERPs integrados</div>
+        <div class="feature-text">Las principales empresas de software de gestión de corredurías (ebroker, Gecose, MPM, TE-SIS, SOFtQs, Sinkroniza, OpenSoft, Sequrnet y otras) operan directamente con CIMA, eliminando reintegraciones.</div>
+      </div>
+      <div class="feature-card accent-red">
+        <div class="feature-title">Bidireccionalidad (2026)</div>
+        <div class="feature-text">En desarrollo: el corredor podrá enviar información a las aseguradoras —recibos, liquidaciones— a través de CIMA. Cierra el ciclo y convierte la plataforma en canal de comunicación real en ambas direcciones.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CRECIMIENTO -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-tag">Trayectoria</span>
+      <h2 class="section-title">De piloto a estándar de sector en cinco años</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-year">2019–2021</div>
+        <div class="tl-text">Arranque de CIMA con las primeras aseguradoras y proveedores tecnológicos. Publicación del estándar EIAC v5 y primeras adherencias de corredores.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2022–2023</div>
+        <div class="tl-text"><strong>Aceleración masiva.</strong> +22% aseguradoras, +30% tecnológicas, +35% corredores en un solo año. Se superan los 5 millones de ficheros entregados. Arranque del piloto de póliza digital.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2024</div>
+        <div class="tl-text">Cierre con <strong>más de 1.800 corredores, 43 aseguradoras y 28 tecnológicas</strong>. Intercambio de 7,4 millones de ficheros anuales. Póliza digital aprobada por el Consejo Directivo de UNESPA.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">Feb. 2025</div>
+        <div class="tl-text">Lanzamiento oficial de <strong>CIMA Firma Digital</strong> en jornada con UNESPA, ADECOSE, AUNNA, FECOR y CGCMS. 669 corredores y 5 tecnológicas integradas en el primer ciclo. El sector califica el proyecto como "único en Europa".</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">Oct. 2025</div>
+        <div class="tl-text">Más de <strong>2.000 corredores</strong> adheridos. Volumen mensual: <strong>800.000 ficheros</strong>, representando el <strong>90% del volumen de primas mediadas</strong>. EIAC v7.1 en preparación.</div>
+      </div>
+    </div>
+    <span class="source-badge badge-verified">✓ Verificado · Fuente: CIMA, sesión informativa oct. 2025 y newsletter dic. 2023</span>
+  </div>
+
+  <!-- LATAM -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-tag">Por qué es replicable</span>
+      <h2 class="section-title">El argumento para Iberoamérica</h2>
+    </div>
+    <p class="prose" style="margin-bottom: 24px;">
+      CIMA no es una solución tecnológica más: es un <strong>modelo de gobernanza sectorial</strong>. Su éxito reside en que todos los actores —compañías, corredores, tecnológicas, asociaciones— cedieron soberanía parcial en favor de un estándar común. Ese es el aprendizaje trasladable. La tecnología puede replicarse; la voluntad política sectorial es lo que hay que construir.
+    </p>
+  </div>
+
+  <!-- LATAM BLOCK -->
+  <div class="latam-block">
+    <div class="latam-pretitle">Argumento para APECOSE · Lima, octubre 2026</div>
+    <div class="latam-title">Cinco razones por las que<br>Latam puede y debe tenerlo</div>
+    <div class="latam-arguments">
+      <div class="latam-arg">
+        <div class="latam-arg-title">Fragmentación idéntica</div>
+        <div class="latam-arg-text">La dispersión de canales de comunicación corredor–aseguradora en Latam es hoy exactamente el problema que CIMA resolvió en España en 2019. El diagnóstico es el mismo; la solución, probada.</div>
+      </div>
+      <div class="latam-arg">
+        <div class="latam-arg-title">Masa crítica demostrada</div>
+        <div class="latam-arg-text">Si más del 75% de los corredores y el 100% de las compañías adoptaron CIMA en España, los umbrales de adhesión necesarios para viabilizar el modelo son alcanzables. Lo prueba la experiencia real, no la proyección teórica.</div>
+      </div>
+      <div class="latam-arg">
+        <div class="latam-arg-title">Stándar exportable</div>
+        <div class="latam-arg-text">El estándar EIAC puede adaptarse a la regulación de cada país. La arquitectura de CIMA —un middleware que agrega proveedores— es agnóstica al mercado local. No se empieza desde cero.</div>
+      </div>
+      <div class="latam-arg">
+        <div class="latam-arg-title">Firma digital: el salto de calidad</div>
+        <div class="latam-arg-text">En mercados donde el papel domina la contratación, la póliza digital de CIMA —firma en menos de 2 minutos, desde cualquier lugar— representa una ventaja competitiva inmediata y tangible para el corredor.</div>
+      </div>
+      <div class="latam-arg">
+        <div class="latam-arg-title">Modelo de gobernanza probado</div>
+        <div class="latam-arg-text">CIMA funcionó porque UNESPA, CGCMS, FECOR, ADECOSE y AETMA se sentaron en la misma mesa con un objetivo común. Ese modelo de gobernanza compartida —compañías, mediadores y tecnológicas alineados— existe en los principales mercados de Latam: solo falta activarlo.</div>
+      </div>
+      <div class="latam-arg">
+        <div class="latam-arg-title">Retorno medible</div>
+        <div class="latam-arg-text">800.000 ficheros/mes automatizados equivalen a miles de horas de gestión manual eliminadas. El beneficio es directo en productividad operativa del corredor y en calidad de servicio al asegurado.</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 20px; padding: 0 4px;">
+    <span class="source-badge badge-estimated">Estimación · Cálculo de productividad basado en volúmenes CIMA oct. 2025</span>
+    <span class="source-badge badge-verified">✓ Verificado · Adhesión >75% corredores y 100% compañías: datos aportados por el ponente (Carlos Biurrun)</span>
+  </div>
+
+</div><!-- /main -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-left">
+    <strong>Community of Insurance · COI</strong><br>
+    carlos.biurrun@communityofinsurance.com
+  </div>
+  <div class="footer-right">
+    Resumen preparado para<br>APECOSE · Lima · 1 octubre 2026
+  </div>
+</div>
+
+</body>
+</html>

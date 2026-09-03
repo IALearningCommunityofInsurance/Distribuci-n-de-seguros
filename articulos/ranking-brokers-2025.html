@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Los 10 Mayores Brokers de Seguros del Mundo · 2024 vs 2025</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:     #183577;
+    --navy-l:   #1f4496;
+    --red:      #E4382E;
+    --coral:    #F1957C;
+    --gold:     #C89646;
+    --gold-l:   #e8bb6a;
+    --charcoal: #595959;
+    --bg:       #F5F6FA;
+    --white:    #ffffff;
+    --border:   #DDE1EE;
+    --text:     #1a1f33;
+    --body:     #3d4461;
+    --muted:    #6b7290;
+    --faint:    #9ba3bf;
+    --green:    #1a7a4a;
+    --green-bg: #e8f5ee;
+    --red-bg:   #fdf0ef;
+    --gold-bg:  #fdf6e8;
+    --navy-bg:  #edf0f8;
+    --row-alt:  #fafbfd;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 40px 20px 60px;
+    line-height: 1.6;
+  }
+
+  .wrap { max-width: 1080px; margin: 0 auto; }
+
+  /* ══ PORTADA ══ */
+  .portada {
+    background: var(--navy);
+    border-radius: 20px;
+    padding: 52px 48px 46px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .portada::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 5px;
+    background: linear-gradient(90deg, var(--red) 0%, var(--coral) 45%, var(--gold) 100%);
+  }
+  .portada::after {
+    content: '';
+    position: absolute;
+    right: -80px; bottom: -80px;
+    width: 380px; height: 380px;
+    border-radius: 50%;
+    border: 70px solid rgba(255,255,255,0.03);
+    pointer-events: none;
+  }
+  .portada-inner { position: relative; z-index: 1; }
+
+  .eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--gold-l);
+    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 28px; height: 2px;
+    background: var(--gold-l); border-radius: 2px;
+  }
+
+  .portada h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(26px, 4vw, 46px);
+    font-weight: 900;
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 16px;
+    max-width: 720px;
+  }
+  .portada h1 em { font-style: normal; color: var(--coral); }
+
+  .portada .lead {
+    font-size: 15px;
+    color: rgba(255,255,255,0.65);
+    max-width: 680px; line-height: 1.75;
+    margin-bottom: 30px;
+  }
+
+  .portada-meta {
+    display: flex; flex-wrap: wrap; gap: 0;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding-top: 22px;
+  }
+  .portada-meta-item {
+    padding-right: 28px; margin-right: 28px;
+    border-right: 1px solid rgba(255,255,255,0.12);
+  }
+  .portada-meta-item:last-child { border-right: none; padding-right: 0; }
+  .mlabel {
+    font-size: 9px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: rgba(255,255,255,0.32);
+    margin-bottom: 3px;
+  }
+  .mval {
+    font-size: 13px; color: rgba(255,255,255,0.72); font-weight: 500;
+  }
+
+  /* ══ SECTION LABEL ══ */
+  .section-label {
+    font-size: 10px; font-weight: 800; letter-spacing: 2.5px;
+    text-transform: uppercase; color: var(--red);
+    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-label::after {
+    content: ''; flex: 1; height: 1px; background: var(--border);
+  }
+
+  /* ══ KPI STRIP ══ */
+  .kpi-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 26px;
+  }
+  @media (max-width: 720px) { .kpi-strip { grid-template-columns: 1fr 1fr; } }
+
+  .kpi {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px 22px;
+    position: relative; overflow: hidden;
+  }
+  .kpi::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    border-radius: 14px 14px 0 0;
+  }
+  .kpi.c-navy::before   { background: var(--navy); }
+  .kpi.c-red::before    { background: var(--red); }
+  .kpi.c-green::before  { background: var(--green); }
+  .kpi.c-gold::before   { background: var(--gold); }
+
+  .kpi .klabel {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.8px;
+    text-transform: uppercase; color: var(--faint); margin-bottom: 9px;
+  }
+  .kpi .kval {
+    font-size: 24px; font-weight: 800; line-height: 1; margin-bottom: 5px;
+    color: var(--navy);
+  }
+  .kpi.c-red .kval    { color: var(--red); }
+  .kpi.c-green .kval  { color: var(--green); }
+  .kpi.c-gold .kval   { color: #8a6418; }
+  .kpi .ksub { font-size: 11px; color: var(--muted); line-height: 1.45; }
+
+  /* ══ TABLA RANKING ══ */
+  .table-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+  .table-card-header {
+    padding: 22px 26px 20px;
+    background: #f8f9fd;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+  }
+  .table-card-header h2 {
+    font-size: 15px; font-weight: 700; color: var(--navy);
+  }
+  .table-card-header p {
+    font-size: 12px; color: var(--muted);
+  }
+
+  table { width: 100%; border-collapse: collapse; }
+
+  thead tr { background: #f8f9fd; border-bottom: 2px solid var(--border); }
+  thead th {
+    padding: 12px 16px;
+    font-size: 10px; font-weight: 700; letter-spacing: 1.6px;
+    text-transform: uppercase; color: var(--faint); text-align: left;
+  }
+  thead th.r { text-align: right; }
+
+  tbody tr {
+    border-bottom: 1px solid #f0f2f9;
+    transition: background 0.12s;
+  }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:nth-child(odd)  { background: var(--white); }
+  tbody tr:nth-child(even) { background: var(--row-alt); }
+  tbody tr:hover { background: #edf1fb; }
+
+  tbody td {
+    padding: 14px 16px;
+    font-size: 13px;
+    vertical-align: middle;
+    color: var(--body);
+  }
+  tbody td.r { text-align: right; font-variant-numeric: tabular-nums; }
+
+  /* Fila total */
+  tr.total-row { background: var(--navy-bg) !important; border-top: 2px solid var(--navy) !important; }
+  tr.total-row td { padding: 16px 16px; }
+  .total-label {
+    font-size: 12px; font-weight: 800;
+    color: var(--navy); text-transform: uppercase; letter-spacing: 1px;
+  }
+  .total-24 { color: var(--muted); font-weight: 600; font-size: 13px; }
+  .total-25 { color: var(--navy); font-weight: 800; font-size: 15px; }
+
+  /* Badges de ranking */
+  .rank-badge {
+    width: 32px; height: 32px; border-radius: 9px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 800; flex-shrink: 0;
+  }
+  .rank-1 {
+    background: #fff8e1;
+    color: #b07d00;
+    border: 1.5px solid #f0d060;
+  }
+  .rank-2 {
+    background: #f5f5f5;
+    color: #707070;
+    border: 1.5px solid #c8c8c8;
+  }
+  .rank-3 {
+    background: #fdf0e8;
+    color: #9a5a20;
+    border: 1.5px solid #e8b080;
+  }
+  .rank-other {
+    background: var(--navy-bg);
+    color: var(--navy);
+    border: 1.5px solid #c0cadf;
+  }
+
+  /* Broker info */
+  .broker-name {
+    font-weight: 700; color: var(--text); font-size: 13px; line-height: 1.3;
+  }
+  .broker-sub {
+    font-size: 11px; color: var(--faint); margin-top: 2px;
+  }
+
+  /* Ingresos */
+  .ing-24 { color: var(--muted); font-size: 13px; font-weight: 500; }
+  .ing-25 { color: var(--navy); font-size: 14px; font-weight: 700; }
+
+  /* Variación */
+  .var {
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 3px 10px; border-radius: 20px;
+    font-size: 11px; font-weight: 700;
+  }
+  .var-up   { background: var(--green-bg); color: #166038; border: 1px solid #b0d9c0; }
+  .var-down { background: var(--red-bg);   color: #b02020; border: 1px solid #f0b8b0; }
+
+  /* Cambio de posición en ranking */
+  .rc-up   { font-size: 10px; font-weight: 700; color: var(--green); margin-left: 5px; }
+  .rc-down { font-size: 10px; font-weight: 700; color: var(--red);   margin-left: 5px; }
+  .rc-same { font-size: 10px; font-weight: 700; color: var(--faint); margin-left: 5px; }
+
+  /* Barra de proporción */
+  .bar-wrap { min-width: 100px; }
+  .bar-track {
+    height: 7px; background: #eaecf5; border-radius: 4px; overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%; border-radius: 4px;
+    background: linear-gradient(90deg, var(--navy), var(--navy-l));
+  }
+  .bar-label {
+    font-size: 10px; color: var(--faint); margin-top: 4px; text-align: right;
+  }
+
+  /* Tags verificado / estimación */
+  .tag {
+    font-size: 9px; font-weight: 700; letter-spacing: 1px;
+    padding: 2px 8px; border-radius: 4px; text-transform: uppercase;
+  }
+  .tag-v {
+    background: var(--green-bg); color: #166038;
+    border: 1px solid #a8d8be;
+  }
+  .tag-e {
+    background: var(--gold-bg); color: #7a5a1a;
+    border: 1px solid #e0c878;
+  }
+
+  /* ══ NOTAS ══ */
+  .notas {
+    background: #f8f9fd;
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--charcoal);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-bottom: 24px;
+  }
+  .notas h3 {
+    font-size: 10px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--charcoal); margin-bottom: 14px;
+  }
+  .notas ul { padding-left: 16px; }
+  .notas li {
+    font-size: 12px; color: var(--muted);
+    line-height: 1.65; margin-bottom: 6px;
+  }
+  .notas li strong { color: var(--body); font-weight: 600; }
+
+  /* ══ FOOTER ══ */
+  .footer {
+    text-align: center;
+    font-size: 11px; color: var(--faint);
+    border-top: 1px solid var(--border);
+    padding-top: 22px; line-height: 1.8;
+  }
+  .footer strong { color: var(--navy); font-weight: 700; }
+
+  /* hide en móvil */
+  @media (max-width: 700px) {
+    .hide-m { display: none; }
+    tbody td, thead th { padding: 12px 10px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- PORTADA -->
+  <div class="portada">
+    <div class="portada-inner">
+      <div class="eyebrow">Informe de mercado · Community of Insurance · Agosto 2026</div>
+      <h1>Los <em>10 mayores brokers</em><br>de seguros del mundo</h1>
+      <p class="lead">
+        Comparativa de ingresos brutos de corretaje 2024 vs. 2025 con datos del ejercicio cerrado
+        a 31 de diciembre de 2025. Fuentes: resultados oficiales SEC, AM Best Global Broker Rankings 2026
+        y Reinsurance News.
+      </p>
+      <div class="portada-meta">
+        <div class="portada-meta-item">
+          <div class="mlabel">Total Top 10 · 2025</div>
+          <div class="mval">95.900 MM$</div>
+        </div>
+        <div class="portada-meta-item">
+          <div class="mlabel">Crecimiento agregado</div>
+          <div class="mval">+14,4% vs. 2024</div>
+        </div>
+        <div class="portada-meta-item">
+          <div class="mlabel">Origen geográfico</div>
+          <div class="mval">8 EE.UU. · 2 Reino Unido</div>
+        </div>
+        <div class="portada-meta-item">
+          <div class="mlabel">Notación</div>
+          <div class="mval">MM$ = miles de millones USD</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KPI STRIP -->
+  <div class="section-label">Resumen ejecutivo</div>
+  <div class="kpi-strip">
+    <div class="kpi c-navy">
+      <div class="klabel">Total Top 10 · 2024</div>
+      <div class="kval">83.800 MM$</div>
+      <div class="ksub">Ingresos agregados ejercicio anterior</div>
+    </div>
+    <div class="kpi c-red">
+      <div class="klabel">Total Top 10 · 2025</div>
+      <div class="kval">95.900 MM$</div>
+      <div class="ksub">Ingresos agregados ejercicio 2025</div>
+    </div>
+    <div class="kpi c-green">
+      <div class="klabel">Crecimiento agregado</div>
+      <div class="kval">+14,4%</div>
+      <div class="ksub">+12.100 MM$ generados en un solo año</div>
+    </div>
+    <div class="kpi c-gold">
+      <div class="klabel">Ingreso medio por grupo</div>
+      <div class="kval">9.590 MM$</div>
+      <div class="ksub">Por compañía del Top 10 en 2025</div>
+    </div>
+  </div>
+
+  <!-- TABLA RANKING -->
+  <div class="section-label">Ranking por ingresos 2025</div>
+  <div class="table-card">
+    <div class="table-card-header">
+      <h2>Top 10 Global · Ingresos de corretaje 2024 vs. 2025</h2>
+      <p>Ordenado por ingresos 2025 · Cifras en miles de millones de dólares (MM$)</p>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:50px">#</th>
+          <th>Broker</th>
+          <th class="r hide-m">Ingresos 2024</th>
+          <th class="r">Ingresos 2025</th>
+          <th class="r hide-m">Variación</th>
+          <th class="hide-m" style="width:130px">Peso s/total</th>
+          <th class="hide-m" style="text-align:center; width:90px">Dato</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <!-- 1 MARSH -->
+        <tr>
+          <td><span class="rank-badge rank-1">1</span></td>
+          <td>
+            <div class="broker-name">🇺🇸 Marsh (McLennan)</div>
+            <div class="broker-sub">Estados Unidos · NYSE: MMC</div>
+          </td>
+          <td class="r hide-m"><span class="ing-24">25,3 MM$</span></td>
+          <td class="r"><span class="ing-25">26,9 MM$</span></td>
+          <td class="r hide-m"><span class="var var-up">▲ +6,3%</span></td>
+          <td class="hide-m">
+            <div class="bar-wrap">
+              <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+              <div class="bar-label">28,1% del total</div>
+            </div>
+          </td>
+          <td class="hide-m" style="text-align:center"><span class="tag tag-v">Verificado</span></td>
+        </tr>
+
+        <!-- 2 AON -->
+        <tr>
+          <td><span class="rank-badge rank-2">2</span></td>
+          <td>
+            <div class="broker-name">🇬🇧 Aon PLC</div>
+            <div class="broker-sub">Reino Unido · NYSE: AON</div>
+          </td>
+          <td class="r hide-m"><span class="ing-24">15,7 MM$</span></td>
+          <td class="r"><span class="ing-25">17,2 MM$</span></td>
+          <td class="r hide-m"><span class="var var-up">▲ +9,6%</span></td>
+          <td class="hide-m">
+            <div class="bar-wrap">
+              <div class="bar-track"><div class="bar-fill" style="width:63.9%"></div></div>
+              <div class="bar-label">17,9% del total</div>
+            </div>
+          </td>
+          <td class="hide-m" style="text-align:center"><span class="tag tag-v">Verificado</span></td>
+        </tr>
+
+        <!-- 3 GALLAGHER -->
+        <tr>
+          <td><span class="rank-badge rank-3">3</span></td>
+          <td>
+            <div class="broker-name">🇺🇸 Arthur J. Gallagher & Co.</div>
+            <div class="broker-sub">Estados Unidos · NYSE: AJG</div>
+          </td>
+          <td class="r hide-m"><span class="ing-24">11,6 MM$</span></td>
+          <td class="r"><span class="ing-25">13,9 MM$</span></td>
+          <td class="r hide-m"><span class="var var-up">▲ +19,8%</span></td>
+          <td class="hide-m">
+            <div class="bar-wrap">
+              <div class="bar-track"><div class="bar-fill" style="width:51.7%"></div></div>
+              <div class="bar-label">14,5% del total</div>
+            </div>
+          </td>
+          <td class="hide-m" style="text-align:center"><span class="tag tag-v">Verificado</span></td>
+        </tr>
+
+        <!-- 4 WTW -->
+        <tr>
+          <td><span class="rank-badge rank-other">4</span></td>
+          <td>
+            <div class="broker-name">🇬🇧 Willis Towers Watson (WTW)</div>
+            <div class="broker-sub">Reino Unido · NASDAQ: WTW</div>
+          </td>
+          <td class="r hide-m"><span class="ing-24">9,9 MM$</span></td>
+          <td class="r"><span class="ing-25">9,7 MM$</span></td>
+          <td class="r hide-m"><span class="var var-down">▼ −2,2%</span></td>
+          <td class="hide-m">
+            <div class="bar-wrap">
+              <div class="bar-track"><div class="bar-fill" style="width:36.1%"></div></div>
+              <div class="bar-label">10,1% del total</div>
+            </div>
+          </td>
+          <td class="hide-m" style="text-align:center"><span class="tag tag-v">Verificado</span></td>
+        </tr>
+
+        <!-- 5 BROWN & BROWN ▲▲ -->
+        <tr>
+          <td><span class="rank-badge rank-other">5</span></td>
+          <td>
+            <div class="broker-name">🇺🇸 Brown & Brown Inc. <span class="rc-up">▲▲ +2</span></div>
+            <div class="broker-sub">Estados Unidos · NYSE: BRO</div>
+          </td>
+          <td class="r hide-m"><span class="ing-24">4,8 MM$</span></td>
+          <td class="r"><span class="ing-25">5,9 MM$</span></td>
+          <td class="r hide-m"><span class="var var-up">▲ +22,9%</span></td>
+          <td class="hide-m">
+            <div class="bar-wrap">
+              <div class="bar-track"><div class="bar-fill" style="width:21.9%"></div></div>
+              <div class="bar-label">6,2% del total</div>
+            </div>
+          </td>
+          <td class="hide-m" style="text-align:center"><span class="tag tag-v">Verificado</span></td>
+        </tr>
+
+        <!-- 6 ALLIANT ▼ -->
+        <tr>
+          <td><span class="rank-badge rank-other">6</span></td>
+          <td>
+            <div class="broker-name">🇺🇸 Alliant Insurance Services <span class="rc-down">▼ −1</span></div>
+            <div class="broker-sub">Estados Unidos · empresa privada</div>
+          </td>
+          <td class="r hide-m"><span class="ing-24">5,0 MM$</span></td>
+          <td class="r"><span class="ing-25">5,8 MM$</span></td>
+          <td class="r hide-m"><span class="var var-up">▲ +16,0%</span></td>
+          <td class="hide-m">
+            <div class="bar-wrap">
+              <div class="bar-track"><div class="bar-fill" style="width:21.6%"></div></div>
+              <div class="bar-label">6,0% del total</div>
+            </div>
+          </td>
+          <td class="hide-m" style="text-align:center"><span class="tag tag-e">Estimación</span></td>
+        </tr>
+
+        <!-- 7 HUB ▼ -->
+        <tr>
+          <td><span class="rank-badge rank-other">7</span></td>
+          <td>
+            <div class="broker-name">🇺🇸 Hub International Ltd. <span class="rc-down">▼ −1</span></div>
+            <div class="broker-sub">Estados Unidos · empresa privada (CDPQ)</div>
+          </td>
+          <td class="r hide-m"><span class="ing-24">4,8 MM$</span></td>
+          <td class="r"><span class="ing-25">5,3 MM$</span></td>
+          <td class="r hide-m"><span class="var var-up">▲ +10,4%</span></td>
+          <td class="hide-m">
+            <div class="bar-wrap">
+              <div class="bar-track"><div class="bar-fill" style="width:19.7%"></div></div>
+              <div class="bar-label">5,5% del total</div>
+            </div>
+          </td>
+          <td class="hide-m" style="text-align:center"><span class="tag tag-e">Estimación</span></td>
+        </tr>
+
+        <!-- 8 HOWDEN ▲▲ -->
+        <tr>
+          <td><span class="rank-badge rank-other">8</span></td>
+          <td>
+            <div class="broker-name">🇬🇧 Howden Insurance Brokers <span class="rc-up">▲▲ +2</span></div>
+            <div class="broker-sub">Reino Unido · empresa privada</div>
+          </td>
+          <td class="r hide-m"><span class="ing-24">3,8 MM$</span></td>
+          <td class="r"><span class="ing-25">4,8 MM$</span></td>
+          <td class="r hide-m"><span class="var var-up">▲ +26,3%</span></td>
+          <td class="hide-m">
+            <div class="bar-wrap">
+              <div class="bar-track"><div class="bar-fill" style="width:17.8%"></div></div>
+              <div class="bar-label">5,0% del total</div>
+            </div>
+          </td>
+          <td class="hide-m" style="text-align:center"><span class="tag tag-e">Estimación</span></td>
+        </tr>
+
+        <!-- 9 ACRISURE ▼ -->
+        <tr>
+          <td><span class="rank-badge rank-other">9</span></td>
+          <td>
+            <div class="broker-name">🇺🇸 Acrisure LLC <span class="rc-down">▼ −1</span></div>
+            <div class="broker-sub">Estados Unidos · empresa privada</div>
+          </td>
+          <td class="r hide-m"><span class="ing-24">4,0 MM$</span></td>
+          <td class="r"><span class="ing-25">4,8 MM$</span></td>
+          <td class="r hide-m"><span class="var var-up">▲ +20,0%</span></td>
+          <td class="hide-m">
+            <div class="bar-wrap">
+              <div class="bar-track"><div class="bar-fill" style="width:17.8%"></div></div>
+              <div class="bar-label">5,0% del total</div>
+            </div>
+          </td>
+          <td class="hide-m" style="text-align:center"><span class="tag tag-e">Estimación</span></td>
+        </tr>
+
+        <!-- 10 LOCKTON ▼ -->
+        <tr>
+          <td><span class="rank-badge rank-other">10</span></td>
+          <td>
+            <div class="broker-name">🇺🇸 Lockton Companies LLC <span class="rc-down">▼ −1</span></div>
+            <div class="broker-sub">Estados Unidos · empresa privada (familiar)</div>
+          </td>
+          <td class="r hide-m"><span class="ing-24">3,9 MM$</span></td>
+          <td class="r"><span class="ing-25">4,5 MM$</span></td>
+          <td class="r hide-m"><span class="var var-up">▲ +15,4%</span></td>
+          <td class="hide-m">
+            <div class="bar-wrap">
+              <div class="bar-track"><div class="bar-fill" style="width:16.7%"></div></div>
+              <div class="bar-label">4,7% del total</div>
+            </div>
+          </td>
+          <td class="hide-m" style="text-align:center"><span class="tag tag-e">Estimación</span></td>
+        </tr>
+
+        <!-- FILA TOTAL -->
+        <tr class="total-row">
+          <td colspan="2"><span class="total-label">▪ Total Top 10 Global</span></td>
+          <td class="r hide-m"><span class="total-24">83.800 MM$</span></td>
+          <td class="r"><span class="total-25">95.900 MM$</span></td>
+          <td class="r hide-m"><span class="var var-up" style="font-size:13px">▲ +14,4%</span></td>
+          <td class="hide-m" colspan="2" style="font-size:12px; color:var(--muted); padding-left:4px">
+            +12.100 MM$ generados en un solo año
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <!-- NOTAS -->
+  <div class="section-label">Metodología y fuentes</div>
+  <div class="notas">
+    <h3>Notas metodológicas</h3>
+    <ul>
+      <li><strong>MM$ = miles de millones de dólares USA</strong> (equivalente al «billion» anglosajón). No se emplean sufijos B/M en notación anglosajona.</li>
+      <li><strong>Verificado:</strong> cifra extraída directamente de resultados oficiales publicados ante la SEC (10-K / 8-K) o comunicado de prensa del emisor. Ejercicio cerrado 31/12/2025.</li>
+      <li><strong>Estimación:</strong> cifra procedente del ranking AM Best 2026 (publicado julio 2026) y de Business Insurance Top Brokers 2026. Las compañías privadas no publican cuentas auditadas de acceso libre.</li>
+      <li><strong>WTW</strong> redujo nominalmente sus ingresos (−2,2%) por la desinversión de TRANZACT; en base orgánica creció un +5%.</li>
+      <li><strong>Brown & Brown</strong> escala dos posiciones gracias a la adquisición de Accession Risk Management, la mayor compra de su historia (~1.740 MM$ en ingresos anualizados). También supera a Alliant, que cede una posición.</li>
+      <li><strong>Howden</strong> avanza dos puestos —el mayor salto del ranking— gracias a su agresiva estrategia de adquisiciones en Europa y Asia-Pacífico.</li>
+      <li><strong>Marsh (McLennan)</strong> incluye Marsh Risk, Guy Carpenter, Mercer y Oliver Wyman. Los 26,9 MM$ son ingresos totales consolidados del grupo, no solo brokerage puro.</li>
+      <li>Todas las cifras en USD según reporte original de cada compañía. Los grupos con sede en UK (Aon, WTW, Howden) también presentan resultados en dólares.</li>
+      <li>Fuentes primarias: SEC EDGAR · Comunicados Q4 2025 (enero–febrero 2026) · AM Best Global Insurance Broker Rankings 2026 · Reinsurance News (julio 2026).</li>
+    </ul>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Elaborado por <strong>Community of Insurance (COI)</strong> · Insur·Insights · Agosto 2026<br>
+    Datos con corte agosto 2026 · Para uso editorial y de análisis de mercado · No constituye asesoramiento financiero
+  </div>
+
+</div>
+</body>
+</html>
