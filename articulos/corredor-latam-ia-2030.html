@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El corredor latinoamericano ante la IA · Diagnóstico 6 mercados y horizonte 2030</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:    #183577;
+    --gold:    #C89646;
+    --red:     #E4382E;
+    --ink:     #0f1420;
+    --paper:   #fafaf8;
+    --mist:    #f0f2f7;
+    --rule:    #dde0e8;
+    --charcoal:#595959;
+    --green:   #1a6b45;
+    --amber:   #92610a;
+
+    /* Colores por país */
+    --col-per: #c0392b;
+    --col-col: #f39c12;
+    --col-arg: #2980b9;
+    --col-ecu: #27ae60;
+    --col-chl: #c0392b;
+    --col-mex: #27ae60;
+    --col-ven: #8e44ad;
+  }
+
+  body { font-family:'Inter',sans-serif; background:var(--paper); color:var(--ink); font-size:15px; line-height:1.75; }
+
+  /* ── PORTADA ─── */
+  .cover {
+    background: linear-gradient(160deg, #0d1b3e 0%, #183577 60%, #0f1420 100%);
+    padding: 60px 40px 50px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 420px; height: 420px;
+    background: radial-gradient(circle, rgba(200,150,70,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cover-stripe {
+    height: 3px;
+    background: linear-gradient(90deg, var(--red), var(--gold), var(--navy));
+    margin-bottom: 36px;
+  }
+  .cover-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 2; }
+  .eyebrow {
+    font-family:'JetBrains Mono',monospace;
+    font-size: 10px; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 22px;
+  }
+  .cover h1 {
+    font-family:'Playfair Display',serif;
+    font-size: 2.7rem; font-weight: 900; line-height: 1.1;
+    letter-spacing: -0.02em; color: white; max-width: 700px;
+    margin-bottom: 18px;
+  }
+  .cover h1 em { color: var(--gold); font-style: italic; }
+  .cover-sub {
+    color: rgba(255,255,255,0.6); font-size: 14px; max-width: 580px;
+    margin-bottom: 28px; line-height: 1.65;
+  }
+  .cover-meta {
+    display: flex; gap: 24px; flex-wrap: wrap;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 18px;
+  }
+  .cover-meta span { font-size: 11.5px; color: rgba(255,255,255,0.45); }
+  .cover-meta strong { color: rgba(255,255,255,0.8); display: block; font-size: 12px; }
+
+  /* ── BODY ─── */
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 40px 60px; }
+
+  h2 {
+    font-family:'Playfair Display',serif;
+    font-size: 1.5rem; font-weight: 700; color: var(--navy);
+    margin: 52px 0 18px; padding-bottom: 12px;
+    border-bottom: 1.5px solid var(--rule);
+  }
+  p { margin-bottom: 14px; color: #2a2a3a; }
+  p:last-child { margin-bottom: 0; }
+
+  /* STANDFIRST */
+  .standfirst {
+    border-left: 3px solid var(--gold);
+    padding: 22px 28px; margin: 44px 0;
+    background: white; box-shadow: 0 2px 14px rgba(24,53,119,0.07);
+  }
+  .standfirst p { font-size: 1.07rem; color: var(--charcoal); line-height: 1.8; }
+
+  /* ── DATOS REGIONALES ─── */
+  .stat-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+    gap: 12px; margin: 28px 0;
+  }
+  .stat-card {
+    background: white; border: 1px solid var(--rule);
+    border-top: 3px solid var(--navy); padding: 16px 18px;
+  }
+  .stat-val {
+    font-family:'Playfair Display',serif;
+    font-size: 1.9rem; font-weight: 900;
+    color: var(--navy); line-height: 1; margin-bottom: 5px;
+  }
+  .stat-label { font-size: 11.5px; color: var(--charcoal); line-height: 1.4; }
+  .stat-src { font-size: 10px; color: #aaa; margin-top: 5px; font-style: italic; }
+
+  /* ── PAÍSES ─── */
+  .country-block {
+    border: 1px solid var(--rule);
+    margin: 36px 0; background: white;
+    overflow: hidden;
+  }
+  .country-header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0;
+  }
+  .country-flag-col {
+    width: 6px; background: var(--col-per);
+  }
+  .country-flag-col.col { background: var(--col-col); }
+  .country-flag-col.arg { background: var(--col-arg); }
+  .country-flag-col.ecu { background: var(--col-ecu); }
+
+  .country-head-content {
+    padding: 20px 24px 16px;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .country-name {
+    font-family:'Playfair Display',serif;
+    font-size: 1.3rem; font-weight: 700; color: var(--navy);
+    margin-bottom: 2px;
+  }
+  .country-subtitle { font-size: 12.5px; color: var(--charcoal); }
+  .risk-badge {
+    font-family:'JetBrains Mono',monospace;
+    font-size: 9.5px; letter-spacing: .15em;
+    text-transform: uppercase; padding: 4px 12px;
+    border-radius: 2px; white-space: nowrap;
+  }
+  .risk-alto   { background: #fdecea; color: var(--red); border: 1px solid rgba(228,56,46,0.3); }
+  .risk-muy-alto { background: #2c0a0a; color: #ff8a7a; border: none; }
+  .risk-medio  { background: #fff8e1; color: var(--amber); border: 1px solid rgba(146,97,10,0.3); }
+  .risk-alto2  { background: #fdecea; color: var(--red); border: 1px solid rgba(228,56,46,0.3); }
+
+  .country-body {
+    padding: 22px 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 32px;
+  }
+  .country-col h3 {
+    font-size: 11.5px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .08em; color: var(--navy); margin-bottom: 10px;
+  }
+  .country-col ul { list-style: none; padding: 0; }
+  .country-col li {
+    font-size: 13px; color: var(--charcoal);
+    padding: 4px 0; border-bottom: 1px solid var(--rule);
+    display: flex; gap: 8px; line-height: 1.45;
+  }
+  .country-col li:last-child { border-bottom: none; }
+  .li-ico { color: var(--gold); flex-shrink: 0; font-weight: 700; }
+  .li-ico.red { color: var(--red); }
+  .li-ico.green { color: var(--green); }
+
+  .country-verdict {
+    padding: 16px 24px;
+    background: var(--mist);
+    border-top: 1px solid var(--rule);
+    font-size: 13.5px; color: #2a2a3a; line-height: 1.6;
+  }
+  .country-verdict strong { color: var(--navy); }
+
+  /* ── VARIABLE ESTRUCTURAL ─── */
+  .var-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+    gap: 16px; margin: 28px 0;
+  }
+  .var-card {
+    background: white; border: 1px solid var(--rule);
+    padding: 20px; border-radius: 2px;
+  }
+  .var-icon {
+    font-size: 1.4rem; margin-bottom: 10px;
+  }
+  .var-title {
+    font-family:'Inter',sans-serif;
+    font-size: 13px; font-weight: 700;
+    color: var(--navy); margin-bottom: 8px;
+  }
+  .var-body { font-size: 12.5px; color: var(--charcoal); line-height: 1.55; }
+
+  /* ── ROADMAP 2030 ─── */
+  .roadmap {
+    background: var(--ink); color: white;
+    padding: 48px 40px; margin: 52px 0 0;
+  }
+  .roadmap-inner { max-width: 860px; margin: 0 auto; }
+  .roadmap .eyebrow-rm {
+    font-family:'JetBrains Mono',monospace;
+    font-size: 10px; letter-spacing: .22em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 16px; display: block;
+  }
+  .roadmap h2 {
+    font-family:'Playfair Display',serif;
+    font-size: 1.9rem; font-weight: 900; color: white;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 18px; margin: 0 0 32px; letter-spacing: -0.01em;
+  }
+
+  .rm-phases {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.06);
+    margin-bottom: 40px;
+  }
+  .rm-phase {
+    background: rgba(255,255,255,0.03);
+    padding: 22px 20px;
+  }
+  .rm-phase-label {
+    font-family:'JetBrains Mono',monospace;
+    font-size: 9.5px; letter-spacing: .15em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 8px; display: block;
+  }
+  .rm-phase h3 {
+    font-family:'Playfair Display',serif;
+    font-size: 1rem; font-weight: 700;
+    color: white; margin-bottom: 12px;
+    text-transform: none; letter-spacing: 0;
+  }
+  .rm-phase ul { list-style: none; padding: 0; }
+  .rm-phase li {
+    font-size: 12px; color: rgba(255,255,255,0.65);
+    padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+    line-height: 1.45;
+  }
+  .rm-phase li:last-child { border-bottom: none; }
+  .rm-phase li::before { content: '›'; color: var(--gold); margin-right: 6px; }
+
+  .rm-moves {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px; margin-bottom: 36px;
+  }
+  .rm-move {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 20px 22px;
+  }
+  .rm-move-num {
+    font-family:'JetBrains Mono',monospace;
+    font-size: 28px; font-weight: 500;
+    color: rgba(200,150,70,0.3); line-height: 1;
+    margin-bottom: 8px;
+  }
+  .rm-move h4 {
+    font-family:'Playfair Display',serif;
+    font-size: 1rem; font-weight: 700;
+    color: white; margin-bottom: 8px;
+  }
+  .rm-move p {
+    font-size: 12.5px; color: rgba(255,255,255,0.65);
+    margin-bottom: 0; line-height: 1.55;
+  }
+  .rm-move p strong { color: rgba(255,255,255,0.85); }
+
+  .rm-editorial {
+    background: rgba(200,150,70,0.1);
+    border: 1px solid rgba(200,150,70,0.25);
+    padding: 26px 30px;
+  }
+  .rm-editorial .rm-ed-label {
+    font-family:'JetBrains Mono',monospace;
+    font-size: 9.5px; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 14px; display: block;
+  }
+  .rm-editorial p {
+    font-size: 14px; color: rgba(255,255,255,0.8);
+    margin-bottom: 12px; line-height: 1.7;
+  }
+  .rm-editorial p:last-child { margin-bottom: 0; }
+  .rm-editorial strong { color: var(--gold); }
+
+  /* ── TABLA ─── */
+  .tw { overflow-x: auto; margin: 24px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead th {
+    background: var(--navy); color: white;
+    padding: 9px 14px; text-align: left;
+    font-weight: 500; font-size: 11.5px; letter-spacing: .04em;
+  }
+  tbody tr { border-bottom: 1px solid var(--rule); }
+  tbody tr:nth-child(even) { background: var(--mist); }
+  tbody td { padding: 9px 14px; color: var(--charcoal); vertical-align: top; line-height: 1.5; }
+  tbody td:first-child { font-weight: 600; color: var(--ink); }
+
+  /* FUENTES */
+  .fuentes {
+    background: var(--mist); border: 1px solid var(--rule);
+    padding: 18px 22px; margin: 44px 0 0;
+    font-size: 11.5px; color: var(--charcoal); line-height: 1.6;
+  }
+  .fuentes strong { color: var(--navy); font-size: 12px; display: block; margin-bottom: 6px; }
+
+  footer {
+    background: var(--ink); color: rgba(255,255,255,0.4);
+    padding: 18px 40px; font-size: 11.5px;
+    display: flex; justify-content: space-between;
+    flex-wrap: wrap; gap: 8px;
+  }
+  footer strong { color: var(--gold); }
+
+  @media(max-width:640px){
+    .cover { padding: 40px 20px 36px; }
+    .cover h1 { font-size: 1.9rem; }
+    .wrap { padding: 0 20px 40px; }
+    .country-body { grid-template-columns: 1fr; }
+    .rm-phases { grid-template-columns: 1fr 1fr; }
+    .rm-moves { grid-template-columns: 1fr; }
+    .roadmap { padding: 36px 20px; }
+    .cover-meta { gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PORTADA -->
+<div class="cover">
+  <div class="cover-stripe"></div>
+  <div class="cover-inner">
+    <div class="eyebrow">Community of Insurance · Insur·Insights · Análisis Regional</div>
+    <h1>El corredor latinoamericano<br>ante la IA.<br><em>Diagnóstico país a país<br>y horizonte 2030.</em></h1>
+    <p class="cover-sub">Más de 210.000 intermediarios en América Latina canalizan entre el 55 % y el 85 % de las primas. La mayoría depende de productos que la IA puede distribuir sin ellos. Este análisis evalúa la vulnerabilidad diferencial de Perú, Colombia, Argentina, Ecuador, Chile y México, y propone los movimientos posibles de adaptación hasta 2030.</p>
+    <div class="cover-meta">
+      <span><strong>Mercados</strong>Perú · Colombia · Argentina · Ecuador · Chile · México</span>
+      <span><strong>Horizonte</strong>2026–2030</span>
+      <span><strong>Metodología</strong>Fuentes verificadas · Sin proyecciones no atribuibles</span>
+      <span><strong>Publicación</strong>Agosto 2026</span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- STANDFIRST -->
+  <div class="standfirst">
+    <p>La pregunta no es si la IA llegará a los mercados de seguros latinoamericanos. Ya está llegando: el ecosistema insurtech regional alcanzó 576 compañías activas en 2026, con crecimiento del 14 % anual. La pregunta es si lo hará antes o después de que el corredor tenga tiempo de reposicionarse. La respuesta varía radicalmente por país —y la variable decisiva no es la tecnología disponible, sino la estructura de la cartera de cada intermediario. Este análisis cubre seis mercados: Perú, Colombia, Argentina, Ecuador, Chile y México.</p>
+  </div>
+
+  <!-- DATOS REGIÓN -->
+  <h2>El punto de partida regional: datos verificados</h2>
+
+  <div class="stat-strip">
+    <div class="stat-card">
+      <div class="stat-val">215 <span style="font-size:1rem">MM$</span></div>
+      <div class="stat-label">Primas mercado Latam 2024</div>
+      <div class="stat-src">Verificado · MAPFRE Economics, nov. 2025</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val">3,2<span style="font-size:1rem">%</span></div>
+      <div class="stat-label">Penetración media sobre PIB (Latam 2024)</div>
+      <div class="stat-src">Verificado · MAPFRE Economics</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val">316 <span style="font-size:1rem">MM$</span></div>
+      <div class="stat-label">Brecha de protección Latam 2024</div>
+      <div class="stat-src">Verificado · MAPFRE Economics (BPS)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val">+210k</div>
+      <div class="stat-label">Intermediarios activos en la región</div>
+      <div class="stat-src">Verificado · Figuro / reguladores, 2026</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val">576</div>
+      <div class="stat-label">Insurtechs activas en Latam (1S 2026)</div>
+      <div class="stat-src">Verificado · Latam Insurtech Journey / MAPFRE, jul. 2026</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val">18</div>
+      <div class="stat-label">Insurtechs de IA agéntica en Latam (2026)</div>
+      <div class="stat-src">Verificado · Latam Insurtech Journey / MAPFRE, jul. 2026</div>
+    </div>
+  </div>
+
+  <p>La región es el laboratorio perfecto para observar la disrupción digital en seguros en condiciones de alta informalidad, baja penetración y dependencia extrema del intermediario. La brecha de protección de 316.000 millones de dólares indica que hay un mercado enorme sin servir, pero también que el modelo actual —el corredor como único puente entre el ciudadano y el seguro— no ha conseguido cerrarlo. La IA no destruye ese mercado: compite por él con ventajas de coste, disponibilidad y escala que el intermediario individual no puede igualar sin transformarse.</p>
+
+  <!-- VARIABLE ESTRUCTURAL COMPARTIDA -->
+  <h2>Las cuatro variables que determinan la vulnerabilidad</h2>
+
+  <div class="var-grid">
+    <div class="var-card">
+      <div class="var-icon">📊</div>
+      <div class="var-title">Composición de cartera</div>
+      <div class="var-body">Un corredor con el 70–80 % de ingresos en SOAT, auto básico y hogar estándar es directamente sustituible. Uno con cartera en salud colectiva, vida riesgo empresa, fianzas o riesgos industriales, mucho menos.</div>
+    </div>
+    <div class="var-card">
+      <div class="var-icon">📱</div>
+      <div class="var-title">Penetración digital del cliente</div>
+      <div class="var-body">El cliente que ya compra en marketplaces y usa apps bancarias es el primero en migrar al canal IA. El cliente rural o informal, con menor acceso, convive más tiempo con el canal presencial.</div>
+    </div>
+    <div class="var-card">
+      <div class="var-icon">⚖️</div>
+      <div class="var-title">Marco regulatorio del intermediario</div>
+      <div class="var-body">Los países con regulación más estricta de la mediación (Colombia, Argentina) tienen más fricción para que la IA distribuya directamente. Los menos regulados tienen menor protección sectorial.</div>
+    </div>
+    <div class="var-card">
+      <div class="var-icon">🏦</div>
+      <div class="var-title">Peso de la bancaseguros</div>
+      <div class="var-body">Donde la banca ya domina la distribución masiva, la IA llega como herramienta del canal bancario, no como competidor del corredor. Donde el corredor tiene cuota alta, la IA compite directamente.</div>
+    </div>
+  </div>
+
+  <!-- PERÚ -->
+  <h2>Diagnóstico país a país</h2>
+
+  <div class="country-block">
+    <div class="country-header">
+      <div class="country-flag-col" style="background:#c0392b;"></div>
+      <div class="country-head-content">
+        <div>
+          <div class="country-name">🇵🇪 Perú</div>
+          <div class="country-subtitle">Penetración 2,0–2,1 % PIB · 17 aseguradoras · 5 top concentran el 84,7 % de primas</div>
+        </div>
+        <span class="risk-badge risk-muy-alto">Vulnerabilidad: Muy Alta</span>
+      </div>
+    </div>
+    <div class="country-body">
+      <div class="country-col">
+        <h3>Factores de riesgo para el corredor</h3>
+        <ul>
+          <li><span class="li-ico red">▲</span>El SOAT es el producto más vendido por corredores; ya está digitalizado. El corredor que usa SOAT como "puerta de entrada" perderá ese gancho progresivamente.</li>
+          <li><span class="li-ico red">▲</span>Perú es el país con mayor atracción de insurtechs extranjeras: 68 % del total activo. El 68 % de las insurtechs activas son extranjeras —la presión competidora es la más intensa de la región.</li>
+          <li><span class="li-ico red">▲</span>Penetración del 2,0–2,1 % PIB y mercado muy concentrado: las 5 principales aseguradoras ya tienen infraestructura digital propia que pueden activar para ir directas al cliente.</li>
+          <li><span class="li-ico red">▲</span>Soluciones insurtech de distribución digital ya activas en nichos de mercado masivo (autos, hogar, accidentes).</li>
+        </ul>
+      </div>
+      <div class="country-col">
+        <h3>Factores de resistencia y oportunidad</h3>
+        <ul>
+          <li><span class="li-ico green">▼</span>Alta economía informal: el cliente no bancarizado sigue dependiendo del corredor presencial para productos con asesoramiento.</li>
+          <li><span class="li-ico green">▼</span>Crecimiento de rentas vitalicias y seguros previsionales ligados al SPP: productos complejos donde el corredor especializado tiene ventaja.</li>
+          <li><span class="li-ico green">▼</span>Mercado aún poco maduro en seguro empresarial: espacio para el corredor de riesgos corporativos.</li>
+          <li><span class="li-ico green">▼</span>La propia penetración del 2 % indica que hay mercado nuevo por servir, que la IA puede activar y donde el corredor puede ser el implementador.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="country-verdict">
+      <strong>Veredicto:</strong> El corredor peruano de personal lines masivas es el más expuesto de la región. La combinación de alta atracción de insurtechs extranjeras, digitalización del SOAT y concentración del mercado asegurador en pocas manos con músculo digital supone la tormenta perfecta para el intermediario sin especialización. Los corredores que sobrevivan lo harán vía reconversión hacia rentas, seguro de vida empresarial y gestión de cartera corporativa.
+    </div>
+  </div>
+
+  <!-- COLOMBIA -->
+  <div class="country-block">
+    <div class="country-header">
+      <div class="country-flag-col col"></div>
+      <div class="country-head-content">
+        <div>
+          <div class="country-name">🇨🇴 Colombia</div>
+          <div class="country-subtitle">Penetración 3,3 % PIB · 22.668 intermediarios · Comisiones SOAT reguladas al 5 %</div>
+        </div>
+        <span class="risk-badge risk-alto">Vulnerabilidad: Alta</span>
+      </div>
+    </div>
+    <div class="country-body">
+      <div class="country-col">
+        <h3>Factores de riesgo para el corredor</h3>
+        <ul>
+          <li><span class="li-ico red">▲</span>El SOAT ya migró parcialmente al canal digital; la Ley 2161 de 2021 redujo la comisión máxima del 12,3 % al 5 %, señal de la presión regulatoria sobre los productos commodity.</li>
+          <li><span class="li-ico red">▲</span>53 % de insurtechs activas son extranjeras —segunda mayor concentración de la región.</li>
+          <li><span class="li-ico red">▲</span>22.668 intermediarios compitiendo en un mercado que ya tiene canales digitales maduros (Sura, Bolívar, Suramericana con apps propias).</li>
+          <li><span class="li-ico red">▲</span>El cliente urbano colombiano tiene alta adopción de servicios financieros digitales: Nequi, Daviplata, Bancolombia App suman decenas de millones de usuarios activos.</li>
+        </ul>
+      </div>
+      <div class="country-col">
+        <h3>Factores de resistencia y oportunidad</h3>
+        <ul>
+          <li><span class="li-ico green">▼</span>Marco regulatorio de intermediación más estructurado (SFC). La Superintendencia Financiera puede frenar o regular la distribución directa de IA.</li>
+          <li><span class="li-ico green">▼</span>Comisiones en vida individual (hasta 24 % en algunas compañías): este segmento sigue siendo intensivo en asesoramiento humano.</li>
+          <li><span class="li-ico green">▼</span>Mercado de ARL (Administración de Riesgos Laborales) altamente técnico: el corredor especializado tiene posición muy protegida.</li>
+          <li><span class="li-ico green">▼</span>Fuerte brecha de protección en PYMES y microempresas: mercado que la IA puede activar pero que necesita asesoramiento para estructurar la cobertura.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="country-verdict">
+      <strong>Veredicto:</strong> Colombia tiene la dualidad más marcada de la región: un sector intermediador grande (22.668 agentes) con alta dependencia en productos ya en fase de comoditización, pero también los productos de mayor valor añadido más protegidos (ARL, vida colectiva, seguros empresariales). La presión se concentrará en el segmento de personas naturales urbano. Los corredores con cartera empresarial y de beneficios colectivos tienen el mejor colchón de la región.
+    </div>
+  </div>
+
+  <!-- ARGENTINA -->
+  <div class="country-block">
+    <div class="country-header">
+      <div class="country-flag-col arg"></div>
+      <div class="country-head-content">
+        <div>
+          <div class="country-name">🇦🇷 Argentina</div>
+          <div class="country-subtitle">49.433 PAS · 1.010 sociedades · Canal intermediado: 72 % del total (récord histórico)</div>
+        </div>
+        <span class="risk-badge risk-medio">Vulnerabilidad: Media-Alta (diferida por contexto macro)</span>
+      </div>
+    </div>
+    <div class="country-body">
+      <div class="country-col">
+        <h3>Factores de riesgo para el corredor</h3>
+        <ul>
+          <li><span class="li-ico red">▲</span>El canal PAS tiene el 72 % de la producción total, su máximo histórico. Eso implica que la base es grande y el impacto proporcional de una migración al canal IA será mayor.</li>
+          <li><span class="li-ico red">▲</span>Argentina cuenta con 110 insurtechs activas (+16 % anual). El ecosistema crece con fuerza relativa al tamaño del mercado.</li>
+          <li><span class="li-ico red">▲</span>El seguro de autos es el producto principal del PAS argentino; con alta inflación, el cliente busca el precio más bajo de manera compulsiva, comportamiento favorecedor de los comparadores digitales.</li>
+          <li><span class="li-ico red">▲</span>Alta concentración de PAS pequeños unipersonales sin capacidad de inversión en tecnología o reconversión de cartera.</li>
+        </ul>
+      </div>
+      <div class="country-col">
+        <h3>Factores de resistencia y oportunidad</h3>
+        <ul>
+          <li><span class="li-ico green">▼</span>La inestabilidad macroeconómica crónica (inflación, tipo de cambio) desincentiva la inversión de insurtechs extranjeras en el mercado y ralentiza la transformación digital del sector.</li>
+          <li><span class="li-ico green">▼</span>El cliente argentino tiene alta desconfianza en sistemas digitales para contratos de largo plazo; el PAS tiene ventaja relacional difícil de replicar digitalmente.</li>
+          <li><span class="li-ico green">▼</span>El seguro de caución y garantías —muy activo en el sector de contratos públicos— requiere experiencia técnica que el IA no puede sustituir en el corto plazo.</li>
+          <li><span class="li-ico green">▼</span>La SSN tiene margen regulatorio para proteger al canal intermediado si lo considera económicamente estratégico (historial de regulación proteccionista).</li>
+        </ul>
+      </div>
+    </div>
+    <div class="country-verdict">
+      <strong>Veredicto:</strong> Argentina es el caso más paradójico: tiene el mayor porcentaje de mercado en manos de intermediarios de la región (72 %) pero también el entorno macro que, paradójicamente, ralentiza la disrupción tecnológica. La vulnerabilidad del PAS argentino es real pero diferida: el reloj corre más lento que en Perú o Colombia, pero el destino sin adaptación es el mismo. La estabilización macroeconómica acelerará la transformación digital del canal de manera brusca.
+    </div>
+  </div>
+
+  <!-- ECUADOR -->
+  <div class="country-block">
+    <div class="country-header">
+      <div class="country-flag-col ecu"></div>
+      <div class="country-head-content">
+        <div>
+          <div class="country-name">🇪🇨 Ecuador</div>
+          <div class="country-subtitle">Mercado pequeño · Dolarizado · Baja penetración · Alta dependencia del corredor en empresas</div>
+        </div>
+        <span class="risk-badge risk-alto2">Vulnerabilidad: Alta (segmento masivo) / Baja (corporativo)</span>
+      </div>
+    </div>
+    <div class="country-body">
+      <div class="country-col">
+        <h3>Factores de riesgo para el corredor</h3>
+        <ul>
+          <li><span class="li-ico red">▲</span>Economía dolarizada que facilita la inversión de plataformas digitales extranjeras sin riesgo cambiario —mercado más accesible para insurtechs de fuera.</li>
+          <li><span class="li-ico red">▲</span>Baja penetración aseguradora general: el segmento masivo está subdesarrollado, lo que lo hace especialmente atractivo para modelos IA que pueden penetrarlo con bajo coste de distribución.</li>
+          <li><span class="li-ico red">▲</span>Alta concentración bancaria que convierte a los bancos en distribuidores naturales de seguros digitales, con potencial de desplazar al corredor independiente en productos sencillos.</li>
+        </ul>
+      </div>
+      <div class="country-col">
+        <h3>Factores de resistencia y oportunidad</h3>
+        <ul>
+          <li><span class="li-ico green">▼</span>El corredor ecuatoriano tiene posición fuerte en el segmento empresarial y de exportaciones, donde el asesoramiento técnico es esencial (SICE, seguros de comercio exterior, fianzas).</li>
+          <li><span class="li-ico green">▼</span>Mercado pequeño en volumen absoluto: las insurtechs priorizan Brasil, México, Colombia y Argentina antes que Ecuador, lo que otorga una ventana temporal mayor de adaptación.</li>
+          <li><span class="li-ico green">▼</span>La dolarización favorece la estabilidad de los contratos de seguros a largo plazo, que son el nicho donde el corredor mantiene ventaja relacional.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="country-verdict">
+      <strong>Veredicto:</strong> Ecuador tiene la peculiaridad de ser pequeño y dolarizado al mismo tiempo: fácil de entrar para plataformas digitales (sin riesgo FX) pero poco prioritario en el ranking de expansión regional. El corredor tiene más tiempo que en Perú o Colombia, pero el perfil de riesgo es similar en el segmento masivo. La posición en el segmento corporativo y de comercio exterior es su principal activo diferencial.
+    </div>
+  </div>
+
+  <!-- CHILE -->
+  <div class="country-block">
+    <div class="country-header">
+      <div class="country-flag-col" style="background:#c0392b;"></div>
+      <div class="country-head-content">
+        <div>
+          <div class="country-name">🇨🇱 Chile</div>
+          <div class="country-subtitle">Penetración 4,6 % PIB · Segundo mercado más desarrollado de Latam · Primas per cápita 762 US$ · Previsional = 66 % del mercado total</div>
+        </div>
+        <span class="risk-badge risk-medio">Vulnerabilidad: Media (masivo) / Muy Baja (previsional)</span>
+      </div>
+    </div>
+    <div class="country-body">
+      <div class="country-col">
+        <h3>Factores de riesgo para el corredor</h3>
+        <ul>
+          <li><span class="li-ico red">▲</span>El SOAP (equivalente chileno del SOAT) ya opera mayoritariamente en canal digital: en 2024 se vendieron 1.020 pólizas SOAP por minuto. El canal corredor en este producto es testimonial.</li>
+          <li><span class="li-ico red">▲</span>Chile es el mercado latinoamericano más digitalizado financieramente: bancarización superior al 80 %, alta adopción de apps bancarias y fintechs. El cliente está listo para el canal IA antes que en ningún otro país de la región.</li>
+          <li><span class="li-ico red">▲</span>El segmento de seguros generales masivos (vehículos 23,7 %, incendio 12,7 %) ya cuenta con distribución directa significativa vía bancaseguros y retail, que comprime el espacio del corredor independiente.</li>
+          <li><span class="li-ico red">▲</span>112 insurtechs activas (4º ecosistema de la región), con alta inversión en distribución digital y telemática vehicular.</li>
+        </ul>
+      </div>
+      <div class="country-col">
+        <h3>Factores de resistencia y oportunidad</h3>
+        <ul>
+          <li><span class="li-ico green">▼</span>El 66 % del mercado chileno son seguros previsionales (rentas vitalicias, SIS). Son productos de alta complejidad, vinculados al sistema AFP, donde el asesoramiento es esencial y 7 de cada 10 pensionados los contratan. La IA no desplaza al corredor en este segmento a corto plazo.</li>
+          <li><span class="li-ico green">▼</span>Marco regulatorio de la CMF —uno de los más robustos de la región— que exige estándares técnicos y de idoneidad al corredor. Protección regulatoria real ante la distribución directa sin intermediario.</li>
+          <li><span class="li-ico green">▼</span>Alta sofisticación del cliente corporativo chileno: demanda productos de seguro complejos (terremoto, D&O, cyber, comercio exterior) donde el asesoramiento técnico del corredor es insustituible.</li>
+          <li><span class="li-ico green">▼</span>El corredor chileno está mejor posicionado tecnológicamente que sus pares regionales para adoptar herramientas IA como multiplicador de productividad.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="country-verdict">
+      <strong>Veredicto:</strong> Chile es el caso más diferenciado de la región porque su mercado ya está estructuralmente bifurcado: el 66 % es previsional y blindado ante la disrupción de canal, y el resto es masivo donde la presión digital llega antes que en el resto de Latam precisamente por la alta madurez del consumidor. El corredor chileno de rentas vitalicias y seguros de empresa está muy protegido. El corredor de auto, hogar y masivo básico es el más expuesto de toda la región en términos de velocidad de disrupción, porque el cliente ya está listo para el cambio de canal antes que el propio intermediario.
+    </div>
+  </div>
+
+  <!-- MÉXICO -->
+  <div class="country-block">
+    <div class="country-header">
+      <div class="country-flag-col" style="background:#27ae60;"></div>
+      <div class="country-head-content">
+        <div>
+          <div class="country-name">🇲🇽 México</div>
+          <div class="country-subtitle">Penetración 2,95 % PIB · ~90.000 agentes CNSF · Mayor mercado de Latam tras Brasil · Canal agente: 53–55 % de la prima total</div>
+        </div>
+        <span class="risk-badge risk-alto">Vulnerabilidad: Alta (masivo urbano) / Media (empresa)</span>
+      </div>
+    </div>
+    <div class="country-body">
+      <div class="country-col">
+        <h3>Factores de riesgo para el corredor</h3>
+        <ul>
+          <li><span class="li-ico red">▲</span>~90.000 agentes registrados ante la CNSF que colocan entre el 53 % y el 55 % de la prima total. Una base enorme de intermediarios de los que una fracción significativa opera en personal lines estándar y auto, directamente vulnerables al canal digital.</li>
+          <li><span class="li-ico red">▲</span>México tiene 150 insurtechs activas (2º ecosistema de la región tras Brasil) y es el tercer país por atracción de insurtechs extranjeras (42 %). La presión competidora digital es de las más altas del continente.</li>
+          <li><span class="li-ico red">▲</span>La penetración del 2,95 % del PIB —crecida un punto porcentual en la última década— muestra un mercado en expansión pero con brecha de protección estructural. Las plataformas IA llegan con el argumento de cerrar esa brecha más rápido y más barato que el canal agente.</li>
+          <li><span class="li-ico red">▲</span>Grandes grupos aseguradores (GNP, Qualitas, Mapfre, AXA) ya operan módulos de IA para suscripción en auto y vida individual, y distribución digital directa al consumidor, con emisión inmediata de póliza sin intervención del agente. Según datos de la CNSF al cierre de 2025, varios de los diez primeros por prima emitida ya tienen IA en atención a clientes, detección de fraude y suscripción automatizada.</li>
+          <li><span class="li-ico red">▲</span>El mercado de gastos médicos mayores ha tenido pérdida operativa del 2021 al 2025, según AMIS —presión que empuja a las aseguradoras a digitalizar para reducir costes operativos de distribución.</li>
+        </ul>
+      </div>
+      <div class="country-col">
+        <h3>Factores de resistencia y oportunidad</h3>
+        <ul>
+          <li><span class="li-ico green">▼</span>Mercado corporativo y de grandes empresas muy activo: México tiene la mayor concentración de empresas multinacionales de Latam, con demanda de coberturas sofisticadas (D&O, cyber, transporte, riesgos industriales) donde el broker especializado es el canal natural.</li>
+          <li><span class="li-ico green">▼</span>Alta economía informal y rural (40+ % de la población activa): el canal digital llega al cliente urbano, pero la microempresa, el comercio informal y el trabajador rural siguen siendo accesibles principalmente vía agente de confianza.</li>
+          <li><span class="li-ico green">▼</span>Los corredores e intermediarios mexicanos que ya usan herramientas de IA generativa para comparativos de cobertura y propuestas técnicas a clientes corporativos son el perfil que mejor sobrevive: la IA como herramienta, no como competidor.</li>
+          <li><span class="li-ico green">▼</span>La CNSF tiene capacidad regulatoria para establecer requisitos que protejan el rol del intermediario humano en determinados ramos, como ya ocurre en vida y salud colectiva con empleadores.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="country-verdict">
+      <strong>Veredicto:</strong> México es el mercado donde la disrupción será más visible en términos absolutos por escala: 90.000 agentes, segundo ecosistema insurtech de la región, y las principales aseguradoras ya con IA en producción. La bifurcación entre el agente de masivo —amenazado— y el corredor corporativo —protegido— se producirá aquí antes y con mayor intensidad que en cualquier otro mercado hispanoamericano, probablemente antes que en Argentina o Ecuador. El factor diferencial es que México tiene también el mayor mercado corporativo y de pymes de la región: el corredor que haga el pivote hacia ese segmento tiene la mayor oportunidad de crecimiento de toda Latam.
+    </div>
+  </div>
+
+  <!-- TABLA COMPARATIVA -->
+  <h2>Cuadro comparativo de vulnerabilidad</h2>
+
+  <div class="tw">
+    <table>
+      <thead>
+        <tr>
+          <th>País</th>
+          <th>Penetración PIB</th>
+          <th>Intermediarios</th>
+          <th>Principal exposición</th>
+          <th>Velocidad disrupción estimada</th>
+          <th>Principal defensa del corredor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>🇵🇪 Perú</td>
+          <td>2,0–2,1 %</td>
+          <td>N.D. exacto; mercado muy concentrado</td>
+          <td>SOAT digitalizado, auto y hogar masivo; 68 % insurtechs son extranjeras</td>
+          <td style="color:var(--red); font-weight:600;">Alta · 2026–2028</td>
+          <td>Rentas vitalicias SPP, riesgos corporativos</td>
+        </tr>
+        <tr>
+          <td>🇨🇴 Colombia</td>
+          <td>3,3 %</td>
+          <td>22.668 intermediarios (SFC)</td>
+          <td>SOAT ya en 5 % de comisión; masivo urbano digitalizado</td>
+          <td style="color:#e67e22; font-weight:600;">Alta · 2027–2029</td>
+          <td>ARL, vida colectiva, seguros empresariales</td>
+        </tr>
+        <tr>
+          <td>🇦🇷 Argentina</td>
+          <td>~2,3 %</td>
+          <td>49.433 PAS + 1.010 sociedades (SSN)</td>
+          <td>Auto masivo; alta concentración en PAS pequeños sin escala</td>
+          <td style="color:#f39c12; font-weight:600;">Media · 2028–2030 (macro dependiente)</td>
+          <td>Relación personal, caución, seguro empresarial</td>
+        </tr>
+        <tr>
+          <td>🇪🇨 Ecuador</td>
+          <td>~2,0 %</td>
+          <td>N.D. exacto; mercado pequeño</td>
+          <td>Masivo dolarizado accesible para digitales; bancaseguros creciente</td>
+          <td style="color:#f39c12; font-weight:600;">Media · 2028–2030 (mercado pequeño)</td>
+          <td>Segmento corporativo, comercio exterior, fianzas</td>
+        </tr>
+        <tr>
+          <td>🇨🇱 Chile</td>
+          <td>4,6 %</td>
+          <td>N.D. exacto; regulado por CMF</td>
+          <td>SOAP ya digital; auto/hogar masivo con cliente digitalmente maduro; 112 insurtechs</td>
+          <td style="color:var(--red); font-weight:600;">Muy Alta (masivo) · 2026–2028 / Muy Baja (previsional)</td>
+          <td>Rentas vitalicias, SIS previsional, seguros de empresa y terremoto</td>
+        </tr>
+        <tr>
+          <td>🇲🇽 México</td>
+          <td>2,95 %</td>
+          <td>~90.000 agentes (CNSF)</td>
+          <td>150 insurtechs; aseguradoras con IA ya en producción; auto y vida masivo expuesto</td>
+          <td style="color:#e67e22; font-weight:600;">Alta · 2027–2029 (por escala)</td>
+          <td>Mercado corporativo/multinacional, segmento PYME, canal rural</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div><!-- /wrap -->
+
+<!-- ROADMAP 2030 -->
+<div class="roadmap">
+  <div class="roadmap-inner">
+    <span class="eyebrow-rm">Insur·Insights · Horizonte estratégico</span>
+    <h2>Los movimientos posibles hasta 2030:<br>adaptarse o desaparecer del segmento masivo</h2>
+
+    <!-- FASES -->
+    <div class="rm-phases">
+      <div class="rm-phase">
+        <span class="rm-phase-label">2026 · Ahora</span>
+        <h3>El shock de visibilidad</h3>
+        <ul>
+          <li>Las insurtechs con IA agéntica comienzan a operar en Latam</li>
+          <li>El SOAT digital ya compite sin corredor en Perú y Colombia</li>
+          <li>Los primeros brokers ven caída de entradas de clientes nuevos en masivo</li>
+          <li>La mayoría no actúa: "aquí no es como en Europa"</li>
+        </ul>
+      </div>
+      <div class="rm-phase">
+        <span class="rm-phase-label">2027–2028 · Aceleración</span>
+        <h3>La presión sobre comisiones</h3>
+        <ul>
+          <li>Aseguradoras renegocian comisiones en auto y hogar básico</li>
+          <li>Primeras plataformas IA-first de distribución de seguros lanzadas en la región</li>
+          <li>Los bancos digitales integran cotización de seguros en sus apps</li>
+          <li>Primeros cierres de corredurías unipersonales sin cartera diferenciada</li>
+        </ul>
+      </div>
+      <div class="rm-phase">
+        <span class="rm-phase-label">2028–2029 · Bifurcación</span>
+        <h3>El mercado se parte en dos</h3>
+        <ul>
+          <li>Correduría especializada en riesgos complejos: margen creciente y alta demanda</li>
+          <li>Correduría de masivo: compresión severa de comisiones o extinción</li>
+          <li>M&A entre corredurías medianas para ganar escala y capacidad tecnológica</li>
+          <li>Los gremios presionan por regulación que proteja el canal</li>
+        </ul>
+      </div>
+      <div class="rm-phase">
+        <span class="rm-phase-label">2030 · Nuevo equilibrio</span>
+        <h3>El corredor como orquestador</h3>
+        <ul>
+          <li>Canal IA domina personal lines estándar en zonas urbanas</li>
+          <li>Corredor superviviente = asesor de riesgos + gestor de siniestros + consultor</li>
+          <li>El corredor rural o de nicho mantiene su posición por acceso físico</li>
+          <li>Reducción del 20–30 % del número total de intermediarios activos en masivo</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- MOVIMIENTOS DE ADAPTACIÓN -->
+    <p style="color:rgba(255,255,255,0.5); font-size:12px; text-transform:uppercase; letter-spacing:.15em; font-family:'JetBrains Mono',monospace; margin-bottom:20px;">Los seis movimientos posibles de adaptación</p>
+
+    <div class="rm-moves">
+      <div class="rm-move">
+        <div class="rm-move-num">01</div>
+        <h4>Especialización acelerada en riesgos complejos</h4>
+        <p>Reconversión de cartera hacia seguros empresariales, de exportación, fianzas, D&O, cyber, responsabilidad civil y salud colectiva. <strong>Requiere inversión en formación técnica</strong> que la mayoría de corredoras medianas no tiene planificada. El corredor que haga este movimiento en 2026–2027 llega con ventaja; el que lo intente en 2029, llega tarde.</p>
+      </div>
+      <div class="rm-move">
+        <div class="rm-move-num">02</div>
+        <h4>Conversión en canal IA: ser parte del sistema, no competir contra él</h4>
+        <p>El corredor que conecte su cartera a los SDKs de distribución agéntica (modelo Waniwani) se convierte en <strong>proveedor de oferta para el canal IA</strong>, no en su víctima. Requiere modernización de sistemas, API-first, y voluntad de compartir margen con la plataforma. Es el movimiento más contraintuitivo y el más necesario.</p>
+      </div>
+      <div class="rm-move">
+        <div class="rm-move-num">03</div>
+        <h4>Fusión y consolidación: ganar escala para invertir en tecnología</h4>
+        <p>El corredor unipersonal no puede financiar la transformación digital solo. <strong>La consolidación de corredurías medianas</strong> en grupos de 50–200 M$ de primas intermediadas es el movimiento que permite invertir en plataformas propias, talento especializado y conectividad con el ecosistema insurtech. En Argentina y Colombia este movimiento ya está en curso en el segmento alto.</p>
+      </div>
+      <div class="rm-move">
+        <div class="rm-move-num">04</div>
+        <h4>El corredor como gestor de siniestros y defensor del asegurado</h4>
+        <p>La IA puede cotizar y vender. <strong>No puede representar al asegurado en un siniestro complejo</strong>, negociar con el perito, recurrir una decisión de la aseguradora ni gestionar la relación emocional de un cliente en crisis. Este rol —el corredor como abogado del asegurado— es el que tiene el mayor valor añadido y el más protegido ante la automatización.</p>
+      </div>
+      <div class="rm-move">
+        <div class="rm-move-num">05</div>
+        <h4>Acercar el seguro al mercado informal: la IA como aliada de la inclusión</h4>
+        <p>La brecha de protección de 316.000 millones de dólares en Latam es, también, una oportunidad. <strong>El corredor con presencia en comunidades, sectores rurales o economía informal</strong> puede usar la IA como herramienta de cotización y emisión, pero aportar el acceso físico y la confianza que la plataforma digital no tiene. Esto aplica especialmente a Perú, Ecuador y zonas rurales de Colombia y Argentina.</p>
+      </div>
+      <div class="rm-move">
+        <div class="rm-move-num">06</div>
+        <h4>Alianzas con gremios y reguladores para definir el nuevo rol del mediador</h4>
+        <p>Los gremios de corredores latinoamericanos (FIDES y nacionales) tienen la oportunidad de <strong>influir en el marco regulatorio</strong> que defina cómo la IA puede distribuir seguros y qué rol obligatorio —o protegido— mantiene el intermediario. Las legislaciones de mediación en Colombia y Argentina tienen más densidad regulatoria que en España; esa diferencia puede ser un escudo temporal si se usa proactivamente.</p>
+      </div>
+    </div>
+
+    <div class="rm-editorial">
+      <span class="rm-ed-label">Valoración editorial COI · Carlos Biurrun</span>
+      <p>Hay una diferencia crítica entre el corredor latinoamericano y el español ante esta disrupción: <strong>el latinoamericano tiene más tiempo, pero menos recursos para aprovecharlo</strong>. El retraso en la adopción tecnológica que históricamente ha sido una debilidad del sector en la región se convierte aquí, paradójicamente, en una ventana temporal. La disrupción llegará antes a Lima y Bogotá que a Cuzco o Cartagena, antes al seguro de autos urbano que al seguro agropecuario.</p>
+      <p>Pero la mayor amenaza no viene de fuera. Viene de adentro: de la actitud de esperar, de creer que "el cliente latinoamericano necesita la relación personal" como argumento definitivo. El cliente latinoamericano también pensaba que necesitaba ir al banco para sacar dinero. Luego llegó Nequi, Daviplata, Mercado Pago y Nubank. <strong>La transformación del comportamiento financiero del consumidor latinoamericano ha demostrado ser más rápida que la de cualquier mercado desarrollado</strong> una vez que la experiencia de usuario lo justifica.</p>
+      <p>El corredor que en 2030 siga siendo relevante en Latinoamérica no será el que resistió a la IA. Será el que la usó para multiplicar su capacidad de asesoramiento real, y dejó a las máquinas lo que siempre fue trabajo de máquinas: rellenar formularios, comparar precios y emitir pólizas estándar.</p>
+    </div>
+
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="fuentes">
+    <strong>Fuentes verificadas</strong>
+    MAPFRE Economics: "El mercado asegurador latinoamericano en 2024" (nov. 2025) · Latam Insurtech Journey 12ª edición, Digital Insurance Latam / MAPFRE (jul. 2026) · Figuro: "Comisiones de Seguros en LATAM" (abr. 2026) · PCR Rating Perú: "Sector Seguros Perú" (ago. 2025) · Moody's Local: perspectivas sector asegurador Latam 2026 · Argentina.gob.ar / SSN: registro PAS (2026) · Superintendencia Financiera de Colombia / Fasecolda: intermediarios y comisiones 2024 · AJG Latam: "5 tendencias del mercado asegurador en Latinoamérica para 2026" (jul. 2026) · RGA: "Oportunidades emergentes para el sector asegurador en América Latina" (may. 2025) · Ley 2161 de 2021 (Colombia): reducción comisión SOAT · CMF Chile: Informe Financiero del Mercado Asegurador (2024) · CMF Chile: Intermediarios de Seguros · La Tercera / Insurtechile: "Chile segundo mercado más desarrollado de Latinoamérica" (nov. 2025) · Diario Financiero: "Southbridge alcanza 25 % del mercado SOAP" (feb. 2025) · 100% SEGURO: "Chile tiene un mercado asegurador dinámico" (ago. 2026) · AMIS México / Yahoo Noticias: "Penetración de seguros en México es de 2,95 % del PIB" (may. 2026) · CNSF México: Panorama Analítico del Sector de Seguros y Fianzas 1T 2025 · Cultura del Contrato de Seguro: "IA Generativa en Seguros México 2026" (may. 2026) · Rankings Latam: "Insurance Sales Channels in Mexico" (sep. 2025) · PwC Insurance 2030: "What is the future of insurance distribution?" · McKinsey: "How AI will reshape the economics of insurance" (jul. 2026) · McKinsey: "Informe Global de Seguros 2025: en busca del crecimiento en América Latina".
+  </div>
+</div>
+
+<footer>
+  <div><strong>Community of Insurance</strong> · Insur·Insights · Análisis Regional · Agosto 2026</div>
+  <div>carlos.biurrun@communityofinsurance.com</div>
+</footer>
+
+</body>
+</html>
