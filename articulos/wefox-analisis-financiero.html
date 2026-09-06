@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wefox — Análisis Financiero Integral 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  
+  :root {
+    --wf-blue: #1A4A8A;
+    --wf-teal: #1A4A8A;
+    --wf-light: #6699CC;
+    --wf-bg: #FFFFFF;
+    --wf-surface: #F7F9FC;
+    --wf-mid: #EEF2F7;
+    --wf-white: #0D1520;
+    --wf-gray: #4A6070;
+    --wf-green: #1B7A3B;
+    --wf-red: #C0392B;
+    --wf-amber: #B7770D;
+    --wf-danger: #C0392B;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #FFFFFF;
+    color: #0D1520;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: #0D2240;
+    padding: 80px 64px 60px;
+    border-bottom: 4px solid #4A90D9;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: 'WEFOX';
+    position: absolute;
+    right: -30px;
+    top: -20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 220px;
+    font-weight: 900;
+    color: #ffffff06;
+    letter-spacing: -8px;
+    user-select: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 400px; height: 4px;
+    background: linear-gradient(to left, #4A90D9, transparent);
+  }
+  .hero-badge {
+    display: inline-block;
+    background: #4A90D9;
+    color: #FFFFFF;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 6px 14px;
+    margin-bottom: 28px;
+    text-transform: uppercase;
+  }
+  .hero-badge.private {
+    background: transparent;
+    color: #7EC8F5;
+    border: 1px solid #4A90D9;
+    margin-left: 10px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 6vw, 80px);
+    font-weight: 900;
+    line-height: 1.0;
+    letter-spacing: -2px;
+    color: #FFFFFF;
+    margin-bottom: 8px;
+  }
+  .hero h1 span { color: #7EC8F5; }
+  .hero-sub {
+    font-size: 16px;
+    color: #B8D4EE;
+    max-width: 600px;
+    margin-top: 20px;
+    font-weight: 300;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 40px;
+    margin-top: 48px;
+    flex-wrap: wrap;
+  }
+  .meta-item { display: flex; flex-direction: column; gap: 4px; }
+  .meta-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #7EB5D9;
+    text-transform: uppercase;
+  }
+  .meta-value {
+    font-size: 22px;
+    font-weight: 700;
+    color: #FFFFFF;
+    font-family: 'Playfair Display', serif;
+  }
+  .meta-value.teal { color: #7EC8F5; }
+  .meta-value.red { color: #FF8A80; }
+  .meta-value.amber { color: #FFD54F; }
+
+  /* ── ALERT BANNER ── */
+  .alert-banner {
+    background: #FFF5F5;
+    border-top: 4px solid #C0392B;
+    border-bottom: 1px solid #FFCDD2;
+    padding: 16px 64px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .alert-icon { font-size: 20px; }
+  .alert-text { font-size: 13px; color: #6B2020; line-height: 1.5; }
+  .alert-text strong { color: #C0392B; }
+
+  /* ── KPI STRIP ── */
+  .kpi-strip {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    border-bottom: 1px solid #D0D8E8;
+  }
+  .kpi-cell {
+    padding: 32px 28px;
+    border-right: 1px solid #D0D8E8;
+    position: relative;
+  }
+  .kpi-cell:last-child { border-right: none; }
+  .kpi-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: var(--wf-gray);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .kpi-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 900;
+    color: #1A4A8A;
+    line-height: 1;
+  }
+  .kpi-num.red { color: var(--wf-red); }
+  .kpi-num.amber { color: var(--wf-amber); }
+  .kpi-num.white { color: #0D1520; }
+  .kpi-sub {
+    font-size: 12px;
+    color: var(--wf-gray);
+    margin-top: 6px;
+  }
+  .kpi-delta {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 2px;
+  }
+  .kpi-delta.up { background: #E8F5E9; color: #1B7A3B; }
+  .kpi-delta.down { background: #FFF5F5; color: #C0392B; }
+  .kpi-delta.neutral { background: #FFF8E1; color: #B7770D; }
+
+  /* ── SECTION ── */
+  .section {
+    padding: 64px;
+    border-bottom: 1px solid #D0D8E8;
+  }
+  .section.dark { background: #F7F9FC; }
+  .section-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--wf-teal);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 700;
+    line-height: 1.1;
+    color: #FFFFFF;
+    margin-bottom: 40px;
+    border-bottom: 2px solid var(--wf-teal);
+    padding-bottom: 20px;
+    display: inline-block;
+  }
+
+  /* ── GRIDS ── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+  .four-col { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+
+  /* ── FOUNDER CARD ── */
+  .founder-card {
+    background: #EEF2F7;
+    padding: 28px;
+    border-top: 3px solid var(--wf-teal);
+  }
+  .founder-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 4px;
+  }
+  .founder-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--wf-teal);
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .founder-bio { font-size: 13px; color: #445566; line-height: 1.6; }
+
+  /* ── TIMELINE ── */
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px; top: 6px; bottom: 6px;
+    width: 2px;
+    background: linear-gradient(to bottom, #1A4A8A, #CCCCCC);
+  }
+  .timeline-item { position: relative; margin-bottom: 28px; }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -28px; top: 6px;
+    width: 10px; height: 10px;
+    background: var(--wf-teal);
+    border-radius: 50%;
+  }
+  .timeline-item.crisis::before { background: var(--wf-red); }
+  .timeline-item.pivot::before { background: var(--wf-amber); }
+  .t-year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--wf-teal);
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .t-year.crisis { color: var(--wf-red); }
+  .t-year.pivot { color: var(--wf-amber); }
+  .t-event { font-size: 14px; color: #445566; line-height: 1.5; }
+  .t-event strong { color: #0D1520; }
+
+  /* ── PILLARS ── */
+  .pillar {
+    background: #F5F8FC;
+    border: 1px solid #D0D8E8;
+    padding: 26px;
+    border-top: 3px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .pillar:hover { border-top-color: #1A4A8A; }
+  .pillar-icon { font-size: 26px; margin-bottom: 12px; }
+  .pillar-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+  }
+  .pillar-text { font-size: 13px; color: #556677; line-height: 1.6; }
+
+  /* ── TABLE ── */
+  .data-table { width: 100%; border-collapse: collapse; }
+  .data-table th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: var(--wf-gray);
+    text-transform: uppercase;
+    text-align: right;
+    padding: 10px 14px;
+    border-bottom: 1px solid #D0D8E8;
+  }
+  .data-table th:first-child { text-align: left; }
+  .data-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #0d1b2a;
+    text-align: right;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: #445566;
+  }
+  .data-table td:first-child {
+    text-align: left;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #0D1520;
+  }
+  .data-table tr:hover td { background: #F5F8FC; }
+  .data-table .highlight { color: var(--wf-teal); font-weight: 600; }
+  .data-table .negative { color: var(--wf-red); }
+  .data-table .positive { color: var(--wf-green); }
+  .data-table .amber { color: var(--wf-amber); }
+  .data-table .row-header td {
+    background: #F5F8FC;
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 10px !important;
+    color: var(--wf-gray) !important;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* ── BAR CHART ── */
+  .chart-wrap { margin-top: 8px; }
+  .chart-row { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .chart-year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--wf-gray);
+    width: 48px;
+    flex-shrink: 0;
+  }
+  .chart-bar-bg {
+    flex: 1;
+    background: #DDDDDD;
+    height: 28px;
+    overflow: hidden;
+  }
+  .chart-bar-fill {
+    height: 100%;
+    background: var(--wf-teal);
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    color: #000;
+    min-width: 80px;
+  }
+  .chart-bar-fill.red { background: var(--wf-red); color: white; }
+  .chart-bar-fill.amber { background: var(--wf-amber); color: #000; }
+  .chart-bar-fill.green { background: var(--wf-green); color: #000; }
+  .chart-bar-fill.gray { background: #AAAAAA; color: #555555; }
+
+  /* ── VALUATION PHASES ── */
+  .val-phases { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; margin-top: 8px; }
+  .vp { padding: 24px 18px; text-align: center; }
+  .vp-period {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: var(--wf-gray);
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  .vp-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 900;
+    margin-bottom: 6px;
+  }
+  .vp-label { font-size: 11px; color: #667788; line-height: 1.4; }
+  .vp-seed { background: #F5F8FC; border-top: 3px solid #2a7a6a; }
+  .vp-seed .vp-val { color: #1B5E20; }
+  .vp-growth { background: #F5F8FC; border-top: 3px solid var(--wf-teal); }
+  .vp-growth .vp-val { color: var(--wf-teal); }
+  .vp-peak { background: #FFF8E1; border-top: 3px solid #B7770D; }
+  .vp-peak .vp-val { color: var(--wf-amber); }
+  .vp-crisis { background: #FFF0EE; border-top: 4px solid #C0392B; }
+  .vp-crisis .vp-val { color: var(--wf-danger); }
+  .vp-current { background: #EBF3FB; border-top: 4px solid #1565C0; }
+  .vp-current .vp-val { color: #1565C0; }
+
+  /* ── CRISIS BOX ── */
+  .crisis-box {
+    background: #FFF5F5;
+    border: 1px solid #FADADD;
+    padding: 36px;
+    margin: 40px 0;
+    position: relative;
+  }
+  .crisis-box::before {
+    content: '⚠';
+    position: absolute;
+    top: -18px;
+    left: 32px;
+    background: var(--wf-danger);
+    color: white;
+    font-size: 16px;
+    padding: 4px 12px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .crisis-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #C0392B;
+    margin-bottom: 16px;
+  }
+
+  /* ── VERDICT ── */
+  .verdict-box {
+    background: #F0F5FF;
+    border: 2px solid #1A4A8A;
+    padding: 48px;
+    margin-top: 40px;
+  }
+  .verdict-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--wf-teal);
+    margin-bottom: 24px;
+  }
+  .verdict-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 32px; }
+  .verdict-col h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid;
+  }
+  .verdict-col.bull h4 { color: #1B7A3B; border-color: #81C784; }
+  .verdict-col.bear h4 { color: #C0392B; border-color: #EF9A9A; }
+  .verdict-point { display: flex; gap: 10px; margin-bottom: 10px; font-size: 13px; color: #445566; line-height: 1.5; }
+  .verdict-point .dot { flex-shrink: 0; margin-top: 6px; width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+  .verdict-col.bull .dot { color: #1B7A3B; }
+  .verdict-col.bear .dot { color: #C0392B; }
+
+  /* ── INLINE STAT ── */
+  .inline-stat {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 4px;
+    background: #F5F8FC;
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin: 4px;
+  }
+  .inline-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--wf-teal);
+  }
+  .inline-stat-num.red { color: var(--wf-red); }
+  .inline-stat-num.amber { color: var(--wf-amber); }
+  .inline-stat-label { font-size: 11px; color: #445566; }
+
+  .prose { font-size: 15px; color: #445566; line-height: 1.8; }
+  .prose p { margin-bottom: 16px; }
+  .prose strong { color: #0D1520; }
+
+  /* ── TAG ── */
+  .tag {
+    display: inline-block;
+    background: #F5F8FC;
+    color: var(--wf-gray);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    padding: 3px 10px;
+    margin: 3px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    border: 1px solid #D0D8E8;
+  }
+  .tag.sold {
+    background: #FFEBEE;
+    color: #B71C1C;
+    border-color: #FFCDD2;
+    text-decoration: line-through;
+  }
+  .tag.active {
+    background: #E8F5E9;
+    color: #1B5E20;
+    border-color: #A5D6A7;
+  }
+
+  /* ── MARKET CARDS ── */
+  .market-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .market-card {
+    background: #F5F8FC;
+    border: 1px solid #D0D8E8;
+    padding: 24px;
+    border-left: 4px solid var(--wf-teal);
+  }
+  .market-card.exited { border-left-color: var(--wf-red); opacity: 0.85; }
+  .market-name { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: #0D1520; margin-bottom: 6px; }
+  .market-status { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+  .market-status.active { color: var(--wf-green); }
+  .market-status.exited { color: var(--wf-red); }
+  .market-desc { font-size: 13px; color: #556677; line-height: 1.5; }
+
+  /* ── COMPARISON BOX ── */
+  .comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 32px; }
+  .comp-card { padding: 28px; border-top: 3px solid; }
+  .comp-card.wf { background: #E8EEF8; border-color: #1A4A8A; }
+  .comp-card.lm { background: #FFFDE8; border-color: #B7770D; }
+  .comp-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px; }
+  .comp-card.wf .comp-label { color: var(--wf-teal); }
+  .comp-card.lm .comp-label { color: #7A5C00; }
+  .comp-text { font-size: 13px; color: #445566; line-height: 1.6; }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: #111111;
+    padding: 40px 64px;
+    border-top: 1px solid #1a2d40;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-left { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #888888; line-height: 1.8; }
+  .footer-right { font-family: 'Playfair Display', serif; font-size: 20px; color: #555555; }
+
+  @media (max-width: 900px) {
+    .hero, .section { padding: 40px 20px; }
+    .alert-banner { padding: 16px 20px; }
+    .kpi-strip { grid-template-columns: repeat(2, 1fr); }
+    .two-col, .three-col, .four-col, .val-phases, .verdict-grid, .comparison, .market-grid { grid-template-columns: 1fr; }
+    .footer { flex-direction: column; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <span class="hero-badge">Berlín · Zürich · Análisis Financiero · Agosto 2026</span>
+    <span class="hero-badge private">EMPRESA PRIVADA — No cotiza en bolsa</span>
+  </div>
+  <h1><span>Wefox</span><br>La insurtech europea<br>que casi murió<br>y renació como MGA</h1>
+  <p class="hero-sub">De unicornio valorado en 4.500 MM$ con ambiciones globales a compañía reestructurada con 151 MM€ de nueva financiación y foco en tres mercados. La historia más dramática del insurtech europeo.</p>
+  <div class="hero-meta">
+    <div class="meta-item">
+      <span class="meta-label">Fundada</span>
+      <span class="meta-value">2015</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Máx. valoración</span>
+      <span class="meta-value amber">4.500 MM$</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Valoración implícita actual</span>
+      <span class="meta-value red">N.D. / &lt;1.000 MM$</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Última financiación</span>
+      <span class="meta-value teal">151 MM€</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Sede actual</span>
+      <span class="meta-value">Zürich</span>
+    </div>
+  </div>
+</div>
+
+<!-- ALERT BANNER -->
+<div class="alert-banner">
+  <div class="alert-icon">⚠️</div>
+  <div class="alert-text">
+    <strong>Advertencia de análisis:</strong> Wefox es una compañía privada que no publica resultados auditados consolidados de forma regular. Las cifras financieras provienen de comunicaciones a inversores, medios especializados (Bloomberg, TechCrunch, S&amp;P Global) y documentos regulatorios parciales. Deben considerarse como <strong>estimaciones verificadas</strong>, no como datos oficiales auditados.
+  </div>
+</div>
+
+<!-- KPI STRIP -->
+<div class="kpi-strip">
+  <div class="kpi-cell">
+    <div class="kpi-label">Ingresos 2023 (est.)</div>
+    <div class="kpi-num amber">~739 MM€</div>
+    <div class="kpi-delta neutral">Est. Bloomberg</div>
+  </div>
+  <div class="kpi-cell">
+    <div class="kpi-label">EBITDA Aj. 2023 (est.)</div>
+    <div class="kpi-num red">−72 MM€</div>
+    <div class="kpi-delta down">Pérdida persistente</div>
+  </div>
+  <div class="kpi-cell">
+    <div class="kpi-label">Máx. valoración (2022)</div>
+    <div class="kpi-num amber">4.500 MM$</div>
+    <div class="kpi-delta down">▼ Erosionada 2023-24</div>
+  </div>
+  <div class="kpi-cell">
+    <div class="kpi-label">Capital total captado</div>
+    <div class="kpi-num white">~2.060 MM$</div>
+    <div class="kpi-delta neutral">6+ rondas 2015-2025</div>
+  </div>
+  <div class="kpi-cell">
+    <div class="kpi-label">Ronda jul. 2025</div>
+    <div class="kpi-num teal">151 MM€</div>
+    <div class="kpi-delta up">Restructuring completado</div>
+  </div>
+</div>
+
+<!-- SECCIÓN 1: ORIGEN -->
+<div class="section">
+  <div class="section-eyebrow">01 · Origen e historia</div>
+  <div class="section-title">Quién, cuándo y para qué</div>
+
+  <div class="two-col">
+    <div>
+      <div class="prose">
+        <p><strong>Wefox nació en 2015 en Zúrich</strong> bajo el nombre FinanceFox, una idea que Julian Teicke concibió junto a su padre —veterano de la industria aseguradora— para simplificar la gestión de pólizas mediante una app móvil. El objetivo inicial: que un cliente pudiera ver, gestionar y comparar todos sus seguros en un solo lugar digital.</p>
+        <p>A diferencia de Lemonade, Wefox <strong>no apostó por eliminar al intermediario</strong>, sino por potenciarlo tecnológicamente. Su hipótesis era que el 91% del seguro se vende a través de personas, no de plataformas directas, y que digitalizando al broker se podía ganar escala mucho más rápido que captando clientes directamente.</p>
+        <p>En 2018, bajo la nueva marca wefox, lanzó <strong>wefox Insurance</strong>, la primera aseguradora completamente digital de Europa, con licencia en Liechtenstein para operar en régimen de passporting europeo. El modelo combinaba distribución B2B2C (a través de brokers) con una carrier propia.</p>
+        <p>Sus co-fundadores fueron <strong>Julian Teicke</strong> (CEO hasta 2024), <strong>Fabian Wesemann</strong> (CFO) y <strong>Dario Fazlic</strong> (Chief Revenue Officer). Los tres abandonaron el consejo en julio de 2025 tras la reestructuración.</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="t-year">2015</div>
+          <div class="t-event"><strong>Fundación como FinanceFox</strong> en Zúrich. Inversión inicial de 5,5 MM$ de Salesforce Ventures. App para gestión de pólizas existentes.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="t-year">2017–18</div>
+          <div class="t-event">Rebrand a <strong>wefox</strong>. Lanzamiento de wefox Insurance en 2018: primera aseguradora full-digital de Europa (licencia en Liechtenstein). Expansión a Alemania, Austria, Suiza, Polonia, Italia.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="t-year">DIC 2019</div>
+          <div class="t-event">Serie B de <strong>125 MM$</strong> (ampliada luego a 235 MM$) liderada por Mubadala. La mayor Serie A de cualquier insurtech europea hasta esa fecha. Valoración: 1.650 MM$.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="t-year">JUN 2021</div>
+          <div class="t-event">Serie C de <strong>650 MM$</strong> liderada por Target Global. Valoración: 3.000 MM$. Récord absoluto mundial para insurtech en ese momento.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="t-year">JUL 2022</div>
+          <div class="t-event">Serie D de <strong>400 MM$</strong> más 55 MM$ de extensión. Valoración: <strong>4.500 MM$</strong>. Capital total captado: ~1.900 MM$. Punto de mayor valoración histórica.</div>
+        </div>
+        <div class="timeline-item crisis">
+          <div class="t-year crisis">2023–2024</div>
+          <div class="t-event"><strong>Crisis existencial:</strong> pérdidas de 100+ MM€, riesgo de insolvencia declarado por el CEO, despidos masivos, cierre de líneas de negocio, salida de Alemania e Italia. Teicke deja la dirección ejecutiva (marzo 2024).</div>
+        </div>
+        <div class="timeline-item pivot">
+          <div class="t-year pivot">JUL 2025</div>
+          <div class="t-event">Cierre de la reestructuración. <strong>151 MM€ de nueva financiación</strong> (Searchlight Capital). Venta de wefox Insurance AG y unidades italianas. Nuevo foco: MGA asset-light en 3 mercados.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOUNDERS -->
+  <div class="three-col" style="margin-top: 40px;">
+    <div class="founder-card">
+      <div class="founder-name">Julian Teicke</div>
+      <div class="founder-title">Co-Fundador · Presidente No Ejecutivo</div>
+      <div class="founder-bio">Berlinés, nacido en 1986. Estudió en la Universidad de St. Gallen. Co-fundó DeinDeal (ecommerce suizo, vendido en 2015). CEO de wefox desde 2015 hasta marzo de 2024. Abandonó el consejo en julio de 2025 tras la reestructuración.</div>
+    </div>
+    <div class="founder-card">
+      <div class="founder-name">Joachim Müller</div>
+      <div class="founder-title">CEO (desde sep. 2024) · Miembro del Consejo</div>
+      <div class="founder-bio">Veterano de Allianz: ex-CEO de Allianz Global Corporate &amp; Specialty, Allianz Commercial y Allianz Versicherungs-AG (Alemania). Incorporado para liderar la reestructuración y la nueva estrategia MGA. Perfil industrial, no startup.</div>
+    </div>
+    <div class="founder-card">
+      <div class="founder-name">Mark Hartigan</div>
+      <div class="founder-title">Chairman · CEO interino (mar–sep 2024)</div>
+      <div class="founder-bio">Ex-CEO de LV= (aseguradora mutualista británica). Designado CEO ejecutivo en marzo 2024 para gestionar la crisis. Detonó la propuesta de venta a Ardonagh (rechazada por los fundadores). Permanece como Chairman del Consejo.</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECCIÓN 2: MODELO DE NEGOCIO -->
+<div class="section dark">
+  <div class="section-eyebrow">02 · Modelo de negocio</div>
+  <div class="section-title">Del full-stack al asset-light: la gran metamorfosis</div>
+
+  <div class="prose" style="max-width: 760px; margin-bottom: 40px;">
+    <p>El modelo de wefox ha pasado por <strong>tres fases estratégicas radicalmente distintas</strong>. Entender esta evolución es clave para valorar tanto su fracaso parcial como su potencial de recuperación.</p>
+  </div>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-bottom: 48px;">
+    <div style="background: #F5F8FC; border: 1px solid #D0D8E8; padding: 28px; border-top: 3px solid var(--wf-teal);">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--wf-teal); letter-spacing: 2px; margin-bottom: 12px; text-transform: uppercase;">Fase I · 2015–2017</div>
+      <div style="font-family: 'Playfair Display', serif; font-size: 18px; color: #0D1520; margin-bottom: 10px; font-weight: 700;">Agregador / Marketplace</div>
+      <div style="font-size: 13px; color: #556677; line-height: 1.6;">App para que los clientes gestionaran sus pólizas existentes. Sin riesgo asegurador propio. Ingresos por comisiones de intermediación. Modelo ligero pero con escaso poder de diferenciación.</div>
+    </div>
+    <div style="background: #F5F8FC; border: 1px solid #D0D8E8; padding: 28px; border-top: 3px solid var(--wf-amber);">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--wf-amber); letter-spacing: 2px; margin-bottom: 12px; text-transform: uppercase;">Fase II · 2018–2022</div>
+      <div style="font-family: 'Playfair Display', serif; font-size: 18px; color: #0D1520; margin-bottom: 10px; font-weight: 700;">Full-stack B2B2C</div>
+      <div style="font-size: 13px; color: #556677; line-height: 1.6;">Carrier propio (wefox Insurance AG en Liechtenstein) + plataforma de distribución a través de brokers. La "salsa secreta": crecer rápido usando a los brokers como red comercial. Modelo ambicioso pero capital-intensivo.</div>
+    </div>
+    <div style="background: #F5F8FC; border: 1px solid #D0D8E8; padding: 28px; border-top: 3px solid var(--wf-green);">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--wf-green); letter-spacing: 2px; margin-bottom: 12px; text-transform: uppercase;">Fase III · 2024–hoy</div>
+      <div style="font-family: 'Playfair Display', serif; font-size: 18px; color: #0D1520; margin-bottom: 10px; font-weight: 700;">MGA Asset-Light</div>
+      <div style="font-size: 13px; color: #556677; line-height: 1.6;">Sin carrier propio. Modelo MGA puro: gestiona programas de seguro bajo capacidad de aseguradoras externas. El riesgo lo asume el carrier; wefox cobra una comisión de gestión. Más rentable, menos capital atado.</div>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+    <div class="pillar">
+      <div class="pillar-icon">🏗️</div>
+      <div class="pillar-title">B2B2C vía brokers</div>
+      <div class="pillar-text">El diferenciador original: vender a través de intermediarios, no directamente al cliente. Teicke lo llamaba la "salsa secreta": menor CAC, entrada más rápida a nuevos mercados, brokers como extensión del equipo comercial. 4.000 distribuidores activos en el pico de 2022.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">🔧</div>
+      <div class="pillar-title">Tecnología para el broker</div>
+      <div class="pillar-text">La plataforma wefox permite al broker digitalizar toda su operación: cotizaciones, gestión de carteras, siniestros, documentación. El broker mejora su productividad y wefox capta datos del cliente final sin necesidad de atenderlo directamente.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">🌐</div>
+      <div class="pillar-title">Passporting europeo</div>
+      <div class="pillar-text">La licencia en Liechtenstein (EEE) permitía vender en cualquier mercado europeo sin obtener licencia nacional. Una ventaja regulatoria que aceleró la expansión geográfica, aunque la crisis de 2023 obligó a vender y abandonar esta estructura.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">📊</div>
+      <div class="pillar-title">Modelo MGA actual</div>
+      <div class="pillar-text">Wefox actúa como agente general gestor: diseña productos de seguros, gestiona la distribución, suscripción y siniestros, pero transfiere el riesgo de suscripción a aseguradoras. Reduce capital inmovilizado y elimina la volatilidad del ratio de siniestralidad.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">🇳🇱</div>
+      <div class="pillar-title">Liderazgo en seguros de vida (NL)</div>
+      <div class="pillar-text">En Países Bajos, su marca TAF es el número uno del mercado en seguros de vida a plazo, con un modelo MGA completo. Es el activo más valioso de la compañía post-reestructuración y el prototipo de lo que quiere escalar.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">💻</div>
+      <div class="pillar-title">API-First e integración</div>
+      <div class="pillar-text">La tecnología propietaria de wefox conecta vía API a aseguradoras, brokers y clientes. Automatización de onboarding, cotización y siniestros. Permite a terceros construir sobre la plataforma como middleware de distribución.</div>
+    </div>
+  </div>
+
+  <!-- Mercados -->
+  <div style="margin-top: 48px;">
+    <div class="section-eyebrow" style="margin-bottom: 20px;">Presencia geográfica: de 6 países a 3</div>
+    <div class="market-grid">
+      <div class="market-card">
+        <div class="market-name">🇳🇱 Países Bajos</div>
+        <div class="market-status active">● Mercado core</div>
+        <div class="market-desc">Nº 1 en seguros de vida a plazo (term-life) vía marca TAF. Modelo MGA completo. 35% de cuota de mercado en su segmento. Principal activo de la compañía.</div>
+      </div>
+      <div class="market-card">
+        <div class="market-name">🇦🇹 Austria</div>
+        <div class="market-status active">● Mercado core</div>
+        <div class="market-desc">Plataforma digital para brokers de seguros retail. Posición de broker mayorista (wholesale). Fuerte penetración en canal independiente de distribución.</div>
+      </div>
+      <div class="market-card">
+        <div class="market-name">🇨🇭 Suiza</div>
+        <div class="market-status active">● Mercado core</div>
+        <div class="market-desc">Distribución retail de seguros con énfasis en asesoramiento integral. Origen histórico de la compañía. Seguros de ausencia laboral como producto estrella de la carrier (ya vendida).</div>
+      </div>
+      <div class="market-card exited">
+        <div class="market-name">🇩🇪 Alemania</div>
+        <div class="market-status exited">✕ Salida completada</div>
+        <div class="market-desc">Principal mercado hasta 2023. Abandonado por pérdidas en suscripción (auto, hogar, RC). Plataforma tecnológica cerrada. Mercado de origen de Teicke.</div>
+      </div>
+      <div class="market-card exited">
+        <div class="market-name">🇮🇹 Italia</div>
+        <div class="market-status exited">✕ Vendida a J.C. Flowers</div>
+        <div class="market-desc">Negocio de distribución por afinidad centrado en automóvil. Vendido a J.C. Flowers &amp; Co. en mayo de 2025. Generó recursos financieros para la reestructuración.</div>
+      </div>
+      <div class="market-card exited">
+        <div class="market-name">🇵🇱 Polonia</div>
+        <div class="market-status exited">✕ Cartera transferida</div>
+        <div class="market-desc">Operación de automóvil reducida y finalmente transferida a DARAG. Salida estratégica para centrar recursos en mercados más rentables.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECCIÓN 3: VOLUMEN DE NEGOCIO -->
+<div class="section">
+  <div class="section-eyebrow">03 · Volumen de negocio y clientes</div>
+  <div class="section-title">Crecimiento explosivo, luego retroceso ordenado</div>
+
+  <div class="two-col">
+    <div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--wf-gray); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px;">Ingresos / Volumen de primas gestionadas · MM€ (Est.)</div>
+      <div class="chart-wrap">
+        <div class="chart-row">
+          <div class="chart-year">2018</div>
+          <div class="chart-bar-bg"><div class="chart-bar-fill" style="width: 4%;">~40</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-year">2019</div>
+          <div class="chart-bar-bg"><div class="chart-bar-fill" style="width: 6%;">~60</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-year">2020</div>
+          <div class="chart-bar-bg"><div class="chart-bar-fill" style="width: 13%;">~140</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-year">2021</div>
+          <div class="chart-bar-bg"><div class="chart-bar-fill" style="width: 23%;">~250</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-year">2022</div>
+          <div class="chart-bar-bg"><div class="chart-bar-fill amber" style="width: 55%;">~580</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-year">2023</div>
+          <div class="chart-bar-bg"><div class="chart-bar-fill amber" style="width: 70%;">~739</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-year">2024 (est.)</div>
+          <div class="chart-bar-bg"><div class="chart-bar-fill gray" style="width: 40%;">~450 (seg. core)</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-year">2025 (guía)</div>
+          <div class="chart-bar-bg"><div class="chart-bar-fill green" style="width: 25%;">Rentable</div></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--wf-gray); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px;">Clientes y distribuidores</div>
+      <div class="chart-wrap">
+        <div class="chart-row">
+          <div class="chart-year">2020</div>
+          <div class="chart-bar-bg"><div class="chart-bar-fill" style="width: 18%;">500K clientes</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-year">2021</div>
+          <div class="chart-bar-bg"><div class="chart-bar-fill" style="width: 30%;">~1,2 M</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-year">2022</div>
+          <div class="chart-bar-bg"><div class="chart-bar-fill amber" style="width: 55%;">2,5–3 M</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-year">2023</div>
+          <div class="chart-bar-bg"><div class="chart-bar-fill amber" style="width: 60%;">~3 M</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-year">2025 (est.)</div>
+          <div class="chart-bar-bg"><div class="chart-bar-fill gray" style="width: 25%;">Base reducida (3 mkt.)</div></div>
+        </div>
+      </div>
+      <div style="margin-top: 24px; padding: 16px; background: #F5F8FC; border-left: 3px solid var(--wf-amber);">
+        <div style="font-size: 13px; color: #445566; line-height: 1.6;">La base de clientes de 2025 es significativamente menor que el pico de 2022–23 por la salida de Alemania, Italia y Polonia. Sin datos públicos precisos; estimaciones basadas en comunicados oficiales y mercados activos.</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 40px; display: flex; flex-wrap: wrap; gap: 12px;">
+    <div class="inline-stat"><span class="inline-stat-num amber">~2.060 MM$</span><span class="inline-stat-label">Capital total captado (2015–2025)</span></div>
+    <div class="inline-stat"><span class="inline-stat-num">300+</span><span class="inline-stat-label">Aseguradoras integradas en plataforma (pico 2022)</span></div>
+    <div class="inline-stat"><span class="inline-stat-num">4.000</span><span class="inline-stat-label">Distribuidores activos en el pico (2022)</span></div>
+    <div class="inline-stat"><span class="inline-stat-num red">−€72 M</span><span class="inline-stat-label">EBITDA ajustado 2023 (estimación)</span></div>
+    <div class="inline-stat"><span class="inline-stat-num">151 MM€</span><span class="inline-stat-label">Financiación jul. 2025 (76 MM€ equity + 75 MM€ deuda)</span></div>
+  </div>
+</div>
+
+<!-- SECCIÓN 4: EMPLEADOS -->
+<div class="section dark">
+  <div class="section-eyebrow">04 · Capital humano</div>
+  <div class="section-title">De 1.200 a una plantilla racionalizada</div>
+
+  <div class="two-col">
+    <div class="prose">
+      <p>En su momento de mayor expansión (2022), <strong>wefox contaba con más de 1.200 empleados</strong> distribuidos en múltiples mercados europeos y oficinas en Berlín, Zúrich, Varsovia, Milán y Barcelona (tecnología). La ambición de construir un asegurador europeo de escala requería estructuras costosas.</p>
+      <p>La crisis de 2023–2024 trajo <strong>olas sucesivas de despidos</strong>: cierre de hubs tecnológicos en España y Francia, reducción drástica de funciones globales, salida de equipos locales en Alemania, Italia y Polonia. La plantilla cayó de forma significativa, aunque wefox no ha publicado cifras precisas de headcount post-reestructuración.</p>
+      <p>Con el nuevo modelo MGA en tres países, se estima que la plantilla actual está en torno a <strong>300–500 personas</strong> (incluyendo la red TAF en Países Bajos), muy lejos de los máximos históricos. El objetivo es un modelo operativo más ligero, donde la tecnología y las aseguradoras externas absorben la mayor parte del trabajo operativo.</p>
+    </div>
+    <div>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Período</th>
+            <th>Empleados (est.)</th>
+            <th>Contexto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2020</td>
+            <td class="highlight">~600</td>
+            <td>Expansión acelerada</td>
+          </tr>
+          <tr>
+            <td>2021</td>
+            <td class="highlight">~900</td>
+            <td>Post Serie C</td>
+          </tr>
+          <tr>
+            <td><strong>2022</strong></td>
+            <td class="amber">~1.200</td>
+            <td>Máximo histórico</td>
+          </tr>
+          <tr>
+            <td>2023</td>
+            <td class="negative">~900</td>
+            <td>1ª ola de despidos</td>
+          </tr>
+          <tr>
+            <td>2024</td>
+            <td class="negative">~500</td>
+            <td>Reestructuración profunda</td>
+          </tr>
+          <tr>
+            <td><strong>2025 (est.)</strong></td>
+            <td class="positive">~300–400</td>
+            <td>Modelo MGA / 3 mercados</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin-top: 20px; padding: 16px; background: #F5F8FC; border-left: 3px solid var(--wf-teal);">
+        <div style="font-size: 13px; color: #445566;">El cierre de los hubs en España (Barcelona) y Francia supuso la salida de decenas de perfiles tecnológicos senior que habían sido captados con sueldos de mercado de startup unicornio.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECCIÓN 5: VALORACIÓN / COTIZACIÓN -->
+<div class="section">
+  <div class="section-eyebrow">05 · Evolución de la valoración</div>
+  <div class="section-title">El viaje del unicornio: de 4.500 MM$ a la supervivencia</div>
+
+  <div class="val-phases">
+    <div class="vp vp-seed">
+      <div class="vp-period">2015–2019</div>
+      <div class="vp-val">1.650 MM$</div>
+      <div class="vp-label">Serie A/B de 235 MM$<br>Mubadala lidera<br>Validación como unicornio</div>
+    </div>
+    <div class="vp vp-growth">
+      <div class="vp-period">Jun 2021</div>
+      <div class="vp-val">3.000 MM$</div>
+      <div class="vp-label">Serie C de 650 MM$<br>Récord mundial insurtech<br>Euforia de mercado</div>
+    </div>
+    <div class="vp vp-peak">
+      <div class="vp-period">Jul 2022</div>
+      <div class="vp-val">4.500 MM$</div>
+      <div class="vp-label">Serie D de 400 MM$<br>Máximo histórico<br>Contracorriente al mercado</div>
+    </div>
+    <div class="vp vp-crisis">
+      <div class="vp-period">May 2024</div>
+      <div class="vp-val">~550 MM$</div>
+      <div class="vp-label">Oferta Ardonagh rechazada<br>Riesgo de insolvencia<br>−88% desde el pico</div>
+    </div>
+    <div class="vp vp-current">
+      <div class="vp-period">2025 (est.)</div>
+      <div class="vp-val">N.D.</div>
+      <div class="vp-label">Post-reestructuración<br>151 MM€ de financiación<br>Fundadores fuera del consejo</div>
+    </div>
+  </div>
+
+  <!-- CRISIS BOX -->
+  <div class="crisis-box">
+    <div class="crisis-title">La crisis de 2023–2024: cómo casi quiebra el mayor unicornio insurtech de Europa</div>
+    <div class="prose">
+      <p>La secuencia de eventos que llevó a wefox al borde de la insolvencia combina factores macroeconómicos, errores estratégicos y una gestión del riesgo de suscripción deficiente:</p>
+      <p><strong>1. Subida de tipos de interés (2022–2023).</strong> El cambio de paradigma financiero global encareció el coste de capital para todas las insurtechs, pero wefox tenía deuda convertible con vencimientos en 2023–2024. Los 160 MM$ en deuda de Deutsche Bank, UniCredit, JPMorgan y Barclays se convirtieron en una presión inmediata de caja.</p>
+      <p><strong>2. Ratio de siniestralidad disparado.</strong> La carrier propia (wefox Insurance AG) acumuló pérdidas de 35,8 MM€ en 2023 (tras −32,1 MM€ en 2022). El negocio de automóvil en Alemania y la RC en Suiza eran los principales focos de pérdida. El modelo full-stack exponía a wefox al riesgo de suscripción sin la escala para amortizarlo.</p>
+      <p><strong>3. El veto a la venta a Ardonagh.</strong> En mayo de 2024, Mubadala (principal accionista) propuso vender la compañía al grupo británico Ardonagh por ~550 MM€ (una fracción del precio pagado). Los fundadores y primeros inversores rechazaron la oferta porque les habría dejado sin recuperar su inversión. El CEO Hartigan fue removido y se inyectaron 25 MM€ de emergencia.</p>
+      <p><strong>4. Advertencia de insolvencia pública.</strong> En mayo de 2024, el CEO Hartigan comunicó formalmente a los accionistas que la compañía podría enfrentarse a riesgo de insolvencia si no se encontraba financiación adicional. Un hecho inédito para un "unicornio" europeo.</p>
+    </div>
+  </div>
+
+  <div class="prose" style="margin-top: 24px;">
+    <p>La salida de la crisis se articuló en tres ejes: <strong>(1)</strong> venta de los activos con más pérdidas (wefox Insurance AG a consorcio suizo liderado por BERAG; unidades italianas a J.C. Flowers); <strong>(2)</strong> abandono de mercados no rentables (Alemania, Polonia); <strong>(3)</strong> foco exclusivo en el modelo MGA en Países Bajos, Austria y Suiza. La ronda de 151 MM€ en julio de 2025 —con Searchlight Capital como nuevo financiador externo y los fundadores fuera del consejo— cierra formalmente la etapa de crisis.</p>
+  </div>
+</div>
+
+<!-- SECCIÓN 6: CUENTA DE EXPLOTACIÓN -->
+<div class="section dark">
+  <div class="section-eyebrow">06 · Cuenta de explotación</div>
+  <div class="section-title">Las cuentas que nunca se publicaron del todo</div>
+
+  <div class="prose" style="max-width: 720px; margin-bottom: 32px;">
+    <p><strong>Advertencia metodológica:</strong> Wefox no ha publicado jamás cuentas consolidadas auditadas de acceso público. Las cifras disponibles provienen de comunicaciones a inversores filtradas a medios como Bloomberg, de documentos regulatorios parciales (wefox Insurance AG en Liechtenstein, que sí tiene obligación de publicar) y de declaraciones de directivos. Son estimaciones verificadas, no cifras auditadas.</p>
+  </div>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Partida</th>
+        <th>2019</th>
+        <th>2020</th>
+        <th>2021</th>
+        <th>2022</th>
+        <th>2023</th>
+        <th>2024 (est.)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-header">
+        <td colspan="7">INGRESOS (estimaciones — fuentes diversas)</td>
+      </tr>
+      <tr>
+        <td>Ingresos grupo (MM€ est.)</td>
+        <td>~40</td>
+        <td class="highlight">~140</td>
+        <td>~250</td>
+        <td class="highlight">~580</td>
+        <td class="highlight">~739</td>
+        <td class="amber">~400–500*</td>
+      </tr>
+      <tr>
+        <td>Crecimiento YoY estimado</td>
+        <td>—</td>
+        <td class="positive">+250%</td>
+        <td class="positive">+79%</td>
+        <td class="positive">+132%</td>
+        <td class="positive">+27%</td>
+        <td class="negative">−40% (reestruc.)</td>
+      </tr>
+      <tr>
+        <td>Premios totales gestionados</td>
+        <td>—</td>
+        <td>~700</td>
+        <td>~1.300</td>
+        <td>~2.000</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr class="row-header">
+        <td colspan="7">RENTABILIDAD</td>
+      </tr>
+      <tr>
+        <td>wefox Insurance AG — resultado neto (MM€)</td>
+        <td>—</td>
+        <td class="positive">+benef.</td>
+        <td class="negative">—</td>
+        <td class="negative">−32,1</td>
+        <td class="negative">−35,8</td>
+        <td class="amber">Mejorada</td>
+      </tr>
+      <tr>
+        <td>EBITDA ajustado grupo (MM€ est.)</td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+        <td class="negative">~−200</td>
+        <td class="negative">~−72</td>
+        <td class="amber">~−30 (est.)</td>
+      </tr>
+      <tr>
+        <td>Resultado grupo (MM€ est.)</td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+        <td class="negative">&gt;−100</td>
+        <td class="negative">&gt;−100</td>
+        <td class="amber">Mejorando</td>
+      </tr>
+      <tr class="row-header">
+        <td colspan="7">FINANCIACIÓN Y CAPITAL</td>
+      </tr>
+      <tr>
+        <td>Capital captado acumulado (MM$)</td>
+        <td>~235</td>
+        <td>~235</td>
+        <td>~885</td>
+        <td>~1.910</td>
+        <td>~2.070</td>
+        <td class="positive">~2.190</td>
+      </tr>
+      <tr>
+        <td>Deuda financiera (MM€ aprox.)</td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+        <td>~160</td>
+        <td>~200</td>
+        <td class="positive">Refinanciada</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="margin-top: 12px; font-size: 12px; color: #667788; font-family: 'JetBrains Mono', monospace;">* 2024 estimación: caída por salida de Alemania, Italia y Polonia, que representaban aprox. el 50-60% de los ingresos consolidados.</div>
+
+  <!-- CHART EBITDA -->
+  <div style="margin-top: 48px;">
+    <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--wf-teal); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px;">Reducción de pérdidas: la tendencia que importa</div>
+    <div class="chart-wrap">
+      <div class="chart-row">
+        <div class="chart-year">2022</div>
+        <div class="chart-bar-bg"><div class="chart-bar-fill red" style="width: 100%;">~−€200 M EBITDA (est.)</div></div>
+      </div>
+      <div class="chart-row">
+        <div class="chart-year">2023</div>
+        <div class="chart-bar-bg"><div class="chart-bar-fill red" style="width: 36%;">~−€72 M EBITDA (est.)</div></div>
+      </div>
+      <div class="chart-row">
+        <div class="chart-year">2024</div>
+        <div class="chart-bar-bg"><div class="chart-bar-fill amber" style="width: 15%;">~−€30 M (est.)</div></div>
+      </div>
+      <div class="chart-row">
+        <div class="chart-year">2025 (guía)</div>
+        <div class="chart-bar-bg"><div class="chart-bar-fill green" style="width: 12%;">Rentabilidad FY 2025</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPARATIVA WEFOX vs LEMONADE -->
+  <div style="margin-top: 48px;">
+    <div class="section-eyebrow" style="margin-bottom: 16px;">Comparativa de modelos: Wefox vs. Lemonade</div>
+    <div class="comparison">
+      <div class="comp-card wf">
+        <div class="comp-label">Wefox — MGA / B2B2C</div>
+        <div class="comp-text">
+          <strong style="color: #0D1520;">Fortalezas del modelo:</strong><br>
+          — CAC bajo vía brokers (red comercial externalizada)<br>
+          — Sin riesgo asegurador (modelo MGA post-2024)<br>
+          — Penetración profunda en canal intermediario<br>
+          — Posición nº1 en Países Bajos (vida a plazo)<br><br>
+          <strong style="color: #0D1520;">Debilidades:</strong><br>
+          — No controla la relación directa con el cliente final<br>
+          — Dependencia de los brokers para crecer<br>
+          — Marca poco conocida entre consumidores finales<br>
+          — Historia de gobierno corporativo compleja
+        </div>
+      </div>
+      <div class="comp-card lm">
+        <div class="comp-label" style="color: #7A5C00;">Lemonade — Full-stack / D2C</div>
+        <div class="comp-text">
+          <strong style="color: #0D1520;">Fortalezas del modelo:</strong><br>
+          — Marca fuerte entre millennials y Gen Z<br>
+          — Datos propietarios de cliente desde la adquisición<br>
+          — Cotiza en bolsa: liquidez y transparencia<br>
+          — Cross-sell natural en la misma app<br><br>
+          <strong style="color: #0D1520;">Debilidades:</strong><br>
+          — CAC alto (marketing digital directo)<br>
+          — Riesgo de suscripción propio (exposición catastrófica)<br>
+          — Rentabilidad aún negativa (aunque en mejora)<br>
+          — Dependencia geográfica de EE.UU. y mercados anglosajones
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECCIÓN 7: VALORACIÓN EDITORIAL -->
+<div class="section">
+  <div class="section-eyebrow">07 · Valoración editorial</div>
+  <div class="section-title">¿Resurrección o epílogo ordenado?</div>
+
+  <div class="prose" style="max-width: 800px; margin-bottom: 32px;">
+    <p>Wefox es el caso de estudio más complejo —y más instructivo— del insurtech europeo de la última década. No porque fracasara, sino porque <strong>fracasó de una forma específica que ningún observador externo había anticipado</strong>: un modelo de negocio conceptualmente sólido (B2B2C vía brokers) destruido por un error de arquitectura financiera (mantener una carrier propia con riesgo de suscripción sin escala suficiente para absorber la volatilidad).</p>
+    <p>La empresa que emerge de la reestructuración de 2024–2025 es fundamentalmente distinta a la que se valoró en 4.500 MM$. Aquella wefox era un conglomerado pan-europeo que aspiraba a ser el "Amazon del seguro". La nueva wefox es un MGA especializado en tres mercados con una posición de liderazgo real en vida a plazo en Países Bajos.</p>
+    <p>La pregunta para el analista ya no es "¿puede wefox ser rentable?" —el CEO Müller guía rentabilidad plena en 2025—, sino <strong>"¿puede el modelo MGA en Austria, Países Bajos y Suiza generar suficiente valor para justificar los 2.000+ MM$ de capital consumido?"</strong>. La respuesta honesta es que, probablemente, no en términos de retorno para los primeros inversores. Pero como negocio en marcha, las perspectivas son sólidas.</p>
+  </div>
+
+  <div class="verdict-box">
+    <div class="verdict-title">Dictamen del analista</div>
+    <div class="prose">
+      <p>Wefox post-2025 no es una insurtech en el sentido que definió al sector entre 2019 y 2022. Es una empresa de distribución de seguros apoyada en tecnología, con un modelo de ingresos basado en comisiones de gestión, sin riesgo de suscripción propio. Eso la hace estructuralmente más defensiva, más predecible y más cercana a la rentabilidad —pero también mucho menos emocionante para los inversores de riesgo.</p>
+      <p>El CEO Müller, veterano de Allianz, aporta exactamente lo que la situación requiere: disciplina operativa, conocimiento de los canales de distribución europeos y credibilidad ante las aseguradoras que ahora son sus socias en lugar de competidoras. La salida de los fundadores del consejo en julio de 2025 es, paradójicamente, una señal positiva: significa que los nuevos financiadores (Searchlight Capital) controlan la agenda estratégica.</p>
+    </div>
+    <div class="verdict-grid">
+      <div class="verdict-col bull">
+        <h4>🟢 Argumentos a favor</h4>
+        <div class="verdict-point"><div class="dot"></div><span>Modelo MGA asset-light: sin riesgo de suscripción, ingresos más predecibles, menor consumo de capital</span></div>
+        <div class="verdict-point"><div class="dot"></div><span>Liderazgo real en Países Bajos (nº1 term-life vía TAF): activo con valor de mercado demostrable</span></div>
+        <div class="verdict-point"><div class="dot"></div><span>Reestructuración completada en julio de 2025: limpieza del balance, venta de activos deficitarios</span></div>
+        <div class="verdict-point"><div class="dot"></div><span>CEO con trayectoria probada en la industria (Allianz): credibilidad ante aseguradoras y reguladores</span></div>
+        <div class="verdict-point"><div class="dot"></div><span>151 MM€ de financiación recién captada: runway suficiente para alcanzar breakeven sin dilución adicional urgente</span></div>
+        <div class="verdict-point"><div class="dot"></div><span>Mercados seleccionados (NL, AT, CH) con alta penetración digital y marcos regulatorios estables</span></div>
+      </div>
+      <div class="verdict-col bear">
+        <h4>🔴 Riesgos y advertencias</h4>
+        <div class="verdict-point"><div class="dot"></div><span>Destrucción de valor sin precedentes: de 4.500 MM$ a valoración implícita &lt;500 MM$. Los primeros inversores probablemente no recuperan su capital</span></div>
+        <div class="verdict-point"><div class="dot"></div><span>Ausencia de datos financieros auditados y públicos: opacidad estructural que dificulta el análisis y genera desconfianza</span></div>
+        <div class="verdict-point"><div class="dot"></div><span>El nuevo modelo MGA es mucho menos diferenciado: compite con decenas de MGAs europeos establecidos sin la ventaja del unicornio</span></div>
+        <div class="verdict-point"><div class="dot"></div><span>Salida de los fundadores puede generar fuga de talento clave y pérdida de relaciones con brokers y aseguradoras</span></div>
+        <div class="verdict-point"><div class="dot"></div><span>La deuda convertible con Searchlight Capital generará dilución significativa en la próxima ronda equity</span></div>
+        <div class="verdict-point"><div class="dot"></div><span>La narrativa de "insurtech disruptora" ha quedado completamente descreditada: difícil atraer talento premium y nuevos inversores de growth</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-left">
+    Fuentes: TechCrunch · Bloomberg (via Rothschild &amp; Co) · S&amp;P Global Market Intelligence · Finextra · InsuranceJournal · Coverager<br>
+    wefox Insurance AG Annual Reports 2022, 2023, 2024 (Liechtenstein) · Comunicados oficiales wefox Holding AG · Crowdfund Insider<br>
+    Todas las cifras financieras son estimaciones; wefox no publica cuentas consolidadas auditadas de acceso público. Agosto 2026.<br>
+    Este informe es de carácter informativo y no constituye asesoramiento de inversión.
+  </div>
+  <div class="footer-right">COI · Análisis Insurtech</div>
+</div>
+
+</body>
+</html>
