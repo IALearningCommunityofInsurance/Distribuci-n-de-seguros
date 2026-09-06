@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plataformas de Seguros Embebidos para Corredores · COI 2026</title>
+<style>
+  :root {
+    --rojo: #E4382E;
+    --coral: #F1957C;
+    --carbon: #595959;
+    --navy: #1a2a4a;
+    --gold: #C89646;
+    --light: #f8f5f2;
+    --white: #ffffff;
+    --border: #e8e0d8;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Georgia', serif;
+    background: var(--light);
+    color: var(--carbon);
+    line-height: 1.7;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--navy);
+    color: var(--white);
+    padding: 48px 60px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 320px; height: 100%;
+    background: linear-gradient(135deg, var(--rojo) 0%, transparent 70%);
+    opacity: 0.18;
+  }
+  .header-tag {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--coral);
+    margin-bottom: 14px;
+  }
+  .header h1 {
+    font-size: 36px;
+    font-weight: normal;
+    line-height: 1.2;
+    max-width: 680px;
+    margin-bottom: 12px;
+  }
+  .header h1 strong { color: var(--coral); }
+  .header-sub {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    margin-top: 10px;
+  }
+  .header-meta {
+    display: flex;
+    gap: 32px;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+  }
+  .header-meta span {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+  }
+  .header-meta b { color: rgba(255,255,255,0.85); display: block; font-size: 14px; }
+
+  /* ── INTRO / MERCADO ── */
+  .intro-band {
+    background: var(--rojo);
+    color: var(--white);
+    padding: 28px 60px;
+    display: flex;
+    gap: 48px;
+    align-items: center;
+  }
+  .intro-stat {
+    text-align: center;
+    flex: 1;
+    border-right: 1px solid rgba(255,255,255,0.25);
+    padding-right: 48px;
+  }
+  .intro-stat:last-child { border-right: none; }
+  .intro-stat .num {
+    font-family: Arial, sans-serif;
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .intro-stat .label {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    opacity: 0.85;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* ── BODY ── */
+  .body-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 56px 40px;
+  }
+
+  /* ── SECTION TITLE ── */
+  .section-title {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--rojo);
+    margin-bottom: 8px;
+  }
+  .section-h2 {
+    font-size: 26px;
+    font-weight: normal;
+    color: var(--navy);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--border);
+  }
+
+  /* ── CONTEXT BOX ── */
+  .context-box {
+    background: var(--navy);
+    color: var(--white);
+    border-radius: 8px;
+    padding: 28px 36px;
+    margin-bottom: 48px;
+  }
+  .context-box p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.85);
+  }
+  .context-box strong { color: var(--coral); }
+
+  /* ── PLATAFORMA CARD ── */
+  .platforms-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-bottom: 56px;
+  }
+  .card {
+    background: var(--white);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    transition: box-shadow 0.2s;
+  }
+  .card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.1); }
+
+  .card-header {
+    padding: 22px 26px 18px;
+    border-bottom: 3px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .card-icon {
+    width: 48px; height: 48px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .card-title-block {}
+  .card-name {
+    font-family: Arial, sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--navy);
+    line-height: 1.1;
+  }
+  .card-origin {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    color: var(--carbon);
+    opacity: 0.6;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 3px;
+  }
+  .card-badge {
+    margin-left: auto;
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+  }
+  .badge-global { background: #e8f0fb; color: #1a4a9a; }
+  .badge-europe { background: #fdf0e8; color: #b05500; }
+  .badge-latam  { background: #edf7f0; color: #1a6632; }
+  .badge-us     { background: #fce8ec; color: #9a1a2a; }
+  .badge-asia   { background: #f0e8fd; color: #5a1a9a; }
+
+  .card-body { padding: 22px 26px; }
+
+  .card-tagline {
+    font-size: 14px;
+    font-style: italic;
+    color: var(--rojo);
+    margin-bottom: 14px;
+    line-height: 1.4;
+    font-weight: 600;
+  }
+
+  .card-desc {
+    font-size: 13.5px;
+    color: var(--carbon);
+    margin-bottom: 18px;
+    line-height: 1.75;
+  }
+
+  .features-title {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--carbon);
+    opacity: 0.55;
+    margin-bottom: 10px;
+  }
+  .features-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-bottom: 18px;
+  }
+  .features-list li {
+    font-family: Arial, sans-serif;
+    font-size: 11.5px;
+    background: var(--light);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 4px 10px;
+    color: var(--carbon);
+  }
+
+  .card-metrics {
+    display: flex;
+    gap: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+  .metric {
+    flex: 1;
+    text-align: center;
+  }
+  .metric .val {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .metric .mlab {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    color: var(--carbon);
+    opacity: 0.6;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .card-footer {
+    background: #fafaf8;
+    border-top: 1px solid var(--border);
+    padding: 14px 26px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    color: var(--carbon);
+  }
+  .card-footer strong { color: var(--navy); }
+
+  /* ── FULL-WIDTH CARD ── */
+  .card-full { grid-column: 1 / -1; }
+
+  /* ── COMPARISON TABLE ── */
+  .table-wrap {
+    background: var(--white);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    margin-bottom: 56px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  }
+  .table-wrap table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    font-size: 12.5px;
+  }
+  .table-wrap thead {
+    background: var(--navy);
+    color: var(--white);
+  }
+  .table-wrap thead th {
+    padding: 14px 16px;
+    text-align: left;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .table-wrap thead th:first-child { color: var(--coral); }
+  .table-wrap tbody tr { border-bottom: 1px solid var(--border); }
+  .table-wrap tbody tr:last-child { border-bottom: none; }
+  .table-wrap tbody tr:hover { background: #fbf9f7; }
+  .table-wrap td { padding: 12px 16px; color: var(--carbon); vertical-align: middle; }
+  .table-wrap td:first-child { font-weight: 600; color: var(--navy); }
+  .check { color: #1a8c3a; font-size: 15px; }
+  .dash  { color: #bbb; }
+  .partial { color: var(--gold); font-size: 13px; }
+
+  /* ── BROKER RELEVANCE SECTION ── */
+  .relevance-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 48px;
+  }
+  .rel-card {
+    background: var(--white);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    padding: 22px;
+  }
+  .rel-num {
+    font-family: Arial, sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--rojo);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .rel-title {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .rel-desc {
+    font-size: 13px;
+    color: var(--carbon);
+    line-height: 1.65;
+  }
+
+  /* ── ALERT BOX ── */
+  .alert {
+    border-left: 4px solid var(--gold);
+    background: #fff8ee;
+    padding: 20px 26px;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 40px;
+  }
+  .alert-title {
+    font-family: Arial, sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .alert p {
+    font-size: 13.5px;
+    color: var(--carbon);
+    line-height: 1.7;
+  }
+
+  /* ── FOOTER ── */
+  .report-footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 24px;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+  }
+  .report-footer strong { color: var(--coral); }
+
+  @media (max-width: 760px) {
+    .platforms-grid { grid-template-columns: 1fr; }
+    .card-full { grid-column: 1; }
+    .relevance-grid { grid-template-columns: 1fr; }
+    .intro-band { flex-direction: column; gap: 20px; }
+    .intro-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 16px; }
+    .header { padding: 32px 24px; }
+    .body-wrap { padding: 32px 20px; }
+    .header-meta { flex-wrap: wrap; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-tag">Community of Insurance · Informe Temático</div>
+  <h1>Plataformas integrales con <strong>seguros embebidos</strong> para corredores</h1>
+  <div class="header-sub">Panorama global de soluciones insurtech · Julio 2026</div>
+  <div class="header-meta">
+    <span><b>Audiencia</b>Corredurías · MGAs · Insurtech</span>
+    <span><b>Cobertura</b>Global + Europa</span>
+    <span><b>Actualización</b>Julio 2026</span>
+    <span><b>Fuente</b>Investigación COI / Datos públicos</span>
+  </div>
+</div>
+
+<!-- ESTADÍSTICAS DE MERCADO -->
+<div class="intro-band">
+  <div class="intro-stat">
+    <div class="num">145.000 M€</div>
+    <div class="label">Mercado global 2025 (estimación)</div>
+  </div>
+  <div class="intro-stat">
+    <div class="num">+30%</div>
+    <div class="label">CAGR proyectado 2026–2033</div>
+  </div>
+  <div class="intro-stat">
+    <div class="num">15%</div>
+    <div class="label">Distribución global hacia 2030</div>
+  </div>
+  <div class="intro-stat">
+    <div class="num">76%</div>
+    <div class="label">Colocaciones vía canales digitales/API</div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="body-wrap">
+
+  <!-- CONTEXTO -->
+  <div class="context-box">
+    <p>El <strong>seguro embebido</strong> —aquel que se integra directamente en el journey de compra de otro producto o servicio— ha pasado de ser una tendencia emergente a convertirse en el nuevo estándar de distribución digital. Para el <strong>corredor</strong>, esto tiene una doble lectura: riesgo de desintermediación si no actúa, y oportunidad de distribución escalable si adopta las plataformas adecuadas. Las soluciones que se describen a continuación son las más relevantes globalmente, con énfasis especial en las que ofrecen arquitectura API-first, white-label y compatibilidad con el canal corredor.</p>
+  </div>
+
+  <!-- PLATAFORMAS -->
+  <p class="section-title">Mapeo de plataformas · Julio 2026</p>
+  <h2 class="section-h2">Las 8 plataformas clave para corredores</h2>
+
+  <div class="platforms-grid">
+
+    <!-- 1. Cover Genius -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:#e8f0fb;">🌐</div>
+        <div class="card-title-block">
+          <div class="card-name">Cover Genius</div>
+          <div class="card-origin">Sídney / Nueva York · Fund. 2014</div>
+        </div>
+        <span class="card-badge badge-global">Global</span>
+      </div>
+      <div class="card-body">
+        <div class="card-tagline">"La plataforma de distribución embebida más grande del mundo"</div>
+        <div class="card-desc">
+          Plataforma <em>XCover</em> operativa en más de 60 países y los 50 estados de EE. UU. Permite a marcas digitales —e-commerce, viajes, fintech— ofrecer protección personalizada y en tiempo real directamente en su checkout. Para el corredor, la relevancia reside en su capacidad de operar como canal de distribución intermediado: el corredor actúa como integrador de programa entre la marca y la aseguradora.
+        </div>
+        <div class="features-title">Capacidades clave</div>
+        <ul class="features-list">
+          <li>API multi-línea y multi-país</li>
+          <li>Motor de precios en tiempo real</li>
+          <li>XClaim: gestión de siniestros conversacional (IA)</li>
+          <li>NPS post-siniestro líder del sector</li>
+          <li>White-label completo</li>
+          <li>Cumplimiento regulatorio local automatizado</li>
+        </ul>
+        <div class="card-metrics">
+          <div class="metric"><div class="val">60+</div><div class="mlab">Países</div></div>
+          <div class="metric"><div class="val">Amazon, eBay, Booking</div><div class="mlab">Clientes emblema</div></div>
+          <div class="metric"><div class="val">Unicornio</div><div class="mlab">Estado</div></div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <strong>Relevancia para el corredor:</strong> Ideal para corredores que quieran desarrollar programas de afinidad para grandes cuentas o plataformas digitales. El corredor co-diseña el programa, no simplemente lo distribuye.
+      </div>
+    </div>
+
+    <!-- 2. Bolttech -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:#f0e8fd;">🔗</div>
+        <div class="card-title-block">
+          <div class="card-name">bolttech</div>
+          <div class="card-origin">Singapur · Fund. 2020</div>
+        </div>
+        <span class="card-badge badge-asia">Asia-Pacífico / Europa</span>
+      </div>
+      <div class="card-body">
+        <div class="card-tagline">"La red de seguros embebidos que conecta aseguradoras, distribuidores y clientes"</div>
+        <div class="card-desc">
+          Unicornio valorado en 2.100 MM$ (Serie C, junio 2025). Conecta aseguradoras, distribuidores y clientes finales mediante una arquitectura de marketplace bidireccional. En octubre 2025 anunció alianza con AXA Partners para lanzar soluciones de seguro embebido en Europa. Para corredores: ofrece acceso a un ecosistema de productos y aseguradoras con integración simplificada.
+        </div>
+        <div class="features-title">Capacidades clave</div>
+        <ul class="features-list">
+          <li>API de seguros embebidos</li>
+          <li>Multiproducto: móvil, viaje, EV, dispositivos</li>
+          <li>Onboarding y servicio de siniestros</li>
+          <li>Expansión: 30+ países</li>
+          <li>Alianza AXA Partners (Europa 2025)</li>
+          <li>Modelo marketplace B2B2C</li>
+        </ul>
+        <div class="card-metrics">
+          <div class="metric"><div class="val">2.100 M$</div><div class="mlab">Valoración (2025)</div></div>
+          <div class="metric"><div class="val">1.054</div><div class="mlab">Empleados</div></div>
+          <div class="metric"><div class="val">640 M$</div><div class="mlab">Financiación total</div></div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <strong>Relevancia para el corredor:</strong> Especialmente interesante para corredores con cartera de telecomunicaciones, movilidad o electrónica. Arquitectura marketplace: el corredor puede actuar como distribuidor dentro de la red bolttech.
+      </div>
+    </div>
+
+    <!-- 3. Qover -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:#fdf0e8;">🇪🇺</div>
+        <div class="card-title-block">
+          <div class="card-name">Qover</div>
+          <div class="card-origin">Bruselas · Fund. 2016</div>
+        </div>
+        <span class="card-badge badge-europe">Europa</span>
+      </div>
+      <div class="card-body">
+        <div class="card-tagline">"Orquestación de seguros embebidos API-first para fintechs y plataformas de movilidad"</div>
+        <div class="card-desc">
+          Referencia europea en seguros embebidos. Plataforma-as-a-Service con API modular que permite configurar programas de seguro, procesar siniestros digitalmente y gestionar la experiencia de usuario. Recibió su ronda de financiación más reciente en marzo 2026. Su enfoque regulatorio (IDD, GDPR) lo hace especialmente adecuado para corredores europeos que buscan operar como MGA digital o integrador de programa.
+        </div>
+        <div class="features-title">Capacidades clave</div>
+        <ul class="features-list">
+          <li>Configuración de programas de seguro</li>
+          <li>Procesamiento digital de siniestros</li>
+          <li>Diseño de UX para el asegurado</li>
+          <li>Compliance IDD / GDPR nativo</li>
+          <li>Integración con fintechs y movilidad</li>
+          <li>Arquitectura modular y escalable</li>
+        </ul>
+        <div class="card-metrics">
+          <div class="metric"><div class="val">2016</div><div class="mlab">Fundación</div></div>
+          <div class="metric"><div class="val">Mar. 2026</div><div class="mlab">Última ronda</div></div>
+          <div class="metric"><div class="val">B2B PaaS</div><div class="mlab">Modelo</div></div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <strong>Relevancia para el corredor:</strong> El más relevante para corredores españoles o latinoamericanos con ambición digital. Permite al corredor operar un programa propio de seguro embebido sin necesidad de ser asegurador.
+      </div>
+    </div>
+
+    <!-- 4. Tint -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:#edf7f0;">🇺🇸</div>
+        <div class="card-title-block">
+          <div class="card-name">Tint</div>
+          <div class="card-origin">San Francisco · Fund. 2018 (YC)</div>
+        </div>
+        <span class="card-badge badge-us">EE. UU.</span>
+      </div>
+      <div class="card-body">
+        <div class="card-tagline">"MGA + sistema operativo para programas de seguro embebido en plataformas SaaS"</div>
+        <div class="card-desc">
+          Solución dual: MGA que corre programas de seguro embebido <em>y</em> el sistema operativo tecnológico que los impulsa. Dirigida a plataformas SaaS y marketplaces (Outdoorsy, home-sharing, gig economy). Creció 7× en 2024. Con 30 MM$ de financiación, ofrece integraciones plug-and-play y white-label en semanas, no años. El corredor puede actuar como gestor del programa y vehículo de distribución de la plataforma cliente.
+        </div>
+        <div class="features-title">Capacidades clave</div>
+        <ul class="features-list">
+          <li>API plug-and-play (semanas de integración)</li>
+          <li>White-label completo</li>
+          <li>Suscripción + acceso a aseguradoras</li>
+          <li>Configuración de coberturas, límites, franquicias</li>
+          <li>Dashboard de salud del programa</li>
+          <li>Modelo profit center para el distribuidor</li>
+        </ul>
+        <div class="card-metrics">
+          <div class="metric"><div class="val">7×</div><div class="mlab">Crecimiento 2024</div></div>
+          <div class="metric"><div class="val">30 M$</div><div class="mlab">Financiación</div></div>
+          <div class="metric"><div class="val">SaaS / Marketplace</div><div class="mlab">Nicho principal</div></div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <strong>Relevancia para el corredor:</strong> Perfecta para corredores que gestionan carteras de plataformas tecnológicas, economía gig o alquiler vacacional. Convierte al corredor en gestor del programa, no solo distribuidor.
+      </div>
+    </div>
+
+    <!-- 5. Companjon -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:#fff3e8;">✈️</div>
+        <div class="card-title-block">
+          <div class="card-name">Companjon</div>
+          <div class="card-origin">Dublín · Fund. 2017</div>
+        </div>
+        <span class="card-badge badge-europe">Europa</span>
+      </div>
+      <div class="card-body">
+        <div class="card-tagline">"Seguros dinámicos y flexibles para plataformas de alto crecimiento en viaje y ocio"</div>
+        <div class="card-desc">
+          Especialista europeo en seguros embebidos dinámicos (cancelación, interrupción de viaje, seguro de eventos) para plataformas digitales de alto crecimiento. Permite activación y cancelación en tiempo real, con pricing adaptativo. Reconocido por Grand View Research como jugador clave en el mercado global. Sólido en sectores de viaje, entretenimiento y suscripción.
+        </div>
+        <div class="features-title">Capacidades clave</div>
+        <ul class="features-list">
+          <li>Seguros de cancelación on-demand</li>
+          <li>Pricing dinámico por contexto</li>
+          <li>Activación/cancelación en tiempo real</li>
+          <li>Integración con plataformas de viaje</li>
+          <li>APIs de distribución rápida</li>
+          <li>Modelo B2B2C</li>
+        </ul>
+        <div class="card-metrics">
+          <div class="metric"><div class="val">Viaje / Ocio</div><div class="mlab">Nicho principal</div></div>
+          <div class="metric"><div class="val">Europa</div><div class="mlab">Mercado core</div></div>
+          <div class="metric"><div class="val">Dinámico</div><div class="mlab">Tipo de cobertura</div></div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <strong>Relevancia para el corredor:</strong> Especialmente útil para corredores especializados en viaje corporativo, agencias de viajes o plataformas de entretenimiento que buscan añadir valor a su cartera digital.
+      </div>
+    </div>
+
+    <!-- 6. Igloo (Axinan) -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:#f0e8fd;">🦋</div>
+        <div class="card-title-block">
+          <div class="card-name">Igloo (Axinan)</div>
+          <div class="card-origin">Singapur · Fund. 2016</div>
+        </div>
+        <span class="card-badge badge-asia">Asia-Pacífico</span>
+      </div>
+      <div class="card-body">
+        <div class="card-tagline">"Full-stack insurtech: plataforma digital + productos + distribución omnicanal en Asia"</div>
+        <div class="card-desc">
+          Insurtech full-stack con presencia en más de 8 mercados asiáticos. Ofrece plataforma visual digital para crear productos de seguro, optimizar operaciones y distribuir en múltiples canales. Incluye centro de APIs para toda la cadena de valor: suscripción, gestión de pólizas, distribución, siniestros. Productos: cobertura por uso, cyber-risk, e-commerce, salud. Clave en el ecosistema digital del Sudeste Asiático.
+        </div>
+        <div class="features-title">Capacidades clave</div>
+        <ul class="features-list">
+          <li>Plataforma visual para diseñar productos</li>
+          <li>Centro de APIs (suscripción, pólizas, siniestros)</li>
+          <li>Distribución D2C + embedded</li>
+          <li>Cobertura por uso (UBI)</li>
+          <li>Soluciones cyber y e-commerce</li>
+          <li>8+ mercados Asia-Pacífico</li>
+        </ul>
+        <div class="card-metrics">
+          <div class="metric"><div class="val">8+</div><div class="mlab">Mercados</div></div>
+          <div class="metric"><div class="val">Full-stack</div><div class="mlab">Modelo</div></div>
+          <div class="metric"><div class="val">Telkomsel, TrueMoney</div><div class="mlab">Socios clave</div></div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <strong>Relevancia para el corredor:</strong> Referencia para corredores latinoamericanos que buscan modelos replicables del mercado asiático, donde la penetración de seguros embebidos vía mobile-first es más avanzada.
+      </div>
+    </div>
+
+    <!-- 7. Agentero / Producerflow (card completo) -->
+    <div class="card card-full">
+      <div class="card-header">
+        <div class="card-icon" style="background:#e8f7f0;">🤝</div>
+        <div class="card-title-block">
+          <div class="card-name">Agentero · Producerflow</div>
+          <div class="card-origin">San Francisco · Fundado para el canal corredor</div>
+        </div>
+        <span class="card-badge badge-us">Diseñado para Brokers</span>
+      </div>
+      <div class="card-body">
+        <div class="card-tagline">"El único ecosistema digital construido desde el principio para el agente-corredor moderno"</div>
+        <div class="card-desc">
+          Agentero es la plataforma que da a los agentes y corredores acceso a aseguradoras modernas y herramientas para gestionar relaciones, distribución y engagement desde un único workspace digital. Su producto Producerflow automatiza los procesos de compliance, onboarding de productores y gestión de licencias: centraliza flujos de contratación, verifica licencias y rastrea renovaciones regulatorias. Es la solución más directamente orientada al corredor como protagonista, no como canal secundario. Complementa perfectamente a plataformas como Qover o Cover Genius, que resuelven el lado asegurador/programa, mientras Agentero resuelve el CRM y compliance del corredor.
+        </div>
+        <div class="features-title">Capacidades clave</div>
+        <ul class="features-list">
+          <li>Workspace digital unificado para agentes</li>
+          <li>Acceso a aseguradoras modernas</li>
+          <li>Gestión de relaciones con clientes</li>
+          <li>Automatización de compliance y licencias</li>
+          <li>Onboarding de productores</li>
+          <li>Seguimiento de renovaciones regulatorias</li>
+          <li>Cross-sell y retención automatizados</li>
+          <li>Integraciones con AMS existentes</li>
+        </ul>
+        <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:16px; margin-top: 16px; padding-top:16px; border-top: 1px solid var(--border);">
+          <div>
+            <div class="features-title">Caso de uso corredor</div>
+            <p style="font-size:13px; color: var(--carbon); line-height:1.6;">Una correduría mediana puede integrar Agentero como CRM central y conectar Qover o Tint como motor de programa embebido: el corredor diseña la propuesta, Agentero gestiona el canal, la plataforma embebida ejecuta la emisión.</p>
+          </div>
+          <div>
+            <div class="features-title">Modelo de negocio</div>
+            <p style="font-size:13px; color: var(--carbon); line-height:1.6;">SaaS B2B con suscripción mensual. Ingresos del corredor por comisión sobre las pólizas distribuidas vía las aseguradoras modernas integradas en la plataforma.</p>
+          </div>
+          <div>
+            <div class="features-title">Diferencial clave</div>
+            <p style="font-size:13px; color: var(--carbon); line-height:1.6;">Es la única plataforma que pone al <em>corredor</em> como usuario protagonista, no a la aseguradora ni a la plataforma digital. Diseñada para que el corredor compita con los canales directos.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <strong>Relevancia para el corredor español / latinoamericano:</strong> Referencia de modelo a adaptar. En España no existe un equivalente directo de esta arquitectura orientada 100% al corredor con acceso a programas embebidos integrados.
+      </div>
+    </div>
+
+    <!-- 8. EIS Group -->
+    <div class="card card-full">
+      <div class="card-header">
+        <div class="card-icon" style="background:#fce8ec;">⚙️</div>
+        <div class="card-title-block">
+          <div class="card-name">EIS Group</div>
+          <div class="card-origin">San Francisco / Global · Infraestructura enterprise</div>
+        </div>
+        <span class="card-badge badge-global">Enterprise</span>
+      </div>
+      <div class="card-body">
+        <div class="card-tagline">"Core system + distribución embebida: la plataforma para aseguradoras que quieren habilitar a sus corredores"</div>
+        <div class="card-desc">
+          EIS Group provee la infraestructura tecnológica de fondo que permite a las aseguradoras construir y desplegar productos de seguro embebido a través de sus corredores. Su relevancia para el corredor es indirecta pero estructural: si la aseguradora con la que trabaja usa EIS, el corredor tiene acceso a una arquitectura API-first con capacidades de emisión en tiempo real, gestión de siniestros digital y distribución multicanal. Es la capa de core insurance que habilita los programas embebidos de las plataformas anteriores.
+        </div>
+        <div class="features-title">Capacidades clave</div>
+        <ul class="features-list">
+          <li>Core insurance system cloud-native</li>
+          <li>API-first para distribución embebida</li>
+          <li>Gestión de pólizas y siniestros</li>
+          <li>Soporte a brokers, MGAs y bancaseguros</li>
+          <li>Configuración modular de productos</li>
+          <li>Ecosistema de integración abierto</li>
+        </ul>
+      </div>
+      <div class="card-footer">
+        <strong>Relevancia para el corredor:</strong> Clave para entender si la aseguradora con la que trabaja puede ofrecer integración técnica para programas embebidos. EIS es la plataforma backend que habilita el frontend embebido.
+      </div>
+    </div>
+
+  </div><!-- /platforms-grid -->
+
+  <!-- TABLA COMPARATIVA -->
+  <p class="section-title">Análisis comparativo</p>
+  <h2 class="section-h2">Matriz de capacidades para el corredor</h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Plataforma</th>
+          <th>API white-label</th>
+          <th>Canal corredor nativo</th>
+          <th>Cumplimiento IDD/Europa</th>
+          <th>Multi-ramo</th>
+          <th>Gestión siniestros</th>
+          <th>América Latina</th>
+          <th>Modelo de acceso</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Cover Genius (XCover)</td>
+          <td class="check">✓</td>
+          <td class="partial">◑ Programa afinidad</td>
+          <td class="check">✓</td>
+          <td class="check">✓</td>
+          <td class="check">✓ (XClaim IA)</td>
+          <td class="check">✓</td>
+          <td>Partnership / API</td>
+        </tr>
+        <tr>
+          <td>bolttech</td>
+          <td class="check">✓</td>
+          <td class="partial">◑ Red distribución</td>
+          <td class="check">✓ (AXA Partners)</td>
+          <td class="check">✓</td>
+          <td class="check">✓</td>
+          <td class="partial">◑ Expansión</td>
+          <td>Partnership / Marketplace</td>
+        </tr>
+        <tr>
+          <td>Qover</td>
+          <td class="check">✓</td>
+          <td class="check">✓ MGA / Programa</td>
+          <td class="check">✓ Nativo</td>
+          <td class="partial">◑ Finanzas / Movilidad</td>
+          <td class="check">✓</td>
+          <td class="dash">–</td>
+          <td>SaaS / API</td>
+        </tr>
+        <tr>
+          <td>Tint</td>
+          <td class="check">✓</td>
+          <td class="partial">◑ Gestor de programa</td>
+          <td class="dash">– (EE. UU. foco)</td>
+          <td class="partial">◑ SaaS / Marketplace</td>
+          <td class="check">✓</td>
+          <td class="dash">–</td>
+          <td>SaaS plug-and-play</td>
+        </tr>
+        <tr>
+          <td>Companjon</td>
+          <td class="check">✓</td>
+          <td class="partial">◑ Distribución B2B</td>
+          <td class="check">✓</td>
+          <td class="dash">– Viaje / Ocio</td>
+          <td class="partial">◑ Básico</td>
+          <td class="dash">–</td>
+          <td>API / B2B2C</td>
+        </tr>
+        <tr>
+          <td>Igloo</td>
+          <td class="check">✓</td>
+          <td class="partial">◑ Distribución omnicanal</td>
+          <td class="dash">– Asia foco</td>
+          <td class="check">✓</td>
+          <td class="check">✓</td>
+          <td class="dash">–</td>
+          <td>API / Platform</td>
+        </tr>
+        <tr>
+          <td>Agentero</td>
+          <td class="partial">◑ Integración AMS</td>
+          <td class="check">✓ Corredor protagonista</td>
+          <td class="dash">– EE. UU.</td>
+          <td class="check">✓</td>
+          <td class="partial">◑ Vía aseguradoras</td>
+          <td class="dash">–</td>
+          <td>SaaS corredor</td>
+        </tr>
+        <tr>
+          <td>EIS Group</td>
+          <td class="check">✓</td>
+          <td class="partial">◑ Vía aseguradora</td>
+          <td class="check">✓</td>
+          <td class="check">✓</td>
+          <td class="check">✓</td>
+          <td class="partial">◑</td>
+          <td>Enterprise / Licencia</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- RELEVANCIA PARA EL CORREDOR -->
+  <p class="section-title">Implicaciones estratégicas</p>
+  <h2 class="section-h2">¿Qué significa esto para el corredor?</h2>
+
+  <div class="relevance-grid">
+    <div class="rel-card">
+      <div class="rel-num">1</div>
+      <div class="rel-title">El corredor como integrador de programa</div>
+      <div class="rel-desc">El modelo más avanzado no es "distribuir seguros en una plataforma ajena", sino co-diseñar el programa con la plataforma tecnológica y la aseguradora. El corredor aporta el conocimiento técnico del riesgo que ni la plataforma ni la aseguradora tienen.</div>
+    </div>
+    <div class="rel-card">
+      <div class="rel-num">2</div>
+      <div class="rel-title">API como nuevo canal de distribución</div>
+      <div class="rel-desc">La integración API ya no es un tema exclusivo de IT. Es la nueva licencia de distribución digital. El corredor que domina una integración con Qover o Cover Genius tiene acceso a millones de clientes en el momento exacto de necesidad.</div>
+    </div>
+    <div class="rel-card">
+      <div class="rel-num">3</div>
+      <div class="rel-title">Riesgo de desintermediación activa</div>
+      <div class="rel-desc">Estas plataformas no nacen para sustituir al corredor: nacen para llegar al cliente donde el corredor no llega. Pero si el corredor no actúa, la relación con el cliente final queda en manos de la plataforma tecnológica. El tiempo de decisión es corto.</div>
+    </div>
+    <div class="rel-card">
+      <div class="rel-num">4</div>
+      <div class="rel-title">Oportunidad especialmente clara en LATAM</div>
+      <div class="rel-desc">América Latina presenta penetración de seguros baja y penetración digital alta —la combinación perfecta para el seguro embebido. Cover Genius ya opera en la región. Bolttech tiene planes de expansión. El corredor local tiene ventaja de conocimiento regulatorio y del cliente.</div>
+    </div>
+    <div class="rel-card">
+      <div class="rel-num">5</div>
+      <div class="rel-title">El corredor como MGA digital</div>
+      <div class="rel-desc">Plataformas como Qover y Tint permiten al corredor operar de facto como MGA digital, diseñando sus propios programas de seguro embebido sin necesidad de licencia de asegurador. Es el siguiente paso natural para corredurías medianas con ambición de escala.</div>
+    </div>
+    <div class="rel-card">
+      <div class="rel-num">6</div>
+      <div class="rel-title">El modelo de ingresos cambia</div>
+      <div class="rel-desc">En el seguro embebido, la comisión tradicional evoluciona hacia un modelo de revenue share por programa. El corredor que gestiona el programa —no solo lo distribuye— captura un porcentaje de toda la prima emitida en la plataforma, de forma recurrente y automatizada.</div>
+    </div>
+  </div>
+
+  <!-- ALERTA ESPAÑA / LATAM -->
+  <div class="alert">
+    <div class="alert-title">⚠️ Señal de atención para el mercado español y latinoamericano</div>
+    <p>Ninguna de las plataformas líderes en seguros embebidos ha nacido en España o América Latina. La oportunidad de construir o adaptar una solución orientada al corredor iberoamericano —con conocimiento regulatorio local, idioma y estructura de mercado— está abierta. El corredor que primero construya ese puente entre las plataformas globales (Qover, Cover Genius, bolttech) y los ecosistemas digitales locales (fintech, e-commerce, movilidad) tendrá una ventaja competitiva estructural difícil de replicar.</p>
+  </div>
+
+</div><!-- /body-wrap -->
+
+<!-- FOOTER -->
+<div class="report-footer">
+  <strong>Community of Insurance</strong> · Informe elaborado con fines de análisis editorial · Julio 2026 · communityofinsurance.es
+</div>
+
+</body>
+</html>
