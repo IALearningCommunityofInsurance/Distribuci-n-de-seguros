@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lemonade (LMND) — Análisis Financiero Integral 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  
+  :root {
+    --lemon-yellow: #222222;      /* acento principal → casi negro */
+    --lemon-dark:   #111111;
+    --lemon-pink:   #C0392B;
+    --lemon-black:  #111111;      /* usado en hero */
+    --lemon-white:  #FFFFFF;      /* fondo general */
+    --lemon-gray:   #555555;
+    --lemon-mid:    #F4F4F4;
+    --lemon-green:  #1B7A3B;
+    --lemon-red:    #C0392B;
+    --lemon-amber:  #B7770D;
+    --section-pad: 64px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #FFFFFF;
+    color: #0D0D0D;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: #0D2240;
+    padding: 80px 64px 60px;
+    border-bottom: 4px solid #4A90D9;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 400px; height: 4px;
+    background: linear-gradient(to left, #4A90D9, transparent);
+  }
+  .hero::before {
+    content: 'LMND';
+    position: absolute;
+    right: -20px;
+    top: -30px;
+    font-family: 'Playfair Display', serif;
+    font-size: 260px;
+    font-weight: 900;
+    color: #ffffff06;
+    letter-spacing: -10px;
+    user-select: none;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: #4A90D9;
+    color: #FFFFFF;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 6px 14px;
+    margin-bottom: 28px;
+    text-transform: uppercase;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 6vw, 80px);
+    font-weight: 900;
+    line-height: 1.0;
+    letter-spacing: -2px;
+    color: #FFFFFF;
+    margin-bottom: 8px;
+  }
+  .hero h1 span { color: #7EC8F5; }
+  .hero-sub {
+    font-size: 16px;
+    color: #B8D4EE;
+    max-width: 560px;
+    margin-top: 20px;
+    font-weight: 300;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 40px;
+    margin-top: 48px;
+    flex-wrap: wrap;
+  }
+  .meta-item { display: flex; flex-direction: column; gap: 4px; }
+  .meta-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #7EB5D9;
+    text-transform: uppercase;
+  }
+  .meta-value {
+    font-size: 22px;
+    font-weight: 700;
+    color: #FFFFFF;
+    font-family: 'Playfair Display', serif;
+  }
+  .meta-value.yellow { color: #7EC8F5; }
+
+  /* ── KPI STRIP ── */
+  .kpi-strip {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    border-bottom: 1px solid #CCCCCC;
+  }
+  .kpi-cell {
+    padding: 32px 28px;
+    border-right: 1px solid #CCCCCC;
+  }
+  .kpi-cell:last-child { border-right: none; }
+  .kpi-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: var(--lemon-gray);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .kpi-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--lemon-yellow);
+    line-height: 1;
+  }
+  .kpi-sub {
+    font-size: 12px;
+    color: var(--lemon-gray);
+    margin-top: 6px;
+  }
+  .kpi-delta {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 2px;
+  }
+  .kpi-delta.up { background: #E8F5E9; color: #1B7A3B; }
+  .kpi-delta.down { background: #FFF5F5; color: #C0392B; }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 64px; }
+  .section {
+    padding: var(--section-pad) 64px;
+    border-bottom: 1px solid #DDDDDD;
+  }
+  .section-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--lemon-yellow);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 700;
+    line-height: 1.1;
+    color: #0D0D0D;
+    margin-bottom: 40px;
+    border-bottom: 2px solid var(--lemon-yellow);
+    padding-bottom: 20px;
+    display: inline-block;
+  }
+
+  /* ── TWO COL ── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; }
+
+  /* ── FOUNDER CARDS ── */
+  .founder-card {
+    background: #F0F0F0;
+    padding: 32px;
+    border-top: 3px solid var(--lemon-yellow);
+  }
+  .founder-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #0D0D0D;
+    margin-bottom: 4px;
+  }
+  .founder-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--lemon-yellow);
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+  .founder-bio {
+    font-size: 14px;
+    color: #555555;
+    line-height: 1.6;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 6px;
+    bottom: 6px;
+    width: 2px;
+    background: linear-gradient(to bottom, #1A1A1A, #AAAAAA);
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 32px;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -28px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    background: var(--lemon-yellow);
+    border-radius: 50%;
+  }
+  .t-year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--lemon-yellow);
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .t-event {
+    font-size: 14px;
+    color: #333333;
+    line-height: 1.5;
+  }
+  .t-event strong { color: #0D0D0D; }
+
+  /* ── MODEL PILLARS ── */
+  .pillar {
+    background: #F0F0F0;
+    border: 1px solid #CCCCCC;
+    padding: 28px;
+    border-top: 3px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .pillar:hover { border-top-color: #444444; }
+  .pillar-icon {
+    font-size: 28px;
+    margin-bottom: 14px;
+  }
+  .pillar-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #0D0D0D;
+    margin-bottom: 10px;
+  }
+  .pillar-text { font-size: 13px; color: #666666; line-height: 1.6; }
+
+  /* ── DATA TABLE ── */
+  .data-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+  .data-table th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: var(--lemon-gray);
+    text-transform: uppercase;
+    text-align: right;
+    padding: 10px 16px;
+    border-bottom: 1px solid #CCCCCC;
+  }
+  .data-table th:first-child { text-align: left; }
+  .data-table td {
+    padding: 13px 16px;
+    border-bottom: 1px solid #DDDDDD;
+    text-align: right;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: #333333;
+  }
+  .data-table td:first-child {
+    text-align: left;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #0D0D0D;
+  }
+  .data-table tr:hover td { background: #F0F0F0; }
+  .data-table .highlight { color: var(--lemon-yellow); font-weight: 600; }
+  .data-table .negative { color: var(--lemon-red); }
+  .data-table .positive { color: var(--lemon-green); }
+  .data-table .row-header {
+    background: #F0F0F0;
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 10px !important;
+    color: var(--lemon-gray) !important;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* ── CHART BARS ── */
+  .chart-wrap { margin-top: 8px; }
+  .chart-row { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .chart-year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--lemon-gray);
+    width: 48px;
+    flex-shrink: 0;
+  }
+  .chart-bar-bg {
+    flex: 1;
+    background: #E8E8E8;
+    height: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .chart-bar-fill {
+    height: 100%;
+    background: #1A1A1A;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 600;
+    color: #FFFFFF;
+    transition: width 0.8s ease;
+    min-width: 80px;
+  }
+  .chart-bar-fill.red { background: #E53935; color: white; }
+  .chart-bar-fill.amber { background: var(--lemon-amber); color: var(--lemon-black); }
+  .chart-bar-fill.green { background: var(--lemon-green); color: #FFFFFF; }
+
+  /* ── STOCK TIMELINE ── */
+  .stock-phases { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 8px; }
+  .stock-phase { padding: 24px 20px; text-align: center; }
+  .sp-period {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--lemon-gray);
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  .sp-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 900;
+    margin-bottom: 6px;
+  }
+  .sp-label { font-size: 12px; color: #777777; }
+  .phase-launch { background: #EAF5E0; border-top: 3px solid #8BC34A; }
+  .phase-launch .sp-price { color: #33691E; }
+  .phase-peak { background: #FFFDE0; border-top: 3px solid var(--lemon-yellow); }
+  .phase-peak .sp-price { color: #7A6000; }
+  .phase-crash { background: #FFF0EE; border-top: 3px solid var(--lemon-red); }
+  .phase-crash .sp-price { color: var(--lemon-red); }
+  .phase-recovery { background: #E8F4FA; border-top: 3px solid #42A5F5; }
+  .phase-recovery .sp-price { color: #1565C0; }
+
+  /* ── VERDICT ── */
+  .verdict-box {
+    background: #F5F5F0;
+    border: 2px solid #1A1A1A;
+    padding: 48px;
+    margin-top: 40px;
+  }
+  .verdict-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--lemon-yellow);
+    margin-bottom: 24px;
+  }
+  .verdict-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 32px; }
+  .verdict-col h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid;
+  }
+  .verdict-col.bull h4 { color: var(--lemon-green); border-color: #2E7D32; }
+  .verdict-col.bear h4 { color: var(--lemon-red); border-color: #C62828; }
+  .verdict-point {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    color: #444444;
+    line-height: 1.5;
+  }
+  .verdict-point .dot { flex-shrink: 0; margin-top: 5px; width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+  .verdict-col.bull .dot { color: var(--lemon-green); }
+  .verdict-col.bear .dot { color: var(--lemon-red); }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: #111111;
+    padding: 40px 64px;
+    border-top: 1px solid #1a1a1a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-left {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: #AAAAAA;
+    line-height: 1.8;
+  }
+  .footer-right {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: #888888;
+  }
+
+  /* ── TAG ── */
+  .tag {
+    display: inline-block;
+    background: #EEEEEE;
+    color: #444444;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    padding: 3px 10px;
+    margin: 3px 3px 3px 0;
+    border-radius: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ── INLINE STAT ── */
+  .inline-stat {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 4px;
+    background: #EEEEEE;
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin: 4px;
+  }
+  .inline-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1A1A1A;
+  }
+  .inline-stat-label { font-size: 11px; color: #888888; }
+
+  .prose { font-size: 15px; color: #444444; line-height: 1.8; }
+  .prose p { margin-bottom: 16px; }
+  .prose strong { color: #0D0D0D; }
+
+  /* ── PRODUCTS GRID ── */
+  .product-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .product-card {
+    background: #F0F0F0;
+    border: 1px solid #CCCCCC;
+    padding: 20px 16px;
+    text-align: center;
+  }
+  .product-icon { font-size: 24px; margin-bottom: 8px; }
+  .product-name { font-size: 13px; font-weight: 600; color: #0D0D0D; }
+  .product-price { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--lemon-yellow); margin-top: 4px; }
+
+  @media (max-width: 900px) {
+    .hero, .section { padding: 48px 24px; }
+    .kpi-strip { grid-template-columns: repeat(2, 1fr); }
+    .two-col, .three-col, .stock-phases, .product-grid { grid-template-columns: 1fr; }
+    .footer { flex-direction: column; gap: 20px; }
+    .verdict-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">NYSE: LMND · Análisis Financiero · Agosto 2026</div>
+  <h1><span>Lemonade</span><br>La insurtech<br>que lo apostó todo<br>a la IA</h1>
+  <p class="hero-sub">De startup sin experiencia aseguradora a compañía con más de 1.400 MM€ en primas en cartera. Un modelo que reescribe las reglas… pero aún pierde dinero.</p>
+  <div class="hero-meta">
+    <div class="meta-item">
+      <span class="meta-label">Fundada</span>
+      <span class="meta-value">Abril 2015</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">IPO</span>
+      <span class="meta-value">2 Jul 2020</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Precio IPO</span>
+      <span class="meta-value yellow">$29</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Precio actual (20/08/26)</span>
+      <span class="meta-value">~$50,71</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Cap. bursátil aprox.</span>
+      <span class="meta-value">~3.970 MM$</span>
+    </div>
+  </div>
+</div>
+
+<!-- KPI STRIP -->
+<div class="kpi-strip">
+  <div class="kpi-cell">
+    <div class="kpi-label">Primas en cartera (IFP) Q4 2025</div>
+    <div class="kpi-num">1.240 MM$</div>
+    <div class="kpi-delta up">▲ +31% YoY</div>
+  </div>
+  <div class="kpi-cell">
+    <div class="kpi-label">Ingresos FY 2025</div>
+    <div class="kpi-num">738 MM$</div>
+    <div class="kpi-delta up">▲ +40% YoY</div>
+  </div>
+  <div class="kpi-cell">
+    <div class="kpi-label">Pérdida neta FY 2025</div>
+    <div class="kpi-num">−166 MM$</div>
+    <div class="kpi-delta up">▼ −18% vs 2024</div>
+  </div>
+  <div class="kpi-cell">
+    <div class="kpi-label">Clientes (Q4 2025)</div>
+    <div class="kpi-num">2,98 M</div>
+    <div class="kpi-delta up">▲ +23% YoY</div>
+  </div>
+  <div class="kpi-cell">
+    <div class="kpi-label">Ratio de siniestralidad Q4 2025</div>
+    <div class="kpi-num">52%</div>
+    <div class="kpi-delta up">▼ Récord histórico</div>
+  </div>
+</div>
+
+<!-- SECCIÓN 1: ORIGEN -->
+<div class="section">
+  <div class="section-eyebrow">01 · Origen e historia</div>
+  <div class="section-title">Quién, cuándo y para qué</div>
+
+  <div class="two-col">
+    <div>
+      <div class="prose">
+        <p><strong>Lemonade nació en abril de 2015</strong> de la mano de dos emprendedores tecnológicos israelíes radicados en Nueva York: Daniel Schreiber y Shai Wininger. Ninguno de los dos tenía experiencia en seguros. Eso, lejos de ser un problema, fue su mayor activo: llegaron al mercado sin los paradigmas del sector.</p>
+        <p>Su propósito declarado era simple y ambicioso: <strong>reconstruir el seguro desde cero</strong> aplicando inteligencia artificial, economía conductual y un modelo de negocio sin conflicto de intereses con el asegurado. En septiembre de 2016, lanzaron su primer producto —el seguro de inquilinos— en Nueva York.</p>
+        <p>Para cubrir el vacío de conocimiento asegurador, ficharon desde el principio a <strong>Ty Sagalow</strong>, veterano con 36 años en el sector, como Chief Insurance Officer. En 2017 se incorporó el economista conductual <strong>Dan Ariely</strong> (Duke University) como Chief Behavioral Officer para diseñar mecanismos que redujeran el fraude y alinearan incentivos.</p>
+        <p>En julio de 2020, Lemonade salió a bolsa en la NYSE bajo el símbolo <strong>LMND</strong>, recaudando 319 MM$ a 29$ por acción.</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="t-year">ABR 2015</div>
+          <div class="t-event"><strong>Fundación</strong> por Schreiber y Wininger en Nueva York (I+D en Tel Aviv). Ronda semilla de 13 MM$ liderada por Sequoia Capital y Aleph.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="t-year">SEP 2016</div>
+          <div class="t-event"><strong>Lanzamiento comercial</strong> en Nueva York. 14.000 clientes en los primeros 6 meses. Serie B de 34 MM$ (General Catalyst, GV, Thrive Capital).</div>
+        </div>
+        <div class="timeline-item">
+          <div class="t-year">DIC 2017</div>
+          <div class="t-event">Serie C de <strong>120 MM$</strong> liderada por SoftBank. Valoración: 500 MM$. Suma el behavioral officer Dan Ariely.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="t-year">2019</div>
+          <div class="t-event">Serie D de <strong>300 MM$</strong> (SoftBank). Valoración: 2.100 MM$. Expansión a Europa (Alemania, Países Bajos). Capital total captado: 480 MM$.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="t-year">JUL 2020</div>
+          <div class="t-event"><strong>IPO en NYSE a 29$/acción.</strong> Recauda 319 MM$. Primer día de cotización cierra a 69,41$, +139%.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="t-year">2022</div>
+          <div class="t-event">Adquisición de <strong>Metromile</strong> (telemática para seguros de auto). Acceso a licencias en 49 estados. Transacción en acciones (~500 MM$ en el anuncio).</div>
+        </div>
+        <div class="timeline-item">
+          <div class="t-year">2025</div>
+          <div class="t-event">IFP supera <strong>1.000 MM$</strong> por primera vez en Q1 2025. Q4 2025: «el mejor trimestre de la historia». Lanzamiento del seguro para vehículos autónomos (Tesla FSD).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOUNDERS -->
+  <div class="three-col" style="margin-top: 40px;">
+    <div class="founder-card">
+      <div class="founder-name">Daniel Schreiber</div>
+      <div class="founder-title">Co-Fundador · Chairman & Co-CEO</div>
+      <div class="founder-bio">Exejecutivo de SanDisk y expresidente de Powermat Technologies. Perfil estratégico y de negocio. Lidera la visión corporativa y la narrativa de la compañía ante inversores.</div>
+    </div>
+    <div class="founder-card">
+      <div class="founder-name">Shai Wininger</div>
+      <div class="founder-title">Co-Fundador · Presidente & Co-CEO</div>
+      <div class="founder-bio">Co-fundador y ex-CTO de Fiverr. Perfil tecnológico y de producto. Arquitecto del stack tecnológico de Lemonade y de su modelo de IA propietario.</div>
+    </div>
+    <div class="founder-card">
+      <div class="founder-name">Tim Bixby</div>
+      <div class="founder-title">CFO (hasta fin de 2026)</div>
+      <div class="founder-bio">Veterano ejecutivo financiero. Pasará al Consejo a finales de 2026, siendo sustituido por Nick Stead como nuevo CFO. Supervisa la ruta hacia la rentabilidad.</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECCIÓN 2: MODELO DE NEGOCIO -->
+<div class="section" style="background: #F8F8F8;">
+  <div class="section-eyebrow">02 · Modelo de negocio</div>
+  <div class="section-title">La arquitectura de la disrupción</div>
+
+  <div class="prose" style="max-width: 720px; margin-bottom: 40px;">
+    <p>Lemonade opera como <strong>asegurador full-stack</strong> (carrier propio, no intermediario) y como <strong>Public Benefit Corporation / B-Corp certificada</strong>. Su modelo rompe la tensión estructural del seguro tradicional con una mecánica de tarifa plana y un programa de donación del excedente de primas.</p>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 48px;">
+    <div class="pillar">
+      <div class="pillar-icon">🤖</div>
+      <div class="pillar-title">IA en el centro</div>
+      <div class="pillar-text"><strong>AI Maya</strong> gestiona la contratación (póliza en &lt;90 segundos). <strong>AI Jim</strong> tramita y paga siniestros en tiempo real —casos simples resueltos en 3 segundos—. Sin agentes, sin papeleo, 24/7.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">💛</div>
+      <div class="pillar-title">Flat fee del 25%</div>
+      <div class="pillar-text">Lemonade retiene el <strong>25% fijo de la prima</strong> para gastos y margen. El 75% restante se destina a pago de siniestros y reaseguro. Esto elimina el incentivo perverso de denegar siniestros para aumentar beneficios.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">🌱</div>
+      <div class="pillar-title">Giveback Program</div>
+      <div class="pillar-text">Las primas no consumidas en siniestros al cierre del año se donan a la ONG elegida por el asegurado. Desde 2017, se han donado <strong>más de 12 MM$</strong>. Reduce el fraude al alinear intereses asegurado-asegurador.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">📱</div>
+      <div class="pillar-title">Digital first, sin red de distribución</div>
+      <div class="pillar-text">Distribución 100% directa vía app y web. Elimina comisiones de agente (7-12% en operadores tradicionales). Target: millennials y Generación Z con preferencia por experiencia digital.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">🧠</div>
+      <div class="pillar-title">Economía conductual</div>
+      <div class="pillar-text">Dan Ariely diseñó mecanismos para reducir el fraude: <em>honesty pledge</em> antes de declarar el siniestro, selección de ONG al inicio de la relación. La investigación demuestra que reducen la deshonestidad de forma significativa.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">🔄</div>
+      <div class="pillar-title">Reaseguro como palanca</div>
+      <div class="pillar-text">Usa cuota-part y exceso de pérdidas para gestionar la volatilidad. En julio de 2025 redujo la cesión de cuota al 18-20% (vs 55% anterior), lo que acelera artificialmente el crecimiento de ingresos retenidos en 2025-2026.</div>
+    </div>
+  </div>
+
+  <!-- PRODUCTOS -->
+  <div class="section-eyebrow" style="margin-bottom: 16px;">Cartera de productos</div>
+  <div class="product-grid">
+    <div class="product-card">
+      <div class="product-icon">🏠</div>
+      <div class="product-name">Hogar / Propietarios</div>
+      <div class="product-price">Desde $25/mes</div>
+    </div>
+    <div class="product-card">
+      <div class="product-icon">🛋️</div>
+      <div class="product-name">Inquilinos (Renters)</div>
+      <div class="product-price">Desde $5/mes</div>
+    </div>
+    <div class="product-card">
+      <div class="product-icon">🐾</div>
+      <div class="product-name">Mascotas (Pet)</div>
+      <div class="product-price">Crecimiento +50% YoY</div>
+    </div>
+    <div class="product-card">
+      <div class="product-icon">🚗</div>
+      <div class="product-name">Auto (Car)</div>
+      <div class="product-price">Inc. vehículos autónomos</div>
+    </div>
+    <div class="product-card">
+      <div class="product-icon">💙</div>
+      <div class="product-name">Vida (Life)</div>
+      <div class="product-price">US + Europa</div>
+    </div>
+  </div>
+
+  <div style="margin-top: 28px; padding: 20px; background: #F0F0F0; border-left: 3px solid var(--lemon-yellow);">
+    <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--lemon-yellow); letter-spacing: 2px; margin-bottom: 8px;">PRESENCIA GEOGRÁFICA</div>
+    <div style="font-size: 14px; color: #444444;">
+      <span class="tag">EE.UU. — 37+ estados</span>
+      <span class="tag">Reino Unido</span>
+      <span class="tag">Alemania</span>
+      <span class="tag">Países Bajos</span>
+      <span class="tag">Francia</span>
+      <span class="tag">Europe (pan-EU license)</span>
+    </div>
+  </div>
+</div>
+
+<!-- SECCIÓN 3: VOLUMEN DE NEGOCIO -->
+<div class="section">
+  <div class="section-eyebrow">03 · Volumen de negocio y clientes</div>
+  <div class="section-title">Del millón a los 3 millones de clientes</div>
+
+  <!-- IFP TABLE -->
+  <div class="two-col">
+    <div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--lemon-gray); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px;">Primas en cartera (IFP) · Millones $</div>
+      <div class="chart-wrap">
+        <div class="chart-row">
+          <div class="chart-year">2019</div>
+          <div class="chart-bar-bg"><div class="chart-bar-fill" style="width: 7%;">$115M</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-year">2020</div>
+          <div class="chart-bar-bg"><div class="chart-bar-fill" style="width: 14%;">$213M</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-year">2021</div>
+          <div class="chart-bar-bg"><div class="chart-bar-fill" style="width: 25%;">$380M</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-year">2022</div>
+          <div class="chart-bar-bg"><div class="chart-bar-fill amber" style="width: 38%;">$625M</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-year">2023</div>
+          <div class="chart-bar-bg"><div class="chart-bar-fill amber" style="width: 49%;">$747M</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-year">2024</div>
+          <div class="chart-bar-bg"><div class="chart-bar-fill" style="width: 65%;">$987M</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-year">2025</div>
+          <div class="chart-bar-bg"><div class="chart-bar-fill green" style="width: 82%;">$1.240M</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--lemon-gray); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px;">Clientes activos · Millones</div>
+      <div class="chart-wrap">
+        <div class="chart-row">
+          <div class="chart-year">2019</div>
+          <div class="chart-bar-bg"><div class="chart-bar-fill" style="width: 11%;">0,43 M</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-year">2020</div>
+          <div class="chart-bar-bg"><div class="chart-bar-fill" style="width: 18%;">1,00 M</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-year">2021</div>
+          <div class="chart-bar-bg"><div class="chart-bar-fill" style="width: 30%;">1,43 M</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-year">2022</div>
+          <div class="chart-bar-bg"><div class="chart-bar-fill amber" style="width: 40%;">1,58 M</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-year">2023</div>
+          <div class="chart-bar-bg"><div class="chart-bar-fill amber" style="width: 48%;">1,85 M</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-year">2024</div>
+          <div class="chart-bar-bg"><div class="chart-bar-fill" style="width: 62%;">2,43 M</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-year">2025</div>
+          <div class="chart-bar-bg"><div class="chart-bar-fill green" style="width: 77%;">2,98 M</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 40px; display: flex; flex-wrap: wrap; gap: 16px;">
+    <div class="inline-stat"><span class="inline-stat-num">$466</span><span class="inline-stat-label">Prima media por cliente (2025 est.)</span></div>
+    <div class="inline-stat"><span class="inline-stat-num">88%</span><span class="inline-stat-label">Annual Dollar Retention (2024)</span></div>
+    <div class="inline-stat"><span class="inline-stat-num">+20%</span><span class="inline-stat-label">Clientes multi-póliza sobre IFP total</span></div>
+    <div class="inline-stat"><span class="inline-stat-num">$1.200 M</span><span class="inline-stat-label">Caja + inversiones (Q4 2025)</span></div>
+    <div class="inline-stat"><span class="inline-stat-num">+12 MM$</span><span class="inline-stat-label">Donados vía Giveback (2017–2026)</span></div>
+  </div>
+</div>
+
+<!-- SECCIÓN 4: EMPLEADOS -->
+<div class="section" style="background: #F8F8F8;">
+  <div class="section-eyebrow">04 · Capital humano</div>
+  <div class="section-title">1.235 personas. La IA hace el resto.</div>
+
+  <div class="two-col">
+    <div class="prose">
+      <p>Lemonade opera con una plantilla intencionalmente reducida respecto a su volumen de negocio. La automatización mediante IA es el sustituto estructural de la fuerza laboral en tareas de contratación, tramitación de siniestros y back-office.</p>
+      <p>Con <strong>1.235 empleados declarados a cierre de 2024</strong>, la compañía gestiona casi 3 millones de clientes y más de 1.200 MM$ en primas. Esto implica una ratio de aproximadamente <strong>2.400 clientes por empleado</strong>, muy superior a cualquier asegurador tradicional de escala similar.</p>
+      <p>La plantilla se concentra principalmente en <strong>Nueva York (sede central)</strong> y <strong>Tel Aviv (I+D y tecnología)</strong>. Su equipo directivo combina perfiles tecnológicos, de producto e ingeniería de seguros.</p>
+    </div>
+    <div>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Año</th>
+            <th>Empleados</th>
+            <th>Clientes/Empleado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2020</td>
+            <td>~650</td>
+            <td>~1.540</td>
+          </tr>
+          <tr>
+            <td>2021</td>
+            <td>~950</td>
+            <td>~1.505</td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>~1.200</td>
+            <td>~1.317</td>
+          </tr>
+          <tr>
+            <td>2023</td>
+            <td>~1.200</td>
+            <td>~1.542</td>
+          </tr>
+          <tr>
+            <td><strong>2024</strong></td>
+            <td class="highlight">1.235</td>
+            <td class="positive">~1.966</td>
+          </tr>
+          <tr>
+            <td><strong>2025 (est.)</strong></td>
+            <td>~1.300</td>
+            <td class="positive">~2.292</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin-top: 20px; padding: 16px; background: #F0F0F0; border-left: 3px solid var(--lemon-yellow);">
+        <div style="font-size: 13px; color: #444444;">La ratio de clientes por empleado mejora consistentemente: la IA absorbe el crecimiento sin escalar proporcionalmente la plantilla. Es uno de los argumentos de eficiencia más sólidos del modelo.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECCIÓN 5: COTIZACIÓN -->
+<div class="section">
+  <div class="section-eyebrow">05 · Evolución bursátil</div>
+  <div class="section-title">La montaña rusa de LMND</div>
+
+  <div class="stock-phases">
+    <div class="stock-phase phase-launch">
+      <div class="sp-period">IPO · Jul 2020</div>
+      <div class="sp-price">$29</div>
+      <div class="sp-label">Precio de salida<br>Cierre día 1: $69,41<br>+139% en jornada</div>
+    </div>
+    <div class="stock-phase phase-peak">
+      <div class="sp-period">Máximo · Ene 2021</div>
+      <div class="sp-price">$183</div>
+      <div class="sp-label">Máximo histórico<br>Cap. bursátil &gt;10.000 MM$<br>Euforia tech / insurtech</div>
+    </div>
+    <div class="stock-phase phase-crash">
+      <div class="sp-period">Mínimo · Oct 2023</div>
+      <div class="sp-price">$10,27</div>
+      <div class="sp-label">Caída del 94% vs máx.<br>Subidas de tipos<br>Pérdidas acumuladas</div>
+    </div>
+    <div class="stock-phase phase-recovery">
+      <div class="sp-period">Actual · Ago 2026</div>
+      <div class="sp-price">~$50,71</div>
+      <div class="sp-label">Recuperación parcial<br>52-week high: $99,90<br>Cap. ~3.970 MM$</div>
+    </div>
+  </div>
+
+  <div style="margin-top: 40px;" class="prose">
+    <p><strong>Fase I (2020–Ene 2021): euforia.</strong> LMND fue el símbolo del auge insurtech post-pandemia. La narrativa de "la IA va a comerse el seguro" impulsó la acción desde $29 en el IPO hasta $183 en apenas seis meses, una revalorización del +531% sin justificación en los fundamentales.</p>
+    <p><strong>Fase II (2021–2023): corrección brutal.</strong> La subida de tipos de interés por la Reserva Federal y la salida de capital de valores de crecimiento sin beneficios hundió LMND un 94% desde máximos. La adquisición de Metromile en 2022 (operación en acciones que diluyó a accionistas) agravó la caída.</p>
+    <p><strong>Fase III (2024–2026): recuperación escalonada.</strong> La mejora real del ratio de siniestralidad, el crecimiento orgánico de clientes y la perspectiva de EBITDA positivo en Q4 2026 han relanzado el valor. El 52-week high fue $99,90 antes de una corrección, y cotiza actualmente en torno a los $50, aún lejos del precio de IPO en términos de valor de empresa, pero con una narrativa operativa más sólida que nunca.</p>
+  </div>
+
+  <div style="margin-top: 32px; padding: 24px; background: #F0F0F0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; border-top: 1px solid #DDDDDD;">
+    <div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--lemon-gray); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px;">Precio IPO</div>
+      <div style="font-family: 'Playfair Display', serif; font-size: 22px; color: #33691E; font-weight: 700;">$29,00</div>
+    </div>
+    <div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--lemon-gray); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px;">Máximo histórico</div>
+      <div style="font-family: 'Playfair Display', serif; font-size: 22px; color: var(--lemon-yellow); font-weight: 700;">$188,30</div>
+      <div style="font-size: 11px; color: #888888;">12 Ene 2021</div>
+    </div>
+    <div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--lemon-gray); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px;">Mínimo histórico</div>
+      <div style="font-family: 'Playfair Display', serif; font-size: 22px; color: var(--lemon-red); font-weight: 700;">$10,27</div>
+      <div style="font-size: 11px; color: #888888;">30 Oct 2023</div>
+    </div>
+    <div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--lemon-gray); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px;">Cotización 20/08/26</div>
+      <div style="font-family: 'Playfair Display', serif; font-size: 22px; color: #1565C0; font-weight: 700;">$50,71</div>
+      <div style="font-size: 11px; color: #888888;">52W high: $99,90 · low: $46,16</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECCIÓN 6: CUENTA DE EXPLOTACIÓN -->
+<div class="section" style="background: #F8F8F8;">
+  <div class="section-eyebrow">06 · Cuenta de explotación</div>
+  <div class="section-title">Crecimiento vertiginoso, rentabilidad esquiva</div>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Partida</th>
+        <th>2020</th>
+        <th>2021</th>
+        <th>2022</th>
+        <th>2023</th>
+        <th>2024</th>
+        <th>2025</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-header">
+        <td colspan="7">INGRESOS</td>
+      </tr>
+      <tr>
+        <td>Ingresos totales (MM$)</td>
+        <td>94</td>
+        <td>128</td>
+        <td>257</td>
+        <td>430</td>
+        <td class="highlight">527</td>
+        <td class="highlight">738</td>
+      </tr>
+      <tr>
+        <td>Crecimiento YoY</td>
+        <td>—</td>
+        <td>+36%</td>
+        <td>+101%</td>
+        <td>+67%</td>
+        <td class="positive">+23%</td>
+        <td class="positive">+40%</td>
+      </tr>
+      <tr>
+        <td>Prima bruta devengada (GEP)</td>
+        <td>213</td>
+        <td>350</td>
+        <td>636</td>
+        <td>782</td>
+        <td>929</td>
+        <td class="highlight">~1.040</td>
+      </tr>
+      <tr class="row-header">
+        <td colspan="7">SINIESTRALIDAD</td>
+      </tr>
+      <tr>
+        <td>Ratio de siniestralidad bruta</td>
+        <td>121%</td>
+        <td>95%</td>
+        <td>90%</td>
+        <td>85%</td>
+        <td class="positive">74%</td>
+        <td class="positive">~60%</td>
+      </tr>
+      <tr>
+        <td>Ratio Q4 (trimestral)</td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+        <td>77%</td>
+        <td>63%</td>
+        <td class="positive">52%</td>
+      </tr>
+      <tr class="row-header">
+        <td colspan="7">RESULTADOS</td>
+      </tr>
+      <tr>
+        <td>Beneficio bruto (MM$)</td>
+        <td>−10</td>
+        <td>+17</td>
+        <td>−5</td>
+        <td>+79</td>
+        <td class="positive">+152</td>
+        <td class="positive">+315 (est.)</td>
+      </tr>
+      <tr>
+        <td>Gastos operativos totales (MM$)</td>
+        <td>−233</td>
+        <td>−287</td>
+        <td>−551</td>
+        <td>−660</td>
+        <td>−730</td>
+        <td>−899</td>
+      </tr>
+      <tr>
+        <td><strong>Pérdida neta (MM$)</strong></td>
+        <td class="negative">−121</td>
+        <td class="negative">−241</td>
+        <td class="negative">−297</td>
+        <td class="negative">−237</td>
+        <td class="negative">−202</td>
+        <td class="negative">−166</td>
+      </tr>
+      <tr>
+        <td>Pérdida neta por acción ($)</td>
+        <td class="negative">−3,62</td>
+        <td class="negative">−4,50</td>
+        <td class="negative">−5,31</td>
+        <td class="negative">−3,83</td>
+        <td class="negative">−3,25</td>
+        <td class="negative">−2,46</td>
+      </tr>
+      <tr>
+        <td>Adj. EBITDA loss (MM$)</td>
+        <td class="negative">−100</td>
+        <td class="negative">−175</td>
+        <td class="negative">−262</td>
+        <td class="negative">−214</td>
+        <td class="negative">−172</td>
+        <td class="negative">~−138</td>
+      </tr>
+      <tr class="row-header">
+        <td colspan="7">BALANCE</td>
+      </tr>
+      <tr>
+        <td>Activos totales (MM$)</td>
+        <td>1.020</td>
+        <td>1.760</td>
+        <td>1.340</td>
+        <td>1.590</td>
+        <td>1.850</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Caja e inversiones (MM$)</td>
+        <td>760</td>
+        <td>1.200</td>
+        <td>920</td>
+        <td>945</td>
+        <td>~1.000</td>
+        <td class="positive">1.200</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="margin-top: 48px;">
+    <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--lemon-yellow); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px;">Reducción de pérdidas: la tendencia que importa</div>
+    <div class="chart-wrap">
+      <div class="chart-row">
+        <div class="chart-year">2022</div>
+        <div class="chart-bar-bg"><div class="chart-bar-fill red" style="width: 100%;">−$297 M</div></div>
+      </div>
+      <div class="chart-row">
+        <div class="chart-year">2023</div>
+        <div class="chart-bar-bg"><div class="chart-bar-fill red" style="width: 80%;">−$237 M</div></div>
+      </div>
+      <div class="chart-row">
+        <div class="chart-year">2024</div>
+        <div class="chart-bar-bg"><div class="chart-bar-fill amber" style="width: 68%;">−$202 M</div></div>
+      </div>
+      <div class="chart-row">
+        <div class="chart-year">2025</div>
+        <div class="chart-bar-bg"><div class="chart-bar-fill amber" style="width: 56%;">−$166 M</div></div>
+      </div>
+      <div class="chart-row">
+        <div class="chart-year">2026 (guía)</div>
+        <div class="chart-bar-bg"><div class="chart-bar-fill green" style="width: 20%;">EBITDA+ en Q4</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 32px; padding: 24px; background: #F0F0F0; border-left: 3px solid var(--lemon-yellow);">
+    <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--lemon-yellow); letter-spacing: 2px; margin-bottom: 12px; text-transform: uppercase;">NOTA SOBRE LA CUENTA DE EXPLOTACIÓN</div>
+    <div style="font-size: 13px; color: #444444; line-height: 1.7;">La explosión de ingresos en 2025 (+40%) se explica en parte por el cambio estructural en el programa de reaseguro cuota-part: al reducir la cesión del 55% al 18-20% desde julio de 2025, Lemonade retiene más prima bruta en su propia cuenta, lo que infla mecánicamente los ingresos declarados aunque el negocio subyacente crezca al 31% (ritmo de IFP). Los inversores deben distinguir ambas dinámicas al valorar la compañía.</div>
+  </div>
+</div>
+
+<!-- SECCIÓN 7: VALORACIÓN -->
+<div class="section">
+  <div class="section-eyebrow">07 · Valoración editorial</div>
+  <div class="section-title">¿Una promesa que se vuelve real?</div>
+
+  <div class="prose" style="max-width: 800px; margin-bottom: 32px;">
+    <p>Lemonade es, probablemente, la insurtech de consumo más ambiciosa del mundo. Su modelo conceptual —eliminar el conflicto de intereses entre asegurador y asegurado mediante un flat fee y donación de excedentes— tiene coherencia filosófica y apoya una relación genuina con el cliente. La pregunta no es si el modelo es elegante. La pregunta es si llega a ser rentable antes de que se agoten los recursos.</p>
+    <p>Los datos de 2025 son, por primera vez, inequívocamente alentadores: ratio de siniestralidad del 52% en Q4 (récord), flujo de caja libre ajustado positivo, 11 trimestres consecutivos de aceleración del IFP. La guía de EBITDA positivo en Q4 2026 ya no suena a promesa de startup: suena a hoja de ruta ejecutable. Pero <strong>Lemonade lleva once años perdiendo dinero</strong>, ha quemado más de 1.100 MM$ desde su IPO, y su cotización está aún muy por debajo del máximo de 2021.</p>
+  </div>
+
+  <div class="verdict-box">
+    <div class="verdict-title">Dictamen del analista</div>
+    <div class="prose">
+      <p>LMND es una compañía en <strong>punto de inflexión</strong>. El riesgo de capital ya no es la historia principal —tiene 1.200 MM$ en caja—. El riesgo es operacional: si el ratio de siniestralidad puede mantenerse por debajo del 70% con volúmenes de 3+ millones de clientes y diversificación geográfica, el modelo funciona. Si los catástrofes climáticos o un ciclo blando de tipos de interés deterioran la cartera, el camino a la rentabilidad se alarga.</p>
+      <p>El consenso de analistas (11 analistas) recoge una recomendación de <strong>Mantener</strong> con precio objetivo de $64,22. La valoración actual (~3.970 MM$ de capitalización) descuenta un crecimiento agresivo pero no irracional si la guía 2026 se cumple.</p>
+    </div>
+    <div class="verdict-grid">
+      <div class="verdict-col bull">
+        <h4>🟢 Argumentos alcistas</h4>
+        <div class="verdict-point"><div class="dot"></div><span>Ratio de siniestralidad en mínimos históricos (52% en Q4 2025), con tendencia inequívoca a la baja</span></div>
+        <div class="verdict-point"><div class="dot"></div><span>IFP supera 1.240 MM$: masa crítica para generar economías de escala reales</span></div>
+        <div class="verdict-point"><div class="dot"></div><span>Caja de 1.200 MM$: tiempo suficiente para ejecutar el plan sin necesidad de ampliar capital</span></div>
+        <div class="verdict-point"><div class="dot"></div><span>EBITDA positivo guiado para Q4 2026 y año completo 2027: fin de la cuenta corriente de pérdidas</span></div>
+        <div class="verdict-point"><div class="dot"></div><span>Seguro de auto y mascotas en hipercrecimiento (+50% YoY); Europa en triple dígito</span></div>
+        <div class="verdict-point"><div class="dot"></div><span>Lanzamiento de seguro para vehículos autónomos: posicionamiento anticipado en mercado de décadas de crecimiento</span></div>
+      </div>
+      <div class="verdict-col bear">
+        <h4>🔴 Argumentos bajistas</h4>
+        <div class="verdict-point"><div class="dot"></div><span>Once años sin beneficios. Pérdida neta acumulada superior a 1.100 MM$ desde la IPO</span></div>
+        <div class="verdict-point"><div class="dot"></div><span>El aumento de ingresos 2025 está distorsionado por el cambio en el programa de reaseguro, no solo por crecimiento orgánico</span></div>
+        <div class="verdict-point"><div class="dot"></div><span>Exposición catastrófica (clima): en 2023 los eventos CAT impactaron el ratio de siniestralidad pese a la mejora subyacente</span></div>
+        <div class="verdict-point"><div class="dot"></div><span>Cotiza a múltiplos de ventas elevados sin beneficios, lo que la hace vulnerable a cambios en el sentimiento del mercado</span></div>
+        <div class="verdict-point"><div class="dot"></div><span>Competencia creciente: las aseguradoras tradicionales digitalizan y las insurtechs rivales (Root, Hippo) presionan precios</span></div>
+        <div class="verdict-point"><div class="dot"></div><span>Concentración geográfica aún en EE.UU.; la expansión europea es costosa y regulatoriamente compleja</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-left">
+    Fuentes: SEC/EDGAR (10-K, 10-Q, 8-K) · Shareholder Letters Q4 2025 / Q2 2026 · Yahoo Finance · MacroTrends · Crowdfund Insider · The Motley Fool · Quartr<br>
+    Datos de cotización: cierre 20/08/2026. Figuras financieras en USD. Estimaciones 2025 basadas en guidance y resultados trimestrales publicados.<br>
+    Este informe es de carácter informativo y no constituye asesoramiento de inversión.
+  </div>
+  <div class="footer-right">COI · Análisis Insurtech</div>
+</div>
+
+</body>
+</html>

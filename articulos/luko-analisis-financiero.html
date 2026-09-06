@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luko — Análisis Financiero Integral 2024</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --lk-green: #1A7A4A;
+    --lk-lime: #5BBF6E;
+    --lk-light: #A8E6B8;
+    --lk-bg: #FFFFFF;
+    --lk-surface: #F8FAF9;
+    --lk-mid: #F0F5F2;
+    --lk-black: #0D1F12;
+    --lk-gray: #5A7A65;
+    --lk-text: #1A2B1F;
+    --lk-border: #D0E5D8;
+    --lk-red: #C0392B;
+    --lk-amber: #E67E22;
+    --lk-blue: #2980B9;
+    --lk-danger: #E74C3C;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--lk-bg);
+    color: var(--lk-text);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--lk-black);
+    padding: 80px 64px 60px;
+    border-bottom: 4px solid var(--lk-lime);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: 'LUKO';
+    position: absolute;
+    right: -10px;
+    top: -20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 260px;
+    font-weight: 900;
+    color: #ffffff05;
+    letter-spacing: -8px;
+    user-select: none;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: var(--lk-lime);
+    color: #000;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 6px 14px;
+    margin-bottom: 28px;
+    text-transform: uppercase;
+  }
+  .hero-badge.closed {
+    background: var(--lk-red);
+    color: #fff;
+    margin-left: 10px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 6vw, 80px);
+    font-weight: 900;
+    line-height: 1.0;
+    letter-spacing: -2px;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .hero h1 span { color: var(--lk-lime); }
+  .hero-sub {
+    font-size: 16px;
+    color: #8aaa94;
+    max-width: 600px;
+    margin-top: 20px;
+    font-weight: 300;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 40px;
+    margin-top: 48px;
+    flex-wrap: wrap;
+  }
+  .meta-item { display: flex; flex-direction: column; gap: 4px; }
+  .meta-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #8aaa94;
+    text-transform: uppercase;
+  }
+  .meta-value {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+  }
+  .meta-value.green { color: var(--lk-lime); }
+  .meta-value.red { color: #ff8a80; }
+
+  /* ── ALERT BANNER ── */
+  .alert-banner {
+    background: #FFF5F5;
+    border-top: 4px solid var(--lk-danger);
+    border-bottom: 1px solid #FADADD;
+    padding: 18px 64px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .alert-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+  .alert-text { font-size: 14px; color: #6B2020; line-height: 1.6; }
+  .alert-text strong { color: var(--lk-danger); }
+
+  /* ── KPI STRIP ── */
+  .kpi-strip {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    border-bottom: 1px solid var(--lk-border);
+    background: var(--lk-surface);
+  }
+  .kpi-cell {
+    padding: 28px 24px;
+    border-right: 1px solid var(--lk-border);
+  }
+  .kpi-cell:last-child { border-right: none; }
+  .kpi-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: var(--lk-gray);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .kpi-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--lk-green);
+    line-height: 1;
+  }
+  .kpi-num.red { color: var(--lk-red); }
+  .kpi-num.black { color: var(--lk-black); }
+  .kpi-delta {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 2px;
+  }
+  .kpi-delta.bad { background: #FADADD; color: var(--lk-red); }
+  .kpi-delta.neutral { background: #FFF3E0; color: var(--lk-amber); }
+  .kpi-delta.good { background: #E8F5E9; color: var(--lk-green); }
+
+  /* ── SECTIONS ── */
+  .section { padding: 64px; border-bottom: 1px solid var(--lk-border); }
+  .section.shaded { background: var(--lk-surface); }
+  .section-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--lk-green);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 3vw, 40px);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--lk-black);
+    margin-bottom: 40px;
+    border-bottom: 3px solid var(--lk-lime);
+    padding-bottom: 18px;
+    display: inline-block;
+  }
+
+  /* ── GRIDS ── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+
+  /* ── FOUNDER CARD ── */
+  .founder-card {
+    background: #fff;
+    padding: 28px;
+    border: 1px solid var(--lk-border);
+    border-top: 4px solid var(--lk-lime);
+  }
+  .founder-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--lk-black);
+    margin-bottom: 4px;
+  }
+  .founder-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--lk-green);
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .founder-bio { font-size: 13px; color: var(--lk-gray); line-height: 1.6; }
+
+  /* ── TIMELINE ── */
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px; top: 6px; bottom: 6px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--lk-lime), var(--lk-red));
+  }
+  .timeline-item { position: relative; margin-bottom: 28px; }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -28px; top: 6px;
+    width: 10px; height: 10px;
+    background: var(--lk-lime);
+    border-radius: 50%;
+  }
+  .timeline-item.crisis::before { background: var(--lk-red); }
+  .timeline-item.end::before { background: var(--lk-blue); }
+  .t-year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--lk-green);
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .t-year.crisis { color: var(--lk-red); }
+  .t-year.end { color: var(--lk-blue); }
+  .t-event { font-size: 14px; color: var(--lk-gray); line-height: 1.5; }
+  .t-event strong { color: var(--lk-black); }
+
+  /* ── PILLARS ── */
+  .pillar {
+    background: #fff;
+    border: 1px solid var(--lk-border);
+    padding: 24px;
+    border-top: 3px solid var(--lk-lime);
+  }
+  .pillar-icon { font-size: 24px; margin-bottom: 12px; }
+  .pillar-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--lk-black);
+    margin-bottom: 10px;
+  }
+  .pillar-text { font-size: 13px; color: var(--lk-gray); line-height: 1.6; }
+
+  /* ── TABLE ── */
+  .data-table { width: 100%; border-collapse: collapse; }
+  .data-table th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: var(--lk-gray);
+    text-transform: uppercase;
+    text-align: right;
+    padding: 10px 14px;
+    border-bottom: 2px solid var(--lk-border);
+    background: var(--lk-surface);
+  }
+  .data-table th:first-child { text-align: left; }
+  .data-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--lk-border);
+    text-align: right;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--lk-gray);
+  }
+  .data-table td:first-child {
+    text-align: left;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--lk-black);
+  }
+  .data-table tr:hover td { background: var(--lk-surface); }
+  .data-table .hl { color: var(--lk-green); font-weight: 600; }
+  .data-table .neg { color: var(--lk-red); }
+  .data-table .amb { color: var(--lk-amber); }
+  .data-table .row-hdr td {
+    background: var(--lk-mid);
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 10px !important;
+    color: var(--lk-gray) !important;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* ── BAR CHART ── */
+  .chart-row { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .chart-year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--lk-gray);
+    width: 52px;
+    flex-shrink: 0;
+  }
+  .chart-bar-bg {
+    flex: 1;
+    background: var(--lk-mid);
+    height: 28px;
+    overflow: hidden;
+  }
+  .chart-bar-fill {
+    height: 100%;
+    background: var(--lk-lime);
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    color: #000;
+    min-width: 80px;
+  }
+  .chart-bar-fill.red { background: var(--lk-red); color: #fff; }
+  .chart-bar-fill.amber { background: var(--lk-amber); color: #fff; }
+  .chart-bar-fill.blue { background: var(--lk-blue); color: #fff; }
+
+  /* ── VALUATION PHASES ── */
+  .val-phases { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+  .vp { padding: 24px 20px; text-align: center; border: 1px solid var(--lk-border); }
+  .vp-period {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: var(--lk-gray);
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  .vp-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 900;
+    margin-bottom: 6px;
+  }
+  .vp-label { font-size: 11px; color: var(--lk-gray); line-height: 1.4; }
+  .vp-seed { background: #F0FAF3; border-top: 4px solid var(--lk-lime); }
+  .vp-seed .vp-val { color: var(--lk-green); }
+  .vp-growth { background: #FFF8E1; border-top: 4px solid var(--lk-amber); }
+  .vp-growth .vp-val { color: var(--lk-amber); }
+  .vp-crisis { background: #FFF5F5; border-top: 4px solid var(--lk-danger); }
+  .vp-crisis .vp-val { color: var(--lk-danger); }
+  .vp-end { background: #EBF5FB; border-top: 4px solid var(--lk-blue); }
+  .vp-end .vp-val { color: var(--lk-blue); }
+
+  /* ── CRISIS BOX ── */
+  .crisis-box {
+    background: #FFF5F5;
+    border: 1px solid #FADADD;
+    border-left: 5px solid var(--lk-danger);
+    padding: 36px;
+    margin: 40px 0;
+  }
+  .crisis-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--lk-red);
+    margin-bottom: 16px;
+  }
+
+  /* ── INLINE STAT ── */
+  .inline-stat {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 4px;
+    background: var(--lk-surface);
+    border: 1px solid var(--lk-border);
+    padding: 4px 12px;
+    margin: 4px;
+  }
+  .inline-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--lk-green);
+  }
+  .inline-stat-num.red { color: var(--lk-red); }
+  .inline-stat-label { font-size: 11px; color: var(--lk-gray); }
+
+  .prose { font-size: 15px; color: var(--lk-gray); line-height: 1.8; }
+  .prose p { margin-bottom: 16px; }
+  .prose strong { color: var(--lk-black); }
+
+  /* ── TAG ── */
+  .tag {
+    display: inline-block;
+    background: var(--lk-mid);
+    color: var(--lk-gray);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    padding: 3px 10px;
+    margin: 3px;
+    border: 1px solid var(--lk-border);
+    text-transform: uppercase;
+  }
+  .tag.dead { background: #FADADD; color: var(--lk-red); text-decoration: line-through; }
+
+  /* ── VERDICT ── */
+  .verdict-box {
+    background: var(--lk-black);
+    border-top: 4px solid var(--lk-lime);
+    padding: 48px;
+    margin-top: 40px;
+  }
+  .verdict-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 900;
+    color: var(--lk-lime);
+    margin-bottom: 24px;
+  }
+  .verdict-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 32px; }
+  .verdict-col h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid;
+    color: #aaa;
+    border-color: #333;
+  }
+  .verdict-col.bull h4 { color: #81C784; border-color: #2a5a2a; }
+  .verdict-col.bear h4 { color: #EF9A9A; border-color: #5a2a2a; }
+  .verdict-point { display: flex; gap: 10px; margin-bottom: 10px; font-size: 13px; color: #aaa; line-height: 1.5; }
+  .verdict-point .dot { flex-shrink: 0; margin-top: 6px; width: 5px; height: 5px; border-radius: 50%; }
+  .verdict-col.bull .dot { background: #81C784; }
+  .verdict-col.bear .dot { background: #EF9A9A; }
+
+  /* ── LECCIONES BOX ── */
+  .lecciones-box {
+    background: var(--lk-mid);
+    border: 1px solid var(--lk-border);
+    border-left: 5px solid var(--lk-green);
+    padding: 32px;
+    margin-top: 40px;
+  }
+  .lecciones-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--lk-black);
+    margin-bottom: 16px;
+  }
+  .leccion { display: flex; gap: 12px; margin-bottom: 12px; font-size: 13px; color: var(--lk-gray); line-height: 1.6; }
+  .leccion-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--lk-green);
+    flex-shrink: 0;
+    width: 24px;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--lk-black);
+    padding: 40px 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-left { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #444; line-height: 1.8; }
+  .footer-right { font-family: 'Playfair Display', serif; font-size: 20px; color: #333; }
+
+  @media (max-width: 900px) {
+    .hero, .section { padding: 40px 20px; }
+    .alert-banner { padding: 16px 20px; }
+    .kpi-strip { grid-template-columns: repeat(2, 1fr); }
+    .two-col, .three-col, .val-phases, .verdict-grid { grid-template-columns: 1fr; }
+    .footer { flex-direction: column; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <span class="hero-badge">París, Francia · Análisis Financiero · 2024</span>
+    <span class="hero-badge closed">CASO CERRADO — Adquirida por Allianz Direct</span>
+  </div>
+  <h1><span>Luko</span><br>La insurtech francesa<br>que lo tuvo todo<br>y lo perdió todo</h1>
+  <p class="hero-sub">Primera neoaseguradora de hogar en Francia, B-Corp, Premio Next Unicorn en Viva Tech 2022. Doce meses después: en concurso de acreedores. Vendida por 4,3 MM€ tras captar 72 MM€. La lección más cara del insurtech europeo.</p>
+  <div class="hero-meta">
+    <div class="meta-item">
+      <span class="meta-label">Fundada</span>
+      <span class="meta-value">Dic 2016</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Capital captado</span>
+      <span class="meta-value green">~72 MM€</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Quiebra</span>
+      <span class="meta-value red">Jun 2023</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Precio de venta</span>
+      <span class="meta-value red">4,3 MM€</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Comprador final</span>
+      <span class="meta-value">Allianz Direct</span>
+    </div>
+  </div>
+</div>
+
+<!-- ALERT BANNER -->
+<div class="alert-banner">
+  <div class="alert-icon">🔴</div>
+  <div class="alert-text">
+    <strong>Caso cerrado:</strong> Luko no existe como empresa independiente desde enero de 2024. Este análisis es retrospectivo: estudia el ciclo de vida completo de la compañía desde su fundación (2016) hasta su adquisición por Allianz Direct por <strong>4,3 MM€</strong> en concurso de acreedores, habiendo captado previamente <strong>~72 MM€</strong> de inversores como Accel, EQT Ventures y Founders Fund. La marca Luko sobrevive bajo la propiedad de Allianz Direct Francia.
+  </div>
+</div>
+
+<!-- KPI STRIP -->
+<div class="kpi-strip">
+  <div class="kpi-cell">
+    <div class="kpi-label">Capital total captado</div>
+    <div class="kpi-num">~72 MM€</div>
+    <div class="kpi-delta neutral">Accel · EQT · Founders Fund</div>
+  </div>
+  <div class="kpi-cell">
+    <div class="kpi-label">Precio de venta (ene. 2024)</div>
+    <div class="kpi-num red">4,3 MM€</div>
+    <div class="kpi-delta bad">−94% vs capital captado</div>
+  </div>
+  <div class="kpi-cell">
+    <div class="kpi-label">Pólizas en cartera (pico 2022)</div>
+    <div class="kpi-num">~450K</div>
+    <div class="kpi-delta neutral">3 países</div>
+  </div>
+  <div class="kpi-cell">
+    <div class="kpi-label">Deuda en el momento de la quiebra</div>
+    <div class="kpi-num red">45 MM€</div>
+    <div class="kpi-delta bad">Incluyendo 12 MM€ a Unkle</div>
+  </div>
+  <div class="kpi-cell">
+    <div class="kpi-label">Empleados transferidos (ene. 2024)</div>
+    <div class="kpi-num black">112</div>
+    <div class="kpi-delta good">Conservaron empleo</div>
+  </div>
+</div>
+
+<!-- SECCIÓN 1: ORIGEN -->
+<div class="section">
+  <div class="section-eyebrow">01 · Origen e historia</div>
+  <div class="section-title">Quién, cuándo y para qué</div>
+
+  <div class="two-col">
+    <div>
+      <div class="prose">
+        <p><strong>Luko fue fundada en diciembre de 2016 en París</strong> por Raphaël Vullierme (CEO) y Benoît Bourdel (CTO). La idea original no era exactamente una aseguradora: el punto de partida fue un sensor inteligente que monitorizaba el consumo de agua y electricidad del hogar para prevenir accidentes domésticos (fugas, incendios). Los sensores se vendían a aseguradoras para distribuir a sus clientes.</p>
+        <p>En mayo de 2018, Luko pivotó hacia el seguro de hogar directo al consumidor, aprovechando los datos de los sensores para ofrecer un producto más personalizado y preventivo. El lema: <strong>"2 minutos para declarar un siniestro, 2 horas para cobrar, 2 días para recibir al técnico."</strong></p>
+        <p>Como Lemonade, adoptó un modelo inspirado en la economía conductual: <strong>70% de las primas a un pool colectivo</strong> para siniestros, 30% para gastos de gestión, y las primas no consumidas se donan a ONG elegidas por los asegurados (Giveback). Fue la primera aseguradora europea en obtener la certificación <strong>B-Corp</strong> en 2019.</p>
+        <p>Vullierme era un emprendedor en serie formado en INSA Lyon y HEC París, con experiencia en Rocket Internet (Berlín) y varias startups de e-commerce y aviación privada. Bourdel aportaba el perfil técnico necesario para construir la plataforma tecnológica.</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="t-year">DIC 2016</div>
+          <div class="t-event"><strong>Fundación en París.</strong> Concepto inicial: sensor doméstico para prevención de riesgos. Primera inversión de 2 MM€ de Xavier Niel (Kima Ventures) y Bruno Rousset (April).</div>
+        </div>
+        <div class="timeline-item">
+          <div class="t-year">MAY 2018</div>
+          <div class="t-event"><strong>Lanzamiento del seguro de hogar.</strong> Pivot de sensor a neoaseguradora. Producto 100% digital, sin papeles, suscripción en minutos.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="t-year">JUL 2019</div>
+          <div class="t-event">Primera aseguradora europea en obtener <strong>certificación B-Corp.</strong> Serie A de 20 MM€. Inversores: Accel, Speedinvest, Orange Ventures.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="t-year">DIC 2020</div>
+          <div class="t-event">Serie B de <strong>50 MM€</strong> liderada por EQT Ventures. Participan Accel, Founders Fund, Speedinvest. 100.000 clientes. Expansión a España anunciada.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="t-year">ENE 2022</div>
+          <div class="t-event">Adquisición de <strong>Coya</strong> (Berlín): 80.000 clientes, licencia BaFin (regulador alemán), passporting europeo. Entrada en mercado alemán. 300.000 clientes en total.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="t-year">MAR 2022</div>
+          <div class="t-event">Adquisición de <strong>Unkle</strong> (París): seguro de impago de alquiler. Premio Next Unicorn en Viva Tech (mayo 2022). <strong>Punto máximo de la compañía.</strong></div>
+        </div>
+        <div class="timeline-item crisis">
+          <div class="t-year crisis">JUN 2023</div>
+          <div class="t-event"><strong>Solicitud de protección concursal (sauvegarde acelerada)</strong> ante el Tribunal Comercial de París. Deuda de 45 MM€, incapacidad de pagar los 12 MM€ debidos a Unkle. La Serie C nunca llega.</div>
+        </div>
+        <div class="timeline-item crisis">
+          <div class="t-year crisis">JUL 2023</div>
+          <div class="t-event">Admiral Group (FTSE 100) acuerda adquirir Luko por <strong>14 MM€.</strong> La operación fracasa en noviembre por problemas en la auditoría contable. Luko entra en liquidación judicial.</div>
+        </div>
+        <div class="timeline-item end">
+          <div class="t-year end">ENE 2024</div>
+          <div class="t-event"><strong>Allianz Direct adquiere el negocio francés de Luko por 4,3 MM€.</strong> Se transfieren 112 empleados y ~230.000 pólizas. Portafolios alemán e italiano separados. Fin del caso Luko independiente.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOUNDERS -->
+  <div class="two-col" style="margin-top: 40px;">
+    <div class="founder-card">
+      <div class="founder-name">Raphaël Vullierme</div>
+      <div class="founder-title">Co-Fundador · CEO</div>
+      <div class="founder-bio">INSA Lyon + MBA HEC París. Anteriormente: Goodfood (delivery), Rocket Internet (Berlín), eatfirst.com, OpenJet.com. Perfil emprendedor en serie con fuerte instinto de producto y comunicación. Lideró Luko desde la fundación hasta la venta a Allianz. Reconocido por el NPS superior a 70 y la cultura de empresa que construyó.</div>
+    </div>
+    <div class="founder-card">
+      <div class="founder-name">Benoît Bourdel</div>
+      <div class="founder-title">Co-Fundador · CTO</div>
+      <div class="founder-bio">Perfil técnico e ingeniero. Arquitecto de la plataforma tecnológica de Luko: suscripción en tiempo real, gestión de siniestros automatizada, integración de datos de sensores IoT para pricing preventivo. Co-diseñó el modelo de riesgo que permitió a Luko competir con aseguradoras tradicionales con menores costes estructurales.</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECCIÓN 2: MODELO DE NEGOCIO -->
+<div class="section shaded">
+  <div class="section-eyebrow">02 · Modelo de negocio</div>
+  <div class="section-title">Prevención + Transparencia + Tecnología</div>
+
+  <div class="prose" style="max-width: 720px; margin-bottom: 40px;">
+    <p>Luko desarrolló un modelo que combinaba tres ejes únicos: <strong>tecnología de prevención</strong> (sensores IoT + IA para anticipar siniestros), <strong>transparencia radical</strong> (Giveback, sin letra pequeña) y <strong>experiencia digital nativa</strong> (app-first, sin agentes). Era, en esencia, la versión francesa y verde de Lemonade.</p>
+  </div>
+
+  <div class="three-col" style="margin-bottom: 40px;">
+    <div class="pillar">
+      <div class="pillar-icon">📱</div>
+      <div class="pillar-title">Direct-to-consumer digital</div>
+      <div class="pillar-text">Sin agentes, sin papeles, sin oficinas. Suscripción en 2 minutos vía app o web. Gestión íntegra de pólizas y siniestros en la aplicación. NPS superior a 70, uno de los más altos en seguros europeos.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">🌿</div>
+      <div class="pillar-title">Modelo Giveback (B-Corp)</div>
+      <div class="pillar-text">70% de las primas a un pool colectivo para siniestros. 30% para gastos de Luko. El excedente anual no consumido en siniestros se dona a ONGs elegidas por los asegurados. Primera B-Corp aseguradora en Europa (2019).</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">🔬</div>
+      <div class="pillar-title">Prevención activa</div>
+      <div class="pillar-text">Origen en sensores IoT de hogar: detección de fugas de agua, consumo energético, alertas de riesgo. La IA analizaba datos para ajustar precios y reducir siniestros antes de que ocurrieran. Diferenciador único vs. Lemonade o wefox.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">🛰️</div>
+      <div class="pillar-title">IA + imágenes satelitales</div>
+      <div class="pillar-text">Para cotizaciones instantáneas, Luko usaba imágenes satelitales y datos de geolocalización para estimar el riesgo del inmueble sin necesidad de visita presencial. Reducía el tiempo de cotización a segundos.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">🏠</div>
+      <div class="pillar-title">Seguro de hogar como base</div>
+      <div class="pillar-text">Producto central: seguro de hogar para inquilinos y propietarios. Expansión posterior a seguro de impago de alquiler (Unkle), patinetes eléctricos (Decathlon), crédito hipotecario. Intentó construir un ecosistema de servicios del hogar.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">🤝</div>
+      <div class="pillar-title">Embedded insurance</div>
+      <div class="pillar-text">Acuerdos con Decathlon (e-scooter), SNCF y agencias inmobiliarias. Intento de integrar la cobertura en el punto de venta del bien o servicio. Estrategia de distribución alternativa al canal directo.</div>
+    </div>
+  </div>
+
+  <div style="padding: 24px; background: #fff; border: 1px solid var(--lk-border); border-left: 4px solid var(--lk-lime);">
+    <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--lk-green); letter-spacing: 2px; margin-bottom: 10px; text-transform: uppercase;">Presencia geográfica en el momento de la quiebra</div>
+    <span class="tag">🇫🇷 Francia (core — 230K pólizas)</span>
+    <span class="tag dead">🇩🇪 Alemania (Coya → Getsafe)</span>
+    <span class="tag dead">🇪🇸 España (liquidada)</span>
+    <span class="tag dead">🇫🇷 Unkle (Solly Azar + Sada)</span>
+  </div>
+</div>
+
+<!-- SECCIÓN 3: VOLUMEN DE NEGOCIO -->
+<div class="section">
+  <div class="section-eyebrow">03 · Volumen de negocio y clientes</div>
+  <div class="section-title">Crecimiento acelerado, expansión fatal</div>
+
+  <div class="two-col">
+    <div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--lk-gray); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px;">Clientes / Pólizas</div>
+      <div>
+        <div class="chart-row">
+          <div class="chart-year">2018</div>
+          <div class="chart-bar-bg"><div class="chart-bar-fill" style="width: 5%;">Lanz.</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-year">2019</div>
+          <div class="chart-bar-bg"><div class="chart-bar-fill" style="width: 11%;">~30K</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-year">2020</div>
+          <div class="chart-bar-bg"><div class="chart-bar-fill" style="width: 22%;">~100K</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-year">2021</div>
+          <div class="chart-bar-bg"><div class="chart-bar-fill" style="width: 44%;">~220K</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-year">2022</div>
+          <div class="chart-bar-bg"><div class="chart-bar-fill amber" style="width: 90%;">~450K (+Coya+Unkle)</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-year">2023 (quiebra)</div>
+          <div class="chart-bar-bg"><div class="chart-bar-fill red" style="width: 46%;">~230K (FR)</div></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--lk-gray); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px;">Capital captado por rondas (MM€)</div>
+      <div>
+        <div class="chart-row">
+          <div class="chart-year">2016–18</div>
+          <div class="chart-bar-bg"><div class="chart-bar-fill" style="width: 3%;">2 MM€</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-year">Serie A (2019)</div>
+          <div class="chart-bar-bg"><div class="chart-bar-fill" style="width: 28%;">20 MM€</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-year">Serie B (2020)</div>
+          <div class="chart-bar-bg"><div class="chart-bar-fill amber" style="width: 70%;">50 MM€</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-year">Serie C (2022)</div>
+          <div class="chart-bar-bg"><div class="chart-bar-fill red" style="width: 28%;">NO CERRADA</div></div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-year">Venta (2024)</div>
+          <div class="chart-bar-bg"><div class="chart-bar-fill blue" style="width: 6%;">4,3 MM€</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 36px; display: flex; flex-wrap: wrap; gap: 12px;">
+    <div class="inline-stat"><span class="inline-stat-num">25%</span><span class="inline-stat-label">Cuota de mercado online en Francia (2022)</span></div>
+    <div class="inline-stat"><span class="inline-stat-num">>70</span><span class="inline-stat-label">Net Promoter Score (uno de los más altos en seguros europeos)</span></div>
+    <div class="inline-stat"><span class="inline-stat-num">~50%</span><span class="inline-stat-label">Clientes llegaron por recomendación (boca a boca)</span></div>
+    <div class="inline-stat"><span class="inline-stat-num red">45 MM€</span><span class="inline-stat-label">Deuda total en el momento de la quiebra</span></div>
+    <div class="inline-stat"><span class="inline-stat-num red">4,3 MM€</span><span class="inline-stat-label">Precio final de venta — tras captar 72 MM€</span></div>
+  </div>
+</div>
+
+<!-- SECCIÓN 4: EMPLEADOS -->
+<div class="section shaded">
+  <div class="section-eyebrow">04 · Capital humano</div>
+  <div class="section-title">El coste humano de la ambición desmedida</div>
+
+  <div class="two-col">
+    <div class="prose">
+      <p>En su momento álgido (finales de 2022), <strong>Luko contaba con aproximadamente 250–300 empleados</strong> distribuidos entre París (sede central), Berlín (operaciones de Coya) y equipos distribuidos en España. La ambición de construir un campeón europeo del seguro de hogar requirió escalar muy rápido la plantilla sin tener todavía el flujo de caja para sostenerlo.</p>
+      <p>Cuando se inicia el concurso de acreedores en junio de 2023, la compañía ya había reducido plantilla. <strong>El proceso judicial de venta a Allianz Direct preservó 112 empleos</strong>, todos ellos vinculados al negocio francés core. Los equipos de Alemania (Coya/Getsafe) y los de Unkle tuvieron destinos distintos: algunos fueron absorbidos por los compradores de esos portafolios, otros quedaron en el limbo.</p>
+      <p>La curva de empleo de Luko es el espejo de su estrategia: crecimiento acelerado en 2021–2022 (contrataciones en tres países, incorporaciones para las dos adquisiciones), seguido de una caída abrupta cuando el dinero se agotó en 2023.</p>
+    </div>
+    <div>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Período</th>
+            <th>Empleados (est.)</th>
+            <th>Contexto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2019</td>
+            <td>~40</td>
+            <td>Startup, post Serie A</td>
+          </tr>
+          <tr>
+            <td>2020</td>
+            <td>~80</td>
+            <td>Post Serie B / pandemia</td>
+          </tr>
+          <tr>
+            <td>2021</td>
+            <td>~130</td>
+            <td>Expansión Francia + España</td>
+          </tr>
+          <tr>
+            <td><strong>2022</strong></td>
+            <td class="amb">~250–300</td>
+            <td>Post Coya + Unkle</td>
+          </tr>
+          <tr>
+            <td>2023 (quiebra)</td>
+            <td class="neg">~200</td>
+            <td>Reducciones previas al concurso</td>
+          </tr>
+          <tr>
+            <td><strong>Ene 2024 (venta)</strong></td>
+            <td class="hl">112</td>
+            <td>Transferidos a Allianz Direct</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- SECCIÓN 5: VALORACIÓN -->
+<div class="section">
+  <div class="section-eyebrow">05 · Evolución de la valoración</div>
+  <div class="section-title">Del Next Unicorn a los 4,3 MM€</div>
+
+  <div class="val-phases">
+    <div class="vp vp-seed">
+      <div class="vp-period">2016–2020</div>
+      <div class="vp-val">~200 MM€</div>
+      <div class="vp-label">Valoración implícita post-Serie B<br>Crecimiento x6 en un año<br>100.000 clientes</div>
+    </div>
+    <div class="vp vp-growth">
+      <div class="vp-period">May 2022</div>
+      <div class="vp-val">Premio</div>
+      <div class="vp-label">Next Unicorn Award<br>Viva Technology París<br>Punto más alto del relato</div>
+    </div>
+    <div class="vp vp-crisis">
+      <div class="vp-period">Jun 2023</div>
+      <div class="vp-val">Concurso</div>
+      <div class="vp-label">45 MM€ de deuda<br>Serie C no cerrada<br>Protección judicial</div>
+    </div>
+    <div class="vp vp-end">
+      <div class="vp-period">Ene 2024</div>
+      <div class="vp-val">4,3 MM€</div>
+      <div class="vp-label">Adquisición por Allianz Direct<br>La mayor oferta entre varios licitadores<br>Retorno: 0 para inversores</div>
+    </div>
+  </div>
+
+  <!-- CRISIS BOX -->
+  <div class="crisis-box">
+    <div class="crisis-title">⚠ La anatomía del colapso: cómo Luko pasó del Viva Tech al juzgado en 12 meses</div>
+    <div class="prose">
+      <p><strong>Error estratégico nº1: las adquisiciones de 2022.</strong> Con 50 MM€ en caja de la Serie B, Luko decidió comprar Coya (Alemania) y Unkle (garantía de alquiler en Francia) en un plazo de apenas dos meses. Aunque los rationales estratégicos eran sólidos —licencia BaFin para passporting europeo, diversificación de producto—, el precio real de las operaciones incluía obligaciones de pago diferidas que se convirtieron en una trampa. El pago de 12 MM€ a los accionistas de Unkle vencía en abril de 2023. Luko no pudo pagarlo.</p>
+      <p><strong>Error estratégico nº2: apostar todo a la Serie C.</strong> Todo el plan operativo de 2022–2023 presuponía cerrar una ronda de financiación adicional. Cuando en la primavera de 2022 el mercado de capital riesgo se cerró abruptamente para las insurtechs (después de los tipos de interés), Luko intentó girar a un plan de rentabilidad acelerada ("rentables en 45 meses"). Era demasiado tarde.</p>
+      <p><strong>El peso de la deuda.</strong> Además de la deuda con Unkle, Luko tenía créditos de TriplePoint (venture lender), BNP Paribas y otras entidades. Con 45 MM€ totales de pasivo y sin perspectiva de nueva ronda, la solicitud de protección concursal en junio de 2023 era inevitable.</p>
+      <p><strong>El fallido rescate de Admiral Group.</strong> El gigante galés de seguros Admiral acordó comprar Luko en verano de 2023 por 14 MM€. En noviembre, tras revisar la contabilidad en detalle, retiró la oferta por "discrepancias contables" no especificadas. La compañía entró directamente en liquidación judicial (redressement judiciaire), y el tribunal comercial tuvo que buscar un comprador de urgencia.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SECCIÓN 6: CUENTA DE EXPLOTACIÓN -->
+<div class="section shaded">
+  <div class="section-eyebrow">06 · Cuenta de explotación</div>
+  <div class="section-title">Los números que nunca se publicaron</div>
+
+  <div class="prose" style="max-width: 720px; margin-bottom: 32px;">
+    <p>Luko era una empresa privada y nunca publicó cuentas consolidadas auditadas de acceso público. Las cifras disponibles son <strong>estimaciones</strong> basadas en comunicaciones a inversores y medios, declaraciones de directivos y datos regulatorios parciales. Las cifras financieras reales no son verificables públicamente.</p>
+  </div>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Partida</th>
+        <th>2019</th>
+        <th>2020</th>
+        <th>2021</th>
+        <th>2022</th>
+        <th>2023 (hasta quiebra)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-hdr">
+        <td colspan="6">VOLUMEN (estimaciones)</td>
+      </tr>
+      <tr>
+        <td>Clientes / pólizas</td>
+        <td>~30K</td>
+        <td class="hl">~100K</td>
+        <td>~220K</td>
+        <td class="hl">~450K</td>
+        <td class="neg">~230K (FR)</td>
+      </tr>
+      <tr>
+        <td>Primas gestionadas (MM€ est.)</td>
+        <td>~3</td>
+        <td>~10</td>
+        <td>~22</td>
+        <td class="hl">~45</td>
+        <td class="neg">—</td>
+      </tr>
+      <tr class="row-hdr">
+        <td colspan="6">FINANCIACIÓN</td>
+      </tr>
+      <tr>
+        <td>Capital captado acumulado (MM€)</td>
+        <td>22</td>
+        <td>72</td>
+        <td>72</td>
+        <td class="neg">72 (Serie C no cerrada)</td>
+        <td class="neg">72 (sin nueva ronda)</td>
+      </tr>
+      <tr>
+        <td>Deuda financiera (MM€ est.)</td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+        <td class="neg">~20</td>
+        <td class="neg">45</td>
+      </tr>
+      <tr class="row-hdr">
+        <td colspan="6">RENTABILIDAD</td>
+      </tr>
+      <tr>
+        <td>EBITDA ajustado (MM€ est.)</td>
+        <td class="neg">−</td>
+        <td class="neg">−</td>
+        <td class="neg">−</td>
+        <td class="neg">−</td>
+        <td class="neg">−</td>
+      </tr>
+      <tr>
+        <td>Resultado neto (MM€ est.)</td>
+        <td class="neg">Negativo</td>
+        <td class="neg">Negativo</td>
+        <td class="neg">Negativo</td>
+        <td class="neg">Negativo</td>
+        <td class="neg">Insolvencia</td>
+      </tr>
+      <tr class="row-hdr">
+        <td colspan="6">DESENLACE</td>
+      </tr>
+      <tr>
+        <td>Precio de venta (Allianz Direct)</td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+        <td class="neg">4,3 MM€</td>
+      </tr>
+      <tr>
+        <td>Retorno para inversores (est.)</td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+        <td class="neg">~0%</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- LECCIONES -->
+  <div class="lecciones-box">
+    <div class="lecciones-title">📚 Las lecciones del caso Luko para el sector</div>
+    <div class="leccion"><div class="leccion-num">01</div><div><strong>El modelo Giveback no garantiza rentabilidad.</strong> Luko y Lemonade comparten el mismo modelo de distribución de excedentes. La diferencia es que Lemonade lo construyó con una escala de capital mucho mayor y un mercado (EE.UU.) enormemente más amplio. El modelo es virtuoso éticamente pero no resuelve el problema del volumen mínimo necesario para absorber los costes fijos.</div></div>
+    <div class="leccion"><div class="leccion-num">02</div><div><strong>Adquirir sin caja es ruleta rusa.</strong> Las compras de Coya y Unkle en 2022 se hicieron asumiendo que habría una Serie C. Cuando el mercado se cerró, los pagos diferidos de las adquisiciones se convirtieron en detonadores de la insolvencia.</div></div>
+    <div class="leccion"><div class="leccion-num">03</div><div><strong>La B-Corp no protege del cierre.</strong> Luko fue la primera B-Corp aseguradora en Europa. Su compromiso social era genuino. Pero la certificación no convierte un modelo de negocio insostenible en viable.</div></div>
+    <div class="leccion"><div class="leccion-num">04</div><div><strong>La expansión geográfica consume capital desproporcionadamente.</strong> Cada nuevo país requiere licencias, equipos locales, adaptaciones regulatorias y marketing de adquisición de clientes. Sin un foso competitivo que justifique el coste, la expansión mata antes de que el volumen alcance para amortizarla.</div></div>
+    <div class="leccion"><div class="leccion-num">05</div><div><strong>El NPS no se puede comer.</strong> Luko tenía un NPS superior a 70 y el 50% de sus clientes llegaban por recomendación. Era, en términos de satisfacción del cliente, una empresa excepcional. Pero el unit economics seguía siendo negativo. La lealtad del cliente no suple la falta de margen bruto positivo.</div></div>
+  </div>
+</div>
+
+<!-- SECCIÓN 7: VALORACIÓN EDITORIAL -->
+<div class="section">
+  <div class="section-eyebrow">07 · Valoración editorial</div>
+  <div class="section-title">El caso Luko: un fracaso con matices</div>
+
+  <div class="prose" style="max-width: 800px; margin-bottom: 32px;">
+    <p>Luko no fracasó porque su producto fuera malo. Fracasó porque creció demasiado rápido, gastó más de lo que podía permitirse y apostó todo a una ronda de financiación que nunca llegó. Es un fracaso de gestión financiera y de valoración del timing del mercado, no un fracaso de producto ni de misión.</p>
+    <p>Lo que Allianz Direct adquirió por 4,3 MM€ —230.000 clientes con NPS superior a 70, 25% de cuota de mercado online en Francia, una marca reconocida— era genuinamente valioso. El problema es que ese activo costó 72 MM€ construirlo y vendió por menos del 6% de lo invertido.</p>
+    <p>El epílogo es agridulce: la marca Luko sobrevive bajo Allianz Direct Francia. Los 112 empleados conservaron sus puestos. Pero los inversores (Accel, EQT, Founders Fund, Speedinvest) perdieron prácticamente toda su inversión, y los acreedores (BNP, TriplePoint, accionistas de Unkle) no fueron compensados íntegramente.</p>
+  </div>
+
+  <div class="verdict-box">
+    <div class="verdict-title">Dictamen del analista</div>
+    <div class="prose" style="color: #aaa;">
+      <p>Si hubiera que resumir el caso Luko en una sola frase, sería: <em>"Demasiado bueno como producto, demasiado malo como negocio."</em> El equipo construyó algo que los clientes amaban, con métricas de satisfacción que la mayoría de aseguradoras tradicionales ni siquiera se plantea alcanzar. Pero no encontró la forma de convertir ese amor en márgenes positivos antes de quedarse sin capital.</p>
+      <p>Luko es el contrapunto perfecto de Lemonade: misma filosofía, misma misión, mismo modelo Giveback. La diferencia es el mercado (Francia vs. EE.UU.), el timing (el VC europeo se cerró un año antes), la estrategia de adquisiciones (Luko estiró demasiado), y sobre todo, la escala de capital disponible.</p>
+    </div>
+    <div class="verdict-grid">
+      <div class="verdict-col bull">
+        <h4>🟢 Lo que funcionó bien</h4>
+        <div class="verdict-point"><div class="dot"></div><span>Producto excepcional: NPS &gt;70, tasa de recomendación del 50%. Muestra que el mercado validó la propuesta de valor</span></div>
+        <div class="verdict-point"><div class="dot"></div><span>25% de cuota de mercado online en Francia: posición dominante en el canal digital para un producto de alta frecuencia</span></div>
+        <div class="verdict-point"><div class="dot"></div><span>Pionieros de la B-Corp aseguradora en Europa: la misión social era auténtica y diferenciadora</span></div>
+        <div class="verdict-point"><div class="dot"></div><span>Tecnología de prevención única: los sensores IoT y la IA para siniestros eran genuinamente innovadores</span></div>
+        <div class="verdict-point"><div class="dot"></div><span>La marca sobrevive: Allianz Direct mantiene el nombre Luko, lo que implica que tiene valor comercial real</span></div>
+      </div>
+      <div class="verdict-col bear">
+        <h4>🔴 Lo que causó el colapso</h4>
+        <div class="verdict-point"><div class="dot"></div><span>Adquisiciones apalancadas (Coya + Unkle) sin tener la Serie C cerrada: deuda de 45 MM€ sin respaldo de capital</span></div>
+        <div class="verdict-point"><div class="dot"></div><span>Dependencia estructural de capital externo para sobrevivir: nunca llegó al break-even operativo</span></div>
+        <div class="verdict-point"><div class="dot"></div><span>Expansión geográfica prematura: tres países sin rentabilidad en ninguno. Dispersión de foco y recursos</span></div>
+        <div class="verdict-point"><div class="dot"></div><span>Mercado demasiado pequeño: Francia no es EE.UU. El seguro de hogar tiene primas medias menores y menor frecuencia de cambio de aseguradora</span></div>
+        <div class="verdict-point"><div class="dot"></div><span>Fallo de gobierno corporativo: la auditoría post-Admiral reveló "discrepancias contables" que hundieron el proceso de venta más favorable</span></div>
+        <div class="verdict-point"><div class="dot"></div><span>La Series C nunca llegó: la dependencia de un mercado de VC que se cerró en 2022 fue la trampa definitiva</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-left">
+    Fuentes: TechCrunch · Sifted · French Tech Journal · Tech.eu · Fintech.global · EverybodyWiki · Coverager · Business Model Canvas Template<br>
+    Astorya.io (análisis detallado del caso Luko) · Comunicados oficiales Allianz Direct<br>
+    Luko no publicó nunca cuentas consolidadas auditadas. Datos financieros son estimaciones basadas en fuentes periodísticas verificadas. Enero 2024.<br>
+    Este informe es de carácter informativo y no constituye asesoramiento de inversión.
+  </div>
+  <div class="footer-right">COI · Análisis Insurtech</div>
+</div>
+
+</body>
+</html>

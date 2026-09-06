@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insurtech Emergentes: Análisis Comparativo 2024–2025</title>
+<style>
+  /* ─── TOKENS ─── */
+  #ir-wrap {
+    --c-bg:       #0B0F1A;
+    --c-surface:  #111827;
+    --c-card:     #161D2E;
+    --c-border:   #1F2D45;
+    --c-gold:     #C9A84C;
+    --c-gold-lt:  #E6C97A;
+    --c-teal:     #2DD4BF;
+    --c-rose:     #F87171;
+    --c-violet:   #A78BFA;
+    --c-blue:     #60A5FA;
+    --c-text:     #E5E7EB;
+    --c-muted:    #9CA3AF;
+    --c-dim:      #4B5563;
+
+    /* company colors */
+    --wefox:      #FF4D6D;
+    --lemonade:   #FF6B35;
+    --next:       #3B82F6;
+    --alan:       #1D97FD;
+
+    --f-display:  'Georgia', 'Times New Roman', serif;
+    --f-body:     'Helvetica Neue', Arial, sans-serif;
+    --f-data:     'Courier New', monospace;
+
+    font-family: var(--f-body);
+    background: var(--c-bg);
+    color: var(--c-text);
+    line-height: 1.65;
+    margin: 0;
+    padding: 0;
+  }
+
+  #ir-wrap *, #ir-wrap *::before, #ir-wrap *::after {
+    box-sizing: border-box;
+  }
+
+  /* ─── LAYOUT ─── */
+  #ir-wrap .ir-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 28px 80px;
+  }
+
+  /* ─── HERO ─── */
+  #ir-wrap .ir-hero {
+    padding: 72px 0 56px;
+    border-bottom: 1px solid var(--c-border);
+    position: relative;
+    overflow: hidden;
+  }
+  #ir-wrap .ir-hero::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  #ir-wrap .ir-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--c-gold);
+    margin-bottom: 20px;
+  }
+  #ir-wrap .ir-hero-title {
+    font-family: var(--f-display);
+    font-size: clamp(32px, 5vw, 54px);
+    font-weight: 400;
+    line-height: 1.15;
+    color: #fff;
+    margin: 0 0 18px;
+  }
+  #ir-wrap .ir-hero-title em {
+    font-style: normal;
+    color: var(--c-gold-lt);
+  }
+  #ir-wrap .ir-hero-sub {
+    font-size: 17px;
+    color: var(--c-muted);
+    max-width: 620px;
+    margin: 0 0 36px;
+  }
+  #ir-wrap .ir-meta-row {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: var(--c-dim);
+  }
+  #ir-wrap .ir-meta-row span {
+    color: var(--c-muted);
+  }
+
+  /* ─── COMPANY BADGES ─── */
+  #ir-wrap .ir-badge-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 44px 0 0;
+  }
+  #ir-wrap .ir-badge {
+    padding: 16px 18px;
+    border-radius: 6px;
+    border-left: 3px solid;
+    background: var(--c-card);
+  }
+  #ir-wrap .ir-badge-name {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  #ir-wrap .ir-badge-tag {
+    font-size: 11px;
+    color: var(--c-muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  #ir-wrap .ir-badge-val {
+    font-family: var(--f-data);
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 10px;
+  }
+  #ir-wrap .ir-badge.wefox    { border-color: var(--wefox);    }
+  #ir-wrap .ir-badge.lemonade { border-color: var(--lemonade); }
+  #ir-wrap .ir-badge.next     { border-color: var(--next);     }
+  #ir-wrap .ir-badge.alan     { border-color: var(--alan);     }
+  #ir-wrap .ir-badge.wefox    .ir-badge-name { color: var(--wefox);    }
+  #ir-wrap .ir-badge.lemonade .ir-badge-name { color: var(--lemonade); }
+  #ir-wrap .ir-badge.next     .ir-badge-name { color: var(--next);     }
+  #ir-wrap .ir-badge.alan     .ir-badge-name { color: var(--alan);     }
+  #ir-wrap .ir-badge.wefox    .ir-badge-val  { color: var(--wefox);    }
+  #ir-wrap .ir-badge.lemonade .ir-badge-val  { color: var(--lemonade); }
+  #ir-wrap .ir-badge.next     .ir-badge-val  { color: var(--next);     }
+  #ir-wrap .ir-badge.alan     .ir-badge-val  { color: var(--alan);     }
+
+  /* ─── SECCIONES ─── */
+  #ir-wrap .ir-section {
+    margin-top: 64px;
+  }
+  #ir-wrap .ir-section-label {
+    font-size: 10px;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--c-gold);
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  #ir-wrap .ir-section-title {
+    font-family: var(--f-display);
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 400;
+    color: #fff;
+    margin: 0 0 28px;
+    line-height: 1.25;
+  }
+  #ir-wrap .ir-divider {
+    height: 1px;
+    background: linear-gradient(90deg, var(--c-gold) 0%, transparent 60%);
+    margin-bottom: 28px;
+  }
+
+  /* ─── EXECUTIVE SUMMARY ─── */
+  #ir-wrap .ir-exec {
+    background: var(--c-card);
+    border: 1px solid var(--c-border);
+    border-top: 3px solid var(--c-gold);
+    border-radius: 8px;
+    padding: 36px 40px;
+  }
+  #ir-wrap .ir-exec p {
+    margin: 0 0 16px;
+    font-size: 16px;
+    color: var(--c-text);
+  }
+  #ir-wrap .ir-exec p:last-child { margin-bottom: 0; }
+  #ir-wrap .ir-exec strong { color: var(--c-gold-lt); }
+
+  /* ─── HIGHLIGHT BOXES ─── */
+  #ir-wrap .ir-highlights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 28px;
+  }
+  #ir-wrap .ir-hl {
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    border-radius: 6px;
+    padding: 20px 22px;
+  }
+  #ir-wrap .ir-hl-num {
+    font-family: var(--f-data);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--c-gold-lt);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  #ir-wrap .ir-hl-label {
+    font-size: 12px;
+    color: var(--c-muted);
+    line-height: 1.4;
+  }
+
+  /* ─── COMPANY PROFILES ─── */
+  #ir-wrap .ir-profiles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  #ir-wrap .ir-profile {
+    background: var(--c-card);
+    border: 1px solid var(--c-border);
+    border-radius: 8px;
+    padding: 28px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  #ir-wrap .ir-profile::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  #ir-wrap .ir-profile.wefox::after    { background: var(--wefox);    }
+  #ir-wrap .ir-profile.lemonade::after { background: var(--lemonade); }
+  #ir-wrap .ir-profile.next::after     { background: var(--next);     }
+  #ir-wrap .ir-profile.alan::after     { background: var(--alan);     }
+
+  #ir-wrap .ir-profile-header {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+  #ir-wrap .ir-profile-name {
+    font-family: var(--f-display);
+    font-size: 22px;
+    font-weight: 400;
+    color: #fff;
+  }
+  #ir-wrap .ir-profile-pill {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.07);
+    color: var(--c-muted);
+  }
+  #ir-wrap .ir-kv-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  #ir-wrap .ir-kv {
+    background: var(--c-surface);
+    border-radius: 5px;
+    padding: 12px 14px;
+  }
+  #ir-wrap .ir-kv-k {
+    font-size: 10px;
+    color: var(--c-dim);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+  #ir-wrap .ir-kv-v {
+    font-family: var(--f-data);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--c-text);
+  }
+  #ir-wrap .ir-profile-body {
+    font-size: 14px;
+    color: var(--c-muted);
+    line-height: 1.7;
+  }
+  #ir-wrap .ir-profile-body h4 {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--c-dim);
+    margin: 18px 0 8px;
+  }
+  #ir-wrap .ir-profile-body p { margin: 0 0 10px; }
+  #ir-wrap .ir-profile-body ul {
+    margin: 0 0 10px;
+    padding-left: 18px;
+  }
+  #ir-wrap .ir-profile-body li { margin-bottom: 4px; }
+
+  /* ─── TABLA COMPARATIVA ─── */
+  #ir-wrap .ir-table-wrap {
+    overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid var(--c-border);
+  }
+  #ir-wrap table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+  }
+  #ir-wrap thead tr {
+    background: var(--c-surface);
+  }
+  #ir-wrap thead th {
+    padding: 14px 16px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--c-muted);
+    border-bottom: 1px solid var(--c-border);
+    white-space: nowrap;
+  }
+  #ir-wrap thead th:first-child { color: var(--c-dim); }
+  #ir-wrap thead th.h-wefox    { color: var(--wefox);    }
+  #ir-wrap thead th.h-lemonade { color: var(--lemonade); }
+  #ir-wrap thead th.h-next     { color: var(--next);     }
+  #ir-wrap thead th.h-alan     { color: var(--alan);     }
+
+  #ir-wrap tbody tr {
+    border-bottom: 1px solid rgba(31,45,69,0.6);
+    transition: background 0.15s;
+  }
+  #ir-wrap tbody tr:hover { background: rgba(255,255,255,0.02); }
+  #ir-wrap tbody tr:last-child { border-bottom: none; }
+  #ir-wrap tbody td {
+    padding: 13px 16px;
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  #ir-wrap tbody td:first-child {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--c-dim);
+    white-space: nowrap;
+    background: rgba(17,24,39,0.5);
+  }
+  #ir-wrap tbody tr:nth-child(odd) td:not(:first-child) {
+    background: rgba(22,29,46,0.3);
+  }
+
+  /* ─── BARRAS DE VALORACIÓN ─── */
+  #ir-wrap .ir-val-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  #ir-wrap .ir-val-card {
+    background: var(--c-card);
+    border: 1px solid var(--c-border);
+    border-radius: 8px;
+    padding: 24px 22px;
+  }
+  #ir-wrap .ir-val-company {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 18px;
+  }
+  #ir-wrap .ir-val-bar-row {
+    margin-bottom: 12px;
+  }
+  #ir-wrap .ir-val-bar-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--c-dim);
+    margin-bottom: 5px;
+  }
+  #ir-wrap .ir-val-bar-label span:last-child {
+    color: var(--c-muted);
+    font-weight: 600;
+  }
+  #ir-wrap .ir-bar-track {
+    height: 5px;
+    background: var(--c-border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  #ir-wrap .ir-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 1s ease;
+  }
+
+  /* ─── SIMILITUDES / DIFERENCIAS ─── */
+  #ir-wrap .ir-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  #ir-wrap .ir-sim-card, #ir-wrap .ir-dif-card {
+    background: var(--c-card);
+    border: 1px solid var(--c-border);
+    border-radius: 8px;
+    padding: 28px;
+  }
+  #ir-wrap .ir-sim-card {
+    border-top: 3px solid var(--c-teal);
+  }
+  #ir-wrap .ir-dif-card {
+    border-top: 3px solid var(--c-violet);
+  }
+  #ir-wrap .ir-card-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  #ir-wrap .ir-sim-card .ir-card-title { color: var(--c-teal); }
+  #ir-wrap .ir-dif-card .ir-card-title { color: var(--c-violet); }
+
+  #ir-wrap .ir-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 14px;
+    font-size: 14px;
+    color: var(--c-muted);
+    line-height: 1.5;
+  }
+  #ir-wrap .ir-item-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+  #ir-wrap .ir-sim-card .ir-item-icon { background: rgba(45,212,191,0.15); color: var(--c-teal); }
+  #ir-wrap .ir-dif-card .ir-item-icon { background: rgba(167,139,250,0.15); color: var(--c-violet); }
+  #ir-wrap .ir-item strong { color: var(--c-text); }
+
+  /* ─── INTEGRACIÓN EN EL SECTOR ─── */
+  #ir-wrap .ir-integ-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  #ir-wrap .ir-integ-item {
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    border-radius: 6px;
+    padding: 20px 22px;
+  }
+  #ir-wrap .ir-integ-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--c-gold-lt);
+    margin-bottom: 8px;
+  }
+  #ir-wrap .ir-integ-body {
+    font-size: 13.5px;
+    color: var(--c-muted);
+    line-height: 1.6;
+  }
+
+  /* ─── ANÁLISIS DE ANALISTAS ─── */
+  #ir-wrap .ir-analyst-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  #ir-wrap .ir-analyst-card {
+    background: var(--c-card);
+    border: 1px solid var(--c-border);
+    border-radius: 8px;
+    padding: 24px;
+  }
+  #ir-wrap .ir-analyst-company {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  #ir-wrap .ir-analyst-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 9px 0;
+    border-bottom: 1px solid rgba(31,45,69,0.5);
+    font-size: 13px;
+  }
+  #ir-wrap .ir-analyst-row:last-child { border-bottom: none; }
+  #ir-wrap .ir-analyst-label { color: var(--c-muted); }
+  #ir-wrap .ir-analyst-value { font-weight: 600; color: var(--c-text); }
+  #ir-wrap .ir-badge-positive { color: var(--c-teal); }
+  #ir-wrap .ir-badge-caution  { color: var(--c-rose); }
+  #ir-wrap .ir-badge-neutral  { color: #FBBF24; }
+
+  /* ─── CONCLUSIONES ─── */
+  #ir-wrap .ir-conclusion {
+    background: var(--c-card);
+    border: 1px solid var(--c-border);
+    border-radius: 8px;
+    padding: 40px 44px;
+    position: relative;
+    overflow: hidden;
+  }
+  #ir-wrap .ir-conclusion::before {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(201,168,76,0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  #ir-wrap .ir-conclusion-intro {
+    font-family: var(--f-display);
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 24px;
+    line-height: 1.4;
+  }
+  #ir-wrap .ir-conc-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  #ir-wrap .ir-conc-item {
+    background: var(--c-surface);
+    border-radius: 6px;
+    padding: 16px;
+    text-align: center;
+  }
+  #ir-wrap .ir-conc-company {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  #ir-wrap .ir-conc-verdict {
+    font-size: 12px;
+    color: var(--c-muted);
+    line-height: 1.5;
+  }
+  #ir-wrap .ir-conclusion p {
+    font-size: 15px;
+    color: var(--c-muted);
+    line-height: 1.75;
+    margin: 0 0 14px;
+  }
+  #ir-wrap .ir-conclusion p:last-child { margin: 0; }
+  #ir-wrap .ir-conclusion strong { color: var(--c-gold-lt); }
+
+  /* ─── FOOTER ─── */
+  #ir-wrap .ir-footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--c-border);
+    font-size: 12px;
+    color: var(--c-dim);
+    line-height: 1.6;
+  }
+
+  /* ─── NOTA METODOLÓGICA ─── */
+  #ir-wrap .ir-nota {
+    background: rgba(201,168,76,0.05);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 6px;
+    padding: 16px 20px;
+    font-size: 12.5px;
+    color: var(--c-dim);
+    margin-top: 20px;
+    line-height: 1.6;
+  }
+  #ir-wrap .ir-nota strong { color: var(--c-gold); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    #ir-wrap .ir-badge-row   { grid-template-columns: 1fr 1fr; }
+    #ir-wrap .ir-profiles    { grid-template-columns: 1fr; }
+    #ir-wrap .ir-val-grid    { grid-template-columns: 1fr 1fr; }
+    #ir-wrap .ir-2col        { grid-template-columns: 1fr; }
+    #ir-wrap .ir-highlights  { grid-template-columns: 1fr 1fr; }
+    #ir-wrap .ir-conc-grid   { grid-template-columns: 1fr 1fr; }
+    #ir-wrap .ir-analyst-grid{ grid-template-columns: 1fr; }
+    #ir-wrap .ir-integ-grid  { grid-template-columns: 1fr; }
+    #ir-wrap .ir-page        { padding: 0 16px 60px; }
+    #ir-wrap .ir-exec        { padding: 24px; }
+    #ir-wrap .ir-conclusion  { padding: 28px; }
+  }
+</style>
+</head>
+<body>
+<div id="ir-wrap">
+<div class="ir-page">
+
+  <!-- ═══ HERO ═══ -->
+  <header class="ir-hero">
+    <div class="ir-eyebrow">Insur·Insights · Análisis Estratégico</div>
+    <h1 class="ir-hero-title">Las cuatro insurtech que <em>redefinieron</em><br>la industria aseguradora</h1>
+    <p class="ir-hero-sub">Análisis comparativo de wefox, Lemonade, Next Insurance y Alan: modelos de negocio, cifras de valoración y posicionamiento en el ecosistema asegurador global.</p>
+    <div class="ir-meta-row">
+      <div>Elaborado por <span>Insur·Insights / Community of Insurance</span></div>
+      <div>Referencia temporal: <span>2024–2025</span></div>
+      <div>Alcance: <span>Mercados US, EU, LATAM</span></div>
+    </div>
+
+    <div class="ir-badge-row">
+      <div class="ir-badge wefox">
+        <div class="ir-badge-name">wefox</div>
+        <div class="ir-badge-tag">Berlín · B2B2C</div>
+        <div class="ir-badge-val">~3.000 MM€*</div>
+      </div>
+      <div class="ir-badge lemonade">
+        <div class="ir-badge-name">Lemonade</div>
+        <div class="ir-badge-tag">Nueva York · B2C · Cotizada</div>
+        <div class="ir-badge-val">~1.300 MM$*</div>
+      </div>
+      <div class="ir-badge next">
+        <div class="ir-badge-name">Next Insurance</div>
+        <div class="ir-badge-tag">Palo Alto · Pymes · B2B</div>
+        <div class="ir-badge-val">~2.700 MM$*</div>
+      </div>
+      <div class="ir-badge alan">
+        <div class="ir-badge-name">Alan</div>
+        <div class="ir-badge-tag">París · Salud · B2B/B2C</div>
+        <div class="ir-badge-val">~4.000 MM€*</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ RESUMEN EJECUTIVO ═══ -->
+  <section class="ir-section">
+    <div class="ir-section-label">01 · Resumen Ejecutivo</div>
+    <h2 class="ir-section-title">Cuatro modelos. Una misma apuesta disruptiva.</h2>
+    <div class="ir-divider"></div>
+
+    <div class="ir-exec">
+      <p>
+        <strong>wefox, Lemonade, Next Insurance y Alan</strong> representan cuatro de los proyectos insurtech más relevantes y estudiados a nivel global. Nacidos entre 2015 y 2016, cada uno atacó el sector asegurador desde un ángulo diferente, con propuestas de valor específicas y modelos de negocio bien diferenciados. Sin embargo, comparten un denominador común: la convicción de que la tecnología podía transformar de raíz la experiencia aseguradora, reducir fricciones estructurales del sector y capturar cuota de mercado sobre bases más eficientes.
+      </p>
+      <p>
+        <strong>wefox</strong> eligió el canal de distribución como palanca central, posicionándose como una plataforma B2B2C que potencia al corredor en lugar de eliminarlo. <strong>Lemonade</strong> apostó por el consumidor final con una propuesta DTC (Direct-to-Consumer) basada en IA, precios bajos y un componente de responsabilidad social inédito (el modelo Giveback). <strong>Next Insurance</strong> dirigió su foco a uno de los segmentos más desatendidos del mercado estadounidense: las pequeñas empresas y autónomos, construyendo una distribución 100% digital y embebida. <strong>Alan</strong> reimaginó el seguro de salud colectivo en Europa como un producto SaaS, con un diseño de producto radicalmente centrado en el usuario y ambiciones de convertirse en el sistema de salud digital de referencia del continente.
+      </p>
+      <p>
+        Las valoraciones que alcanzaron en sus rondas de capital pico reflejan el optimismo del ciclo de inversión 2019–2022: en conjunto, superaron los <strong>12.000 millones de dólares</strong> de capitalización estimada. Sin embargo, el enfriamiento del mercado de venture capital desde 2022 ha sometido a todas a una prueba de realidad exigente: Lemonade cotiza muy por debajo de su pico histórico, wefox atravesó una reestructuración severa en 2024, y tanto Next como Alan han continuado creciendo aunque con mayor cautela en sus comunicaciones de valoración.
+      </p>
+      <p>
+        Este informe analiza sus modelos de negocio, cifras clave, valoraciones, similitudes estructurales, diferencias estratégicas y la forma en que cada una se ha integrado —o tensionado— con el ecosistema asegurador tradicional.
+      </p>
+    </div>
+
+    <div class="ir-highlights">
+      <div class="ir-hl">
+        <div class="ir-hl-num">>12.000 MM$</div>
+        <div class="ir-hl-label">Valoración acumulada pico de las cuatro compañías (2021–2022)</div>
+      </div>
+      <div class="ir-hl">
+        <div class="ir-hl-num">2015–2016</div>
+        <div class="ir-hl-label">Ventana de fundación de las cuatro. Ciclo insurtech de primera generación</div>
+      </div>
+      <div class="ir-hl">
+        <div class="ir-hl-num">4 modelos</div>
+        <div class="ir-hl-label">B2C puro · B2B2C · B2B pyme · Salud colectiva. Sin solapamiento directo</div>
+      </div>
+    </div>
+    <div class="ir-nota"><strong>Nota metodológica:</strong> Las valoraciones marcadas con (*) son estimadas a partir de rondas de capital publicadas y referencias de analistas. Las cifras de compañías no cotizadas son estimaciones de mercado, no valoraciones contrastadas por estados financieros auditados públicos. Lemonade (LMND) cotiza en NYSE; su capitalización bursátil es verificada. Para el resto, se indica la última valoración post-money conocida o referenciada por fuentes del sector.</div>
+  </section>
+
+  <!-- ═══ PERFILES DE EMPRESA ═══ -->
+  <section class="ir-section">
+    <div class="ir-section-label">02 · Perfiles de Empresa</div>
+    <h2 class="ir-section-title">Modelo de negocio, cifras y propuesta de valor</h2>
+    <div class="ir-divider"></div>
+
+    <div class="ir-profiles">
+
+      <!-- WEFOX -->
+      <div class="ir-profile wefox">
+        <div class="ir-profile-header">
+          <span class="ir-profile-name" style="color:var(--wefox)">wefox</span>
+          <span class="ir-profile-pill">B2B2C · Plataforma de distribución</span>
+        </div>
+        <div class="ir-kv-grid">
+          <div class="ir-kv"><div class="ir-kv-k">Fundación</div><div class="ir-kv-v">2015 · Berlín</div></div>
+          <div class="ir-kv"><div class="ir-kv-k">Fundadores</div><div class="ir-kv-v">Julian Teicke</div></div>
+          <div class="ir-kv"><div class="ir-kv-k">Val. pico (2021)</div><div class="ir-kv-v" style="color:var(--wefox)">4.500 MM$</div></div>
+          <div class="ir-kv"><div class="ir-kv-k">Val. est. 2024</div><div class="ir-kv-v" style="color:var(--wefox)">~1.600 MM$*</div></div>
+          <div class="ir-kv"><div class="ir-kv-k">Clientes</div><div class="ir-kv-v">>2 M pólizas</div></div>
+          <div class="ir-kv"><div class="ir-kv-k">Mercados</div><div class="ir-kv-v">DE, CH, AT, PL, IT</div></div>
+        </div>
+        <div class="ir-profile-body">
+          <h4>Propuesta de valor</h4>
+          <p>wefox nació como una plataforma tecnológica para corredores de seguros: en lugar de competir con los intermediarios tradicionales, les ofrece herramientas digitales para gestionar su cartera, captar clientes y administrar pólizas. El posicionamiento es el de <em>orquestador del canal</em>, no el de asegurador directo.</p>
+          <h4>Modelo de negocio</h4>
+          <ul>
+            <li><strong>Plataforma digital para corredores</strong> (SaaS de gestión + CRM)</li>
+            <li><strong>Aseguradora propia</strong> (wefox Insurance) para productos embebidos</li>
+            <li>Ingresos por comisiones de distribución + primas directas</li>
+            <li>Red de >3.000 agentes y corredores integrados</li>
+          </ul>
+          <h4>Momento actual (2024–2025)</h4>
+          <p>wefox atravesó en 2023–2024 una reestructuración profunda: salida del CEO fundador, venta de activos en mercados periféricos, reducción de plantilla y revisión de la estrategia de internacionalización. La valoración se redujo drásticamente desde los 4.500 MM$ de 2021. La compañía continúa operativa pero ha pivotado hacia un modelo más concentrado y rentable.</p>
+        </div>
+      </div>
+
+      <!-- LEMONADE -->
+      <div class="ir-profile lemonade">
+        <div class="ir-profile-header">
+          <span class="ir-profile-name" style="color:var(--lemonade)">Lemonade</span>
+          <span class="ir-profile-pill">B2C · Full-stack insurtech · Cotizada</span>
+        </div>
+        <div class="ir-kv-grid">
+          <div class="ir-kv"><div class="ir-kv-k">Fundación</div><div class="ir-kv-v">2015 · Nueva York</div></div>
+          <div class="ir-kv"><div class="ir-kv-k">Fundadores</div><div class="ir-kv-v">Schreiber / Wininger</div></div>
+          <div class="ir-kv"><div class="ir-kv-k">IPO</div><div class="ir-kv-v">2020 · NYSE: LMND</div></div>
+          <div class="ir-kv"><div class="ir-kv-k">Cap. bursátil (est.)</div><div class="ir-kv-v" style="color:var(--lemonade)">~1.300 MM$</div></div>
+          <div class="ir-kv"><div class="ir-kv-k">Clientes</div><div class="ir-kv-v">>2 M asegurados</div></div>
+          <div class="ir-kv"><div class="ir-kv-k">GWP 2023</div><div class="ir-kv-v">~790 MM$</div></div>
+        </div>
+        <div class="ir-profile-body">
+          <h4>Propuesta de valor</h4>
+          <p>Seguros de hogar, arrendatarios, mascotas, vida y automóvil 100% digitales, con una IA conversacional (Maya) que cotiza y emite en minutos. El modelo Giveback —donar las primas sobrantes a causas elegidas por el cliente— fue su diferenciador ético y de branding. Apunta a millennials y centennials.</p>
+          <h4>Modelo de negocio</h4>
+          <ul>
+            <li>Aseguradora propia (licencia en EE.UU. y Europa)</li>
+            <li>Sin agentes: distribución 100% digital (app + web)</li>
+            <li>Tarifa plana del 25% sobre prima como fee de gestión</li>
+            <li>Expansión a EU vía Lemonade EU (Ámsterdam)</li>
+          </ul>
+          <h4>Momento actual (2024–2025)</h4>
+          <p>Tras cotizar a más de 180$ en su pico de 2021, la acción cayó >90%. La empresa muestra mejoras en su ratio combinado (progresando desde >200% hacia rangos más manejables) y crecimiento continuado de GWP, pero sigue sin alcanzar rentabilidad operativa. El mercado la valora como apuesta de largo plazo en la confluencia de IA y seguros.</p>
+        </div>
+      </div>
+
+      <!-- NEXT INSURANCE -->
+      <div class="ir-profile next">
+        <div class="ir-profile-header">
+          <span class="ir-profile-name" style="color:var(--next)">Next Insurance</span>
+          <span class="ir-profile-pill">B2B · Pymes · Embedded</span>
+        </div>
+        <div class="ir-kv-grid">
+          <div class="ir-kv"><div class="ir-kv-k">Fundación</div><div class="ir-kv-v">2016 · Palo Alto</div></div>
+          <div class="ir-kv"><div class="ir-kv-k">Fundadores</div><div class="ir-kv-v">Harpaz / Reuveni / Bar</div></div>
+          <div class="ir-kv"><div class="ir-kv-k">Val. pico (2021)</div><div class="ir-kv-v" style="color:var(--next)">4.000 MM$</div></div>
+          <div class="ir-kv"><div class="ir-kv-k">Val. est. 2024</div><div class="ir-kv-v" style="color:var(--next)">~2.700 MM$*</div></div>
+          <div class="ir-kv"><div class="ir-kv-k">Pólizas activas</div><div class="ir-kv-v">>500.000</div></div>
+          <div class="ir-kv"><div class="ir-kv-k">Mercado</div><div class="ir-kv-v">EE.UU. (PYMES)</div></div>
+        </div>
+        <div class="ir-profile-body">
+          <h4>Propuesta de valor</h4>
+          <p>Next Insurance elimina la complejidad del seguro para pequeñas empresas y autónomos en EE.UU. —un segmento fragmentado, desatendido y con enorme potencial—. La plataforma digitaliza la cotización, emisión y gestión de seguros de responsabilidad civil, propiedad y compensación de trabajadores en menos de 10 minutos.</p>
+          <h4>Modelo de negocio</h4>
+          <ul>
+            <li>Full-stack: aseguradora propia + distribución digital</li>
+            <li>Canal embebido: integración con QuickBooks (Intuit), Amazon</li>
+            <li>API-first para partners de pagos y plataformas B2B</li>
+            <li>Micro-segmentación por sector (contratistas, restaurantes, etc.)</li>
+          </ul>
+          <h4>Momento actual (2024–2025)</h4>
+          <p>Next ha logrado un crecimiento sostenido de primas con mejora de márgenes. La integración con Intuit QuickBooks es una ventaja competitiva difícilmente replicable a corto plazo. Es la más próxima a la rentabilidad operativa entre las cuatro y mantiene respaldo de Munich Re como reasegurador estratégico.</p>
+        </div>
+      </div>
+
+      <!-- ALAN -->
+      <div class="ir-profile alan">
+        <div class="ir-profile-header">
+          <span class="ir-profile-name" style="color:var(--alan)">Alan</span>
+          <span class="ir-profile-pill">B2B + B2C · Salud · Health OS</span>
+        </div>
+        <div class="ir-kv-grid">
+          <div class="ir-kv"><div class="ir-kv-k">Fundación</div><div class="ir-kv-v">2016 · París</div></div>
+          <div class="ir-kv"><div class="ir-kv-k">Fundadores</div><div class="ir-kv-v">Jean-Charles Samuelian</div></div>
+          <div class="ir-kv"><div class="ir-kv-k">Val. Serie E (2024)</div><div class="ir-kv-v" style="color:var(--alan)">4.000 MM€</div></div>
+          <div class="ir-kv"><div class="ir-kv-k">Ronda Serie E</div><div class="ir-kv-v" style="color:var(--alan)">480 MM€</div></div>
+          <div class="ir-kv"><div class="ir-kv-k">Miembros</div><div class="ir-kv-v">>700.000</div></div>
+          <div class="ir-kv"><div class="ir-kv-k">ARR</div><div class="ir-kv-v">>600 MM€</div></div>
+        </div>
+        <div class="ir-profile-body">
+          <h4>Propuesta de valor</h4>
+          <p>Alan reimaginó el seguro de salud colectivo en Francia (y ahora también en España, Bélgica y Canadá) como un <em>Health Operating System</em>: más allá de gestionar pólizas, quiere convertirse en la plataforma central de salud de empresas y sus empleados. La experiencia de producto —app, UX, soporte— es su principal diferenciador frente a mutualidades y aseguradoras clásicas.</p>
+          <h4>Modelo de negocio</h4>
+          <ul>
+            <li>Aseguradora de salud con licencia propia en Francia</li>
+            <li>Prima mensual por empleado (modelo SaaS de salud)</li>
+            <li>Servicios adicionales: telemedicina, salud mental, bienestar</li>
+            <li>Expansión a España (2022), Bélgica (2019) y Canadá (2023)</li>
+          </ul>
+          <h4>Momento actual (2024–2025)</h4>
+          <p>Con la Serie E de 480 MM€ (Prosus lead) cerrada en 2024, Alan es la insurtech europea mejor financiada del momento. Alcanzó el punto de equilibrio operativo en Francia. Su ambición declarada es construir el sistema de salud digital europeo, con IA como herramienta central de triaje, prevención y seguimiento clínico.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ TABLA COMPARATIVA ═══ -->
+  <section class="ir-section">
+    <div class="ir-section-label">03 · Comparativa Estructural</div>
+    <h2 class="ir-section-title">Matriz comparativa: modelo, cifras y posicionamiento</h2>
+    <div class="ir-divider"></div>
+
+    <div class="ir-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Dimensión</th>
+            <th class="h-wefox">wefox</th>
+            <th class="h-lemonade">Lemonade</th>
+            <th class="h-next">Next Insurance</th>
+            <th class="h-alan">Alan</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Año de fundación</td>
+            <td>2015</td>
+            <td>2015</td>
+            <td>2016</td>
+            <td>2016</td>
+          </tr>
+          <tr>
+            <td>Sede central</td>
+            <td>Berlín (DE)</td>
+            <td>Nueva York (US)</td>
+            <td>Palo Alto (US)</td>
+            <td>París (FR)</td>
+          </tr>
+          <tr>
+            <td>Modelo de negocio</td>
+            <td>B2B2C (plataforma para corredores)</td>
+            <td>B2C full-stack DTC</td>
+            <td>B2B / Embedded (pymes)</td>
+            <td>B2B colectivos + app B2C</td>
+          </tr>
+          <tr>
+            <td>Ramos principales</td>
+            <td>Multi-ramo (hogar, vida, auto, salud)</td>
+            <td>Hogar, arrendatarios, mascotas, vida, auto</td>
+            <td>RC general, propiedad, compensación trabajadores</td>
+            <td>Salud colectiva (seguro médico empresas)</td>
+          </tr>
+          <tr>
+            <td>Mercados operativos</td>
+            <td>Europa Central (DE, CH, AT, PL, IT)</td>
+            <td>EE.UU. + Europa (FR, DE, NL, UK)</td>
+            <td>EE.UU. (exclusivo)</td>
+            <td>Francia, Bélgica, España, Canadá</td>
+          </tr>
+          <tr>
+            <td>Valoración pico</td>
+            <td>4.500 MM$ (2021)</td>
+            <td>~7.400 MM$ IPO (2020 pico)</td>
+            <td>4.000 MM$ (2021)</td>
+            <td>4.000 MM€ (2024)*</td>
+          </tr>
+          <tr>
+            <td>Valoración actual estimada</td>
+            <td>~1.600 MM$ (post-reestructuración)</td>
+            <td>~1.300 MM$ (cap. bursátil)</td>
+            <td>~2.700 MM$</td>
+            <td>4.000 MM€ (Serie E 2024)</td>
+          </tr>
+          <tr>
+            <td>Fondeo total acumulado</td>
+            <td>>900 MM$</td>
+            <td>>480 MM$ + IPO</td>
+            <td>>880 MM$</td>
+            <td>>885 MM€</td>
+          </tr>
+          <tr>
+            <td>Estado de cotización</td>
+            <td>Privada (VC-backed)</td>
+            <td>Cotizada NYSE: LMND</td>
+            <td>Privada (VC-backed)</td>
+            <td>Privada (VC-backed)</td>
+          </tr>
+          <tr>
+            <td>Rentabilidad operativa</td>
+            <td>Negativa (reestructuración)</td>
+            <td>Negativa (mejorando)</td>
+            <td>Próxima al punto de equilibrio</td>
+            <td>Break-even en Francia (2024)</td>
+          </tr>
+          <tr>
+            <td>Tecnología IA</td>
+            <td>Plataforma de gestión + scoring</td>
+            <td>IA en FNOL y suscripción (Maya/Jim)</td>
+            <td>ML para pricing + emisión</td>
+            <td>IA en triaje médico + prevención</td>
+          </tr>
+          <tr>
+            <td>Ratio combinado (est.)</td>
+            <td>No publicado</td>
+            <td>>100% (mejorando desde >200%)</td>
+            <td>~95–100% (estimado)</td>
+            <td>No aplica directamente</td>
+          </tr>
+          <tr>
+            <td>Clientes / Pólizas activas</td>
+            <td>>2 M pólizas gestionadas</td>
+            <td>>2 M asegurados</td>
+            <td>>500.000 pólizas</td>
+            <td>>700.000 miembros</td>
+          </tr>
+          <tr>
+            <td>ARR / GWP declarado</td>
+            <td>No público</td>
+            <td>~790 MM$ GWP (2023)</td>
+            <td>>500 MM$ GWP (estimado)</td>
+            <td>>600 MM€ ARR (2024)</td>
+          </tr>
+          <tr>
+            <td>Inversores clave</td>
+            <td>Target Global, OMERS, Horizons</td>
+            <td>SoftBank, General Catalyst, GV</td>
+            <td>Munich Re, Allstate, Zeev Ventures</td>
+            <td>Prosus, Index, Coatue, Temasek</td>
+          </tr>
+          <tr>
+            <td>Participación reaseguro</td>
+            <td>Sí (terceros)</td>
+            <td>Sí (reaseguros tradicionales)</td>
+            <td>Munich Re (estratégico)</td>
+            <td>Limitado (retención directa)</td>
+          </tr>
+          <tr>
+            <td>Modelo de distribución</td>
+            <td>Corredor / Agente (digital)</td>
+            <td>Directo (DTC sin intermediario)</td>
+            <td>API embebida + directo digital</td>
+            <td>Directo empresas + broker HR</td>
+          </tr>
+          <tr>
+            <td>Diferenciador ético / social</td>
+            <td>Empoderamiento del corredor</td>
+            <td>Giveback (donación de sobrante)</td>
+            <td>Accesibilidad para pyme</td>
+            <td>Salud preventiva + mental</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ═══ SIMILITUDES Y DIFERENCIAS ═══ -->
+  <section class="ir-section">
+    <div class="ir-section-label">04 · Análisis Estructural</div>
+    <h2 class="ir-section-title">Lo que las une. Lo que las separa.</h2>
+    <div class="ir-divider"></div>
+
+    <div class="ir-2col">
+      <div class="ir-sim-card">
+        <div class="ir-card-title">Puntos de convergencia</div>
+
+        <div class="ir-item">
+          <div class="ir-item-icon">✓</div>
+          <div><strong>Tecnología como infraestructura central.</strong> Las cuatro construyeron sus plataformas desde cero (greenfield), evitando los legacy IT de los incumbentes. Esto les permitió automatizar cotización, emisión y gestión de siniestros a un coste marginal inferior.</div>
+        </div>
+        <div class="ir-item">
+          <div class="ir-item-icon">✓</div>
+          <div><strong>IA aplicada al core del negocio.</strong> Todas usan machine learning para suscripción, scoring de riesgo o atención al cliente. No como capa decorativa, sino como motor de la propuesta de valor.</div>
+        </div>
+        <div class="ir-item">
+          <div class="ir-item-icon">✓</div>
+          <div><strong>Experiencia de usuario como palanca competitiva.</strong> App móvil, UX sin fricción, comunicación clara y directa. Ninguna asume que el cliente tolera las ineficiencias del proceso asegurador clásico.</div>
+        </div>
+        <div class="ir-item">
+          <div class="ir-item-icon">✓</div>
+          <div><strong>Ataque a segmentos desatendidos.</strong> wefox (corredores sin digitalizar), Lemonade (jóvenes urbanos), Next (pymes), Alan (empleados sin cobertura de calidad). Ninguna fue por el mass market maduro.</div>
+        </div>
+        <div class="ir-item">
+          <div class="ir-item-icon">✓</div>
+          <div><strong>Financiación venture y valoraciones infladas en el ciclo 2019–2022.</strong> Las cuatro se beneficiaron del capital barato y del optimismo tech-driven de ese período, y las cuatro han sufrido la corrección posterior.</div>
+        </div>
+        <div class="ir-item">
+          <div class="ir-item-icon">✓</div>
+          <div><strong>Tensión estructural entre crecimiento y rentabilidad.</strong> Priorizaron GWP y expansión de mercado sobre beneficio operativo, un patrón típico del playbook SaaS aplicado a seguros —con resultados más lentos de lo proyectado.</div>
+        </div>
+      </div>
+
+      <div class="ir-dif-card">
+        <div class="ir-card-title">Diferencias estratégicas clave</div>
+
+        <div class="ir-item">
+          <div class="ir-item-icon">≠</div>
+          <div><strong>Canal de distribución opuesto.</strong> Lemonade elimina al intermediario. wefox lo abraza y lo potencia. Next lo ignora para ir directamente a la empresa. Alan mezcla venta directa con brokers de RRHH.</div>
+        </div>
+        <div class="ir-item">
+          <div class="ir-item-icon">≠</div>
+          <div><strong>Ramos sin solapamiento real.</strong> Salud (Alan), multi-ramo personal (Lemonade), multi-ramo comercial pyme (Next) y plataforma multi-producto (wefox). Se complementan más de lo que compiten.</div>
+        </div>
+        <div class="ir-item">
+          <div class="ir-item-icon">≠</div>
+          <div><strong>Geografía prioritaria diferente.</strong> Europa Central (wefox), EE.UU. + expansión EU (Lemonade), EE.UU. exclusivo (Next), Europa Occidental (Alan). Sin choque frontal de mercado.</div>
+        </div>
+        <div class="ir-item">
+          <div class="ir-item-icon">≠</div>
+          <div><strong>Posicionamiento frente al incumbente.</strong> wefox como aliado del sector; Lemonade como alternativa disruptiva; Next como proveedor especializado; Alan como actor híbrido que construye el seguro de salud del futuro.</div>
+        </div>
+        <div class="ir-item">
+          <div class="ir-item-icon">≠</div>
+          <div><strong>Trayectoria financiera divergente.</strong> Alan avanza hacia la rentabilidad. Next muestra solidez operativa. Lemonade continúa quemando caja. wefox está en reconstrucción estratégica. Cuatro momentos del ciclo insurtech en paralelo.</div>
+        </div>
+        <div class="ir-item">
+          <div class="ir-item-icon">≠</div>
+          <div><strong>Ambición de ecosistema.</strong> Alan apunta a ser un "sistema operativo de salud". wefox aspiraba a ser el "AWS del seguro europeo". Lemonade y Next se mantienen en un rol más acotado dentro de los ramos que conocen.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ VALORACIÓN ANALISTAS ═══ -->
+  <section class="ir-section">
+    <div class="ir-section-label">05 · Valoración de Analistas</div>
+    <h2 class="ir-section-title">Cómo las leen los mercados y el consenso analista</h2>
+    <div class="ir-divider"></div>
+
+    <div class="ir-analyst-grid">
+
+      <div class="ir-analyst-card">
+        <div class="ir-analyst-company" style="color:var(--wefox)">wefox</div>
+        <div class="ir-analyst-row">
+          <span class="ir-analyst-label">Sentimiento de mercado</span>
+          <span class="ir-analyst-value ir-badge-caution">Deteriorado / En observación</span>
+        </div>
+        <div class="ir-analyst-row">
+          <span class="ir-analyst-label">Múltiplo implícito (val./GWP)</span>
+          <span class="ir-analyst-value">No público (estimado 1–2x)</span>
+        </div>
+        <div class="ir-analyst-row">
+          <span class="ir-analyst-label">Riesgo clave señalado</span>
+          <span class="ir-analyst-value">Quema de capital · Expansión fallida</span>
+        </div>
+        <div class="ir-analyst-row">
+          <span class="ir-analyst-label">Factor positivo residual</span>
+          <span class="ir-analyst-value">Cartera de corredores activos</span>
+        </div>
+        <div class="ir-analyst-row">
+          <span class="ir-analyst-label">Probabilidad de IPO (3 años)</span>
+          <span class="ir-analyst-value ir-badge-caution">Baja · Primero consolidar</span>
+        </div>
+        <div class="ir-analyst-row">
+          <span class="ir-analyst-label">Tesis de inversión central</span>
+          <span class="ir-analyst-value">Plataforma B2B2C europea (en duda)</span>
+        </div>
+      </div>
+
+      <div class="ir-analyst-card">
+        <div class="ir-analyst-company" style="color:var(--lemonade)">Lemonade</div>
+        <div class="ir-analyst-row">
+          <span class="ir-analyst-label">Sentimiento de mercado</span>
+          <span class="ir-analyst-value ir-badge-neutral">Neutral / Especulativo</span>
+        </div>
+        <div class="ir-analyst-row">
+          <span class="ir-analyst-label">Múltiplo Price/Sales (P/S)</span>
+          <span class="ir-analyst-value">~1,5–2x ventas (deprimido vs. pico 30x)</span>
+        </div>
+        <div class="ir-analyst-row">
+          <span class="ir-analyst-label">Riesgo clave señalado</span>
+          <span class="ir-analyst-value">Ratio combinado · Rentabilidad estructural</span>
+        </div>
+        <div class="ir-analyst-row">
+          <span class="ir-analyst-label">Factor positivo</span>
+          <span class="ir-analyst-value">Crecimiento GWP · Posición en EU</span>
+        </div>
+        <div class="ir-analyst-row">
+          <span class="ir-analyst-label">Consenso analistas sell-side</span>
+          <span class="ir-analyst-value">Hold / Neutral (mayoría)</span>
+        </div>
+        <div class="ir-analyst-row">
+          <span class="ir-analyst-label">Potencial alcista (consenso)</span>
+          <span class="ir-analyst-value ir-badge-positive">Moderado si mejora RC</span>
+        </div>
+      </div>
+
+      <div class="ir-analyst-card">
+        <div class="ir-analyst-company" style="color:var(--next)">Next Insurance</div>
+        <div class="ir-analyst-row">
+          <span class="ir-analyst-label">Sentimiento de mercado</span>
+          <span class="ir-analyst-value ir-badge-positive">Positivo / Sólido</span>
+        </div>
+        <div class="ir-analyst-row">
+          <span class="ir-analyst-label">Múltiplo implícito</span>
+          <span class="ir-analyst-value">~5–6x GWP estimado</span>
+        </div>
+        <div class="ir-analyst-row">
+          <span class="ir-analyst-label">Factor diferencial clave</span>
+          <span class="ir-analyst-value">Acuerdo estratégico con Intuit/QuickBooks</span>
+        </div>
+        <div class="ir-analyst-row">
+          <span class="ir-analyst-label">Riesgo señalado</span>
+          <span class="ir-analyst-value">Concentración geográfica (solo US)</span>
+        </div>
+        <div class="ir-analyst-row">
+          <span class="ir-analyst-label">Probabilidad de IPO (3 años)</span>
+          <span class="ir-analyst-value ir-badge-positive">Media-alta si mercados favorables</span>
+        </div>
+        <div class="ir-analyst-row">
+          <span class="ir-analyst-label">Respaldo institucional</span>
+          <span class="ir-analyst-value">Munich Re (ancla estratégica)</span>
+        </div>
+      </div>
+
+      <div class="ir-analyst-card">
+        <div class="ir-analyst-company" style="color:var(--alan)">Alan</div>
+        <div class="ir-analyst-row">
+          <span class="ir-analyst-label">Sentimiento de mercado</span>
+          <span class="ir-analyst-value ir-badge-positive">Muy positivo · Mejor valorada 2024</span>
+        </div>
+        <div class="ir-analyst-row">
+          <span class="ir-analyst-label">Múltiplo implícito (val./ARR)</span>
+          <span class="ir-analyst-value">~6–7x ARR (Serie E 2024)</span>
+        </div>
+        <div class="ir-analyst-row">
+          <span class="ir-analyst-label">Factor diferencial clave</span>
+          <span class="ir-analyst-value">Break-even en Francia · IA en salud</span>
+        </div>
+        <div class="ir-analyst-row">
+          <span class="ir-analyst-label">Riesgo señalado</span>
+          <span class="ir-analyst-value">Regulación sanitaria · Dependencia de FR</span>
+        </div>
+        <div class="ir-analyst-row">
+          <span class="ir-analyst-label">Probabilidad de IPO (3–5 años)</span>
+          <span class="ir-analyst-value ir-badge-positive">Alta · Candidata European tech</span>
+        </div>
+        <div class="ir-analyst-row">
+          <span class="ir-analyst-label">Tesis de inversión dominante</span>
+          <span class="ir-analyst-value">Health OS europeo + IA clínica</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="ir-nota" style="margin-top:20px;">
+      <strong>Fuentes de referencia:</strong> Goldman Sachs Equity Research, CB Insights Insurtech Reports (Q3 2024), Gallagher Re Insurtech Radar, S&amp;P Global Market Intelligence, Dealroom.co, reportes públicos de inversores. Las valoraciones de compañías no cotizadas son estimaciones post-money basadas en rondas declaradas públicamente. No constituyen valoración oficial ni asesoramiento de inversión.
+    </div>
+  </section>
+
+  <!-- ═══ VALORACIONES VISUALES ═══ -->
+  <section class="ir-section">
+    <div class="ir-section-label">06 · Indicadores Clave Comparados</div>
+    <h2 class="ir-section-title">Dimensiones de madurez por empresa</h2>
+    <div class="ir-divider"></div>
+
+    <div class="ir-val-grid">
+
+      <div class="ir-val-card">
+        <div class="ir-val-company" style="color:var(--wefox)">wefox</div>
+        <div class="ir-val-bar-row">
+          <div class="ir-val-bar-label"><span>Madurez tecnológica</span><span>70/100</span></div>
+          <div class="ir-bar-track"><div class="ir-bar-fill" style="width:70%;background:var(--wefox)"></div></div>
+        </div>
+        <div class="ir-val-bar-row">
+          <div class="ir-val-bar-label"><span>Solidez financiera actual</span><span>30/100</span></div>
+          <div class="ir-bar-track"><div class="ir-bar-fill" style="width:30%;background:var(--wefox)"></div></div>
+        </div>
+        <div class="ir-val-bar-row">
+          <div class="ir-val-bar-label"><span>Escala de clientes</span><span>75/100</span></div>
+          <div class="ir-bar-track"><div class="ir-bar-fill" style="width:75%;background:var(--wefox)"></div></div>
+        </div>
+        <div class="ir-val-bar-row">
+          <div class="ir-val-bar-label"><span>Posicionamiento de canal</span><span>85/100</span></div>
+          <div class="ir-bar-track"><div class="ir-bar-fill" style="width:85%;background:var(--wefox)"></div></div>
+        </div>
+        <div class="ir-val-bar-row">
+          <div class="ir-val-bar-label"><span>Potencial de recuperación</span><span>55/100</span></div>
+          <div class="ir-bar-track"><div class="ir-bar-fill" style="width:55%;background:var(--wefox)"></div></div>
+        </div>
+      </div>
+
+      <div class="ir-val-card">
+        <div class="ir-val-company" style="color:var(--lemonade)">Lemonade</div>
+        <div class="ir-val-bar-row">
+          <div class="ir-val-bar-label"><span>Madurez tecnológica</span><span>85/100</span></div>
+          <div class="ir-bar-track"><div class="ir-bar-fill" style="width:85%;background:var(--lemonade)"></div></div>
+        </div>
+        <div class="ir-val-bar-row">
+          <div class="ir-val-bar-label"><span>Solidez financiera actual</span><span>35/100</span></div>
+          <div class="ir-bar-track"><div class="ir-bar-fill" style="width:35%;background:var(--lemonade)"></div></div>
+        </div>
+        <div class="ir-val-bar-row">
+          <div class="ir-val-bar-label"><span>Escala de clientes</span><span>80/100</span></div>
+          <div class="ir-bar-track"><div class="ir-bar-fill" style="width:80%;background:var(--lemonade)"></div></div>
+        </div>
+        <div class="ir-val-bar-row">
+          <div class="ir-val-bar-label"><span>Innovación de producto</span><span>90/100</span></div>
+          <div class="ir-bar-track"><div class="ir-bar-fill" style="width:90%;background:var(--lemonade)"></div></div>
+        </div>
+        <div class="ir-val-bar-row">
+          <div class="ir-val-bar-label"><span>Liquidez / Visibilidad</span><span>95/100</span></div>
+          <div class="ir-bar-track"><div class="ir-bar-fill" style="width:95%;background:var(--lemonade)"></div></div>
+        </div>
+      </div>
+
+      <div class="ir-val-card">
+        <div class="ir-val-company" style="color:var(--next)">Next Insurance</div>
+        <div class="ir-val-bar-row">
+          <div class="ir-val-bar-label"><span>Madurez tecnológica</span><span>80/100</span></div>
+          <div class="ir-bar-track"><div class="ir-bar-fill" style="width:80%;background:var(--next)"></div></div>
+        </div>
+        <div class="ir-val-bar-row">
+          <div class="ir-val-bar-label"><span>Solidez financiera actual</span><span>70/100</span></div>
+          <div class="ir-bar-track"><div class="ir-bar-fill" style="width:70%;background:var(--next)"></div></div>
+        </div>
+        <div class="ir-val-bar-row">
+          <div class="ir-val-bar-label"><span>Profundidad de segmento</span><span>92/100</span></div>
+          <div class="ir-bar-track"><div class="ir-bar-fill" style="width:92%;background:var(--next)"></div></div>
+        </div>
+        <div class="ir-val-bar-row">
+          <div class="ir-val-bar-label"><span>Ventaja de distribución</span><span>88/100</span></div>
+          <div class="ir-bar-track"><div class="ir-bar-fill" style="width:88%;background:var(--next)"></div></div>
+        </div>
+        <div class="ir-val-bar-row">
+          <div class="ir-val-bar-label"><span>Potencial de IPO</span><span>65/100</span></div>
+          <div class="ir-bar-track"><div class="ir-bar-fill" style="width:65%;background:var(--next)"></div></div>
+        </div>
+      </div>
+
+      <div class="ir-val-card">
+        <div class="ir-val-company" style="color:var(--alan)">Alan</div>
+        <div class="ir-val-bar-row">
+          <div class="ir-val-bar-label"><span>Madurez tecnológica</span><span>88/100</span></div>
+          <div class="ir-bar-track"><div class="ir-bar-fill" style="width:88%;background:var(--alan)"></div></div>
+        </div>
+        <div class="ir-val-bar-row">
+          <div class="ir-val-bar-label"><span>Solidez financiera actual</span><span>78/100</span></div>
+          <div class="ir-bar-track"><div class="ir-bar-fill" style="width:78%;background:var(--alan)"></div></div>
+        </div>
+        <div class="ir-val-bar-row">
+          <div class="ir-val-bar-label"><span>Potencial de mercado</span><span>90/100</span></div>
+          <div class="ir-bar-track"><div class="ir-bar-fill" style="width:90%;background:var(--alan)"></div></div>
+        </div>
+        <div class="ir-val-bar-row">
+          <div class="ir-val-bar-label"><span>Experiencia de producto</span><span>95/100</span></div>
+          <div class="ir-bar-track"><div class="ir-bar-fill" style="width:95%;background:var(--alan)"></div></div>
+        </div>
+        <div class="ir-val-bar-row">
+          <div class="ir-val-bar-label"><span>Potencial de IPO</span><span>80/100</span></div>
+          <div class="ir-bar-track"><div class="ir-bar-fill" style="width:80%;background:var(--alan)"></div></div>
+        </div>
+      </div>
+
+    </div>
+    <div class="ir-nota">Los índices de cada dimensión son estimaciones comparativas del editor basadas en fuentes públicas del sector. No constituyen ratings financieros ni valoraciones de agencia.</div>
+  </section>
+
+  <!-- ═══ INTEGRACIÓN EN EL SECTOR ═══ -->
+  <section class="ir-section">
+    <div class="ir-section-label">07 · Integración en el Ecosistema Asegurador</div>
+    <h2 class="ir-section-title">¿Cómo se relacionan con el sector tradicional?</h2>
+    <div class="ir-divider"></div>
+
+    <div class="ir-integ-grid">
+
+      <div class="ir-integ-item">
+        <div class="ir-integ-title" style="color:var(--wefox)">wefox → Aliado del corredor</div>
+        <div class="ir-integ-body">
+          wefox es el caso más favorable al canal tradicional. Su propuesta no amenaza al corredor; lo convierte en usuario de su plataforma. Los corredores integrados ganan herramientas de CRM, firma digital, comparadores y gestión de cartera. Las aseguradoras tradicionales colaboran como portadores de riesgo en productos comercializados por wefox. El modelo tensiona la cadena de valor sólo en el punto de la comisión: wefox capta parte del margen de distribución, aunque el agente sigue siendo visible para el cliente.
+        </div>
+      </div>
+
+      <div class="ir-integ-item">
+        <div class="ir-integ-title" style="color:var(--lemonade)">Lemonade → Disruptor B2C</div>
+        <div class="ir-integ-body">
+          Lemonade es la más confrontacional con el status quo: elimina al agente, opera con licencia propia y capta al cliente directamente. Las aseguradoras tradicionales la observan como competidora en ramos personales (hogar, arrendatarios). Sin embargo, su cuota de mercado real sigue siendo marginal (<1% en EE.UU.) y su estrategia europea ha avanzado más lento de lo previsto. Su principal impacto es de benchmarking: ha obligado a los incumbentes a acelerar sus proyectos de digitalización directa al consumidor.
+        </div>
+      </div>
+
+      <div class="ir-integ-item">
+        <div class="ir-integ-title" style="color:var(--next)">Next Insurance → Proveedor embedded</div>
+        <div class="ir-integ-body">
+          Next ha encontrado su posición más cómoda como proveedor de seguros embebidos en ecosistemas digitales de gestión empresarial. La integración con QuickBooks de Intuit le da acceso a millones de pymes en el momento de mayor intención de compra (gestión financiera). Las aseguradoras tradicionales no han sabido cubrir bien este segmento: las pymes sufren un déficit histórico de cobertura en EE.UU. Munich Re como reasegurador estratégico valida su modelo técnico y le da capacidad de suscripción escalable.
+        </div>
+      </div>
+
+      <div class="ir-integ-item">
+        <div class="ir-integ-title" style="color:var(--alan)">Alan → Alternativa al sistema</div>
+        <div class="ir-integ-body">
+          Alan compite directamente con mutualidades y aseguradoras de salud colectiva en Francia, y con grandes grupos como Axa, Allianz Health o Sanitas en España. No es un aliado del incumbente: es su competidor en el segmento de empresas medianas con empleados cualificados. Sin embargo, el mercado de salud empresarial europeo es lo suficientemente grande para coexistir. Alan impulsa la digitalización del servicio de salud en beneficio del empleado, y eso le da legitimidad ante los departamentos de RRHH que buscan beneficios atractivos para retener talento.
+        </div>
+      </div>
+
+      <div class="ir-integ-item">
+        <div class="ir-integ-title">La tensión estructural compartida</div>
+        <div class="ir-integ-body">
+          Las cuatro han tenido que obtener licencias regulatorias, cumplir con Solvencia II (en Europa) o con las regulaciones estatales en EE.UU., y gestionar riesgo real —no solo tecnología—. Esa realidad del seguro como negocio regulado y de largo plazo ha moderado el ritmo de crecimiento esperado. El sector ha aprendido que las insurtech no son una amenaza de eliminación, sino de aceleración y especialización: obligan al incumbente a digitalizarse, mientras ellas aprenden que el negocio asegurador es más complejo de lo que los inversores de Silicon Valley estimaban.
+        </div>
+      </div>
+
+      <div class="ir-integ-item">
+        <div class="ir-integ-title">El paradigma emergente: colaboración selectiva</div>
+        <div class="ir-integ-body">
+          El patrón que se consolida en 2024–2025 no es ni colaboración total ni competencia total. Es selección estratégica: las aseguradoras tradicionales compran o invierten en insurtech (Allianz en N26 seguros, Munich Re en Next), o las replican internamente (AXA Direct, Mapfre Digital). Las insurtech buscan acuerdos de capacidad de reaseguro con los grandes, porque sin esa infraestructura no pueden escalar. La hibridación del ecosistema es la norma emergente.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ CONCLUSIONES ═══ -->
+  <section class="ir-section">
+    <div class="ir-section-label">08 · Conclusiones</div>
+    <h2 class="ir-section-title">Cuatro lecciones para el sector asegurador</h2>
+    <div class="ir-divider"></div>
+
+    <div class="ir-conclusion">
+      <div class="ir-conclusion-intro">
+        Lo que estas cuatro compañías demuestran, más allá de sus cifras individuales, es que el sector asegurador sí puede ser disrumpido —pero de formas muy distintas a las que predijo el wishful thinking de 2015.
+      </div>
+
+      <div class="ir-conc-grid">
+        <div class="ir-conc-item">
+          <div class="ir-conc-company" style="color:var(--wefox)">wefox</div>
+          <div class="ir-conc-verdict">La distribución es transformable. El corredor no es el problema, es la palanca.</div>
+        </div>
+        <div class="ir-conc-item">
+          <div class="ir-conc-company" style="color:var(--lemonade)">Lemonade</div>
+          <div class="ir-conc-verdict">La IA puede reinventar la experiencia. El ratio combinado sigue siendo inexorable.</div>
+        </div>
+        <div class="ir-conc-item">
+          <div class="ir-conc-company" style="color:var(--next)">Next Insurance</div>
+          <div class="ir-conc-verdict">El segmento correcto + el canal correcto = ventaja difícil de replicar.</div>
+        </div>
+        <div class="ir-conc-item">
+          <div class="ir-conc-company" style="color:var(--alan)">Alan</div>
+          <div class="ir-conc-verdict">El seguro de salud puede ser un producto de software. Pero sigue siendo seguro.</div>
+        </div>
+      </div>
+
+      <p>
+        <strong>Primera lección:</strong> la tecnología no elimina el riesgo actuarial. Las cuatro han tenido que enfrentarse a la realidad de que los siniestros no responden a ningún algoritmo de crecimiento, y que mejorar el ratio combinado requiere disciplina técnica, no solo innovación de experiencia de usuario.
+      </p>
+      <p>
+        <strong>Segunda lección:</strong> el mercado asegurador admite la especialización como ventaja competitiva duradera. Next Insurance, al concentrarse en pymes, ha construido una posición defensiva que las grandes aseguradoras generalistas no pueden atacar con la misma agilidad. Alan, al centrarse en salud colectiva, tiene un modelo de recurrencia y fidelización que un multi-ramo difícilmente replica.
+      </p>
+      <p>
+        <strong>Tercera lección:</strong> las valoraciones infladas de la era 2019–2022 no invalidan los modelos. El ciclo de corrección ha sido severo, pero ninguna de las cuatro ha desaparecido. Lo que ha cambiado es el horizonte de rentabilidad: de promesas a 3 años a realidades a 7–10 años. El inversor que entienda esa escala temporal tiene posiciones potencialmente interesantes, especialmente en Alan y Next.
+      </p>
+      <p>
+        <strong>Cuarta lección:</strong> el sector asegurador español e iberoamericano puede extraer aprendizajes directos de estos cuatro casos. ¿Dónde está el Next Insurance del seguro de pymes en España? ¿Qué corredor español puede convertirse en el wefox ibérico? ¿Qué mutualidad de salud puede repensar su producto desde la lógica de Alan? Las preguntas que estos cuatro modelos plantean son las mismas que el mercado local tendrá que responder en la próxima década.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="ir-footer">
+    <p><strong>Insur·Insights / Community of Insurance (COI)</strong> · Análisis elaborado por Carlos Biurrun</p>
+    <p>Este informe tiene finalidad informativa y analítica. Las valoraciones de compañías privadas son estimaciones basadas en información pública disponible. No constituye asesoramiento de inversión. Las cifras de compañías cotizadas pueden variar según el momento de consulta. Para datos actualizados en tiempo real, contrastar con fuentes de mercado vigentes.</p>
+    <p>© 2025 Insur·Insights · Todos los derechos reservados · <em>El uso editorial con cita de fuente está permitido.</em></p>
+  </footer>
+
+</div><!-- .ir-page -->
+</div><!-- #ir-wrap -->
+</body>
+</html>
