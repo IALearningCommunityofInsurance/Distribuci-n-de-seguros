@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EIOPA ante la Comisión Europea: IA y Distribución de Seguros — COI · Agosto 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #183577;
+    --gold: #C89646;
+    --red: #E4382E;
+    --charcoal: #595959;
+    --bg: #F7F6F3;
+    --white: #FFFFFF;
+    --border: #E2E0D8;
+    --text: #1A1A1A;
+    --muted: #777672;
+    --light-navy: #EEF2FA;
+    --light-gold: #FBF5E8;
+    --light-red: #FEF0EF;
+  }
+
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.75; font-size: 15px; }
+
+  /* PORTADA */
+  .cover { background: var(--navy); color: #fff; padding: 56px 64px 48px; position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: -80px; right: -80px; width: 400px; height: 400px; border: 90px solid rgba(200,150,70,0.07); border-radius: 50%; }
+  .cover-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  .cover-title { font-family: 'DM Serif Display', serif; font-size: 38px; line-height: 1.15; font-weight: 400; max-width: 660px; margin-bottom: 14px; }
+  .cover-title em { color: var(--gold); font-style: italic; }
+  .cover-sub { font-size: 16px; color: rgba(255,255,255,0.62); max-width: 580px; margin-bottom: 36px; line-height: 1.65; }
+  .cover-pills { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 36px; }
+  .cover-pill { font-size: 11px; font-weight: 600; background: rgba(200,150,70,0.13); border: 1px solid rgba(200,150,70,0.28); border-radius: 100px; padding: 4px 14px; color: rgba(255,255,255,0.8); }
+  .cover-meta { display: flex; gap: 32px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; flex-wrap: wrap; }
+  .cover-meta-item { font-size: 12px; color: rgba(255,255,255,0.45); }
+  .cover-meta-item strong { display: block; color: rgba(255,255,255,0.82); font-weight: 500; font-size: 13px; margin-bottom: 1px; }
+
+  /* ADVERTENCIA DE ESTADO */
+  .status-bar { background: #FBF5E8; border-bottom: 2px solid var(--gold); padding: 14px 64px; display: flex; align-items: center; gap: 16px; }
+  .status-icon { width: 28px; height: 28px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .status-icon span { color: #fff; font-weight: 700; font-size: 14px; }
+  .status-text { font-size: 13px; color: #6b4d1a; line-height: 1.5; }
+  .status-text strong { color: #4a3310; }
+
+  /* CONTENEDOR */
+  .main { max-width: 900px; margin: 0 auto; padding: 0 52px 80px; }
+
+  /* SECCIÓN */
+  .section { padding: 52px 0 0; }
+  .section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+  .section-title { font-family: 'DM Serif Display', serif; font-size: 26px; font-weight: 400; color: var(--navy); margin-bottom: 20px; line-height: 1.22; }
+  .section-divider { border: none; border-top: 1.5px solid var(--navy); margin-bottom: 28px; opacity: 0.08; }
+  p { margin-bottom: 1rem; color: var(--text); font-size: 15px; }
+
+  /* DOCUMENTO PRIMARIO */
+  .doc-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; margin: 28px 0; overflow: hidden; }
+  .doc-header { background: #f0f4fb; border-bottom: 1px solid var(--border); padding: 16px 24px; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; }
+  .doc-ref { font-size: 11px; font-weight: 700; color: var(--navy); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2px; }
+  .doc-title { font-size: 15px; font-weight: 600; color: var(--navy); }
+  .doc-date { font-size: 12px; color: var(--muted); white-space: nowrap; padding-top: 4px; }
+  .doc-body { padding: 20px 24px; }
+  .doc-addressees { font-size: 12px; color: var(--muted); margin-bottom: 16px; padding: 10px 14px; background: var(--bg); border-radius: 6px; line-height: 1.6; }
+  .doc-addressees strong { color: var(--charcoal); font-weight: 600; }
+  .doc-text { font-size: 14px; color: var(--charcoal); line-height: 1.75; margin-bottom: 1rem; }
+  .doc-quote { background: var(--light-navy); border-left: 3px solid var(--navy); border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 16px 0; }
+  .doc-quote-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--navy); margin-bottom: 6px; }
+  .doc-quote-text { font-family: 'DM Serif Display', serif; font-size: 15px; color: var(--navy); line-height: 1.55; font-style: italic; margin: 0; }
+  .doc-source { font-size: 11px; color: var(--muted); margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border); }
+
+  /* ENMIENDAS */
+  .amend-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; margin: 16px 0; padding: 18px 22px; }
+  .amend-header { display: flex; gap: 14px; align-items: center; margin-bottom: 12px; }
+  .amend-num { background: var(--navy); color: var(--gold); font-family: 'DM Serif Display', serif; font-size: 18px; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .amend-title { font-weight: 600; font-size: 14px; color: var(--navy); }
+  .amend-ref { font-size: 11px; color: var(--muted); }
+  .amend-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+  .amend-col { border-radius: 8px; padding: 12px 14px; }
+  .amend-col.before { background: #FEF0EF; border: 1px solid #f5c8c8; }
+  .amend-col.after { background: var(--green-bg, #EAF5EA); border: 1px solid #b8dfb8; }
+  .amend-col-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
+  .label-before { color: var(--red); }
+  .label-after { color: #1B6B1B; }
+  .amend-col-text { font-size: 12px; line-height: 1.55; margin: 0; color: var(--charcoal); }
+  .amend-explain { font-size: 13px; color: var(--muted); line-height: 1.6; margin: 10px 0 0; }
+
+  /* Q&A 3407 */
+  .qa-card { background: var(--white); border: 2px solid var(--navy); border-radius: 12px; margin: 28px 0; overflow: hidden; }
+  .qa-header { background: var(--navy); padding: 16px 24px; }
+  .qa-id { font-size: 11px; font-weight: 700; color: var(--gold); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 4px; }
+  .qa-title { font-size: 16px; font-weight: 500; color: #fff; }
+  .qa-body { padding: 20px 24px; }
+  .qa-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; background: var(--bg); border-radius: 8px; padding: 12px 16px; margin-bottom: 18px; }
+  .qa-meta-item label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 2px; }
+  .qa-meta-item span { font-size: 13px; color: var(--text); font-weight: 500; }
+  .qa-status { display: inline-flex; align-items: center; gap: 6px; background: var(--light-gold); border: 1px solid #e8c97e; border-radius: 100px; padding: 4px 12px; font-size: 12px; font-weight: 600; color: #8a6520; margin-bottom: 16px; }
+  .qa-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+  .qa-question { background: var(--light-navy); border-radius: 8px; padding: 16px 18px; margin-bottom: 14px; }
+  .qa-question-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--navy); margin-bottom: 8px; }
+  .qa-question-text { font-size: 14px; color: var(--navy); line-height: 1.7; margin: 0; font-family: 'DM Serif Display', serif; font-style: italic; font-weight: 400; font-size: 16px; }
+  .qa-background { font-size: 13px; color: var(--charcoal); line-height: 1.65; }
+  .qa-context { background: #fff8e8; border: 1px solid #f0d68a; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+  .qa-context-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #8a6520; margin-bottom: 6px; }
+  .qa-context-text { font-size: 13px; color: #5a4012; line-height: 1.55; margin: 0; }
+
+  /* LÍNEA TIEMPO */
+  .timeline { margin: 28px 0; }
+  .tl-item { display: grid; grid-template-columns: 110px 1fr; gap: 0 20px; margin-bottom: 4px; }
+  .tl-item::before { content: none; }
+  .tl-date { font-size: 11px; font-weight: 600; color: var(--muted); letter-spacing: 0.05em; text-align: right; padding-top: 8px; padding-right: 20px; border-right: 2px solid var(--border); position: relative; }
+  .tl-date::after { content: ''; position: absolute; right: -6px; top: 12px; width: 10px; height: 10px; border-radius: 50%; background: var(--navy); border: 2px solid var(--bg); }
+  .tl-content { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin-bottom: 12px; }
+  .tl-content-title { font-weight: 600; font-size: 13px; color: var(--navy); margin-bottom: 3px; }
+  .tl-content-body { font-size: 13px; color: var(--charcoal); line-height: 1.55; margin: 0; }
+  .tl-badge { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; border-radius: 3px; margin-bottom: 5px; }
+  .badge-pending { background: var(--light-gold); color: #8a6520; }
+  .badge-done { background: #EAF5EA; color: #1B6B1B; }
+  .badge-active { background: var(--light-navy); color: var(--navy); }
+
+  /* ANÁLISIS */
+  .analysis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 24px 0; }
+  .analysis-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; }
+  .analysis-card-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .analysis-card-title { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+  .analysis-card-body { font-size: 13px; color: var(--charcoal); line-height: 1.6; margin: 0; }
+
+  /* CONCLUSIÓN */
+  .conclusion { background: var(--navy); border-radius: 12px; padding: 36px 40px; margin: 40px 0 0; }
+  .conclusion-label { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+  .conclusion-title { font-family: 'DM Serif Display', serif; font-size: 22px; color: #fff; line-height: 1.4; margin-bottom: 16px; font-weight: 400; }
+  .conclusion-body { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.7; margin: 0; }
+
+  /* FUENTES */
+  .sources { margin: 36px 0 0; padding: 22px 26px; background: var(--white); border: 1px solid var(--border); border-radius: 10px; }
+  .sources-title { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+  .src { display: flex; gap: 10px; font-size: 12px; color: var(--muted); padding: 6px 0; border-bottom: 1px solid var(--border); line-height: 1.45; }
+  .src:last-child { border-bottom: none; }
+  .src-n { font-weight: 700; color: var(--navy); min-width: 22px; }
+  .src-link { color: var(--navy); text-decoration: none; word-break: break-all; }
+
+  @media (max-width: 700px) {
+    .cover { padding: 36px 24px 32px; }
+    .status-bar { padding: 12px 24px; }
+    .main { padding: 0 20px 60px; }
+    .amend-cols { grid-template-columns: 1fr; }
+    .analysis-grid { grid-template-columns: 1fr; }
+    .cover-title { font-size: 26px; }
+    .tl-item { grid-template-columns: 90px 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <p class="cover-eyebrow">Community of Insurance · Documentación regulatoria verificada · Agosto 2026</p>
+  <h1 class="cover-title">EIOPA ante la Comisión Europea:<br><em>IA, MCP y distribución de seguros</em></h1>
+  <p class="cover-sub">Análisis completo de las actuaciones formales de EIOPA ante las instituciones europeas para clarificar si un chatbot de inteligencia artificial que cotiza y recomienda seguros realiza distribución en el sentido de la IDD, y qué regulación le aplica.</p>
+  <div class="cover-pills">
+    <span class="cover-pill">Q&amp;A EIOPA 3407 · Remitida a Comisión</span>
+    <span class="cover-pill">Carta EIOPA · 13 abril 2026</span>
+    <span class="cover-pill">Opinión EIOPA · 6 agosto 2025</span>
+    <span class="cover-pill">IDD Art. 2(1)(1)</span>
+    <span class="cover-pill">EU AI Act · Ómnibus Digital</span>
+  </div>
+  <div class="cover-meta">
+    <div class="cover-meta-item"><strong>Documentos primarios</strong>Verificados en eiopa.europa.eu</div>
+    <div class="cover-meta-item"><strong>Estado de la pregunta clave</strong>Remitida a la Comisión · Sin respuesta definitiva</div>
+    <div class="cover-meta-item"><strong>Institución</strong>EIOPA — Chairperson Petra Hielkema</div>
+    <div class="cover-meta-item"><strong>Fecha de análisis</strong>Agosto 2026</div>
+  </div>
+</div>
+
+<div class="status-bar">
+  <div class="status-icon"><span>!</span></div>
+  <p class="status-text"><strong>Estado regulatorio a agosto 2026:</strong> La pregunta sobre si un chatbot de IA que cotiza y recomienda seguros concretos realiza «distribución» en el sentido del artículo 2(1)(1) de la IDD ha sido formalmente remitida por EIOPA a la Comisión Europea (Q&amp;A 3407, agosto 2025). La Comisión <strong>no ha respondido todavía</strong>. El sector opera en una zona gris jurídica.</p>
+</div>
+
+<div class="main">
+
+  <!-- CONTEXTO -->
+  <div class="section">
+    <p class="section-label">01 · El mapa completo</p>
+    <h2 class="section-title">Tres actuaciones de EIOPA, un mismo problema sin resolver</h2>
+    <hr class="section-divider">
+
+    <p>EIOPA no ha presentado una sola petición a la Comisión Europea: ha construido, entre febrero de 2025 y abril de 2026, un conjunto articulado de tres actuaciones que abordan el mismo problema desde ángulos distintos. La cronología es importante para entender el peso de cada documento.</p>
+
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-date">Feb 2025</div>
+        <div class="tl-content">
+          <span class="tl-badge badge-done">Completado</span>
+          <p class="tl-content-title">Consulta pública: Borrador de Opinión sobre gobernanza y gestión de riesgos IA</p>
+          <p class="tl-content-body">EIOPA abre consulta pública sobre cómo aplicar la legislación sectorial de seguros (IDD, Solvencia II, DORA) a los sistemas de IA. Plazo de respuesta: 12 mayo 2025. Objetivo: clarificar sin crear nuevas normas.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">21 Ago 2025</div>
+        <div class="tl-content">
+          <span class="tl-badge badge-pending">⏳ Sin respuesta</span>
+          <p class="tl-content-title">Q&amp;A 3407 — Pregunta remitida a la Comisión Europea</p>
+          <p class="tl-content-body">EIOPA recibe una pregunta formal sobre si los chatbots de IA que cotizaron y recomendaron seguros concretos están haciendo «distribución de seguros» en el sentido de la IDD. EIOPA la escala directamente a la Comisión Europea por entender que excede su competencia interpretativa. Estado: «Question forwarded to the European Commission». Sin respuesta a agosto 2026.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">6 Ago 2025</div>
+        <div class="tl-content">
+          <span class="tl-badge badge-done">Publicado</span>
+          <p class="tl-content-title">Opinión EIOPA sobre gobernanza y gestión de riesgos IA (EIOPA-BoS-25-360)</p>
+          <p class="tl-content-body">EIOPA publica su Opinión definitiva dirigida a supervisores nacionales. No introduce nuevas normas: clarifica cómo aplicar IDD, Solvencia II y DORA a sistemas IA no prohibidos ni de alto riesgo. Principio clave: supervisión humana proporcional, transparencia y trato justo al consumidor.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">24 Mar 2026</div>
+        <div class="tl-content">
+          <span class="tl-badge badge-done">Aprobado en Consejo de Supervisores</span>
+          <p class="tl-content-title">Tercer Informe IDD — EIOPA señala vacíos en regulación de IA en distribución</p>
+          <p class="tl-content-body">EIOPA publica su tercer informe sobre aplicación de la IDD. Detecta que la IA generativa se usa crecientemente en chatbots y herramientas de ventas de seguros y que la IDD «no regula de forma comprehensiva los canales digitales ni proporciona guía detallada sobre modelos de asesoramiento basados en IA». Reclama clarificación del tratamiento regulatorio.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">13 Abr 2026</div>
+        <div class="tl-content">
+          <span class="tl-badge badge-active">Documento oficial verificado</span>
+          <p class="tl-content-title">Carta EIOPA a instituciones europeas — Propuestas de enmienda al Ómnibus Digital sobre IA</p>
+          <p class="tl-content-body">Petra Hielkema, Chairperson de EIOPA, envía carta formal a ECOFIN, Comisión, Parlamento y Vicepresidenta de la Comisión. Incluye dos enmiendas concretas al texto del Ómnibus Digital sobre IA. Referencia: EIOPA(2026)0190328 / EIOPA-26/323. Aprobada en Consejo de Supervisores el 24 marzo 2026.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Q&A 3407: EL NÚCLEO -->
+  <div class="section">
+    <p class="section-label">02 · Documento primario verificado</p>
+    <h2 class="section-title">Q&amp;A 3407: La pregunta que el sector espera que responda la Comisión</h2>
+    <hr class="section-divider">
+
+    <p>Este es el documento que Antonio Muñoz-Olaya (Cojebro) evocaba en su reflexión. No es una opinión de EIOPA: es una pregunta formal recibida por EIOPA y elevada a la Comisión Europea porque EIOPA la considera de rango interpretativo superior. El texto íntegro, extraído directamente del portal oficial de EIOPA, es el siguiente:</p>
+
+    <div class="qa-card">
+      <div class="qa-header">
+        <p class="qa-id">EIOPA Q&amp;A · Identificador: 3407</p>
+        <p class="qa-title">¿Son los chatbots de IA distribuidores de seguros según la IDD?</p>
+      </div>
+      <div class="qa-body">
+        <div class="qa-meta">
+          <div class="qa-meta-item"><label>Referencia normativa</label><span>Reglamento (UE) 2016/97 — IDD</span></div>
+          <div class="qa-meta-item"><label>Artículo</label><span>Art. 2(1)(1) — Definición de distribución de seguros</span></div>
+          <div class="qa-meta-item"><label>Fecha de envío</label><span>21 de agosto de 2025</span></div>
+          <div class="qa-meta-item"><label>Estado</label><span>Remitida a la Comisión Europea</span></div>
+        </div>
+
+        <span class="qa-status"><span class="qa-dot"></span>Sin respuesta de la Comisión · Agosto 2026</span>
+
+        <div class="qa-question">
+          <p class="qa-question-label">Pregunta formulada a EIOPA</p>
+          <p class="qa-question-text">«¿Podría proporcionar orientación adicional sobre la posible implicación de los chatbots de IA de acceso público en la distribución de seguros, y sobre el enfoque regulatorio adecuado para esta cuestión emergente? Dada la rápida proliferación y creciente sofisticación de estas tecnologías, su relevancia para la distribución de seguros se espera que crezca significativamente.»</p>
+        </div>
+
+        <p class="qa-background">La pregunta cita expresamente la Q&amp;A previa 3168, en la que EIOPA ya estableció que cuando un comparador de seguros exige un cuestionario pre-compra, solicita datos personales (edad, siniestros previos, condición médica) y filtra los resultados para sugerir productos específicos, eso se considera distribución de seguros bajo la IDD. El autor de la Q&amp;A 3407 extrapola ese razonamiento a los chatbots de IA:</p>
+
+        <div class="qa-context">
+          <p class="qa-context-label">Antecedente de hecho declarado por el autor de la pregunta</p>
+          <p class="qa-context-text">«En varias interacciones con chatbots de IA de acceso público y uso generalizado, pude obtener ofertas detalladas de productos de seguros específicos de compañías de seguros concretas. En algunos casos, el chatbot también recomendó un nivel de cobertura adecuado basándose en los datos personales que le proporcioné y en mis limitaciones financieras declaradas.»</p>
+        </div>
+
+        <p class="qa-background">La cuestión jurídica específica que eleva a la Comisión es si tales interacciones pueden considerarse como «dar pasos adicionales para asistir en la conclusión de un contrato de seguro» en el sentido del artículo 2(1)(1) de la IDD, y qué obligaciones regulatorias surgirían para las entidades que despliegan esas tecnologías. EIOPA, al entender que esta interpretación excede su competencia y corresponde a la Comisión como custoda del Derecho europeo, reenvía la pregunta sin responderla.</p>
+      </div>
+    </div>
+
+    <p>La relevancia práctica de esta pregunta es inmediata: si la Comisión respondiera que sí, que un chatbot que recoge datos personales, filtra ofertas y recomienda productos concretos realiza distribución de seguros, entonces WaniWani —y cualquier infraestructura similar— necesitaría estar registrada como distribuidor o operar exclusivamente a través de uno. Si respondiera que no, el modelo actual de Tuio, Aviva o Neptune Flood tendría validación regulatoria explícita.</p>
+  </div>
+
+  <!-- CARTA EIOPA ABRIL 2026 -->
+  <div class="section">
+    <p class="section-label">03 · Documento primario verificado</p>
+    <h2 class="section-title">Carta EIOPA del 13 de abril de 2026: las enmiendas al Ómnibus Digital</h2>
+    <hr class="section-divider">
+
+    <p>Este es el documento más reciente y de mayor rango institucional. No es una consulta: es una carta oficial de la Chairperson de EIOPA, Petra Hielkema, dirigida a cuatro instituciones europeas simultáneamente, proponiendo enmiendas concretas al texto del Reglamento del Ómnibus Digital sobre IA. Fue aprobada por el Consejo de Supervisores de EIOPA el 24 de marzo de 2026.</p>
+
+    <div class="doc-card">
+      <div class="doc-header">
+        <div>
+          <p class="doc-ref">EIOPA(2026)0190328 · EIOPA-26/323</p>
+          <p class="doc-title">Carta sobre el AI Act y la legislación europea de seguros: propuesta de clarificación de la aplicación del AI Act</p>
+        </div>
+        <span class="doc-date">13 de abril de 2026</span>
+      </div>
+      <div class="doc-body">
+        <div class="doc-addressees">
+          <strong>Destinatarios:</strong> Makis Keravnos (Presidencia ECOFIN) · Maria Luís Albuquerque (Comisaria de Servicios Financieros) · Aurore Lalucq (Presidenta ECON, Parlamento Europeo) · Henna Virkkunen (Vicepresidenta Ejecutiva, Soberanía Tecnológica) · En copia: DG FISMA · DG CNECT · AI Office
+        </div>
+
+        <p class="doc-text">La carta, de seis páginas más anexo, identifica el problema central con precisión técnica: las entidades aseguradoras quedan sujetas simultáneamente a dos marcos normativos cuando usan sistemas de IA —la legislación sectorial (Solvencia II, IDD, DORA) y el EU AI Act— y la superposición de ambos crea solapamientos, cargas innecesarias y ambigüedades que EIOPA propone resolver mediante dos enmiendas específicas al Ómnibus Digital.</p>
+
+        <div class="doc-quote">
+          <p class="doc-quote-label">Fragmento literal de la carta — Premisa principal</p>
+          <p class="doc-quote-text">«La implementación del AI Act, que opera dentro de un marco sectorial preexistente, puede implicar la gestión de áreas de solapamiento y la conciliación de objetivos distintos pero complementarios, en particular los relacionados con la protección de los derechos fundamentales en el AI Act y los objetivos prudenciales y de protección del consumidor derivados de la legislación sectorial.»</p>
+        </div>
+
+        <p class="doc-text">Las dos enmiendas propuestas son concretas y están acompañadas de texto legal exacto:</p>
+
+        <div class="amend-card">
+          <div class="amend-header">
+            <div class="amend-num">1</div>
+            <div>
+              <p class="amend-title">Enmienda 1: Participación de las AES en las guidelines del AI Office</p>
+              <p class="amend-ref">Art. 96 del AI Act · Artículo 1, punto 28a del Ómnibus Digital</p>
+            </div>
+          </div>
+          <div class="amend-cols">
+            <div class="amend-col before">
+              <p class="amend-col-label label-before">Texto actual</p>
+              <p class="amend-col-text">Sin disposición. EIOPA, EBA y ESMA no tienen participación formal reconocida en el desarrollo de las guidelines de la AI Office sobre servicios financieros.</p>
+            </div>
+            <div class="amend-col after">
+              <p class="amend-col-label label-after">Enmienda propuesta por EIOPA</p>
+              <p class="amend-col-text">«La EBA, la ESMA y la EIOPA podrán proporcionar input para el desarrollo de guidelines o guías en relación con la aplicación de este Reglamento en el contexto de entidades de crédito, empresas de inversión y empresas de seguros y reaseguros reguladas por actos jurídicos de la Unión.»</p>
+            </div>
+          </div>
+          <p class="amend-explain"><strong>Qué implica:</strong> EIOPA reclama un asiento formal en la mesa donde se redactan las reglas de uso de IA en servicios financieros. Sin esa participación, el AI Office puede emitir guidelines que ignoren la especificidad del sector asegurador, generando inconsistencias con la IDD y Solvencia II.</p>
+        </div>
+
+        <div class="amend-card">
+          <div class="amend-header">
+            <div class="amend-num">2</div>
+            <div>
+              <p class="amend-title">Enmienda 2: Excluir los modelos actuariales clásicos del «alto riesgo» del AI Act</p>
+              <p class="amend-ref">Anexo III, párrafo 5(c) del AI Act · Artículo 1, punto 31b del Ómnibus Digital</p>
+            </div>
+          </div>
+          <div class="amend-cols">
+            <div class="amend-col before">
+              <p class="amend-col-label label-before">Texto actual (Anexo III AI Act)</p>
+              <p class="amend-col-text">«Sistemas de IA destinados a ser utilizados para la evaluación de riesgos y la fijación de precios en relación con personas físicas en el caso de los seguros de vida y de salud.» → Clasificados como <strong>alto riesgo</strong> sin excepciones.</p>
+            </div>
+            <div class="amend-col after">
+              <p class="amend-col-label label-after">Enmienda propuesta por EIOPA</p>
+              <p class="amend-col-text">«(c) Sistemas de IA destinados a ser utilizados para la evaluación de riesgos y la fijación de precios en relación con personas físicas en el caso de seguros de vida y de salud, <strong>con la excepción de los sistemas de IA que se basen exclusivamente en modelos lineales generalizados, incluyendo la regresión lineal o logística, y en modelos aditivos generalizados bajo supervisión humana</strong>.»</p>
+            </div>
+          </div>
+          <p class="amend-explain"><strong>Qué implica:</strong> Las regresiones lineales y logísticas —modelos actuariales usados por el sector asegurador desde los años 80— son transparentes, interpretables y ya están bajo supervisión humana dentro de los frameworks de Solvencia II. Clasificarlos como «alto riesgo» crearía cargas de compliance desproporcionadas sin añadir protección real al consumidor, y desviaría recursos de supervisar los sistemas de IA verdaderamente opacos (redes neuronales, modelos generativos) que sí plantean riesgos nuevos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LA CONEXIÓN CON MCP Y LA OFERTA DE SEGUROS -->
+  <div class="section">
+    <p class="section-label">04 · Análisis regulatorio</p>
+    <h2 class="section-title">Qué significa todo esto para un chatbot con MCP que cotiza seguros</h2>
+    <hr class="section-divider">
+
+    <p>Las tres actuaciones de EIOPA se refieren al mismo problema pero desde perspectivas distintas. El esquema siguiente sintetiza cómo se articulan en el caso concreto de un chatbot de IA que usa MCP para conectar en tiempo real con el motor de suscripción de un broker y devolver al cliente una cotización personalizada de un seguro de hogar:</p>
+
+    <div class="analysis-grid">
+      <div class="analysis-card">
+        <p class="analysis-card-label">Pregunta que responde la Q&amp;A 3407</p>
+        <p class="analysis-card-title">¿Es el chatbot un distribuidor de seguros?</p>
+        <p class="analysis-card-body">Si el chatbot recoge datos personales del cliente, los procesa para filtrar productos y devuelve una recomendación de un seguro concreto de una compañía concreta con cobertura y precio específicos, la Q&amp;A 3407 pregunta si eso son «pasos adicionales para asistir en la conclusión de un contrato» según el Art. 2(1)(1) IDD. Si la respuesta es sí, el operador del chatbot (WaniWani, OpenAI, cualquier plataforma) necesita ser distribuidor registrado o actuar a través de uno. El MCP no cambia la pregunta: solo es el canal técnico por el que fluyen los datos.</p>
+      </div>
+      <div class="analysis-card">
+        <p class="analysis-card-label">Pregunta que responde la Carta de Abril 2026</p>
+        <p class="analysis-card-title">¿Qué obligaciones del AI Act aplican?</p>
+        <p class="analysis-card-body">Un chatbot conversacional que genera recomendaciones de productos financieros cae en el ámbito del EU AI Act con «riesgo específico de transparencia» (debe identificarse como IA). Si además influye en el acceso a servicios esenciales como los seguros de vida y salud, podría clasificarse como «alto riesgo». La enmienda 1 de EIOPA busca que esta clasificación la aclaren conjuntamente el AI Office y las autoridades sectoriales, no solo el primero.</p>
+      </div>
+      <div class="analysis-card">
+        <p class="analysis-card-label">Lo que dice la Opinión de agosto 2025</p>
+        <p class="analysis-card-title">Cómo debe gobernar el broker su uso de IA</p>
+        <p class="analysis-card-body">Independientemente de cómo responda la Comisión a la Q&amp;A 3407, la Opinión de agosto 2025 ya establece que todo operador regulado que use IA en sus procesos de distribución o suscripción debe: (1) tener una política documentada de uso de IA, (2) aplicar supervisión humana proporcional al riesgo del caso de uso, (3) garantizar la explicabilidad de las decisiones y (4) demostrar trato justo y no discriminatorio al consumidor. Esto aplica ya, sin esperar a la respuesta de la Comisión.</p>
+      </div>
+      <div class="analysis-card">
+        <p class="analysis-card-label">El vacío que nadie ha cerrado todavía</p>
+        <p class="analysis-card-title">El proveedor de infraestructura (WaniWani)</p>
+        <p class="analysis-card-body">La Q&amp;A 3407, la Carta de abril y la Opinión de agosto se refieren a aseguradoras e intermediarios regulados. Ninguna aborda explícitamente al proveedor de infraestructura (WaniWani) que no suscribe, no distribuye directamente y no está registrado bajo la IDD. Esa es la laguna más significativa: el sistema que genera la recomendación al cliente queda fuera del alcance directo de las normas que regulan a quien la habría hecho sin IA.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONCLUSIÓN -->
+  <div class="conclusion">
+    <p class="conclusion-label">Síntesis ejecutiva · COI · Agosto 2026</p>
+    <p class="conclusion-title">Lo que el broker debe saber mientras espera la respuesta de la Comisión</p>
+    <p class="conclusion-body">EIOPA no ha cerrado el debate: lo ha articulado con precisión jurídica y lo ha escalado a la Comisión. La Q&amp;A 3407 es la primera pregunta formal documentada en Europa sobre si la IA con MCP —que es exactamente lo que hace WaniWani en ChatGPT— realiza distribución de seguros en el sentido de la IDD. Sin respuesta de la Comisión, el sector opera en zona gris. Pero esa zona gris tiene límites claros. La Opinión de agosto 2025 ya exige al operador regulado (el broker) que gobierne cualquier sistema de IA que use en su actividad: documentación, supervisión humana, explicabilidad y trato justo. El broker que adopte WaniWani u otra infraestructura similar sin esos controles ya está incumpliendo, aunque la Comisión no haya respondido aún. Y cuando responda —si concluye que el chatbot realiza distribución— el riesgo recaerá sobre quien lo desplegó sin las garantías debidas, no sobre quien fabricó el chatbot.</p>
+  </div>
+
+  <!-- FUENTES -->
+  <div class="sources">
+    <p class="sources-title">Fuentes primarias verificadas</p>
+    <div class="src"><span class="src-n">1</span><span>EIOPA Q&amp;A 3407 (texto íntegro verificado): <a class="src-link" href="https://www.eiopa.europa.eu/qa-regulation/questions-and-answers-database/3407_en" target="_blank">eiopa.europa.eu/qa-regulation/…/3407_en</a> · Enviada 21 agosto 2025 · Estado: remitida a Comisión</span></div>
+    <div class="src"><span class="src-n">2</span><span>Carta EIOPA a instituciones UE, EIOPA(2026)0190328 / EIOPA-26/323, 13 abril 2026 (PDF oficial verificado): <a class="src-link" href="https://www.eiopa.europa.eu/document/download/b67ede29-8217-46df-bb46-526e004d34bb_en" target="_blank">eiopa.europa.eu · Letter to EU institutions on AI Act</a></span></div>
+    <div class="src"><span class="src-n">3</span><span>EIOPA, «Opinion on Artificial Intelligence governance and risk management», EIOPA-BoS-25-360, 6 agosto 2025: <a class="src-link" href="https://www.eiopa.europa.eu/publications/opinion-artificial-intelligence-governance-and-risk-management_en" target="_blank">eiopa.europa.eu · Opinion AI governance</a></span></div>
+    <div class="src"><span class="src-n">4</span><span>EIOPA, «Third Report on the application of the Insurance Distribution Directive», 30 marzo 2026: <a class="src-link" href="https://www.eiopa.europa.eu/eiopa-publishes-third-report-application-insurance-distribution-directive-2026-03-30_en" target="_blank">eiopa.europa.eu · IDD Third Report</a></span></div>
+    <div class="src"><span class="src-n">5</span><span>Insurtech4Good, «Is ChatGPT an Insurance Distributor in the EU?», análisis de Q&amp;A 3407, 11 marzo 2026: <a class="src-link" href="https://www.insurtech4good.com/blog/is-chatgpt-an-insurance-distributor-in-the-eu/" target="_blank">insurtech4good.com</a></span></div>
+    <div class="src"><span class="src-n">6</span><span>Insurtech4Good, «EIOPA's Third IDD Report: What It Tells Us About Digital Distribution and AI», 2 abril 2026: <a class="src-link" href="https://www.insurtech4good.com/blog/eiopas-third-idd-report-what-it-tells-us-about-digital-distribution-and-ai/" target="_blank">insurtech4good.com</a></span></div>
+    <div class="src"><span class="src-n">7</span><span>DLA Piper, «EIOPA publishes opinion on AI governance and risk management», 14 octubre 2025: <a class="src-link" href="https://www.dlapiper.com/en/insights/publications/law-in-tech/2025/eiopa-publishes-opinion-on-ai-governance-and-risk-management" target="_blank">dlapiper.com</a></span></div>
+    <div class="src"><span class="src-n">8</span><span>Future INESE, «Eiopa propone excluir los modelos actuariales tradicionales del ámbito de alto riesgo», marzo 2026: <a class="src-link" href="https://future.inese.es/eiopa-propone-excluir-los-modelos-actuariales-tradicionales-del-ambito-de-alto-riesgo/" target="_blank">future.inese.es</a></span></div>
+    <div class="src"><span class="src-n">9</span><span>Arthur Cox, «EIOPA consults on draft opinion on AI governance and risk management», 25 marzo 2025: <a class="src-link" href="https://www.arthurcox.com/insights/eiopa-consults-on-draft-opinion-on-ai-governance-and-risk-management/" target="_blank">arthurcox.com</a></span></div>
+  </div>
+
+</div>
+</body>
+</html>
