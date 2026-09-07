@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REVO Insurance · Informe Especial · COI Magazine</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap');
+
+/* ── RESET & BASE ── */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family:'Inter',sans-serif;
+  background:#F4F4F6;
+  color:#111;
+  line-height:1.65;
+  font-size:15px;
+}
+a { color:inherit; text-decoration:none; }
+img { max-width:100%; display:block; }
+
+/* ── TOKENS ── */
+:root {
+  --coi-red:#E4382E;
+  --coi-coral:#F1957C;
+  --coi-charcoal:#595959;
+  --coi-dark:#0D0D14;
+  --coi-light:#F8F8FA;
+  --coi-white:#FFFFFF;
+  --max:1080px;
+  --gutter:48px;
+}
+
+/* ── MASTHEAD ── */
+.masthead {
+  background:var(--coi-dark);
+  padding:18px var(--gutter);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+.masthead-brand {
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.9);
+}
+.masthead-brand span { color:var(--coi-red); }
+.masthead-meta {
+  font-size:10px;
+  color:rgba(255,255,255,0.35);
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+/* ── HERO ── */
+.hero {
+  background:linear-gradient(160deg, #0D0D14 0%, #1A1A2E 55%, #8B0F0A 100%);
+  padding:72px var(--gutter) 64px;
+  position:relative;
+  overflow:hidden;
+}
+.hero::after {
+  content:'';
+  position:absolute;
+  inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M0 0h40v40H0zM40 40h40v40H40z'/%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-inner { position:relative; z-index:1; max-width:var(--max); margin:0 auto; }
+.hero-label {
+  display:inline-flex; align-items:center; gap:8px;
+  background:rgba(228,56,46,0.25); border:1px solid rgba(228,56,46,0.5);
+  color:#FFB0A8; font-size:10px; font-weight:700; letter-spacing:3px;
+  text-transform:uppercase; padding:5px 14px; border-radius:20px; margin-bottom:24px;
+}
+.hero h1 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(32px,5vw,52px);
+  font-weight:800; line-height:1.08;
+  color:white; margin-bottom:16px; max-width:780px;
+}
+.hero h1 em { color:var(--coi-coral); font-style:normal; }
+.hero-intro {
+  font-size:17px; color:rgba(255,255,255,0.6);
+  max-width:660px; line-height:1.75; margin-bottom:40px;
+}
+.hero-kpi-strip {
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:0;
+  border:1px solid rgba(255,255,255,0.07);
+  border-radius:12px; overflow:hidden;
+  max-width:var(--max);
+}
+.hero-kpi {
+  padding:18px 20px;
+  border-right:1px solid rgba(255,255,255,0.07);
+}
+.hero-kpi:last-child { border-right:none; }
+.hk-val { font-size:22px; font-weight:800; color:white; margin-bottom:3px; }
+.hk-lbl { font-size:10px; color:rgba(255,255,255,0.35); letter-spacing:1px; text-transform:uppercase; }
+
+/* ── LAYOUT ── */
+.page { max-width:var(--max); margin:0 auto; padding:56px var(--gutter); }
+.section { margin-bottom:56px; }
+.section-header { display:flex; align-items:center; gap:14px; margin-bottom:28px; }
+.section-num {
+  width:36px; height:36px; background:var(--coi-red); color:white;
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-size:13px; font-weight:700; flex-shrink:0;
+}
+.section-title { font-size:24px; font-weight:700; }
+.section-sub { font-size:13px; color:#6B7280; margin-top:3px; }
+
+.card { background:var(--coi-white); border-radius:16px; padding:28px 32px; box-shadow:0 2px 20px rgba(0,0,0,0.06); }
+.card-dark { background:var(--coi-dark); color:white; border-radius:16px; padding:28px 32px; }
+.g2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.g3 { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.g4 { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+
+/* ── INTRO TECHNOLOGY SECTION ── */
+.tech-banner {
+  background:linear-gradient(135deg,#1A1A2E,#2C2C4E);
+  border-radius:20px; padding:40px;
+  position:relative; overflow:hidden; margin-bottom:32px;
+}
+.tech-banner::before {
+  content:''; position:absolute;
+  right:-60px; top:-60px;
+  width:280px; height:280px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(228,56,46,0.15),transparent 70%);
+}
+.tech-banner-inner { position:relative; z-index:1; }
+.tech-lbl { font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--coi-coral); margin-bottom:12px; }
+.tech-h { font-family:'Playfair Display',serif; font-size:26px; font-weight:700; color:white; line-height:1.25; margin-bottom:14px; }
+.tech-body { font-size:13px; color:rgba(255,255,255,0.6); line-height:1.8; max-width:680px; }
+
+/* ── IDENTITY ROWS ── */
+.id-row { display:flex; justify-content:space-between; align-items:flex-start; padding:11px 0; border-bottom:1px solid #F0F0F0; gap:16px; }
+.id-row:last-child { border-bottom:none; }
+.id-key { font-size:12px; color:#9CA3AF; font-weight:500; min-width:140px; flex-shrink:0; }
+.id-val { font-size:13px; font-weight:600; text-align:right; }
+.card-dark .id-row { border-bottom-color:rgba(255,255,255,0.08); }
+.card-dark .id-key { color:rgba(255,255,255,0.4); }
+.card-dark .id-val { color:white; }
+
+/* ── BADGES ── */
+.badge { display:inline-block; font-size:10px; font-weight:700; padding:2px 8px; border-radius:10px; }
+.b-green { background:#D1FAE5; color:#065F46; }
+.b-red { background:#FEE2E2; color:#991B1B; }
+.b-blue { background:#DBEAFE; color:#1E40AF; }
+.b-gold { background:#FEF3C7; color:#92400E; }
+.b-gray { background:#F3F4F6; color:#374151; }
+.b-up { background:#D1FAE5; color:#065F46; }
+
+/* ── FINANCIAL TABLE ── */
+.fin-table { width:100%; border-collapse:collapse; }
+.fin-table th { font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#9CA3AF; text-align:left; padding:10px 14px; border-bottom:2px solid #F0F0F0; }
+.fin-table th.r { text-align:right; }
+.fin-table td { padding:13px 14px; font-size:13px; border-bottom:1px solid #F8F8F8; }
+.fin-table td.r { text-align:right; font-weight:600; }
+.fin-table tr:last-child td { border-bottom:none; }
+.fin-table tr:hover td { background:#FAFAFA; }
+
+/* ── SHAREHOLDER BAR ── */
+.sh-row { display:flex; align-items:center; gap:14px; margin-bottom:14px; }
+.sh-name { font-size:13px; font-weight:600; width:220px; flex-shrink:0; }
+.sh-track { flex:1; height:10px; background:#F0F0F3; border-radius:8px; overflow:hidden; }
+.sh-fill { height:100%; border-radius:8px; }
+.sh-pct { font-size:14px; font-weight:700; width:60px; text-align:right; }
+
+/* ── CHANNELS ── */
+.channel-card { background:white; border-radius:14px; padding:22px; box-shadow:0 2px 14px rgba(0,0,0,0.05); border-top:4px solid; }
+.ch-icon { font-size:26px; margin-bottom:10px; }
+.ch-tag { font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:6px; }
+.ch-name { font-size:15px; font-weight:700; margin-bottom:8px; }
+.ch-desc { font-size:12px; color:#6B7280; line-height:1.7; }
+.ch-metric { margin-top:14px; padding-top:12px; border-top:1px solid #F0F0F0; font-size:12px; color:#6B7280; }
+.ch-metric strong { font-size:20px; display:block; color:var(--coi-red); margin-bottom:2px; }
+
+/* ── OVERX DARK ── */
+.overx-wrap { background:var(--coi-dark); border-radius:20px; padding:40px; }
+.overx-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start; }
+.overx-lbl { font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--coi-red); margin-bottom:10px; }
+.overx-h { font-family:'Playfair Display',serif; font-size:26px; font-weight:700; color:white; margin-bottom:12px; line-height:1.25; }
+.overx-body { font-size:13px; color:rgba(255,255,255,0.55); line-height:1.8; }
+.module { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:14px 18px; display:flex; align-items:flex-start; gap:12px; margin-bottom:10px; }
+.module:last-child { margin-bottom:0; }
+.mod-icon { font-size:20px; flex-shrink:0; }
+.mod-name { font-size:13px; font-weight:700; color:white; margin-bottom:2px; }
+.mod-desc { font-size:11px; color:rgba(255,255,255,0.4); line-height:1.5; }
+.mod-tag { display:inline-block; background:rgba(228,56,46,0.25); color:#FFB0A8; font-size:9px; font-weight:700; padding:1px 7px; border-radius:8px; margin-top:4px; letter-spacing:1px; text-transform:uppercase; }
+
+/* ── PARTNER CARD ── */
+.partner-card { background:white; border-radius:12px; padding:20px; box-shadow:0 2px 14px rgba(0,0,0,0.05); }
+.p-logo { width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:20px; margin-bottom:10px; }
+.p-type { font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#9CA3AF; margin-bottom:4px; }
+.p-name { font-size:14px; font-weight:700; margin-bottom:6px; }
+.p-desc { font-size:11px; color:#6B7280; line-height:1.65; }
+.p-year { font-size:10px; color:var(--coi-red); font-weight:600; margin-top:8px; }
+
+/* ── TIMELINE ── */
+.tl { display:flex; flex-direction:column; }
+.tl-item { display:flex; gap:20px; position:relative; }
+.tl-item::before { content:''; position:absolute; left:17px; top:38px; bottom:-10px; width:2px; background:linear-gradient(to bottom,var(--coi-red),#E5E7EB); }
+.tl-item:last-child::before { display:none; }
+.tl-dot { width:36px; height:36px; border-radius:50%; background:var(--coi-dark); color:white; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; flex-shrink:0; z-index:1; }
+.tl-dot.active { background:var(--coi-red); }
+.tl-dot.planned { background:#9CA3AF; }
+.tl-body { background:white; border-radius:12px; padding:16px 20px; margin-bottom:12px; flex:1; box-shadow:0 2px 10px rgba(0,0,0,0.05); }
+.tl-date { font-size:11px; color:var(--coi-red); font-weight:700; margin-bottom:3px; }
+.tl-title { font-size:14px; font-weight:700; margin-bottom:4px; }
+.tl-desc { font-size:12px; color:#6B7280; line-height:1.7; }
+
+/* ── COMPARISON TABLE ── */
+.comp-table { width:100%; border-collapse:collapse; }
+.comp-table th { font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:10px 14px; border-bottom:2px solid #F0F0F0; text-align:left; color:#9CA3AF; }
+.comp-table th.revo-h { color:var(--coi-red); text-align:center; }
+.comp-table th.next-h { color:#1D4ED8; text-align:center; }
+.comp-table td { padding:12px 14px; font-size:13px; border-bottom:1px solid #F8F8F8; vertical-align:top; }
+.comp-table td.center { text-align:center; }
+.comp-table tr:last-child td { border-bottom:none; }
+.comp-table tr:hover td { background:#FAFAFA; }
+
+/* ── VALUATION SCENARIOS ── */
+.val-card { background:white; border-radius:14px; padding:24px; box-shadow:0 2px 14px rgba(0,0,0,0.05); position:relative; overflow:hidden; }
+.val-card::before { content:''; position:absolute; top:0; left:0; right:0; height:5px; }
+.val-c::before { background:#9CA3AF; }
+.val-b::before { background:#2563EB; }
+.val-p::before { background:var(--coi-red); }
+.val-label { font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:8px; }
+.val-num { font-size:30px; font-weight:800; margin-bottom:4px; }
+.val-sub { font-size:12px; color:#6B7280; margin-bottom:12px; }
+.val-notes { font-size:11px; color:#9CA3AF; line-height:1.65; }
+
+/* ── QUOTE ── */
+.quote { background:#FFF5F3; border-left:4px solid var(--coi-red); border-radius:0 10px 10px 0; padding:18px 22px; margin:20px 0; }
+.quote p { font-size:13px; color:#374151; line-height:1.8; font-style:italic; }
+.quote cite { display:block; font-size:11px; font-weight:700; color:var(--coi-red); margin-top:8px; font-style:normal; }
+
+/* ── DATA TAGS ── */
+.dt { display:inline-block; font-size:9px; font-weight:700; padding:1px 6px; border-radius:5px; margin-left:4px; vertical-align:middle; }
+.dt-v { background:#D1FAE5; color:#065F46; }
+.dt-e { background:#FEF3C7; color:#92400E; }
+.dt-p { background:#DBEAFE; color:#1E40AF; }
+
+/* ── DISCLAIMER BOX ── */
+.disclaimer {
+  background:#FFFBEB; border:1px solid #FDE68A;
+  border-radius:12px; padding:16px 20px;
+  font-size:12px; color:#92400E; line-height:1.7;
+}
+
+/* ── FOOTER ── */
+.footer {
+  background:var(--coi-dark); color:rgba(255,255,255,0.35);
+  padding:36px var(--gutter); font-size:11px; line-height:1.9;
+}
+.footer-grid { max-width:var(--max); margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:start; }
+.footer-brand { font-size:12px; font-weight:800; letter-spacing:3px; color:rgba(255,255,255,0.8); text-transform:uppercase; margin-bottom:8px; }
+.footer-brand span { color:var(--coi-red); }
+.footer-divider { border:none; border-top:1px solid rgba(255,255,255,0.07); margin:24px 0; }
+
+/* ── UTILITY ── */
+.signal-up { color:#16A34A; font-weight:700; }
+.label-small { font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#9CA3AF; margin-bottom:12px; display:block; }
+.highlight-box {
+  background:linear-gradient(135deg,#FFF5F3,#FFF);
+  border:1px solid #FECACA; border-radius:12px; padding:20px 24px;
+}
+.summary-box {
+  background:var(--coi-dark); color:white; border-radius:16px;
+  padding:32px 36px; margin-bottom:24px;
+}
+.summary-box-lbl { font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--coi-coral); margin-bottom:10px; }
+.summary-box-h { font-family:'Playfair Display',serif; font-size:22px; font-weight:700; margin-bottom:14px; }
+.summary-box-body { font-size:13px; color:rgba(255,255,255,0.6); line-height:1.85; }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="masthead-brand"><span>COI</span> · Community of Insurance · Magazine Especial</div>
+  <div class="masthead-meta">Agosto 2026 · Análisis de Mercado</div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">🔬 Informe Especial · Insurtech europea</div>
+    <h1>REVO Insurance:<br>la <em>revolución silenciosa</em><br>del seguro especializado</h1>
+    <p class="hero-intro">Cuando la tecnología y la digitalización reescriben las reglas de la distribución aseguradora, REVO Insurance es el caso de estudio que mejor ilustra hacia dónde va el seguro de No Vida en Europa. Un análisis completo: identidad, tecnología OVERX, modelo de distribución, expansión internacional, socios estratégicos, comparativa con Next Insurance y proyección de valor corporativo.</p>
+    <div class="hero-kpi-strip">
+      <div class="hero-kpi"><div class="hk-val">398 MM€</div><div class="hk-lbl">Primas brutas 2025</div></div>
+      <div class="hero-kpi"><div class="hk-val">+28,9%</div><div class="hk-lbl">Crecimiento a/a</div></div>
+      <div class="hero-kpi"><div class="hk-val">223,2%</div><div class="hk-lbl">Solvencia II</div></div>
+      <div class="hero-kpi"><div class="hk-val">A–</div><div class="hk-lbl">Rating S&P · Estable</div></div>
+      <div class="hero-kpi"><div class="hk-val">26 países</div><div class="hk-lbl">Alcance Konecta</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- ══ INTRO: TECNOLOGÍA Y DIGITALIZACIÓN ══ -->
+  <div class="section">
+    <div class="tech-banner">
+      <div class="tech-banner-inner">
+        <div class="tech-lbl">Contexto sectorial · La transformación del seguro</div>
+        <div class="tech-h">La tecnología no es el futuro del seguro.<br>Ya es su presente más rentable.</div>
+        <div class="tech-body">El sector asegurador atraviesa su transformación más profunda desde la irrupción del automóvil. La digitalización, la inteligencia artificial y las plataformas propietarias de suscripción están redefiniendo quién puede competir, cómo se distribuye el producto y qué márgenes técnicos son alcanzables. La pregunta ya no es si la tecnología cambia el seguro, sino qué compañías tienen la arquitectura tecnológica para liderar ese cambio.<br><br>En este contexto, <strong style="color:white;">REVO Insurance</strong> emerge como el caso europeo más instructivo: una insurtech italiana cotizada que ha construido desde cero —en apenas cuatro años— una compañía de No Vida especializada con primas cercanas a 400 MM€, combined ratio por debajo del 86% y una plataforma tecnológica propia que procesa pólizas en minutos usando IA, blockchain y datos externos. Un modelo que combina la velocidad del mundo digital con la profundidad técnica del seguro especializado. No es un experimento: es un negocio rentable, cotizado, y con un plan industrial ambicioso hasta 2028.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 1. IDENTIDAD ══ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <div>
+        <div class="section-title">Identidad y perfil corporativo</div>
+        <div class="section-sub">Quién es REVO Insurance y qué la hace diferente</div>
+      </div>
+    </div>
+    <div class="g2">
+      <div class="card-dark">
+        <span class="label-small" style="color:rgba(255,255,255,0.3);">Ficha corporativa</span>
+        <div class="id-row"><span class="id-key">Razón social</span><span class="id-val">REVO Insurance S.p.A.</span></div>
+        <div class="id-row"><span class="id-key">Cotización</span><span class="id-val">Borsa Italiana · STAR · REVO.MI</span></div>
+        <div class="id-row"><span class="id-key">Sede</span><span class="id-val">Milán, Italia</span></div>
+        <div class="id-row"><span class="id-key">Fundación efectiva</span><span class="id-val">2022 (fusión SPAC + Elba Assicurazioni)</span></div>
+        <div class="id-row"><span class="id-key">CEO</span><span class="id-val">Alberto Minali (ex-CFO Generali Group)</span></div>
+        <div class="id-row"><span class="id-key">Cap. bursátil (2026)</span><span class="id-val">~730-876 MM€ (Estimación)</span></div>
+        <div class="id-row"><span class="id-key">Rating S&P</span><span class="id-val">A– Estable (Verificado, abr. 2025)</span></div>
+        <div class="id-row"><span class="id-key">Supervisor</span><span class="id-val">IVASS (Italia)</span></div>
+      </div>
+      <div class="card">
+        <span class="label-small">Modelo de negocio</span>
+        <div class="id-row"><span class="id-key">Foco</span><span class="id-val">Specialty Lines No Vida + Pólizas Paramétricas</span></div>
+        <div class="id-row"><span class="id-key">Mercado objetivo</span><span class="id-val">Pymes y profesionales independientes</span></div>
+        <div class="id-row"><span class="id-key">Ramo principal</span><span class="id-val">Cauciones (Suretyship): 107,9 MM€ en 2025</span></div>
+        <div class="id-row"><span class="id-key">Distribución</span><span class="id-val">100% intermediarios · Sin canal directo</span></div>
+        <div class="id-row"><span class="id-key">Plataforma</span><span class="id-val">OVERX (propietaria · multicloud · IA · blockchain)</span></div>
+        <div class="id-row"><span class="id-key">Filosofía</span><span class="id-val">«TECHUMAN» · Tecnología + factor humano</span></div>
+        <div class="id-row"><span class="id-key">Plan 2026-2028</span><span class="id-val">«The Techuman Era» · +550 MM€ GWP objetivo</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 2. DATOS FINANCIEROS ══ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <div>
+        <div class="section-title">Evolución financiera 2022–2026</div>
+        <div class="section-sub">Crecimiento sostenido con rentabilidad técnica excepcional</div>
+      </div>
+    </div>
+    <div class="card">
+      <table class="fin-table">
+        <thead>
+          <tr>
+            <th>Indicador</th>
+            <th class="r">2022</th>
+            <th class="r">2023</th>
+            <th class="r">2024 <span class="dt dt-v">V</span></th>
+            <th class="r">2025 <span class="dt dt-v">V</span></th>
+            <th class="r">2026 guía <span class="dt dt-p">P</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Primas brutas emitidas</strong></td><td class="r">~120 MM€</td><td class="r">216,2 MM€</td><td class="r">308,8 MM€</td><td class="r"><strong>398,1 MM€</strong> <span class="badge b-up">+28,9%</span></td><td class="r">~450 MM€</td></tr>
+          <tr><td><strong>Ingresos aseguradores</strong></td><td class="r">—</td><td class="r">—</td><td class="r">~220 MM€</td><td class="r"><strong>287,5 MM€</strong> <span class="badge b-up">+30,6%</span></td><td class="r">—</td></tr>
+          <tr><td><strong>Resultado operativo adj.</strong></td><td class="r">—</td><td class="r">—</td><td class="r">~35 MM€</td><td class="r"><strong>48,4 MM€</strong> <span class="badge b-up">+37,7%</span></td><td class="r">~55 MM€</td></tr>
+          <tr><td><strong>Beneficio neto ajustado</strong></td><td class="r">—</td><td class="r">—</td><td class="r">22,7 MM€</td><td class="r"><strong>28,6 MM€</strong> <span class="badge b-up">+26,2%</span></td><td class="r">—</td></tr>
+          <tr><td><strong>Solvencia II ratio</strong></td><td class="r">—</td><td class="r">~190%</td><td class="r">236,7%</td><td class="r"><strong>223,2%</strong></td><td class="r">&gt;200%</td></tr>
+          <tr><td><strong>Dividendo por acción</strong></td><td class="r">—</td><td class="r">—</td><td class="r">0,22€</td><td class="r"><strong>0,27€</strong> <span class="badge b-up">+22,7%</span></td><td class="r">—</td></tr>
+          <tr><td><strong>Ramo Cauciones</strong></td><td class="r">—</td><td class="r">~80 MM€</td><td class="r">~95 MM€</td><td class="r"><strong>107,9 MM€</strong> <span class="badge b-up">+13,5%</span></td><td class="r">—</td></tr>
+          <tr><td><strong>Patrimonio neto</strong></td><td class="r">—</td><td class="r">—</td><td class="r">244,5 MM€</td><td class="r"><strong>263,8 MM€</strong></td><td class="r">—</td></tr>
+        </tbody>
+      </table>
+      <div style="font-size:10px;color:#9CA3AF;margin-top:12px;"><span class="dt dt-v">V</span> Verificado (publicado oficialmente por REVO Insurance) &nbsp; <span class="dt dt-p">P</span> Proyección / Guía del plan industrial</div>
+    </div>
+  </div>
+
+  <!-- ══ 3. ACCIONARIADO ══ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <div>
+        <div class="section-title">Estructura accionarial</div>
+        <div class="section-sub">Datos actualizados a la Junta de Accionistas del 27 de abril de 2026</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="sh-row"><div class="sh-name">Free Float (Bolsa)</div><div class="sh-track"><div class="sh-fill" style="width:57.77%;background:var(--coi-red);"></div></div><div class="sh-pct">57,77%</div></div>
+      <div class="sh-row"><div class="sh-name">REVO Advisory <small style="color:#9CA3AF;font-weight:400;">(equipo fundador)</small></div><div class="sh-track"><div class="sh-fill" style="width:34%;background:var(--coi-dark);"></div></div><div class="sh-pct">~34% <span class="dt dt-e">E</span></div></div>
+      <div class="sh-row"><div class="sh-name">Autocartera</div><div class="sh-track"><div class="sh-fill" style="width:4.14%;background:#D1D5DB;"></div></div><div class="sh-pct">4,14%</div></div>
+      <div class="sh-row"><div class="sh-name">Otros estables</div><div class="sh-track"><div class="sh-fill" style="width:4.09%;background:#9CA3AF;"></div></div><div class="sh-pct">~4,09% <span class="dt dt-e">E</span></div></div>
+      <p style="font-size:11px;color:#9CA3AF;margin-top:16px;padding-top:14px;border-top:1px solid #F0F0F0;">REVO Advisory Srl vehiculiza las participaciones de Alberto Minali, Fabio De Ferrari, Stefano Semolini, Jacopo Tanaglia y Simone Lazzaro, todos sujetos a lock-up. <span class="dt dt-v">V</span> Verificado · <span class="dt dt-e">E</span> Estimación</p>
+    </div>
+  </div>
+
+  <!-- ══ 4. PLATAFORMA OVERX ══ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <div>
+        <div class="section-title">Plataforma OVERX · El motor tecnológico</div>
+        <div class="section-sub">Arquitectura multicloud · IA · Blockchain Ethereum · NLP · Low-code</div>
+      </div>
+    </div>
+    <div class="overx-wrap">
+      <div class="overx-grid">
+        <div>
+          <div class="overx-lbl">Tecnología propietaria · Ventaja competitiva real</div>
+          <div class="overx-h">OVERX: el sistema más rápido del mercado para emitir una póliza personalizada</div>
+          <div class="overx-body" style="margin-bottom:20px;">OVERX es la razón por la que un agente de REVO puede emitir una póliza de Specialty en minutos, cuando el mercado tarda días. Construida sobre arquitectura multicloud, con interfaz low-code, integración por API con los sistemas de gestión de intermediarios, y NLP para automatizar el intercambio de datos. La blockchain privada de Ethereum —desarrollada con Mangrovia Blockchain Solutions, participada al 10% por REVO— sustenta todo el negocio paramétrico mediante smart contracts que ejecutan la indemnización automáticamente, sin denuncia de siniestro.</div>
+          <div class="overx-body">En 2025 REVO invirtió <strong style="color:white;">15,3 MM€</strong> en OVERX. El plan 2026-2028 prevé <strong style="color:white;">35 MM€</strong> totales en tecnología, con impacto esperado de <strong style="color:var(--coi-coral);">+25% en productividad por empleado</strong> y reducción de 4 p.p. en el ratio de costes.</div>
+        </div>
+        <div>
+          <div class="module"><div class="mod-icon">☁️</div><div><div class="mod-name">Arquitectura Multicloud</div><div class="mod-desc">Infraestructura redundante y escalable que sustenta la expansión geográfica sin reconstruir sistemas. Base tecnológica de toda la plataforma.</div></div></div>
+          <div class="module"><div class="mod-icon">🔗</div><div><div class="mod-name">Blockchain Ethereum (privada)</div><div class="mod-desc">Instancia privada con Mangrovia para pólizas paramétricas. Smart contracts legalmente válidos. Primer caso operativo documentado en Europa en seguros.</div><div class="mod-tag">Pionero</div></div></div>
+          <div class="module"><div class="mod-icon">🤖</div><div><div class="mod-name">LUMINATE · IA de underwriting</div><div class="mod-desc">Asistente de inteligencia artificial para suscripción. Evalúa riesgos, sugiere condiciones, detecta señales de riesgo elevado. Optimizado en 2025.</div><div class="mod-tag">Nuevo 2025</div></div></div>
+          <div class="module"><div class="mod-icon">💬</div><div><div class="mod-name">LIQUIDATE · Gestión de siniestros</div><div class="mod-desc">Interfaz postventa para intermediarios. Reduce tiempos de resolución y fricción administrativa.</div></div></div>
+          <div class="module"><div class="mod-icon">🪞</div><div><div class="mod-name">VERO · Gemelo digital organizativo</div><div class="mod-desc">IA personalizada por función empresarial. En distribución: asistente inteligente del gestor de canal.</div><div class="mod-tag">Plan 2026-28</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:20px;">
+      <div class="quote">
+        <p>«No estamos simplemente digitalizando el seguro: estamos reescribiendo las reglas operativas de este sector. La IA no nos reemplaza, nos libera de las tareas repetitivas y nos permite concentrarnos en lo que genera valor: la estrategia, las relaciones, la gestión de la complejidad.»</p>
+        <cite>Alberto Minali · CEO REVO Insurance · Investor Day, junio 2025</cite>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 5. DISTRIBUCIÓN ══ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <div>
+        <div class="section-title">Modelo de distribución omnicanal</div>
+        <div class="section-sub">Sin canal directo · El intermediario como socio estratégico · OVERX como habilitador</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:20px; border-left:5px solid var(--coi-red);">
+      <p style="font-size:14px;line-height:1.8;color:#333;">La filosofía de REVO es radicalmente diferente a la de la mayoría de las insurtechs: <strong>no distribuye directamente al cliente final</strong>. Su apuesta es hacer que agentes y brokers sean más eficientes, más rápidos y más rentables gracias a OVERX. La tecnología no sustituye al intermediario: lo potencia. Y la métrica lo avala: ~220 empleados para 398 MM€ en primas. Más de 1,8 MM€ de prima por empleado.</p>
+    </div>
+
+    <div class="g2" style="margin-bottom:20px;">
+      <div class="channel-card" style="border-top-color:var(--coi-dark);">
+        <div class="ch-icon">🏢</div>
+        <div class="ch-tag" style="color:var(--coi-red);">Canal principal · Fundacional</div>
+        <div class="ch-name">Red Agencial Propia</div>
+        <div class="ch-desc">Herencia de Elba Assicurazioni, profundamente reforzada. Relaciones directas sin doble intermediación. Acceso a todo el catálogo vía OVERX. Convenciones itinerantes para co-desarrollar productos.</div>
+        <div class="ch-metric"><strong>124</strong>agencias operativas en Q1 2026 (partida: 113 en 2022)</div>
+      </div>
+      <div class="channel-card" style="border-top-color:#2C2C54;">
+        <div class="ch-icon">🎯</div>
+        <div class="ch-tag" style="color:#2C2C54;">Canal técnico · Specialty &amp; Paramétrico</div>
+        <div class="ch-name">Brokers Especializados</div>
+        <div class="ch-desc">Red de alto valor técnico. Productos complejos, cauciones y paramétricos. Acceso preferente a la interfaz avanzada de OVERX y soporte técnico de suscriptores especializados.</div>
+        <div class="ch-metric"><strong>85</strong>brokers operativos Q1 2026 (partida: 50 en 2022)</div>
+      </div>
+      <div class="channel-card" style="border-top-color:#1D4ED8;">
+        <div class="ch-icon">🏦</div>
+        <div class="ch-tag" style="color:#1D4ED8;">Canal emergente · Bancaseguros</div>
+        <div class="ch-name">Bancaseguros (Banco Desio · Aon)</div>
+        <div class="ch-desc">Primer acuerdo bancario de REVO (2025). Póliza Cyber Risk distribuida por los 270 oficinas de Banco Desio a través de One Underwriting (Grupo Aon). El plan 2026-2028 prevé ampliar acuerdos bancarios.</div>
+        <div class="ch-metric"><strong>270</strong>oficinas bancarias activas · Producto: Cyber Risk pymes</div>
+      </div>
+      <div class="channel-card" style="border-top-color:#16A34A;">
+        <div class="ch-icon">⚡</div>
+        <div class="ch-tag" style="color:#16A34A;">Canal innovador · Embedded Insurance</div>
+        <div class="ch-name">Distribución Embedded (Satispay)</div>
+        <div class="ch-desc">La mayor innovación de canal en 2026. Satispay (fintech de pagos) suscribe como tomadora una póliza colectiva catastrófica paramétrica incluida en su plan Business Premium. Liquidación automática sin denuncia de siniestro.</div>
+        <div class="ch-metric"><strong>+450.000</strong>comercios alcanzados sin coste marginal de distribución</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="label-small">Objetivo Plan 2026-2028</span>
+      <div style="display:flex;align-items:center;gap:32px;">
+        <div style="text-align:center;flex:1;"><div style="font-size:30px;font-weight:800;color:var(--coi-red);">+750</div><div style="font-size:11px;color:#9CA3AF;">Intermediarios activos objetivo 2028 <span class="dt dt-p">P</span></div></div>
+        <div style="text-align:center;flex:1;"><div style="font-size:30px;font-weight:800;color:#1D4ED8;">209</div><div style="font-size:11px;color:#9CA3AF;">Intermediarios directos actuales (Q1 2026) <span class="dt dt-v">V</span></div></div>
+        <div style="text-align:center;flex:1;"><div style="font-size:30px;font-weight:800;color:#16A34A;">~360</div><div style="font-size:11px;color:#9CA3AF;">Colaboraciones activas REVO Underwriting <span class="dt dt-v">V</span></div></div>
+        <div style="text-align:center;flex:1;"><div style="font-size:30px;font-weight:800;color:#D97706;">35 MM€</div><div style="font-size:11px;color:#9CA3AF;">Inversión tecnológica total 2025-2028 <span class="dt dt-p">P</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 6. EXPANSIÓN INTERNACIONAL ══ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <div>
+        <div class="section-title">Expansión internacional</div>
+        <div class="section-sub">España · Luxemburgo/Benelux · Próximas geografías</div>
+      </div>
+    </div>
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-dot" style="background:#16A34A;font-size:16px;">✓</div>
+        <div class="tl-body">
+          <div class="tl-date">Completado · Noviembre 2024</div>
+          <div class="tl-title">🇪🇸 España · REVO Iberia</div>
+          <div class="tl-desc">Primera expansión internacional. Modelo italiano replicado: intermediarios locales (agencias y brokers especializados), Specialty Lines, paramétricos, plataforma OVERX adaptada por Konecta. Liderada inicialmente por <strong>Fernando Lara</strong> (ex Liberty Specialty Markets Iberia); Branch Manager actual: <strong>Giuliano Maisto</strong>. Incorporaciones de suscripción: Corina Muñoz (Cauciones), Indira Bustillo (RC/Cyber). Rol de desarrollo comercial: <strong>Álvaro Iglesias Más</strong> (ex Director General Colegio de Mediadores de Madrid). Objetivo 2026: 17-20 MM€ en primas. Meta 2028: 50 MM€.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot active">→</div>
+        <div class="tl-body">
+          <div class="tl-date">En curso · Agosto 2026 – Q1 2027</div>
+          <div class="tl-title">🇱🇺 Luxemburgo / Benelux · Adquisición Eurocaution</div>
+          <div class="tl-desc">Oferta vinculante de hasta 22 MM€ (20 MM€ fijos + 2 MM€ variables por resultados 2027) para adquirir el 100% de Eurocaution, broker especializado en cauciones y garantías con presencia en Luxemburgo y Bélgica. Fundada hace 15 años por <strong>Alessandro Rizzo</strong>, quien continuará como director de la sucursal Benelux. Primera operación de M&A externa no contemplada en el plan 2026-2028. Objetivo Benelux 2029: superar 20 MM€ en primas, con crecimiento anual superior al 20% entre 2027 y 2029. Inversión adicional IT: ~1 MM€. Pendiente: aprobación IVASS (Italia) y Comisión de Seguros de Luxemburgo.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot planned">28</div>
+        <div class="tl-body">
+          <div class="tl-date">Horizonte 2027-2028</div>
+          <div class="tl-title">🇳🇱 Países Bajos + nuevos mercados</div>
+          <div class="tl-desc">Expansión desde base Benelux hacia Países Bajos. REVO prefiere adquirir operadores establecidos antes que construir desde cero. El plan no descarta nuevas adquisiciones oportunistas, como demuestra el caso Eurocaution (fuera del plan oficial 2026-2028).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 7. KONECTA ══ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">7</div>
+      <div>
+        <div class="section-title">Konecta Group · Socio tecnológico estratégico</div>
+        <div class="section-sub">El BPO español que hace operable OVERX en nuevos mercados europeos</div>
+      </div>
+    </div>
+    <div class="g2">
+      <div class="card-dark">
+        <span class="label-small" style="color:rgba(255,255,255,0.3);">Ficha Konecta</span>
+        <div class="id-row"><span class="id-key">Sede</span><span class="id-val">Madrid, España (global)</span></div>
+        <div class="id-row"><span class="id-key">Fundación</span><span class="id-val">1999 · José María Pacheco</span></div>
+        <div class="id-row"><span class="id-key">Accionistas</span><span class="id-val">ICG ~49,9% + equipo directivo</span></div>
+        <div class="id-row"><span class="id-key">Ingresos actuales</span><span class="id-val">~2.000 MM€ globales (Estimación)</span></div>
+        <div class="id-row"><span class="id-key">Empleados</span><span class="id-val">120.000 en 26 países</span></div>
+        <div class="id-row"><span class="id-key">Plan estratégico</span><span class="id-val">Katalyst 2028 · Objetivo 2.500 MM€</span></div>
+        <div class="id-row"><span class="id-key">Primas aseguradoras ibéricas</span><span class="id-val">&gt;60 MM€ intermediados</span></div>
+      </div>
+      <div class="card">
+        <span class="label-small">Rol en REVO Insurance</span>
+        <p style="font-size:13px;color:#374151;line-height:1.8;margin-bottom:14px;">Konecta es el partner de integración de sistemas de REVO: responsable de conectar OVERX con la infraestructura operativa real de la aseguradora en Italia y de adaptar (localizar) la plataforma para el mercado español. En España incluyó la integración de GenAI y automatización de procesos específicos del mercado ibérico.</p>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="background:#F8F9FF;border-radius:8px;padding:10px 14px;font-size:12px;"><strong>Italia:</strong> Integración de OVERX con sistemas operativos + proceso de Tratamiento de Datos</div>
+          <div style="background:#F0FDF4;border-radius:8px;padding:10px 14px;font-size:12px;"><strong>España:</strong> Localización completa del sistema: regulación, operativa y GenAI local</div>
+          <div style="background:#F0F9FF;border-radius:8px;padding:10px 14px;font-size:12px;"><strong>Futuro:</strong> Palanca natural para la expansión a Benelux y otros mercados europeos</div>
+        </div>
+      </div>
+    </div>
+    <div class="quote" style="margin-top:16px;">
+      <p>«Desde el inicio de este proyecto, hemos proporcionado soluciones altamente innovadoras a un cliente con altos requerimientos tecnológicos. La fácil escalabilidad y flexibilidad de la plataforma OverX permite a REVO explorar nuevos mercados en Europa.»</p>
+      <cite>Konecta Group · Case study oficial sobre REVO Insurance</cite>
+    </div>
+  </div>
+
+  <!-- ══ 8. COMPARATIVA REVO VS NEXT ══ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">8</div>
+      <div>
+        <div class="section-title">REVO Insurance vs. Next Insurance (ERGO)</div>
+        <div class="section-sub">Los dos modelos de insurtech No Vida para pymes más relevantes de 2025-2026</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px;">
+      <span class="label-small">La transacción de referencia · Marzo 2025</span>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;">
+        <div style="background:#EFF6FF;border-radius:10px;padding:16px;text-align:center;"><div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#1D4ED8;margin-bottom:4px;">Valoración 100% Next</div><div style="font-size:26px;font-weight:800;color:#1D4ED8;">2.600 MM$</div></div>
+        <div style="background:#F0FDF4;border-radius:10px;padding:16px;text-align:center;"><div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#16A34A;margin-bottom:4px;">GWP Next 2024</div><div style="font-size:26px;font-weight:800;color:#16A34A;">548 MM$</div></div>
+        <div style="background:#FEF3C7;border-radius:10px;padding:16px;text-align:center;"><div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#92400E;margin-bottom:4px;">Múltiplo implícito GWP</div><div style="font-size:26px;font-weight:800;color:#92400E;">~4,7x</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th style="width:200px;">Variable</th>
+            <th class="revo-h">REVO Insurance 🇮🇹🇪🇺</th>
+            <th class="next-h">Next / ERGO Next 🇺🇸</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>GWP 2025</strong></td><td class="center">398,1 MM€ (~435 MM$) <span class="badge b-green">+28,9%</span></td><td class="center">~548 MM$ (2024; sin datos 2025 post-adquisición)</td></tr>
+          <tr><td><strong>Rentabilidad</strong></td><td class="center"><span class="signal-up">Ya rentable</span> · BN ajustado 28,6 MM€</td><td class="center">Históricamente deficitaria · ERGO prevé aportación media plazo</td></tr>
+          <tr><td><strong>Combined ratio</strong></td><td class="center">&lt;86% · objetivo &lt;85% en 2028 <span class="badge b-green">Top quartile europeo</span></td><td class="center">No publicado · estimado &gt;100% pre-adquisición</td></tr>
+          <tr><td><strong>Modelo distribución</strong></td><td class="center">100% intermediarios <span class="badge b-gold">Sin canal directo</span></td><td class="center">Digital directo + white-label B2B2C (ej. Intuit)</td></tr>
+          <tr><td><strong>Mercado foco</strong></td><td class="center">Europa (Italia + España + Benelux)</td><td class="center">EE.UU. únicamente (mercado de 1 billón $)</td></tr>
+          <tr><td><strong>Eficiencia</strong></td><td class="center">~1,8 MM€ prima/empleado <span class="badge b-green">Alta</span></td><td class="center">~0,78 MM$/empleado</td></tr>
+          <tr><td><strong>Solvencia / Rating</strong></td><td class="center">223,2% SII · A– S&P Estable</td><td class="center">A+ AM Best (post-ERGO, 2025)</td></tr>
+          <tr><td><strong>Status</strong></td><td class="center">Cotizada Borsa Italiana · Independiente</td><td class="center">100% ERGO / Munich Re desde julio 2025</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ══ 9. VALORACIÓN PROYECTADA ══ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">9</div>
+      <div>
+        <div class="section-title">Proyección de valor corporativo</div>
+        <div class="section-sub">Análisis especulativo · No constituye asesoramiento financiero ni de inversión</div>
+      </div>
+    </div>
+
+    <div class="disclaimer" style="margin-bottom:24px;">
+      ⚠️ <strong>Aviso editorial:</strong> No existen indicios públicos de que REVO esté en venta ni en proceso de M&A. Los rangos de valoración son proyecciones académicas basadas en múltiplos de transacciones comparables. La capitalización bursátil actual (~730-876 MM€) es pública y verificable; las valoraciones hipotéticas de adquisición son estimaciones.
+    </div>
+
+    <div class="g3" style="margin-bottom:20px;">
+      <div class="val-card val-c">
+        <div class="val-label" style="color:#6B7280;">Escenario conservador</div>
+        <div class="val-num" style="color:#374151;">1.000–1.250 MM€</div>
+        <div class="val-sub">Prima moderada sobre cotización</div>
+        <div class="val-notes">Múltiplo GWP implícito ~2,5-3,1x. Comprador oportunista sin competencia en la puja. Descuento por tamaño relativo y mercado europeo vs. EE.UU.</div>
+      </div>
+      <div class="val-card val-b">
+        <div class="val-label" style="color:#1D4ED8;">Escenario base · Más probable 2026</div>
+        <div class="val-num" style="color:#1D4ED8;">1.400–1.900 MM€</div>
+        <div class="val-sub">Múltiplo GWP ajustado por rentabilidad</div>
+        <div class="val-notes">Múltiplo 3,8-4,5x GWP 2025 con prima de rentabilidad sobre Next (deficitaria). Proceso competitivo con 2-3 compradores. Rango central del análisis.</div>
+      </div>
+      <div class="val-card val-p">
+        <div class="val-label" style="color:var(--coi-red);">Escenario premium · Horizonte 2028</div>
+        <div class="val-num" style="color:var(--coi-red);">2.000–2.500 MM€</div>
+        <div class="val-sub">Paridad Next + plan ejecutado</div>
+        <div class="val-notes">GWP objetivo 550 MM€ × 4,7x ≈ 2.585 MM€. Requiere: plan ejecutado, puja entre grandes grupos europeos (Generali, Allianz, AXA, Munich Re), prima por OVERX como activo tecnológico diferencial.</div>
+      </div>
+    </div>
+
+    <div class="summary-box">
+      <div class="summary-box-lbl">Conclusión del análisis de valoración</div>
+      <div class="summary-box-h">REVO vale más que lo que la bolsa le paga hoy,<br>pero la clave es si el plan 2028 se ejecuta</div>
+      <div class="summary-box-body">Si Next Insurance valió 4,7x su GWP siendo estructuralmente deficitaria, REVO —rentable, con combined ratio &lt;86% y una plataforma tecnológica blockchain diferencial— merece un múltiplo comparable o superior en un proceso competitivo bien ejecutado. La bolsa italiana la valora hoy con un descuento significativo respecto a lo que un adquirente estratégico pagaría. Pero en 2026 REVO no está en venta: el equipo fundador controla ~34% y tiene un plan ambicioso hasta 2028. El ejercicio aquí proyectado es académico, no una señal de M&A. Potencial compradores naturales: Generali, Allianz, AXA o Munich Re / ERGO (que ya ejecutó la jugada con Next en EE.UU.).</div>
+    </div>
+  </div>
+
+  <!-- ══ FICHA DE DATOS ══ -->
+  <div class="section">
+    <div class="card" style="background:#F8F8FA;border:1px solid #E5E7EB;">
+      <span class="label-small">Leyenda de verificación de datos</span>
+      <div style="display:flex;gap:24px;flex-wrap:wrap;font-size:12px;color:#374151;">
+        <div><span class="dt dt-v">V</span> <strong>Verificado</strong> — Dato publicado oficialmente por REVO Insurance (resultados, comunicados, Junta de Accionistas)</div>
+        <div><span class="dt dt-e">E</span> <strong>Estimación</strong> — Calculado a partir de datos públicos disponibles</div>
+        <div><span class="dt dt-p">P</span> <strong>Proyección</strong> — Objetivo del plan industrial o análisis especulativo basado en comparables</div>
+      </div>
+      <div style="margin-top:12px;font-size:11px;color:#9CA3AF;line-height:1.8;">
+        <strong>Fuentes principales verificadas:</strong> REVO Insurance S.p.A. resultados consolidados 2025 (aprobados Junta 27 abr. 2026) · Plan Industrial 2026-2028 «The Techuman Era» (Investor Day, jun. 2025) · S&P Global Ratings REVO (abr. 2025) · Intermonte SIM (mayo 2025 y mayo 2026) · ERGO/Munich Re press release adquisición Next Insurance (mar. y jul. 2025) · Konecta Group case study REVO · Quartr Q1 2026 · INESE.es · BrokerChannel.it · PaperjamLu (adquisición Eurocaution, ago. 2026)
+      </div>
+    </div>
+  </div>
+
+</div><!-- /page -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand"><span>COI</span> · Community of Insurance</div>
+      <div>Magazine Especial · Agosto 2026<br>Análisis elaborado para Community of Insurance (COI)<br>y su publicación COI Magazine</div>
+    </div>
+    <div>
+      <div style="color:rgba(255,255,255,0.55);margin-bottom:8px;font-weight:600;">Insur·Insights · Newsletter COI</div>
+      <div>Este informe se complementa con el artículo de síntesis publicado en Insur·Insights para LinkedIn. Todos los datos han sido verificados con las fuentes primarias disponibles a agosto de 2026. Las proyecciones de valoración son de carácter académico y no constituyen asesoramiento financiero.</div>
+    </div>
+  </div>
+  <hr class="footer-divider">
+  <div style="text-align:center;max-width:var(--max);margin:0 auto;">
+    © 2026 Community of Insurance · COI Magazine · carlos.biurrun@communityofinsurance.com
+    <br>REVO Insurance S.p.A. es una compañía cotizada en Borsa Italiana (STAR). Los datos financieros son públicos y están sometidos a la normativa de transparencia italiana y europea.
+  </div>
+</div>
+
+</body>
+</html>
