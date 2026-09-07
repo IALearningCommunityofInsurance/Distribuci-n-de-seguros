@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alan 480M — Artículo COI + Post LinkedIn</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800&family=Inter:wght@300;400;500;600&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #1a1a2e; --mid: #4a4a6a; --light: #8585a8;
+    --gold: #d4a017; --bg: #faf9f7; --border: #e8e4de;
+    --accent: #c0392b; --blue: #1a4a8a;
+  }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink); font-size: 16px; line-height: 1.75; }
+
+  /* TABS */
+  .tabs { display: flex; gap: 0; border-bottom: 2px solid var(--border); max-width: 800px; margin: 0 auto; padding: 0 24px; }
+  .tab { padding: 14px 24px; font-size: .85rem; font-weight: 600; cursor: pointer; color: var(--light); border-bottom: 3px solid transparent; margin-bottom: -2px; transition: all .2s; }
+  .tab.active { color: var(--ink); border-bottom-color: var(--gold); }
+
+  .panel { display: none; max-width: 800px; margin: 0 auto; padding: 40px 24px 80px; }
+  .panel.active { display: block; }
+
+  /* ARTÍCULO */
+  .art-label { display: inline-block; background: var(--blue); color: #fff; font-size: .68rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 4px 12px; border-radius: 2px; margin-bottom: 16px; }
+  .art-title { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 3.5vw, 2.2rem); line-height: 1.25; color: var(--ink); margin-bottom: 12px; }
+  .art-title em { color: var(--accent); font-style: italic; }
+  .art-deck { font-size: 1rem; color: var(--mid); font-weight: 300; border-left: 3px solid var(--gold); padding-left: 16px; margin-bottom: 32px; line-height: 1.6; }
+  .art-meta { font-size: .78rem; color: var(--light); margin-bottom: 36px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+  .art-meta strong { color: var(--mid); }
+
+  .section-head { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--ink); margin: 36px 0 12px; padding-bottom: 8px; border-bottom: 2px solid var(--border); display: flex; align-items: center; gap: 10px; }
+  .section-num { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; background: var(--ink); color: var(--gold); border-radius: 50%; font-size: .75rem; font-weight: 700; flex-shrink: 0; }
+
+  .art-body p { margin-bottom: 18px; font-size: .96rem; color: var(--ink); }
+  .art-body strong { font-weight: 600; }
+
+  .cta-box { background: var(--ink); border-radius: 8px; padding: 24px 28px; margin: 36px 0 0; }
+  .cta-box p { color: #ccc; font-size: .9rem; margin-bottom: 14px; }
+  .cta-box p strong { color: #fff; }
+  .cta-links { display: flex; flex-direction: column; gap: 10px; }
+  .cta-link { display: inline-flex; align-items: center; gap: 8px; background: rgba(212,160,23,.15); border: 1px solid rgba(212,160,23,.4); color: var(--gold); padding: 10px 16px; border-radius: 5px; font-size: .83rem; font-weight: 600; text-decoration: none; }
+  .cta-link:hover { background: rgba(212,160,23,.25); }
+  .cta-link span { opacity: .7; font-size: .75rem; font-weight: 400; }
+
+  .word-count { font-size: .72rem; color: var(--light); text-align: right; margin-top: 8px; font-style: italic; }
+
+  /* LINKEDIN */
+  .li-phone { background: #f3f2ef; border-radius: 16px; padding: 20px; max-width: 480px; margin: 0 auto; }
+  .li-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+  .li-avatar { width: 46px; height: 46px; border-radius: 50%; background: var(--ink); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; color: var(--gold); font-weight: 700; font-size: 1rem; flex-shrink: 0; }
+  .li-name { font-size: .88rem; font-weight: 600; color: #000; }
+  .li-sub { font-size: .75rem; color: #666; }
+  .li-body { font-size: .88rem; color: #1c1c1c; line-height: 1.6; white-space: pre-line; }
+  .li-body .li-tag { color: #0a66c2; }
+  .li-img { background: linear-gradient(135deg, #1a1a2e 0%, #2d2d55 100%); border-radius: 8px; padding: 20px; margin: 14px 0; text-align: center; }
+  .li-img-title { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1rem; margin-bottom: 4px; }
+  .li-img-sub { color: #aaa; font-size: .75rem; }
+  .li-actions { display: flex; gap: 16px; margin-top: 12px; border-top: 1px solid #ddd; padding-top: 10px; }
+  .li-action { font-size: .78rem; color: #666; display: flex; align-items: center; gap: 4px; }
+
+  .copy-btn { display: block; width: 100%; margin-top: 16px; padding: 10px; background: #0a66c2; color: #fff; border: none; border-radius: 6px; font-size: .85rem; font-weight: 600; cursor: pointer; }
+  .copy-btn:hover { background: #004182; }
+
+  /* TIPS */
+  .tip-box { background: #fff; border: 1px solid var(--border); border-left: 3px solid var(--gold); border-radius: 0 6px 6px 0; padding: 14px 18px; margin: 20px 0; font-size: .85rem; color: var(--mid); }
+  .tip-box strong { color: var(--ink); }
+</style>
+</head>
+<body>
+
+<div style="background:var(--ink);padding:14px 32px;display:flex;justify-content:space-between;align-items:center;border-bottom:3px solid var(--gold);">
+  <span style="font-family:'Playfair Display',serif;color:var(--gold);font-size:1rem;">Community of Insurance · Insur·Insights</span>
+  <span style="font-size:.72rem;color:#aaa;text-transform:uppercase;letter-spacing:.06em;">Materiales editoriales — Alan 480M€</span>
+</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="show('articulo')">📄 Artículo COI</div>
+  <div class="tab" onclick="show('linkedin')">💼 Post LinkedIn</div>
+</div>
+
+<!-- ═══════════════ ARTÍCULO ═══════════════ -->
+<div id="articulo" class="panel active">
+
+  <span class="art-label">Análisis · Community of Insurance</span>
+  <h1 class="art-title">Alan, 480M€ y la prueba de fuego del seguro de salud predictivo: <em>oportunidad real, riesgos reales</em></h1>
+  <p class="art-deck">La mayor ronda de financiación de la historia de la insurtech europea obliga al sector a hacerse preguntas incómodas sobre distribución, valoración y estrategia en España.</p>
+  <p class="art-meta"><strong>Carlos Biurrun</strong> · Presidente, Insurtech Community Hub · 25 junio 2026</p>
+
+  <div class="art-body">
+
+    <div class="section-head"><span class="section-num">1</span> Un modelo que rompe con el paradigma tradicional</div>
+    <p>Alan no es una correduría digital ni un comparador de precios. Es una <strong>aseguradora de pleno derecho</strong>, regulada por la ACPR francesa, que ha construido desde cero una plataforma de salud preventiva donde el seguro, la prevención y la prestación de servicios se refuerzan mutuamente. Con más de 1,1 millones de miembros, un ARR de €800M creciendo al 53% anual y rentabilidad operativa ya demostrada en Francia, ha cerrado la ronda de financiación más grande de su historia: <strong>480 millones de euros</strong> liderados por Prosus, con Teachers' Venture Growth, Index Ventures y Dara Holdings. La valoración resultante: €5.500 millones.</p>
+    <p>Lo que hace singular a Alan es la apuesta por pasar del modelo reactivo —cobrar cuando enfermas— al modelo <strong>predictivo</strong>: actuar antes de que el problema ocurra. Un asistente de salud con IA, clínica virtual, planes de prevención personalizados y Alan Therapy. No es un producto de seguro. Es una plataforma de salud que se financia con la prima.</p>
+
+    <div class="section-head"><span class="section-num">2</span> España: el mercado más difícil de su expansión</div>
+    <p>El modelo que funcionó en Francia —donde Alan cerró contratos con 135.000 funcionarios del Estado y grandes empresas— no se traslada automáticamente a España. Aquí, <strong>el canal mediador es determinante</strong>: los seguros de salud colectivos crecen al 5,5% en primas precisamente porque los corredores especializados prescriben y retienen ese negocio. Alan llega sin estrategia de mediación definida, lo que en la práctica le excluye de la mayoría de procesos de contratación empresarial.</p>
+    <p>Más grave aún: el segmento de funcionarios —su trampolín en Francia— es en España el territorio más hostil del ramo. MUFACE cerró enero de 2026 con 987.677 mutualistas, habiendo perdido 24.157 en un año. DKV abandonó el concierto. Mapfre y Sanitas salieron de MUGEJU. Las aseguradoras líderes llevan años con pérdidas en este colectivo. <strong>Alan no puede replicar en España lo que hizo en Francia, al menos no por esa vía.</strong></p>
+
+    <div class="section-head"><span class="section-num">3</span> Prosus: ecosistema real, pero geografía equivocada para Europa</div>
+    <p>El lead investor no es un fondo de salud: es Prosus, una plataforma de ecosistemas digitales con 2.000 millones de clientes y el Large Commerce Model (LCM), entrenado sobre 500 millones de interacciones diarias. Su apuesta responde a una tesis de plataforma: integrar Alan en Zapia —su life assistant lanzado esta semana con 6M de usuarios— para construir el asistente de salud más potente de Europa no americana.</p>
+    <p>La sinergia más concreta a corto plazo es iFood en Brasil: millones de repartidores sin cobertura sanitaria, el mismo perfil de autónomo al que Alan ya asegura en Francia. <strong>Pero en España, Prosus no tiene activos operativos que generen clientes para Alan.</strong> Su aportación en mercados europeos maduros es capital y tecnología —no distribución comercial.</p>
+
+    <div class="section-head"><span class="section-num">4</span> Una valoración de €5.500M: exigente pero con lógica propia</div>
+    <p>El múltiplo de 6,9x ARR resulta elevado comparado con el precedente más cercano: <strong>Next Insurance</strong>, adquirida por ERGO/Munich Re en marzo de 2025 por $2.600M —un múltiplo de ~4,7x revenue sobre $548M de facturación 2024. Pero son situaciones distintas: Munich Re compraba un activo maduro en breakeven en un ramo P&C. Prosus está comprando la capa de salud de su ecosistema de life assistant, en una categoría sin equivalente en Europa.</p>
+    <p>Para justificar un retorno de 3x en 5 años, Alan necesita crecer desde €800M hasta €3.300M de ARR al 32% anual sostenido. Viable si mantiene el ritmo de 2025 —no garantizado si la expansión en España choca con los problemas de distribución sin resolver.</p>
+
+    <div class="section-head" style="border-bottom-color:var(--gold);">✦ Conclusión</div>
+    <p>Alan es el proyecto más importante de insurtech en Europa continental ahora mismo. Ha elegido el problema correcto, ha construido las capacidades correctas y tiene el capital para ejecutar. Pero la pregunta que los 480M€ deben responder en los próximos 24 meses es concreta: <strong>¿puede Alan construir una estrategia de distribución mediada en España y replicar la economía de Francia en Canadá?</strong> Si la respuesta es sí, la valoración de hoy será razonable en perspectiva. Si no, el crecimiento del grupo seguirá dependiendo de un único mercado consolidado.</p>
+    <p>Para el sector asegurador español, la lectura correcta no es si Alan les quitará cuota hoy. La pregunta es qué capacidades están construyendo para cuando Alan —o sus equivalentes— operen aquí a escala.</p>
+
+    <div class="cta-box">
+      <p><strong>Análisis completos disponibles en Community of Insurance.</strong> Los dos informes desarrollan en detalle cada uno de estos vectores, con cifras verificadas, comparativas de mercado y el análisis financiero de la valoración.</p>
+      <div class="cta-links">
+        <a class="cta-link" href="https://communityofinsurance.com/2026/06/25/alan-anuncia-una-ronda-de-480-millones-de-e/" target="_blank">
+          📊 Informe I — Oportunidades, riesgos y estrategia de distribución
+          <span>→ Leer análisis completo en COI</span>
+        </a>
+        <a class="cta-link" href="https://communityofinsurance.com/2026/06/25/prosus-financia-el-crecimiento-de-alan/" target="_blank">
+          💶 Informe II — Valoración €5.500M: ¿racional o prima de fe tecnológica?
+          <span>→ Leer análisis completo en COI</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <strong>Nota:</strong> Sustituye <code>https://communityofinsurance.com/2026/06/25/alan-anuncia-una-ronda-de-480-millones-de-e/</code> y <code>https://communityofinsurance.com/2026/06/25/prosus-financia-el-crecimiento-de-alan/</code> por las URLs reales de COI una vez publiques los dos artículos.
+    </div>
+
+    <p class="word-count">~690 palabras (sin CTA) · dentro del límite de 700</p>
+
+  </div>
+</div>
+
+<!-- ═══════════════ LINKEDIN ═══════════════ -->
+<div id="linkedin" class="panel">
+
+  <div class="tip-box" style="margin-bottom:24px;">
+    <strong>Post listo para copiar.</strong> Incluye gancho, desarrollo, CTA y hashtags. Longitud óptima para LinkedIn: ~220 palabras.
+  </div>
+
+  <div class="li-phone">
+    <div class="li-header">
+      <div class="li-avatar">CB</div>
+      <div>
+        <div class="li-name">Carlos Biurrun</div>
+        <div class="li-sub">Presidente · Insurtech Community Hub · Insur·Insights</div>
+      </div>
+    </div>
+
+    <div class="li-body" id="li-text">🔴 Alan acaba de cerrar 480M€. La mayor ronda de una insurtech europea en 2026. Valoración: 5.500 millones.
+
+Antes de aplaudir —o de ignorarlo—, vale la pena leer la letra pequeña.
+
+En COI hemos publicado dos análisis en profundidad sobre esta operación. Con datos, cifras verificadas y perspectiva crítica. Esto es lo que encontrarás:
+
+▸ Por qué el modelo de Alan es genuinamente disruptivo —y por qué no es lo mismo en España que en Francia.
+
+▸ El colectivo de funcionarios: el trampolín de Alan en Francia es el mercado más deficitario del ramo en España. DKV ya salió. Mapfre y Sanitas también, de MUGEJU.
+
+▸ El canal mediador: los corredores prescriben el seguro de salud colectivo en España. Alan llega sin estrategia de mediación. Eso no es un detalle menor.
+
+▸ Prosus y los 2.000 millones de clientes: ¿palanca real o marketing de presentación? Analizamos los vectores concretos —iFood, Zapia, Large Commerce Model— y lo que aplica realmente en Europa.
+
+▸ La comparativa con Next Insurance (adquirida por ERGO/Munich Re a 4,7x revenue en 2025): ¿qué justifica el múltiplo de Alan?
+
+Los dos informes completos están en Community of Insurance 👇
+
+🔗 Informe I — Oportunidades, riesgos y distribución: https://communityofinsurance.com/2026/06/25/alan-anuncia-una-ronda-de-480-millones-de-e/
+🔗 Informe II — La valoración de €5.500M: https://communityofinsurance.com/2026/06/25/prosus-financia-el-crecimiento-de-alan/
+
+<span class="li-tag">#Insurtech</span> <span class="li-tag">#SeguroSalud</span> <span class="li-tag">#Alan</span> <span class="li-tag">#IAenSeguros</span> <span class="li-tag">#CommunityOfInsurance</span> <span class="li-tag">#InsurInsights</span></div>
+
+    <div class="li-img">
+      <div class="li-img-title">Alan · €480M · Insur·Insights</div>
+      <div class="li-img-sub">communityofinsurance.com</div>
+    </div>
+
+    <div class="li-actions">
+      <span class="li-action">👍 Me gusta</span>
+      <span class="li-action">💬 Comentar</span>
+      <span class="li-action">🔁 Compartir</span>
+    </div>
+  </div>
+
+  <button class="copy-btn" onclick="copyPost()">📋 Copiar texto del post</button>
+
+  <div class="tip-box" style="margin-top:20px;">
+    <strong>Consejo:</strong> Publica el post entre las 8:00-9:00h o las 12:00-13:00h (martes a jueves) para maximizar alcance en LinkedIn. Añade la imagen del artículo como adjunto visual si tu web la tiene disponible.
+  </div>
+
+</div>
+
+<script>
+function show(id) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+function copyPost() {
+  const text = document.getElementById('li-text').innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.querySelector('.copy-btn');
+    btn.textContent = '✓ Copiado al portapapeles';
+    btn.style.background = '#1a6b3c';
+    setTimeout(() => {
+      btn.textContent = '📋 Copiar texto del post';
+      btn.style.background = '#0a66c2';
+    }, 2500);
+  });
+}
+</script>
+
+</body>
+</html>
