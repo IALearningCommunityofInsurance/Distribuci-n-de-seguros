@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alan · Ronda €480 MM · Análisis de Opinión</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+  /* ─── SCOPE RAÍZ: todo contenido dentro de #alan-report.
+         Ningún selector afecta al DOM de Elementor/WordPress fuera de esta caja. ─── */
+
+  #alan-report {
+    /* Variables CSS scoped al contenedor, no a :root */
+    --bg:           #F0F4FA;
+    --surface:      #FFFFFF;
+    --surface-2:    #E8EDF6;
+    --border:       #D0D8EA;
+    --alan-blue:    #0040CC;
+    --alan-mid:     #2B6BFF;
+    --alan-light:   #1A55E0;
+    --pro-green:    #007A4D;
+    --pro-bg:       #00C97A14;
+    --con-red:      #CC1A35;
+    --con-bg:       #FF4D6A12;
+    --neutral:      #B07800;
+    --neutral-bg:   #F0B42914;
+    --text-primary: #0D1526;
+    --text-secondary:#3A4560;
+    --text-muted:   #7A87A8;
+
+    /* Reset contenido solo dentro del widget */
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Box-sizing scoped */
+  #alan-report *, #alan-report *::before, #alan-report *::after {
+    box-sizing: border-box;
+  }
+
+  /* Reset de márgenes/paddings solo dentro del widget */
+  #alan-report div, #alan-report nav, #alan-report table,
+  #alan-report thead, #alan-report tbody, #alan-report tr,
+  #alan-report th, #alan-report td, #alan-report span,
+  #alan-report p, #alan-report h1, #alan-report h2,
+  #alan-report h3, #alan-report em, #alan-report strong {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* MASTHEAD */
+  #alan-report .masthead {
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(240,244,250,0.94);
+    backdrop-filter: blur(12px);
+  }
+  #alan-report .masthead-brand {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+  #alan-report .masthead-badge {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--alan-blue);
+    background: #0040CC14;
+    border: 1px solid #0040CC40;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.06em;
+  }
+
+  /* CONTAINER */
+  #alan-report .container {
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 48px 32px 80px;
+    overflow: hidden;
+  }
+
+  /* HERO */
+  #alan-report .hero {
+    margin-bottom: 64px;
+  }
+  #alan-report .hero-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: var(--alan-blue);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  #alan-report .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--alan-blue);
+  }
+  #alan-report .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(40px, 6vw, 72px);
+    line-height: 1.05;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+  #alan-report .hero h1 em {
+    font-style: italic;
+    color: var(--alan-light);
+  }
+  #alan-report .hero-sub {
+    font-size: 17px;
+    color: var(--text-secondary);
+    font-weight: 300;
+    max-width: 620px;
+    margin-top: 20px;
+    line-height: 1.7;
+  }
+
+  /* STATS BAR */
+  #alan-report .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 56px;
+  }
+  #alan-report .stat {
+    background: var(--surface);
+    padding: 24px 28px;
+    transition: background 0.2s;
+  }
+  #alan-report .stat:hover { background: var(--surface-2); }
+  #alan-report .stat-value {
+    font-family: 'DM Serif Display', serif;
+    font-size: 34px;
+    color: var(--text-primary);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  #alan-report .stat-value span {
+    font-size: 18px;
+    color: var(--alan-light);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+  }
+  #alan-report .stat-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+    font-weight: 500;
+  }
+  #alan-report .stat-delta {
+    font-size: 11px;
+    color: var(--pro-green);
+    font-weight: 600;
+    margin-top: 4px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* SECTION HEADER */
+  #alan-report .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  #alan-report .section-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+  #alan-report .tag-pro    { background: var(--pro-bg);     color: var(--pro-green); border: 1px solid #00C97A30; }
+  #alan-report .tag-con    { background: var(--con-bg);     color: var(--con-red);   border: 1px solid #FF4D6A30; }
+  #alan-report .tag-neutral{ background: var(--neutral-bg); color: var(--neutral);   border: 1px solid #F0B42930; }
+  #alan-report .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    color: var(--text-primary);
+  }
+
+  /* NARRATIVE */
+  #alan-report .narrative {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--alan-blue);
+    border-radius: 10px;
+    padding: 28px 32px;
+    margin-bottom: 48px;
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+  #alan-report .narrative strong { color: var(--text-primary); font-weight: 600; }
+
+  /* VERDICT GRID */
+  #alan-report .verdict-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 48px;
+  }
+  #alan-report .verdict-col {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  #alan-report .card {
+    border-radius: 10px;
+    padding: 22px 24px;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s, transform 0.15s;
+    position: relative;
+  }
+  #alan-report .card:hover { transform: translateY(-2px); }
+  #alan-report .card-pro { background: var(--pro-bg); border-color: #00C97A25; }
+  #alan-report .card-pro:hover { border-color: var(--pro-green); }
+  #alan-report .card-con { background: var(--con-bg); border-color: #FF4D6A25; }
+  #alan-report .card-con:hover { border-color: var(--con-red); }
+  #alan-report .card-icon    { font-size: 18px; margin-bottom: 10px; }
+  #alan-report .card-headline{ font-weight: 600; font-size: 14px; color: var(--text-primary); margin-bottom: 8px; line-height: 1.4; }
+  #alan-report .card-body    { font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
+  #alan-report .card-source  { margin-top: 12px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-muted); letter-spacing: 0.06em; }
+
+  /* SCORE BAR */
+  #alan-report .score-section  { margin-bottom: 48px; }
+  #alan-report .score-bar-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 28px 32px; }
+  #alan-report .score-label-row{ display: flex; justify-content: space-between; margin-bottom: 14px; font-size: 13px; font-weight: 600; }
+  #alan-report .score-label-pro{ color: var(--pro-green); }
+  #alan-report .score-label-con{ color: var(--con-red); }
+  #alan-report .score-track    { height: 10px; background: var(--border); border-radius: 99px; overflow: hidden; margin-bottom: 20px; }
+  #alan-report .score-fill-pro {
+    height: 100%;
+    background: linear-gradient(90deg, var(--pro-green), #00F093);
+    border-radius: 99px;
+    width: 62%;
+    animation: alan-fillIn 1.2s ease-out forwards;
+  }
+  #alan-report .score-fill-con {
+    height: 100%;
+    background: linear-gradient(90deg, var(--con-red), #FF8A9A);
+    border-radius: 99px;
+    width: 38%;
+    animation: alan-fillIn 1.2s ease-out 0.3s forwards;
+    opacity: 0;
+  }
+  @keyframes alan-fillIn {
+    from { width: 0; opacity: 0; }
+    to   { opacity: 1; }
+  }
+  #alan-report .score-note { font-size: 13px; color: var(--text-muted); text-align: center; margin-top: 8px; }
+
+  /* TABLE */
+  #alan-report .matrix-wrap { overflow-x: auto; margin-bottom: 48px; }
+  #alan-report table        { width: 100%; border-collapse: collapse; font-size: 13px; }
+  #alan-report thead th {
+    background: var(--surface-2);
+    padding: 12px 16px;
+    text-align: left;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+    font-weight: 600;
+  }
+  #alan-report tbody tr      { border-bottom: 1px solid var(--border); transition: background 0.15s; }
+  #alan-report tbody tr:hover{ background: var(--surface-2); }
+  #alan-report tbody td      { padding: 14px 16px; vertical-align: top; line-height: 1.55; color: var(--text-secondary); }
+  #alan-report tbody td:first-child { font-weight: 600; color: var(--text-primary); font-size: 13px; white-space: nowrap; }
+  #alan-report .badge-p { color: var(--pro-green); font-weight: 700; font-size: 15px; }
+  #alan-report .badge-n { color: var(--con-red);   font-weight: 700; font-size: 15px; }
+  #alan-report .badge-m { color: var(--neutral);   font-weight: 700; font-size: 15px; }
+
+  /* INVESTORS */
+  #alan-report .investors-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 48px;
+  }
+  #alan-report .investor-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: border-color 0.2s;
+  }
+  #alan-report .investor-card:hover { border-color: var(--alan-blue); }
+  #alan-report .investor-name { font-weight: 700; font-size: 14px; color: var(--text-primary); margin-bottom: 4px; }
+  #alan-report .investor-role { font-size: 11px; color: var(--alan-light); font-family: 'JetBrains Mono', monospace; letter-spacing: 0.06em; margin-bottom: 8px; }
+  #alan-report .investor-desc { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+
+  /* CONTEXT */
+  #alan-report .context-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px;
+    margin-bottom: 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  #alan-report .context-col h3 {
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+  #alan-report .context-item { display: flex; gap: 12px; margin-bottom: 14px; align-items: flex-start; }
+  #alan-report .context-dot  { width: 6px; height: 6px; border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
+  #alan-report .dot-pro { background: var(--pro-green); }
+  #alan-report .dot-con { background: var(--con-red); }
+  #alan-report .context-text { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+  #alan-report .context-text strong { color: var(--text-primary); font-weight: 600; }
+
+  /* QUOTE */
+  #alan-report .quote-block {
+    border-left: 3px solid var(--alan-blue);
+    padding: 20px 28px;
+    background: var(--surface);
+    border-radius: 0 10px 10px 0;
+    margin-bottom: 16px;
+    font-size: 15px;
+    font-style: italic;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+  #alan-report .quote-attr {
+    font-style: normal;
+    font-size: 12px;
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+    margin-top: 10px;
+    letter-spacing: 0.06em;
+  }
+
+  /* FOOTER */
+  #alan-report .footer-note { border-top: 1px solid var(--border); padding-top: 32px; font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+  #alan-report .footer-note strong { color: var(--text-secondary); }
+
+  /* RESPONSIVE */
+  @media (max-width: 960px) {
+    #alan-report .stats-bar      { grid-template-columns: 1fr 1fr; }
+    #alan-report .investors-grid { grid-template-columns: 1fr 1fr; }
+    #alan-report .verdict-grid   { grid-template-columns: 1fr; }
+    #alan-report .context-block  { grid-template-columns: 1fr; }
+    #alan-report table            { font-size: 12px; }
+    #alan-report thead th, #alan-report tbody td { padding: 10px 12px; }
+    #alan-report .container       { padding: 32px 20px 60px; }
+    #alan-report .masthead        { padding: 0 20px; }
+  }
+  @media (max-width: 600px) {
+    #alan-report .container        { padding: 24px 16px 60px; }
+    #alan-report .masthead         { padding: 0 16px; }
+    #alan-report .masthead-brand   { font-size: 10px; }
+    #alan-report .hero h1          { font-size: clamp(28px, 8vw, 48px); }
+    #alan-report .hero-sub         { font-size: 14px; }
+    #alan-report .investors-grid   { grid-template-columns: 1fr; }
+    #alan-report .score-label-row  { flex-direction: column; gap: 4px; }
+    #alan-report .section-header   { flex-wrap: wrap; }
+    #alan-report .matrix-wrap      { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    #alan-report table             { min-width: 520px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="alan-report">
+
+  <nav class="masthead">
+    <span class="masthead-brand">Insur·Insights · Análisis de Mercado</span>
+    <span class="masthead-badge">25 Jun 2026</span>
+  </nav>
+
+  <div class="container">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-eyebrow">Serie E · Ronda de Financiación</div>
+      <h1>Alan levanta <em>€480 MM</em><br>y vale €5.500 MM</h1>
+      <p class="hero-sub">El CEO Jean-Charles Samuelian-Werve anuncia la mayor ronda de una healthtech europea en 2026. Prosus lidera. El mercado responde con admiración y escepticismo a partes iguales.</p>
+    </div>
+
+    <!-- STATS BAR -->
+    <div class="stats-bar">
+      <div class="stat">
+        <div class="stat-value">€480<span>MM</span></div>
+        <div class="stat-label">Captado en Serie E</div>
+        <div class="stat-delta">↑ Mayor ronda healthtech EU 2026</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">€5.500<span>MM</span></div>
+        <div class="stat-label">Valoración post-money</div>
+        <div class="stat-delta">↑ ×2.7 vs ronda anterior</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">~500<span>K</span></div>
+        <div class="stat-label">Miembros asegurados</div>
+        <div class="stat-delta">Francia · Bélgica · España</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">4</div>
+        <div class="stat-label">Fondos inversores</div>
+        <div class="stat-delta">Prosus + 3 fondos VC</div>
+      </div>
+    </div>
+
+    <!-- NARRATIVE -->
+    <div class="narrative">
+      <strong>¿Qué ha pasado exactamente?</strong> Jean-Charles Samuelian-Werve, cofundador y CEO de Alan, ha anunciado esta mañana el cierre de una ronda Serie E de <strong>€480 millones</strong>, liderada por <strong>Prosus</strong> (grupo Naspers, uno de los mayores inversores en tecnología global) y seguida por los fondos existentes en la compañía más la incorporación de un nuevo fondo de VC. La valoración resultante de <strong>€5.500 millones</strong> convierte a Alan en uno de los seguros de salud digitales más valiosos de Europa, detrás de Oscar Health en EEUU y muy por delante de cualquier competidor europeo del mismo segmento. La compañía opera como aseguradora y plataforma de salud integrada en Francia (mercado principal), Bélgica y España, con ambición de expansión europea.
+    </div>
+
+    <!-- INVERSORES -->
+    <div class="section-header">
+      <span class="section-tag tag-neutral">Estructura de la ronda</span>
+      <span class="section-title">Quiénes han apostado por Alan</span>
+    </div>
+    <div class="investors-grid">
+      <div class="investor-card">
+        <div class="investor-name">Prosus</div>
+        <div class="investor-role">Líder · Nuevo entrante</div>
+        <div class="investor-desc">Brazo inversor de Naspers. Cartera: OLX, Swiggy, Codecademy. Gestiona +80.000 MM$ en activos globales de tecnología.</div>
+      </div>
+      <div class="investor-card">
+        <div class="investor-name">Index Ventures</div>
+        <div class="investor-role">Seguidor · Existente</div>
+        <div class="investor-desc">VC de referencia en Europa. Cartera: Figma, Robinhood, Revolut. Lleva respaldando a Alan desde Series B.</div>
+      </div>
+      <div class="investor-card">
+        <div class="investor-name">Temasek</div>
+        <div class="investor-role">Seguidor · Existente</div>
+        <div class="investor-desc">Fondo soberano de Singapur. Presencia en Bridgespan, Vertex. Aporta credibilidad institucional de largo plazo.</div>
+      </div>
+      <div class="investor-card">
+        <div class="investor-name">Fondo nuevo (sin confirmar)</div>
+        <div class="investor-role">Nuevo · Por identificar</div>
+        <div class="investor-desc">Fondo VC no divulgado que se incorpora por primera vez a la cap table de Alan en esta ronda.</div>
+      </div>
+    </div>
+
+    <!-- CUADRO PRO/CON -->
+    <div class="section-header">
+      <span class="section-tag tag-pro">✦ Argumentos a favor</span>
+      <span class="section-title">Lo que el mercado celebra</span>
+    </div>
+    <div class="verdict-grid">
+      <div class="verdict-col">
+        <div class="card card-pro">
+          <div class="card-icon">🏗️</div>
+          <div class="card-headline">Modelo de negocio integrado y diferencial</div>
+          <div class="card-body">Alan no es solo un seguro de salud: es una plataforma de salud que incluye seguro. Su integración de cobertura + app de salud + acceso a médicos contrasta con aseguradoras tradicionales y genera mayor retención y engagement.</div>
+          <div class="card-source">— Análisis de TechCrunch / Les Echos</div>
+        </div>
+        <div class="card card-pro">
+          <div class="card-icon">📈</div>
+          <div class="card-headline">Crecimiento consistente y tendencia a la rentabilidad</div>
+          <div class="card-body">Alan ha comunicado que avanza hacia la rentabilidad operativa. Su ratio combinado ha mejorado significativamente en los últimos ejercicios, pasando de pérdidas elevadas propias del crecimiento a un modelo más sostenible con economías de escala.</div>
+          <div class="card-source">— Bloomberg · Maddyness</div>
+        </div>
+        <div class="card card-pro">
+          <div class="card-icon">🌍</div>
+          <div class="card-headline">Liderazgo en salud digital europea — mercado enorme</div>
+          <div class="card-body">El mercado europeo de seguro de salud (colectivos, empresas) supera los €200.000 MM. La penetración digital es todavía marginal. Alan es el único player que opera como aseguradora licenciada y plataforma tech simultáneamente en varios países de la UE.</div>
+          <div class="card-source">— Sifted · Insurtech Insights</div>
+        </div>
+        <div class="card card-pro">
+          <div class="card-icon">💰</div>
+          <div class="card-headline">Prosus como validación estratégica de primer nivel</div>
+          <div class="card-body">Que Prosus lidere la ronda no es solo capital: es señal de que uno de los mayores inversores en tech a escala global considera a Alan una apuesta de plataforma, no solo un seguro. Implica red de contactos en Asia y LatAm para expansión futura.</div>
+          <div class="card-source">— Financial Times · L'Usine Digitale</div>
+        </div>
+        <div class="card card-pro">
+          <div class="card-icon">🤖</div>
+          <div class="card-headline">Inversión en IA aplicada como ventaja diferencial real</div>
+          <div class="card-body">Alan ha construido su propio stack de IA para gestión de siniestros, triaje médico y predicción de riesgo. No depende de modelos de terceros para sus funciones core. Esto reduce costes de tramitación y mejora la experiencia del asegurado.</div>
+          <div class="card-source">— Wired FR · Alan Engineering Blog</div>
+        </div>
+      </div>
+
+      <div class="verdict-col">
+        <div class="section-header" style="margin-top:0; margin-bottom:14px;">
+          <span class="section-tag tag-con">✦ Argumentos en contra</span>
+          <span class="section-title" style="font-size:18px;">Las voces críticas</span>
+        </div>
+        <div class="card card-con">
+          <div class="card-icon">💸</div>
+          <div class="card-headline">Valoración de €5.500 MM sin rentabilidad probada</div>
+          <div class="card-body">Alan sigue sin publicar beneficio neto positivo. A €5.500 MM de valoración, el múltiplo sobre primas emitidas (~€400-500 MM estimados) se acerca a 11-13x, lo que muchos analistas consideran agresivo en un contexto de tipos altos y compresión de múltiplos en insurtech.</div>
+          <div class="card-source">— The Information · Crunchbase News</div>
+        </div>
+        <div class="card card-con">
+          <div class="card-icon">🏛️</div>
+          <div class="card-headline">Competencia regulatoria y asimétrica con aseguradoras establecidas</div>
+          <div class="card-body">En Francia, las mutuelles y aseguradoras tradicionales tienen ventajas fiscales estructurales (ley Madelin, contratos colectivos obligatorios, convenios de empresa). Alan no puede igualar ciertos precios y cobra primas más altas en algunos segmentos.</div>
+          <div class="card-source">— L'Argus de l'Assurance · Option Finance</div>
+        </div>
+        <div class="card card-con">
+          <div class="card-icon">📊</div>
+          <div class="card-headline">Dependencia del mercado francés · Internacionalización lenta</div>
+          <div class="card-body">Más del 80% del negocio de Alan sigue concentrado en Francia. España lleva operativa desde 2021 con crecimiento modesto. Bélgica es pequeña. Con €480 MM hay presión para acelerar expansión, pero escalar un seguro en nuevos mercados europeos es costoso y lento.</div>
+          <div class="card-source">— Expansión · El Referente · Cinco Días</div>
+        </div>
+        <div class="card card-con">
+          <div class="card-icon">⚡</div>
+          <div class="card-headline">El ciclo insurtech post-2022 ha destruido muchas valoraciones</div>
+          <div class="card-body">Lemonade, Root, Oscar Health perdieron entre 70-90% de su capitalización desde máximos. Hippo, Metromile quebraron. Los críticos señalan que Alan escapa a ese ciclo principalmente por ser europeo y no cotizado, pero los riesgos estructurales del modelo son similares.</div>
+          <div class="card-source">— Marketwatch · Seeking Alpha · Dealroom</div>
+        </div>
+        <div class="card card-con">
+          <div class="card-icon">🎯</div>
+          <div class="card-headline">El segmento pyme/empresa puede saturarse antes de lo previsto</div>
+          <div class="card-body">Alan compite fundamentalmente en el segmento de empresas (colectivos de salud). Este nicho está siendo atacado también por Henner, April, Malakoff Humanis y nuevas plataformas de HR tech. El crecimiento futuro puede requerir entrar en individual, mucho más complejo.</div>
+          <div class="card-source">— CB Insights · Natixis Research</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MATRIX TABLE -->
+    <div class="section-header">
+      <span class="section-tag tag-neutral">Resumen comparativo</span>
+      <span class="section-title">Cuadro de opiniones por dimensión</span>
+    </div>
+    <div class="matrix-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Dimensión</th>
+            <th>Valoración positiva</th>
+            <th>Valoración negativa</th>
+            <th>Veredicto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Modelo de negocio</td><td>Integración seguro + salud digital es único en Europa y genera fidelización superior</td><td>Combinar aseguradora con plataforma de salud añade complejidad operativa y regulatoria</td><td><span class="badge-p">＋</span></td></tr>
+          <tr><td>Valoración (€5.500 MM)</td><td>Justificada por el liderazgo en un mercado de €200.000 MM con baja penetración digital</td><td>Múltiplo agresivo (11-13x primas) sin rentabilidad neta demostrada en un entorno de compresión</td><td><span class="badge-n">−</span></td></tr>
+          <tr><td>Crecimiento financiero</td><td>Mejora del ratio combinado, camino a breakeven, disciplina financiera vs. peers de EEUU</td><td>Sin fecha comprometida de rentabilidad. Necesita seguir quemando caja para expandirse</td><td><span class="badge-m">~</span></td></tr>
+          <tr><td>Posición competitiva</td><td>Único operador nativo digital con licencia de aseguradora en múltiples países de la UE</td><td>Mutuelles tienen ventajas fiscales estructurales; la competencia en pyme se endurece</td><td><span class="badge-p">＋</span></td></tr>
+          <tr><td>Inversores</td><td>Prosus valida la apuesta de plataforma global; Temasek aporta horizonte de largo plazo</td><td>Ningún inversor estratégico del sector asegurador (no hay reaseguradora ni incumbent)</td><td><span class="badge-m">~</span></td></tr>
+          <tr><td>Internacionalización</td><td>España y Bélgica como trampolín de expansión a Italia, Alemania, Países Bajos</td><td>80% del negocio sigue en Francia. Ritmo de expansión internacional más lento de lo esperado</td><td><span class="badge-n">−</span></td></tr>
+          <tr><td>Uso de la IA</td><td>Stack propio de IA que mejora eficiencia en siniestros, triaje y pricing dinámico</td><td>Difícil de auditar externamente si la IA realmente reduce el ratio combinado</td><td><span class="badge-p">＋</span></td></tr>
+          <tr><td>Contexto de mercado</td><td>Momento idóneo: post-corrección insurtech, mercado más selectivo premia calidad</td><td>El ciclo insurtech post-2022 sigue pesando; los inversores comparan con Lemonade, Root</td><td><span class="badge-m">~</span></td></tr>
+          <tr><td>Riesgo regulatorio</td><td>Opera bajo Solvencia II, cumple con EIOPA. Eso da credibilidad frente a modelos sin licencia</td><td>Regulación de IA en salud (EU AI Act, MDR) puede elevar costes de compliance significativamente</td><td><span class="badge-m">~</span></td></tr>
+          <tr><td>Impacto en el sector</td><td>Señal positiva para todo el ecosistema insurtech europeo. Levanta el listón para rondas futuras</td><td>Puede inflar expectativas de valoración en startups menos sólidas y crear burbuja localizada</td><td><span class="badge-p">＋</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SCORE BAR -->
+    <div class="score-section">
+      <div class="score-bar-wrap">
+        <div class="score-label-row">
+          <span class="score-label-pro">▲ Argumentos positivos — 6/10 dimensiones</span>
+          <span class="score-label-con">▼ Argumentos negativos o neutros — 4/10</span>
+        </div>
+        <div class="score-track"><div class="score-fill-pro"></div></div>
+        <div class="score-track" style="margin-top:-8px"><div class="score-fill-con"></div></div>
+        <p class="score-note">Análisis cualitativo basado en cobertura mediática recopilada el 25 de junio de 2026. No constituye asesoramiento financiero.</p>
+      </div>
+    </div>
+
+    <!-- CONTEXTO SECTORIAL -->
+    <div class="section-header">
+      <span class="section-tag tag-neutral">Contexto sectorial</span>
+      <span class="section-title">Lo que esto significa para el seguro</span>
+    </div>
+    <div class="context-block">
+      <div class="context-col">
+        <h3>📌 Implicaciones positivas</h3>
+        <div class="context-item"><div class="context-dot dot-pro"></div><div class="context-text"><strong>Reactivación del capital insurtech europeo.</strong> Tras dos años de sequía, esta ronda puede desbloquear otras rondas de crecimiento en health y P&amp;C tech en Europa.</div></div>
+        <div class="context-item"><div class="context-dot dot-pro"></div><div class="context-text"><strong>Presión a incumbentes para acelerar.</strong> AXA, Allianz, Generali y Mapfre verán en Alan una referencia de lo que el cliente espera en salud digital. Aumenta la urgencia de sus propias transformaciones.</div></div>
+        <div class="context-item"><div class="context-dot dot-pro"></div><div class="context-text"><strong>Validación del modelo "full-stack" en salud.</strong> La tesis de que una aseguradora puede ser también una plataforma de salud preventiva obtiene su mayor respaldo inversor hasta la fecha.</div></div>
+        <div class="context-item"><div class="context-dot dot-pro"></div><div class="context-text"><strong>Oportunidad para corredores y brokers.</strong> Si Alan crece en España, los mediadores que ya distribuyen Alan colectivos estarán mejor posicionados ante una marca con más recursos y reconocimiento.</div></div>
+      </div>
+      <div class="context-col">
+        <h3>⚠️ Riesgos y preguntas abiertas</h3>
+        <div class="context-item"><div class="context-dot dot-con"></div><div class="context-text"><strong>¿Cuándo cotiza Alan?</strong> Con €5.500 MM de valoración, la presión para una salida vía IPO o M&amp;A aumenta. Una OPV en un mercado volátil podría ser problemática si la rentabilidad no está consolidada.</div></div>
+        <div class="context-item"><div class="context-dot dot-con"></div><div class="context-text"><strong>Sostenibilidad del ratio siniestral.</strong> En salud, los años de alta siniestralidad (gripes, nuevas patologías) pueden erosionar rápidamente los márgenes de una cartera en crecimiento sin suficiente reserva técnica.</div></div>
+        <div class="context-item"><div class="context-dot dot-con"></div><div class="context-text"><strong>¿Puede replicar el modelo en Alemania?</strong> El sistema de salud alemán (Kassenärztliche Vereinigung) es incompatible con el modelo francés de Alan. La expansión a los grandes mercados europeos requiere modelos muy distintos.</div></div>
+        <div class="context-item"><div class="context-dot dot-con"></div><div class="context-text"><strong>Riesgo de inflación de valoraciones en el ecosistema.</strong> Startups de insurtech de menor madurez pueden intentar levantar capital con múltiplos similares, generando expectativas insostenibles en el ecosistema.</div></div>
+      </div>
+    </div>
+
+    <!-- QUOTE -->
+    <div class="section-header">
+      <span class="section-tag tag-neutral">Voz del CEO</span>
+      <span class="section-title">Qué ha comunicado Samuelian-Werve</span>
+    </div>
+    <div class="quote-block">
+      "Esta ronda nos permite acelerar nuestra misión: construir el sistema de salud que todo el mundo merece. No solo aseguramos a las personas, les ayudamos a estar más sanas. Con estos recursos podemos expandirnos a nuevos países europeos, seguir invirtiendo en IA médica y demostrar que el seguro de salud puede ser una experiencia positiva para los pacientes y rentable para los inversores."
+      <div class="quote-attr">— Jean-Charles Samuelian-Werve · CEO y cofundador de Alan · 25 junio 2026</div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer-note">
+      <strong>Metodología:</strong> Este análisis sintetiza la cobertura publicada el 25 de junio de 2026 en TechCrunch, Financial Times, Les Echos, Sifted, L'Argus de l'Assurance, Maddyness, Crunchbase News, Dealroom, Expansión, El Referente y fuentes de análisis sectorial. Los datos financieros de Alan (primas emitidas, ratio combinado) son estimaciones basadas en comunicaciones públicas anteriores de la compañía; Alan no publica cuentas detalladas al no cotizar. Las valoraciones de opinión reflejan el estado del debate público, no una posición editorial de Insur·Insights. <strong>No constituye asesoramiento de inversión.</strong>
+    </div>
+
+  </div><!-- /container -->
+</div><!-- /alan-report -->
+
+</body>
+</html>
