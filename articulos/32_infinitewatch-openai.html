@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>InfiniteWatch entra en la órbita de OpenAI · Insur-Insights</title>
+<meta name="description" content="La IA deja de ser herramienta para convertirse en canal de distribución. InfiniteWatch y el Agentic Commerce reconfiguran el seguro.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZFZTQSYZ6H"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZFZTQSYZ6H');
+</script>
+
+<style>
+/* ── SCOPE: todo dentro de #ii-art ─────────────────────────────── */
+#ii-art {
+  --navy:   #183577;
+  --gold:   #C89646;
+  --red:    #cc0000;
+  --smoke:  #F7F8FA;
+  --ink:    #1A1A2E;
+  --mid:    #5a5a72;
+  --rule:   #E0E4EF;
+  --max-w:  720px;
+
+  font-family: 'Lora', Georgia, serif;
+  color: var(--ink);
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── HEADER ─────────────────────────────────────────────────────── */
+#ii-art .ii-header {
+  background: var(--navy);
+  padding: 56px 24px 48px;
+  text-align: center;
+}
+
+#ii-art .ii-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 40px;
+  text-decoration: none;
+}
+
+#ii-art .ii-brand-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+#ii-art .ii-brand-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  color: rgba(255,255,255,.65);
+  text-transform: uppercase;
+}
+
+#ii-art .ii-tag {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  border-radius: 3px;
+  padding: 4px 10px;
+  margin-bottom: 24px;
+}
+
+#ii-art .ii-headline {
+  font-family: 'Lora', Georgia, serif;
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 700;
+  line-height: 1.18;
+  color: #fff;
+  margin: 0 auto 20px;
+  max-width: 680px;
+}
+
+#ii-art .ii-deck {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: rgba(255,255,255,.75);
+  max-width: 580px;
+  margin: 0 auto 36px;
+}
+
+#ii-art .ii-meta {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: rgba(255,255,255,.45);
+  letter-spacing: .04em;
+}
+
+#ii-art .ii-meta strong {
+  color: rgba(255,255,255,.7);
+  font-weight: 600;
+}
+
+/* ── GOLD STRIPE ─────────────────────────────────────────────────── */
+#ii-art .ii-stripe {
+  height: 4px;
+  background: linear-gradient(90deg, var(--gold) 0%, #e8b96a 50%, var(--gold) 100%);
+}
+
+/* ── LAYOUT: artículo ────────────────────────────────────────────── */
+#ii-art .ii-body {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 60px 24px 80px;
+}
+
+/* ── INTRO BOX ───────────────────────────────────────────────────── */
+#ii-art .ii-intro-box {
+  background: var(--smoke);
+  border-left: 4px solid var(--navy);
+  border-radius: 0 6px 6px 0;
+  padding: 28px 32px;
+  margin-bottom: 52px;
+}
+
+#ii-art .ii-intro-box p {
+  font-size: 18px;
+  line-height: 1.72;
+  color: var(--ink);
+  margin: 0;
+}
+
+#ii-art .ii-intro-box strong {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+/* ── SECCIONES ───────────────────────────────────────────────────── */
+#ii-art .ii-section {
+  margin-bottom: 56px;
+}
+
+#ii-art .ii-section-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+#ii-art .ii-section-title {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--navy);
+  margin: 0 0 22px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--rule);
+}
+
+#ii-art .ii-section p {
+  font-size: 17px;
+  line-height: 1.82;
+  color: #2c2c3e;
+  margin: 0 0 20px;
+}
+
+#ii-art .ii-section p:last-child { margin-bottom: 0; }
+
+#ii-art .ii-section strong { color: var(--navy); }
+
+/* ── DATOS BURSÁTILES: tabla ──────────────────────────────────────── */
+#ii-art .ii-drops-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 28px 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+}
+
+#ii-art .ii-drops-table thead tr {
+  background: var(--navy);
+}
+
+#ii-art .ii-drops-table thead th {
+  color: rgba(255,255,255,.9);
+  font-weight: 600;
+  padding: 11px 16px;
+  text-align: left;
+  letter-spacing: .02em;
+}
+
+#ii-art .ii-drops-table thead th:last-child {
+  text-align: right;
+}
+
+#ii-art .ii-drops-table tbody tr:nth-child(even) {
+  background: var(--smoke);
+}
+
+#ii-art .ii-drops-table tbody td {
+  padding: 11px 16px;
+  color: var(--ink);
+  border-bottom: 1px solid var(--rule);
+}
+
+#ii-art .ii-drops-table tbody td.drop {
+  text-align: right;
+  font-weight: 700;
+  color: var(--red);
+}
+
+#ii-art .ii-drops-caption {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: var(--mid);
+  margin-top: -16px;
+  margin-bottom: 28px;
+  text-align: right;
+}
+
+/* ── PULL QUOTE ───────────────────────────────────────────────────── */
+#ii-art .ii-pullquote {
+  margin: 36px 0;
+  padding: 28px 36px;
+  background: var(--navy);
+  border-radius: 6px;
+  position: relative;
+}
+
+#ii-art .ii-pullquote::before {
+  content: '"';
+  position: absolute;
+  top: -4px;
+  left: 20px;
+  font-size: 80px;
+  font-family: 'Lora', Georgia, serif;
+  color: var(--gold);
+  line-height: 1;
+  opacity: .6;
+}
+
+#ii-art .ii-pullquote p {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 20px !important;
+  font-style: italic;
+  line-height: 1.6 !important;
+  color: #fff !important;
+  margin: 0 !important;
+  padding-top: 16px;
+}
+
+/* ── CAJA EMBUDO AGÉNTICO ────────────────────────────────────────── */
+#ii-art .ii-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0;
+  margin: 32px 0;
+  font-family: 'Inter', sans-serif;
+}
+
+#ii-art .ii-flow-node {
+  background: var(--smoke);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+  white-space: nowrap;
+}
+
+#ii-art .ii-flow-node.accent {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #fff;
+}
+
+#ii-art .ii-flow-arrow {
+  padding: 0 10px;
+  color: var(--gold);
+  font-size: 20px;
+  font-weight: 400;
+}
+
+/* ── RECUADRO CLAVE ───────────────────────────────────────────────── */
+#ii-art .ii-keybox {
+  background: #F0F4FF;
+  border: 1px solid #c5d0ee;
+  border-radius: 6px;
+  padding: 26px 32px;
+  margin: 32px 0;
+}
+
+#ii-art .ii-keybox-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+#ii-art .ii-keybox p {
+  font-size: 16px !important;
+  line-height: 1.7 !important;
+  color: var(--navy) !important;
+  margin: 0 !important;
+}
+
+/* ── CONCLUSIONES ────────────────────────────────────────────────── */
+#ii-art .ii-conclusion {
+  background: var(--navy);
+  border-radius: 8px;
+  padding: 40px 40px 44px;
+  margin-top: 60px;
+}
+
+#ii-art .ii-conclusion h2 {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gold);
+  margin: 0 0 22px;
+}
+
+#ii-art .ii-conclusion p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(255,255,255,.85);
+  margin: 0 0 16px;
+}
+
+#ii-art .ii-conclusion p:last-child { margin-bottom: 0; }
+
+#ii-art .ii-conclusion strong {
+  color: #fff;
+  font-weight: 700;
+}
+
+#ii-art .ii-conclusion .ii-cierre {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 18px;
+  font-style: italic;
+  color: #fff;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,.18);
+}
+
+/* ── FOOTER ──────────────────────────────────────────────────────── */
+#ii-art .ii-footer {
+  background: var(--smoke);
+  border-top: 1px solid var(--rule);
+  padding: 40px 24px;
+  text-align: center;
+}
+
+#ii-art .ii-footer-brand {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+#ii-art .ii-footer-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: var(--mid);
+  margin-bottom: 20px;
+}
+
+#ii-art .ii-footer a.ii-btn {
+  display: inline-block;
+  background: var(--navy);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 11px 24px;
+  border-radius: 4px;
+  letter-spacing: .03em;
+  transition: background .2s;
+}
+
+#ii-art .ii-footer a.ii-btn:hover { background: #0f2260; }
+
+#ii-art .ii-footer-copy {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: #aab;
+  margin-top: 24px;
+}
+
+/* ── RESPONSIVE ───────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  #ii-art .ii-header { padding: 40px 20px 36px; }
+  #ii-art .ii-body { padding: 40px 20px 60px; }
+  #ii-art .ii-intro-box { padding: 22px 22px; }
+  #ii-art .ii-conclusion { padding: 30px 26px 34px; }
+  #ii-art .ii-pullquote { padding: 22px 26px; }
+  #ii-art .ii-flow-node { font-size: 13px; padding: 10px 14px; }
+}
+</style>
+</head>
+<body>
+
+<div id="ii-art">
+
+  <!-- CABECERA -->
+  <header class="ii-header">
+    <a href="https://ialearningcommunityofinsurance.github.io/Distribuci-n-de-seguros/" class="ii-brand">
+      <span class="ii-brand-dot"></span>
+      <span class="ii-brand-name">Insur·Insights · Carlos Biurrun</span>
+    </a>
+    <div class="ii-tag">Distribución · IA Agéntica · Insurtech</div>
+    <h1 class="ii-headline">InfiniteWatch entra en la órbita de OpenAI</h1>
+    <p class="ii-deck">La IA deja de ser herramienta para convertirse en canal de distribución. El Agentic Commerce reconfigura quién vende y quién compra el seguro.</p>
+    <div class="ii-meta">
+      <strong>Carlos Biurrun Murillo</strong> &nbsp;·&nbsp; Community of Insurance &nbsp;·&nbsp; Septiembre 2026
+    </div>
+  </header>
+
+  <div class="ii-stripe"></div>
+
+  <!-- CUERPO -->
+  <main class="ii-body">
+
+    <!-- INTRODUCCIÓN -->
+    <div class="ii-intro-box">
+      <p>La inteligencia artificial está dejando de ser únicamente una herramienta para mejorar la productividad de las aseguradoras. Empieza a convertirse en <strong>un nuevo canal de distribución</strong>. La entrada de InfiniteWatch en la órbita de OpenAI refuerza una tendencia que el seguro mundial descubrió abruptamente el pasado febrero, cuando el pequeño corredor digital español Tuio lanzó una aplicación aprobada por OpenAI que permitía obtener ofertas personalizadas de seguro de hogar directamente desde ChatGPT.</p>
+    </div>
+
+    <!-- SECCIÓN 1 -->
+    <section class="ii-section">
+      <div class="ii-section-label">1</div>
+      <h2 class="ii-section-title">InfiniteWatch: de observar la IA a construir la infraestructura de la Internet agéntica</h2>
+      <p>InfiniteWatch nació en 2025 impulsada por Pablo Molina Candel, Iñaki Berenguer y Alberto González, procedentes del equipo de <strong>CoverWallet</strong>, la insurtech posteriormente adquirida por Aon.</p>
+      <p>Su arranque fue significativo: una ronda pre-seed de <strong>4 millones de dólares</strong> liderada por Base10 Partners, con participación de scouts de Sequoia y Andreessen Horowitz, Kibo Ventures, Kfund, LifeX y varios fundadores de unicornios.</p>
+      <p>La primera propuesta de InfiniteWatch se centraba en un problema que irá creciendo conforme las compañías entreguen más procesos a la IA: <strong>¿cómo sabemos qué están haciendo realmente los agentes artificiales?</strong></p>
+      <p>Su plataforma comenzó analizando interacciones digitales y conversaciones para detectar fricciones, errores, incumplimientos o pérdidas de negocio. Ahora su ambición es mayor: desplegar agentes capaces de actuar y, simultáneamente, proporcionar la capa de observabilidad necesaria para controlarlos.</p>
+
+      <div class="ii-keybox">
+        <div class="ii-keybox-label">Concepto clave</div>
+        <p>InfiniteWatch habla de la futura <strong>«Agentic Internet»</strong>, donde los agentes no solamente conversarán con personas, sino también con otros agentes. La compañía afirma analizar ya <strong>más de dos millones de interacciones mensuales</strong>. En seguros cuenta con experiencias como Aegon y Europea Seguros.</p>
+      </div>
+
+      <p>La conexión con el ecosistema de OpenAI adquiere especial relevancia porque OpenAI lanzó en junio su <strong>Partner Network</strong>, concebida para que organizaciones especializadas puedan construir, comercializar y desplegar soluciones empresariales utilizando sus modelos y tecnologías.</p>
+    </section>
+
+    <!-- SECCIÓN 2 -->
+    <section class="ii-section">
+      <div class="ii-section-label">2</div>
+      <h2 class="ii-section-title">Febrero de 2026: cuando Tuio-WaniWani hizo temblar a los grandes brokers</h2>
+      <p>El 9 de febrero, OpenAI aprobó una aplicación de la correduría digital española <strong>Tuio</strong>, desarrollada sobre la infraestructura tecnológica de <strong>WaniWani</strong>, que permitía obtener una cotización personalizada de seguro de hogar mediante una conversación natural dentro de ChatGPT.</p>
+      <p>El cliente ya no necesitaba comenzar en Google, entrar en un comparador, rellenar formularios o acudir a otro intermediario digital. Podía preguntar a la IA y recibir una oferta real. Wall Street entendió inmediatamente la amenaza potencial.</p>
+
+      <table class="ii-drops-table">
+        <thead>
+          <tr>
+            <th>Compañía</th>
+            <th>Perfil</th>
+            <th style="text-align:right">Caída bursátil</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Willis Towers Watson</td>
+            <td>Broker global</td>
+            <td class="drop">≈ −13%</td>
+          </tr>
+          <tr>
+            <td>Arthur J. Gallagher</td>
+            <td>Broker global</td>
+            <td class="drop">−9,4%</td>
+          </tr>
+          <tr>
+            <td>Aon</td>
+            <td>Broker global</td>
+            <td class="drop">−8,5%</td>
+          </tr>
+          <tr>
+            <td>Ryan Specialty</td>
+            <td>Especialista E&S</td>
+            <td class="drop">−8%</td>
+          </tr>
+          <tr>
+            <td>Brown & Brown</td>
+            <td>Broker regional</td>
+            <td class="drop">≈ −7%</td>
+          </tr>
+          <tr>
+            <td>Marsh</td>
+            <td>Broker global</td>
+            <td class="drop">≈ −7%</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="ii-drops-caption">Fuente: cotizaciones de mercado · semana del 9 de febrero de 2026 · Estimación</p>
+
+      <p>Goldman Sachs relacionó expresamente el movimiento bursátil con la aparición de esta nueva forma de distribución. Otros analistas calificaron posteriormente la reacción de exagerada, especialmente porque los grandes riesgos empresariales requieren un asesoramiento difícilmente sustituible por una simple aplicación. Probablemente tenían razón en el corto plazo.</p>
+
+      <div class="ii-pullquote">
+        <p>El mercado estaba reaccionando no al tamaño de Tuio, sino al precedente tecnológico que acababa de establecerse: por primera vez resultaba visible a gran escala que la conversación con una IA podía convertirse en puerta de entrada a la contratación aseguradora.</p>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3 -->
+    <section class="ii-section">
+      <div class="ii-section-label">3</div>
+      <h2 class="ii-section-title">De Tuio/WaniWani a InfiniteWatch: aparece el Agentic Commerce</h2>
+      <p>Siete meses después, la propuesta de InfiniteWatch permite contemplar aquella noticia desde otra perspectiva. Su concepto de <strong>Agentic Commerce</strong> parte de una idea radicalmente sencilla: en el futuro el consumidor podría no buscar directamente una aseguradora. Pedirá a su asistente:</p>
+
+      <div class="ii-pullquote">
+        <p>«Encuéntrame un seguro para mi coche con estas coberturas y por menos de 900 euros.»</p>
+      </div>
+
+      <p>El agente del cliente podría consultar diferentes proveedores y relacionarse directamente con los agentes o sistemas de las aseguradoras. InfiniteWatch quiere situarse precisamente en el centro de ese proceso:</p>
+
+      <div class="ii-flow">
+        <div class="ii-flow-node">Cliente</div>
+        <div class="ii-flow-arrow">→</div>
+        <div class="ii-flow-node">Asistente IA</div>
+        <div class="ii-flow-arrow">→</div>
+        <div class="ii-flow-node accent">InfiniteWatch</div>
+        <div class="ii-flow-arrow">→</div>
+        <div class="ii-flow-node">Aseguradora</div>
+      </div>
+
+      <p>La compañía propone convertir los productos aseguradores en servicios <strong>discoverable, quotable y bindable</strong>: descubribles, cotizables y contratables por agentes.</p>
+
+      <div class="ii-keybox">
+        <div class="ii-keybox-label">El cambio estratégico</div>
+        <p>Durante veinte años las aseguradoras han luchado por aparecer en las primeras posiciones de Google. Ahora deberán preguntarse: <strong>¿aparecerá mi seguro entre las alternativas seleccionadas por ChatGPT, Claude u otros asistentes?</strong> Pasamos del SEO y los comparadores a la visibilidad dentro del ecosistema agéntico.</p>
+      </div>
+
+      <p>Y el embudo comercial no desaparece: cambia de lugar. InfiniteWatch plantea incluso proporcionar información sobre qué asistentes consultaron un producto, qué cotizaciones recibieron, cuáles fueron seleccionadas y por qué una compañía ganó o perdió frente a otra.</p>
+    </section>
+
+    <!-- SECCIÓN 4 -->
+    <section class="ii-section">
+      <div class="ii-section-label">4</div>
+      <h2 class="ii-section-title">¿Desintermediación del corredor o nacimiento de un corredor aumentado?</h2>
+      <p>Aquí está la cuestión decisiva para la distribución aseguradora. La conclusión fácil sería anunciar que los agentes de IA sustituirán a corredores y agentes. Creo que sería equivocada.</p>
+      <p>La IA tiene una ventaja enorme en productos relativamente estandarizados: puede consultar mercados simultáneamente, comparar precios y coberturas, interpretar documentación y trabajar 24 horas al día.</p>
+      <p>Pero asegurar una empresa industrial, estructurar un programa internacional, proteger un patrimonio familiar complejo o gestionar un gran siniestro exige algo diferente: <strong>criterio, confianza, negociación, experiencia y responsabilidad profesional.</strong></p>
+
+      <div class="ii-pullquote">
+        <p>Febrero no anunció necesariamente la muerte del corredor. Anunció algo más incómodo: la desaparición progresiva del corredor que sólo aporta búsqueda y comparación.</p>
+      </div>
+
+      <p>El corredor 2030 tendrá que incorporar agentes propios capaces de explorar mercados, analizar pólizas, detectar exclusiones, comparar ofertas y anticipar riesgos, reservando al profesional aquello en lo que realmente crea valor.</p>
+      <p>El resultado puede ser paradójico: <strong>cuanta más inteligencia artificial exista, más importante será demostrar dónde aporta valor la inteligencia humana.</strong></p>
+    </section>
+
+    <!-- CONCLUSIONES -->
+    <div class="ii-conclusion">
+      <h2>Conclusiones: empieza una nueva batalla por la distribución</h2>
+      <p>Tuio y WaniWani provocaron en febrero una primera sacudida. InfiniteWatch permite comprender ahora mejor hacia dónde puede dirigirse el movimiento.</p>
+      <p>La cuestión ya no es solamente cómo utilizar ChatGPT dentro de una aseguradora. <strong>La pregunta verdaderamente estratégica es otra: ¿qué ocurrirá cuando sea el ChatGPT —o el agente de IA— del cliente quien compre el seguro?</strong></p>
+      <p>En ese mundo competirán agentes personales, agentes de aseguradoras, plataformas tecnológicas y profesionales humanos. Los productos tendrán que ser comprensibles no sólo para las personas, sino también para las máquinas; cotizables en tiempo real; integrables mediante APIs; auditables y, finalmente, contratables dentro de una conversación.</p>
+      <p>El episodio bursátil de febrero fue quizá exagerado en intensidad, pero no necesariamente equivocado en su intuición. <strong>Se está formando un nuevo canal de distribución.</strong></p>
+      <p>Y aseguradoras, insurtech y corredores deberían empezar a prepararse para competir en él antes de que el cliente deje de buscar seguros y simplemente diga a su agente:</p>
+      <p class="ii-cierre">«Búscame la mejor solución y encárgate de todo.»</p>
+    </div>
+
+  </main>
+
+  <!-- BLOQUE SUSCRIPCIÓN -->
+  <footer class="ii-footer">
+    <div class="ii-footer-brand">Insur·Insights · Análisis del seguro que viene</div>
+    <div class="ii-footer-sub">Newsletter de Carlos Biurrun · Community of Insurance</div>
+    <a href="https://www.linkedin.com/newsletters/insur-insights-6904496542087274496" class="ii-btn" target="_blank" rel="noopener">
+      Suscribirse al newsletter
+    </a>
+    <div class="ii-footer-copy">
+      © 2026 Community of Insurance · 
+      <a href="https://ialearningcommunityofinsurance.github.io/Distribuci-n-de-seguros/" style="color:#aab;">Ver todos los artículos</a>
+    </div>
+  </footer>
+
+</div><!-- /ii-art -->
+
+</body>
+</html>
