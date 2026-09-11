@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insur·Insights · Análisis del seguro que viene</title>
+<meta name="description" content="Biblioteca de análisis sobre el futuro del seguro: IA, corredores, insurtech, mercados emergentes y transformación digital. Por Carlos Biurrun, Community of Insurance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZFZTQSYZ6H"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZFZTQSYZ6H');
+</script>
+<style>
+  :root {
+    --rojo: #cc0000;
+    --navy: #183577;
+    --gris-oscuro: #595959;
+    --gris-claro: #f2f2f2;
+    --blanco: #ffffff;
+    --borde: #e0e0e0;
+    --texto: #2a2a2a;
+    --sombra: 0 2px 12px rgba(0,0,0,0.08);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; color: var(--texto); background: var(--blanco); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+  /* HEADER */
+  header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.96); backdrop-filter: blur(8px); border-bottom: 1px solid var(--borde); padding: 0 2rem; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+  .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+  .logo-mark { width: 36px; height: 36px; background: var(--rojo); border-radius: 6px; display: flex; align-items: center; justify-content: center; }
+  .logo-mark svg { width: 20px; height: 20px; fill: white; }
+  .logo-text { font-family: 'Lora', serif; font-weight: 700; font-size: 1.1rem; color: var(--navy); letter-spacing: -0.01em; }
+  .logo-text span { color: var(--rojo); }
+  nav { display: flex; gap: 2rem; align-items: center; }
+  nav a { font-size: 0.85rem; font-weight: 500; color: var(--gris-oscuro); text-decoration: none; transition: color 0.2s; }
+  nav a:hover { color: var(--rojo); }
+  .btn-suscribe { background: var(--rojo); color: white !important; padding: 0.45rem 1.1rem; border-radius: 4px; font-size: 0.8rem !important; font-weight: 600 !important; }
+  .btn-suscribe:hover { background: #aa0000 !important; }
+
+  /* HERO */
+  .hero { margin-top: 64px; min-height: 88vh; background: linear-gradient(160deg, var(--navy) 0%, #0d2157 60%, #0a1a44 100%); display: flex; align-items: center; position: relative; overflow: hidden; padding: 4rem 2rem; }
+  .hero::before { content: ''; position: absolute; top: -30%; right: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(204,0,0,0.15) 0%, transparent 70%); pointer-events: none; }
+  .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; position: relative; z-index: 2; }
+  .hero-eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 1.5rem; }
+  .hero h1 { font-family: 'Lora', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 700; color: white; line-height: 1.15; letter-spacing: -0.02em; max-width: 720px; margin-bottom: 1.5rem; }
+  .hero h1 em { font-style: italic; color: rgba(255,255,255,0.7); }
+  .hero-desc { font-size: 1.05rem; color: rgba(255,255,255,0.65); max-width: 520px; line-height: 1.7; margin-bottom: 2.5rem; font-weight: 300; }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+  .cta-primary { background: var(--rojo); color: white; text-decoration: none; padding: 0.85rem 2rem; border-radius: 4px; font-weight: 600; font-size: 0.9rem; transition: background 0.2s, transform 0.15s; display: inline-flex; align-items: center; gap: 0.5rem; }
+  .cta-primary:hover { background: #aa0000; transform: translateY(-1px); }
+  .cta-secondary { color: rgba(255,255,255,0.8); text-decoration: none; padding: 0.85rem 1.5rem; border: 1px solid rgba(255,255,255,0.25); border-radius: 4px; font-weight: 500; font-size: 0.9rem; transition: border-color 0.2s, color 0.2s; display: inline-flex; align-items: center; gap: 0.5rem; }
+  .cta-secondary:hover { border-color: rgba(255,255,255,0.6); color: white; }
+  .hero-stats { margin-top: 4rem; display: flex; gap: 3rem; flex-wrap: wrap; }
+  .stat { border-left: 2px solid var(--rojo); padding-left: 1rem; }
+  .stat-num { font-family: 'Lora', serif; font-size: 1.8rem; font-weight: 700; color: white; line-height: 1; }
+  .stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.45); margin-top: 0.25rem; text-transform: uppercase; letter-spacing: 0.06em; }
+
+  /* PILLARS */
+  .pillars { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rojo); margin-bottom: 0.75rem; }
+  .pillars h2 { font-family: 'Lora', serif; font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 700; color: var(--navy); max-width: 560px; line-height: 1.25; margin-bottom: 3rem; }
+  .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }
+  .pillar { border-top: 3px solid var(--borde); padding-top: 1.25rem; transition: border-color 0.2s; }
+  .pillar:hover { border-top-color: var(--rojo); }
+  .pillar-icon { width: 40px; height: 40px; background: var(--gris-claro); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+  .pillar-icon svg { width: 20px; height: 20px; }
+  .pillar h3 { font-family: 'Lora', serif; font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 0.5rem; line-height: 1.3; }
+  .pillar p { font-size: 0.85rem; color: var(--gris-oscuro); line-height: 1.6; }
+
+  /* BIBLIOTECA */
+  .biblioteca { background: var(--gris-claro); padding: 5rem 2rem; }
+  .biblioteca-inner { max-width: 1100px; margin: 0 auto; }
+  .biblioteca-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem; }
+  .biblioteca-header h2 { font-family: 'Lora', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; color: var(--navy); line-height: 1.2; }
+  .biblioteca-count { font-size: 0.8rem; color: var(--gris-oscuro); font-weight: 400; }
+  .cat-filters { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+  .cat-btn { font-size: 0.78rem; font-weight: 500; padding: 0.4rem 1rem; border-radius: 50px; border: 1.5px solid var(--borde); background: white; color: var(--gris-oscuro); cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif; }
+  .cat-btn:hover, .cat-btn.active { background: var(--navy); border-color: var(--navy); color: white; }
+  .cat-section { margin-bottom: 3rem; }
+  .cat-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--rojo); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--borde); display: flex; align-items: center; gap: 0.5rem; }
+  .cat-count-badge { background: var(--rojo); color: white; border-radius: 50px; padding: 0.1rem 0.5rem; font-size: 0.65rem; letter-spacing: 0; font-weight: 600; }
+  .articulos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
+  .articulo-card { background: white; border-radius: 8px; padding: 1.25rem 1.5rem; border: 1px solid var(--borde); text-decoration: none; display: block; transition: box-shadow 0.2s, transform 0.15s, border-color 0.2s; position: relative; }
+  .articulo-card:hover { box-shadow: var(--sombra); transform: translateY(-2px); border-color: rgba(204,0,0,0.2); }
+  .card-tag { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--rojo); margin-bottom: 0.5rem; display: block; }
+  .card-titulo { font-family: 'Lora', serif; font-size: 0.95rem; font-weight: 600; color: var(--navy); line-height: 1.35; margin-bottom: 0.75rem; }
+  .card-meta { display: flex; align-items: center; gap: 0.75rem; font-size: 0.73rem; color: #aaa; }
+  .card-meta svg { width: 12px; height: 12px; stroke: #ccc; fill: none; stroke-width: 2; stroke-linecap: round; }
+  .card-nuevo { position: absolute; top: 1rem; right: 1rem; background: var(--rojo); color: white; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2rem 0.5rem; border-radius: 3px; }
+
+  /* NEWSLETTER */
+  .newsletter { background: var(--navy); padding: 5rem 2rem; text-align: center; }
+  .newsletter-inner { max-width: 580px; margin: 0 auto; }
+  .newsletter h2 { font-family: 'Lora', serif; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; color: white; margin-bottom: 1rem; line-height: 1.25; }
+  .newsletter p { color: rgba(255,255,255,0.6); font-size: 0.95rem; line-height: 1.7; margin-bottom: 2rem; font-weight: 300; }
+  .newsletter-cta { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--rojo); color: white; text-decoration: none; padding: 1rem 2.5rem; border-radius: 4px; font-weight: 600; font-size: 0.95rem; transition: background 0.2s; }
+  .newsletter-cta:hover { background: #aa0000; }
+
+  /* FOOTER */
+  footer { padding: 2.5rem 2rem; border-top: 1px solid var(--borde); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; max-width: 1100px; margin: 0 auto; }
+  .footer-brand { font-family: 'Lora', serif; font-size: 0.9rem; font-weight: 700; color: var(--navy); }
+  .footer-brand span { color: var(--rojo); }
+  .footer-legal { font-size: 0.75rem; color: #aaa; }
+  .footer-link { font-size: 0.75rem; color: var(--rojo); text-decoration: none; }
+  .footer-link:hover { text-decoration: underline; }
+
+  @media (max-width: 768px) {
+    nav { display: none; }
+    .hero-stats { gap: 1.5rem; }
+    footer { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="#" class="logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 20 20"><path d="M10 2L2 7v6l8 5 8-5V7L10 2z"/></svg>
+    </div>
+    <span class="logo-text">Insur<span>·</span>Insights</span>
+  </a>
+  <nav>
+    <a href="#articulos">Biblioteca</a>
+    <a href="https://communityofinsurance.com" target="_blank">Community of Insurance</a>
+    <a href="https://www.linkedin.com/newsletters/insur-insights-6904496542087274496" target="_blank" class="btn-suscribe">Suscribirte</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Community of Insurance · Carlos Biurrun Murillo</div>
+    <h1>Analizando <em>el seguro</em><br>que viene</h1>
+    <p class="hero-desc">Análisis de tendencias, tecnología e innovación para el profesional del seguro en España y América Latina. Sin ruido. Con perspectiva.</p>
+    <div class="hero-ctas">
+      <a href="#articulos" class="cta-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        Explorar la biblioteca
+      </a>
+      <a href="https://www.linkedin.com/newsletters/insur-insights-6904496542087274496" target="_blank" class="cta-secondary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+        Suscribirte al newsletter
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">24</div><div class="stat-label">Artículos publicados</div></div>
+      <div class="stat"><div class="stat-num">7</div><div class="stat-label">Áreas temáticas</div></div>
+      <div class="stat"><div class="stat-num">50+</div><div class="stat-label">Años de expertise</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="pillars">
+  <div class="section-label">Líneas de análisis</div>
+  <h2>El seguro en transformación: cuatro ejes que lo definen</h2>
+  <div class="pillars-grid">
+    <div class="pillar">
+      <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#cc0000" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+      <h3>Transformación digital del corredor</h3>
+      <p>Cómo la tecnología redefine el rol del intermediario y qué competencias son imprescindibles para sobrevivir al cambio.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#cc0000" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+      <h3>IA y nuevos modelos de negocio</h3>
+      <p>Inteligencia artificial generativa y neurosimbólica, plataformas, ecosistemas y la reinvención de la cadena de valor aseguradora.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#cc0000" stroke-width="2"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg></div>
+      <h3>Mercado iberoamericano</h3>
+      <p>Tendencias, regulación y oportunidades en España y América Latina. El seguro como motor de desarrollo económico y social.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#cc0000" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <h3>Ciberriesgos y resiliencia</h3>
+      <p>La brecha entre la amenaza digital real y la capacidad de respuesta de las pólizas. Un riesgo que el sector no puede ignorar.</p>
+    </div>
+  </div>
+</section>
+
+<section class="biblioteca" id="articulos">
+  <div class="biblioteca-inner">
+    <div class="biblioteca-header">
+      <div>
+        <div class="section-label">Biblioteca de análisis</div>
+        <h2>Todos los artículos <span class="biblioteca-count">— 24 publicaciones</span></h2>
+      </div>
+    </div>
+
+    <div class="cat-filters">
+      <button class="cat-btn active" onclick="filtrar('all', this)">Todos</button>
+      <button class="cat-btn" onclick="filtrar('ia', this)">IA y Tecnología</button>
+      <button class="cat-btn" onclick="filtrar('ciberriesgos', this)">Ciberriesgos</button>
+      <button class="cat-btn" onclick="filtrar('corredores', this)">Corredores y Distribución</button>
+      <button class="cat-btn" onclick="filtrar('insurtech', this)">Insurtech y Finanzas</button>
+      <button class="cat-btn" onclick="filtrar('mercados', this)">Mercados e Informes</button>
+      <button class="cat-btn" onclick="filtrar('autores', this)">Autores</button>
+    </div>
+
+    <!-- IA Y TECNOLOGÍA -->
+    <div class="cat-section" data-cat="ia">
+      <div class="cat-title">IA y Tecnología <span class="cat-count-badge">7</span></div>
+      <div class="articulos-grid">
+
+        <a href="/Distribuci-n-de-seguros/articulos/infinitewatch-openai.html" class="articulo-card">
+          <span class="card-tag">IA · Distribución</span>
+          <div class="card-titulo">InfiniteWatch entra en la órbita de OpenAI</div>
+          <div class="card-meta"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 7 min &nbsp;·&nbsp; Cuando la IA se convierte en buscador de un seguro</div>
+          <span class="card-nuevo">Nuevo</span>
+        </a>
+
+        <a href="/articulos/Biurrun_GNP_Palantir_InsurInsights_Jul2026.html" class="articulo-card">
+          <span class="card-tag">IA · Análisis</span>
+          <div class="card-titulo">GNP, Palantir y la IA que ya gestiona siniestros en tiempo real</div>
+          <div class="card-meta"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 7 min</div>
+        </a>
+
+        <a href="/articulos/CIMA_y_la_conectividad_del_seguro.html" class="articulo-card">
+          <span class="card-tag">Regulación · IA</span>
+          <div class="card-titulo">CIMA y la conectividad del seguro iberoamericano</div>
+          <div class="card-meta"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 6 min</div>
+        </a>
+
+        <a href="/articulos/IA_Neurosimbolica_Gartner_LeonXIV.html" class="articulo-card">
+          <span class="card-tag">IA Neurosimbólica</span>
+          <div class="card-titulo">IA Neurosimbólica, Gartner y León XIV: la inteligencia que razona</div>
+          <div class="card-meta"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 8 min</div>
+        </a>
+
+        <a href="/articulos/eiopa-comision-europea-ia-distribucion-seguros.html" class="articulo-card">
+          <span class="card-tag">Regulación · IA</span>
+          <div class="card-titulo">EIOPA, Comisión Europea e IA en la distribución de seguros</div>
+          <div class="card-meta"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 7 min</div>
+        </a>
+
+        <a href="/articulos/informe-rc-ia.html" class="articulo-card">
+          <span class="card-tag">IA · RC</span>
+          <div class="card-titulo">Responsabilidad civil e inteligencia artificial: el vacío legal que viene</div>
+          <div class="card-meta"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 6 min</div>
+        </a>
+
+        <a href="/articulos/REVO-Magazine-COI-Agosto2026.html" class="articulo-card">
+          <span class="card-tag">IA · Innovación</span>
+          <div class="card-titulo">REVO Magazine COI: el seguro y la revolución tecnológica, agosto 2026</div>
+          <div class="card-meta"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 8 min</div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- CIBERRIESGOS -->
+    <div class="cat-section" data-cat="ciberriesgos">
+      <div class="cat-title">Ciberriesgos y Seguro <span class="cat-count-badge">2</span></div>
+      <div class="articulos-grid">
+
+        <a href="/articulos/ciberriesgos-y-seguros.html" class="articulo-card">
+          <span class="card-tag">Ciberriesgos · IA</span>
+          <div class="card-titulo">La IA ya ataca. Las pólizas, todavía no se han enterado</div>
+          <div class="card-meta"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 9 min</div>
+          <span class="card-nuevo">Nuevo</span>
+        </a>
+
+        <a href="/articulos/ciberseguro-informe-coi.html" class="articulo-card">
+          <span class="card-tag">Ciberseguro · Informe</span>
+          <div class="card-titulo">Ciberseguro: estado del mercado y brechas de cobertura en el sector</div>
+          <div class="card-meta"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 7 min</div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- CORREDORES Y DISTRIBUCIÓN -->
+    <div class="cat-section" data-cat="corredores">
+      <div class="cat-title">Corredores y Distribución <span class="cat-count-badge">5</span></div>
+      <div class="articulos-grid">
+
+        <a href="/articulos/corredor-latam-ia-2030.html" class="articulo-card">
+          <span class="card-tag">Corredor · LatAm</span>
+          <div class="card-titulo">El corredor latinoamericano ante la IA: hoja de ruta hacia 2030</div>
+          <div class="card-meta"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 9 min</div>
+        </a>
+
+        <a href="/articulos/ranking-brokers-2025.html" class="articulo-card">
+          <span class="card-tag">Brokers · Ranking</span>
+          <div class="card-titulo">Ranking de brokers España 2025: concentración, cifras y tendencias</div>
+          <div class="card-meta"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 8 min</div>
+        </a>
+
+        <a href="/articulos/ratio-tecnologia-ingresos-brokers.html" class="articulo-card">
+          <span class="card-tag">Tecnología · Brokers</span>
+          <div class="card-titulo">Ratio tecnología/ingresos en los brokers: quién invierte y quién se queda atrás</div>
+          <div class="card-meta"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 6 min</div>
+        </a>
+
+        <a href="/articulos/seguros_embebidos_brokers_2026.html" class="articulo-card">
+          <span class="card-tag">Seguros Embebidos</span>
+          <div class="card-titulo">Seguros embebidos y el corredor: ¿amenaza o nueva oportunidad de distribución?</div>
+          <div class="card-meta"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 7 min</div>
+        </a>
+
+        <a href="/articulos/mga-informe-coi.html" class="articulo-card">
+          <span class="card-tag">MGA · Distribución</span>
+          <div class="card-titulo">MGA: el auge del modelo de agencia gestora en el mercado asegurador</div>
+          <div class="card-meta"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 7 min</div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- INSURTECH Y FINANZAS -->
+    <div class="cat-section" data-cat="insurtech">
+      <div class="cat-title">Insurtech y Análisis Financiero <span class="cat-count-badge">7</span></div>
+      <div class="articulos-grid">
+
+        <a href="/articulos/Insurtech_Evolucion_12anos_COI_Magazine.html" class="articulo-card">
+          <span class="card-tag">Insurtech · Historia</span>
+          <div class="card-titulo">Insurtech: 12 años de evolución y lo que realmente ha cambiado en el seguro</div>
+          <div class="card-meta"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 10 min</div>
+        </a>
+
+        <a href="/articulos/insurtech-comparativo.html" class="articulo-card">
+          <span class="card-tag">Insurtech · Comparativo</span>
+          <div class="card-titulo">Comparativa de modelos insurtech: qué ha funcionado y por qué</div>
+          <div class="card-meta"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 8 min</div>
+        </a>
+
+        <a href="/articulos/alan_ronda_480m.html" class="articulo-card">
+          <span class="card-tag">Insurtech · Financiación</span>
+          <div class="card-titulo">Alan cierra una ronda de 480 M€: lo que dice de la salud del insurtech europeo</div>
+          <div class="card-meta"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 5 min</div>
+        </a>
+
+        <a href="/articulos/alan_coi_articulo_linkedin.html" class="articulo-card">
+          <span class="card-tag">Alan · Análisis</span>
+          <div class="card-titulo">Alan y el modelo direct-to-consumer: lecciones para el mercado español</div>
+          <div class="card-meta"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 6 min</div>
+        </a>
+
+        <a href="/articulos/lemonade-analisis-financiero.html" class="articulo-card">
+          <span class="card-tag">Lemonade · Financiero</span>
+          <div class="card-titulo">Lemonade: análisis financiero de un insurtech en busca de rentabilidad</div>
+          <div class="card-meta"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 7 min</div>
+        </a>
+
+        <a href="/articulos/luko-analisis-financiero.html" class="articulo-card">
+          <span class="card-tag">Luko · Financiero</span>
+          <div class="card-titulo">Luko: auge y caída de un insurtech europeo. Autopsia financiera</div>
+          <div class="card-meta"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 7 min</div>
+        </a>
+
+        <a href="/articulos/wefox-analisis-financiero.html" class="articulo-card">
+          <span class="card-tag">Wefox · Financiero</span>
+          <div class="card-titulo">Wefox: el insurtech que apostó por los brokers y lo que revela su balance</div>
+          <div class="card-meta"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 7 min</div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- MERCADOS E INFORMES -->
+    <div class="cat-section" data-cat="mercados">
+      <div class="cat-title">Mercados, Regulación e Informes <span class="cat-count-badge">3</span></div>
+      <div class="articulos-grid">
+
+        <a href="/articulos/mercados-emergentes-seguros-2026.html" class="articulo-card">
+          <span class="card-tag">Mercados Emergentes</span>
+          <div class="card-titulo">Mercados emergentes del seguro en 2026: dónde está el crecimiento real</div>
+          <div class="card-meta"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 8 min</div>
+        </a>
+
+        <a href="/articulos/damantia-allianz-coi-magazine.html" class="articulo-card">
+          <span class="card-tag">M&amp;A · Allianz</span>
+          <div class="card-titulo">Damantia y Allianz: fusiones y concentración en el mercado asegurador europeo</div>
+          <div class="card-meta"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 6 min</div>
+        </a>
+
+        <a href="/articulos/informe-vullierme-waniwani.html" class="articulo-card">
+          <span class="card-tag">Informe · Innovación</span>
+          <div class="card-titulo">Informe Vullierme-Waniwani: microaseguramiento e inclusión financiera</div>
+          <div class="card-meta"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 6 min</div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- AUTORES -->
+    <div class="cat-section" data-cat="autores">
+      <div class="cat-title">Autores y Colaboraciones <span class="cat-count-badge">1</span></div>
+      <div class="articulos-grid">
+
+        <a href="/articulos/alan_coi_articulo_linkedin.html" class="articulo-card">
+          <span class="card-tag">Colaboración · COI</span>
+          <div class="card-titulo">Voces del sector: análisis y perspectivas de colaboradores de Community of Insurance</div>
+          <div class="card-meta"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 5 min</div>
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="newsletter">
+  <div class="newsletter-inner">
+    <div class="section-label" style="color: rgba(255,255,255,0.4);">LinkedIn Newsletter</div>
+    <h2>Insur·Insights llega a tu bandeja de entrada</h2>
+    <p>Análisis publicados con regularidad sobre transformación digital, IA aplicada al seguro, insurtech y el futuro de la distribución. Para el profesional que quiere anticiparse.</p>
+    <a href="https://www.linkedin.com/newsletters/insur-insights-6904496542087274496" target="_blank" class="newsletter-cta">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      Suscribirme en LinkedIn
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">Insur<span>·</span>Insights</div>
+  <div class="footer-legal">© 2026 Carlos Biurrun Murillo · Community of Insurance</div>
+  <a href="https://communityofinsurance.com" target="_blank" class="footer-link">communityofinsurance.com →</a>
+</footer>
+
+<script>
+function filtrar(cat, btn) {
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.cat-section').forEach(sec => {
+    sec.style.display = (cat === 'all' || sec.dataset.cat === cat) ? 'block' : 'none';
+  });
+}
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+</script>
+</body>
+</html>
