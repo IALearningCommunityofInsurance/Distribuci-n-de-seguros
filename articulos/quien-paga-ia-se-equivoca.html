@@ -1,0 +1,1850 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quien paga si la IA se equivoca?</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   SCOPE: todo bajo #ii-art  — seguro para Elementor/WordPress
+   Identidad: Insur·Insights navy #183577 / gold #C89646
+   ============================================================ */
+
+#ii-art {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  color: #1a1a2e;
+  background: #fff;
+  line-height: 1.7;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* ── RESET LOCAL ── */
+#ii-art *, #ii-art *::before, #ii-art *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── HEADER HERO ── */
+#ii-art .ii-hero {
+  background: #183577;
+  color: #fff;
+  padding: 56px 48px 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+#ii-art .ii-hero::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 320px; height: 320px;
+  border-radius: 50%;
+  background: rgba(200,150,70,.12);
+  pointer-events: none;
+}
+
+#ii-art .ii-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #C89646 0%, #e8b85a 50%, #C89646 100%);
+}
+
+#ii-art .ii-masthead {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+#ii-art .ii-logo-mark {
+  width: 36px; height: 36px;
+  background: #C89646;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+#ii-art .ii-logo-mark span {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px; font-weight: 900;
+  color: #183577;
+  line-height: 1;
+}
+
+#ii-art .ii-brand {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  color: rgba(255,255,255,.55);
+  text-transform: uppercase;
+}
+
+#ii-art .ii-brand strong {
+  color: #C89646;
+  font-weight: 700;
+}
+
+#ii-art .ii-kicker {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #C89646;
+  margin-bottom: 16px;
+}
+
+#ii-art .ii-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 900;
+  line-height: 1.1;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+#ii-art .ii-title em {
+  font-style: italic;
+  color: #C89646;
+}
+
+#ii-art .ii-subtitle {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255,255,255,.7);
+  line-height: 1.6;
+  max-width: 600px;
+  margin-bottom: 32px;
+}
+
+#ii-art .ii-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  border-top: 1px solid rgba(255,255,255,.12);
+  padding-top: 20px;
+}
+
+#ii-art .ii-meta-item {
+  font-size: 11px;
+  color: rgba(255,255,255,.5);
+  font-weight: 500;
+}
+
+#ii-art .ii-meta-item strong {
+  color: rgba(255,255,255,.85);
+  display: block;
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+
+/* ── IMAGEN PRINCIPAL ── */
+#ii-art .ii-cover-img {
+  width: 100%;
+  display: block;
+  max-height: 380px;
+  object-fit: cover;
+}
+
+/* ── ÍNDICE DE PARTES ── */
+#ii-art .ii-index {
+  background: #f7f8fc;
+  border-left: 4px solid #183577;
+  padding: 28px 32px;
+  margin: 40px 0;
+}
+
+#ii-art .ii-index-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #183577;
+  margin-bottom: 16px;
+}
+
+#ii-art .ii-index-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 32px;
+}
+
+@media (max-width: 600px) {
+  #ii-art .ii-index-list { grid-template-columns: 1fr; }
+}
+
+#ii-art .ii-index-list li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+#ii-art .ii-index-num {
+  flex-shrink: 0;
+  width: 22px; height: 22px;
+  background: #183577;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 1px;
+}
+
+#ii-art .ii-index-text {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1a1a2e;
+  line-height: 1.4;
+}
+
+#ii-art .ii-index-sub {
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  color: #666;
+  margin-top: 2px;
+}
+
+/* ── BODY ── */
+#ii-art .ii-body {
+  padding: 0 48px 60px;
+}
+
+@media (max-width: 600px) {
+  #ii-art .ii-hero { padding: 36px 24px 36px; }
+  #ii-art .ii-body { padding: 0 20px 40px; }
+}
+
+/* ── INTRO BOX ── */
+#ii-art .ii-intro {
+  border: 1px solid #e0e4f0;
+  border-top: 3px solid #C89646;
+  padding: 28px 32px;
+  margin: 40px 0;
+  background: #fefefe;
+}
+
+#ii-art .ii-intro-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #C89646;
+  margin-bottom: 12px;
+}
+
+#ii-art .ii-intro p {
+  font-size: 14px;
+  line-height: 1.75;
+  color: #333;
+  margin-bottom: 14px;
+}
+
+#ii-art .ii-intro p:last-child { margin-bottom: 0; }
+
+/* ── ACTORES ── */
+#ii-art .ii-actores {
+  margin: 32px 0;
+}
+
+#ii-art .ii-actores-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #183577;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e0e4f0;
+}
+
+#ii-art .ii-actor-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 600px) {
+  #ii-art .ii-actor-grid { grid-template-columns: 1fr; }
+}
+
+#ii-art .ii-actor-card {
+  background: #f7f8fc;
+  border-left: 3px solid #183577;
+  padding: 14px 16px;
+}
+
+#ii-art .ii-actor-num {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  color: #C89646;
+  margin-bottom: 4px;
+}
+
+#ii-art .ii-actor-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #183577;
+  margin-bottom: 6px;
+}
+
+#ii-art .ii-actor-desc {
+  font-size: 12px;
+  color: #555;
+  line-height: 1.55;
+}
+
+/* ── PARTES / SECCIONES ── */
+#ii-art .ii-part-header {
+  background: #183577;
+  color: #fff;
+  padding: 32px 48px;
+  margin: 48px -48px 36px;
+  position: relative;
+}
+
+@media (max-width: 600px) {
+  #ii-art .ii-part-header { padding: 24px 20px; margin: 36px -20px 28px; }
+}
+
+#ii-art .ii-part-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #C89646, transparent);
+}
+
+#ii-art .ii-part-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #C89646;
+  margin-bottom: 8px;
+}
+
+#ii-art .ii-part-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(18px, 3vw, 26px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+#ii-art .ii-part-title em {
+  font-style: italic;
+  color: #C89646;
+}
+
+#ii-art .ii-part-desc {
+  font-size: 13px;
+  color: rgba(255,255,255,.65);
+  line-height: 1.55;
+}
+
+#ii-art .ii-part-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+#ii-art .ii-pill {
+  font-size: 10px;
+  font-weight: 600;
+  color: #183577;
+  background: #C89646;
+  padding: 3px 10px;
+  letter-spacing: .05em;
+}
+
+/* ── RESUMEN EJECUTIVO ── */
+#ii-art .ii-resumen {
+  background: #183577;
+  color: #fff;
+  padding: 28px 32px;
+  margin: 28px 0;
+  position: relative;
+}
+
+#ii-art .ii-resumen-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #C89646;
+  margin-bottom: 12px;
+}
+
+#ii-art .ii-resumen h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 14px;
+  line-height: 1.3;
+}
+
+#ii-art .ii-resumen p {
+  font-size: 13px;
+  color: rgba(255,255,255,.8);
+  line-height: 1.75;
+  margin-bottom: 10px;
+}
+
+#ii-art .ii-resumen p:last-child { margin-bottom: 0; }
+
+#ii-art .ii-resumen strong { color: #C89646; font-weight: 600; }
+
+/* ── INSTRUMENTOS (3 capas UE) ── */
+#ii-art .ii-instrumentos {
+  margin: 28px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+#ii-art .ii-instrumento {
+  display: grid;
+  grid-template-columns: 4px 1fr;
+}
+
+#ii-art .ii-instrumento-bar {
+  background: #183577;
+}
+
+#ii-art .ii-instrumento-bar.gold { background: #C89646; }
+#ii-art .ii-instrumento-bar.gray { background: #bbb; }
+
+#ii-art .ii-instrumento-body {
+  border: 1px solid #e0e4f0;
+  border-left: none;
+  padding: 16px 20px;
+}
+
+#ii-art .ii-instrumento-estado {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  color: #C89646;
+  margin-bottom: 4px;
+}
+
+#ii-art .ii-instrumento-nombre {
+  font-size: 14px;
+  font-weight: 700;
+  color: #183577;
+  margin-bottom: 8px;
+}
+
+#ii-art .ii-instrumento-desc {
+  font-size: 13px;
+  color: #444;
+  line-height: 1.65;
+}
+
+#ii-art .ii-instrumento-desc strong { color: #183577; }
+
+#ii-art .ii-instrumento-tag {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  padding: 3px 10px;
+  background: #f0f3fa;
+  color: #183577;
+}
+
+/* ── TABLA COMPARATIVA ── */
+#ii-art .ii-table-wrap {
+  overflow-x: auto;
+  margin: 28px 0;
+  border: 1px solid #e0e4f0;
+}
+
+#ii-art .ii-table-cap {
+  background: #183577;
+  color: #C89646;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  padding: 10px 16px;
+}
+
+#ii-art table.ii-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+#ii-art table.ii-table thead tr {
+  background: #f0f3fa;
+}
+
+#ii-art table.ii-table thead th {
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 700;
+  color: #183577;
+  font-size: 11px;
+  border-bottom: 2px solid #183577;
+  white-space: nowrap;
+}
+
+#ii-art table.ii-table tbody tr {
+  border-bottom: 1px solid #e8eaf2;
+}
+
+#ii-art table.ii-table tbody tr:nth-child(even) {
+  background: #f9fafd;
+}
+
+#ii-art table.ii-table td {
+  padding: 10px 14px;
+  color: #333;
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+#ii-art table.ii-table td:first-child {
+  font-weight: 600;
+  color: #183577;
+  white-space: nowrap;
+}
+
+/* ── CADENA DE HECHOS ── */
+#ii-art .ii-cadena {
+  margin: 28px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+#ii-art .ii-hecho {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 0;
+  position: relative;
+}
+
+#ii-art .ii-hecho:not(:last-child) .ii-hecho-icon::after {
+  content: '';
+  position: absolute;
+  left: 24px; top: 48px;
+  width: 2px; height: calc(100% - 48px);
+  background: #e0e4f0;
+}
+
+#ii-art .ii-hecho-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 12px;
+  position: relative;
+}
+
+#ii-art .ii-hecho-icon .icon {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: #183577;
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+#ii-art .ii-hecho-icon .icon.warn { background: #c0392b; }
+#ii-art .ii-hecho-icon .icon.ok { background: #1a6b3a; }
+
+#ii-art .ii-hecho-body {
+  padding: 10px 0 24px 16px;
+}
+
+#ii-art .ii-hecho-actor {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #C89646;
+  margin-bottom: 4px;
+}
+
+#ii-art .ii-hecho-titulo {
+  font-size: 14px;
+  font-weight: 700;
+  color: #183577;
+  margin-bottom: 6px;
+}
+
+#ii-art .ii-hecho-desc {
+  font-size: 13px;
+  color: #444;
+  line-height: 1.65;
+}
+
+#ii-art .ii-hecho-tag {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 10px;
+  background: #fff0f0;
+  color: #c0392b;
+  border: 1px solid #f0c0c0;
+}
+
+#ii-art .ii-hecho-tag.ok {
+  background: #f0fff4;
+  color: #1a6b3a;
+  border-color: #b0e0c0;
+}
+
+/* ── CAPAS ARQUITECTURA ── */
+#ii-art .ii-capas {
+  margin: 28px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 600px) {
+  #ii-art .ii-capas { grid-template-columns: 1fr; }
+}
+
+#ii-art .ii-capa {
+  border: 1px solid #e0e4f0;
+  padding: 20px;
+  position: relative;
+}
+
+#ii-art .ii-capa::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: #183577;
+}
+
+#ii-art .ii-capa.gold::before { background: #C89646; }
+#ii-art .ii-capa.red::before { background: #c0392b; }
+#ii-art .ii-capa.teal::before { background: #1a7a6a; }
+
+#ii-art .ii-capa-layer {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 6px;
+}
+
+#ii-art .ii-capa-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #183577;
+  margin-bottom: 4px;
+}
+
+#ii-art .ii-capa-role {
+  font-size: 11px;
+  font-weight: 600;
+  color: #C89646;
+  margin-bottom: 10px;
+}
+
+#ii-art .ii-capa-desc {
+  font-size: 12px;
+  color: #555;
+  line-height: 1.6;
+}
+
+#ii-art .ii-capa-norm {
+  font-size: 10px;
+  color: #888;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+  line-height: 1.5;
+}
+
+#ii-art .ii-capa-exp {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 10px;
+  background: #183577;
+  color: #fff;
+}
+
+#ii-art .ii-capa-exp.high { background: #c0392b; }
+#ii-art .ii-capa-exp.med { background: #C89646; color: #183577; }
+#ii-art .ii-capa-exp.low { background: #e0e4f0; color: #555; }
+
+/* ── PLANOS NORMATIVOS ── */
+#ii-art .ii-planos {
+  margin: 28px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#ii-art .ii-plano {
+  display: grid;
+  grid-template-columns: 3px 1fr;
+}
+
+#ii-art .ii-plano-bar { background: #183577; }
+#ii-art .ii-plano-bar.p2 { background: #1a7a6a; }
+#ii-art .ii-plano-bar.p3 { background: #7a5c1a; }
+#ii-art .ii-plano-bar.p4 { background: #C89646; }
+
+#ii-art .ii-plano-body {
+  background: #f7f8fc;
+  padding: 16px 20px;
+}
+
+#ii-art .ii-plano-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #183577;
+  margin-bottom: 4px;
+}
+
+#ii-art .ii-plano-nombre {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 8px;
+}
+
+#ii-art .ii-plano-desc {
+  font-size: 13px;
+  color: #444;
+  line-height: 1.65;
+}
+
+#ii-art .ii-plano-desc strong { color: #183577; }
+
+#ii-art .ii-plano-accion {
+  margin-top: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #C89646;
+  font-style: italic;
+}
+
+/* ── MATRIZ DE IMPUTACIÓN ── */
+#ii-art .ii-matriz-wrap {
+  overflow-x: auto;
+  margin: 28px 0;
+  border: 1px solid #e0e4f0;
+}
+
+#ii-art .ii-matriz-cap {
+  background: #183577;
+  color: #C89646;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  padding: 10px 16px;
+}
+
+#ii-art table.ii-matriz {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+}
+
+#ii-art table.ii-matriz thead tr {
+  background: #f0f3fa;
+}
+
+#ii-art table.ii-matriz thead th {
+  padding: 9px 12px;
+  text-align: left;
+  font-weight: 700;
+  color: #183577;
+  font-size: 10px;
+  border-bottom: 2px solid #183577;
+}
+
+#ii-art table.ii-matriz tbody tr {
+  border-bottom: 1px solid #e8eaf2;
+}
+
+#ii-art table.ii-matriz tbody tr:nth-child(even) {
+  background: #f9fafd;
+}
+
+#ii-art table.ii-matriz td {
+  padding: 9px 12px;
+  color: #333;
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+#ii-art table.ii-matriz td:first-child {
+  font-weight: 700;
+  color: #183577;
+}
+
+#ii-art .ii-exp-alta { color: #c0392b; font-weight: 700; }
+#ii-art .ii-exp-media { color: #C89646; font-weight: 700; }
+#ii-art .ii-exp-baja { color: #1a7a6a; font-weight: 700; }
+
+/* ── TRES ACCIONES ── */
+#ii-art .ii-acciones {
+  margin: 28px 0;
+  counter-reset: accion;
+}
+
+#ii-art .ii-accion {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 0;
+  margin-bottom: 12px;
+  border: 1px solid #e0e4f0;
+  overflow: hidden;
+}
+
+#ii-art .ii-accion-num {
+  background: #183577;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 900;
+  color: #C89646;
+}
+
+#ii-art .ii-accion-body {
+  padding: 18px 20px;
+}
+
+#ii-art .ii-accion-titulo {
+  font-size: 13px;
+  font-weight: 700;
+  color: #183577;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+#ii-art .ii-accion-desc {
+  font-size: 13px;
+  color: #444;
+  line-height: 1.7;
+}
+
+#ii-art .ii-accion-desc strong { color: #183577; }
+
+/* ── PULL QUOTE ── */
+#ii-art .ii-quote {
+  border-left: 4px solid #C89646;
+  background: #f7f8fc;
+  padding: 20px 24px;
+  margin: 28px 0;
+}
+
+#ii-art .ii-quote p {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-style: italic;
+  color: #183577;
+  line-height: 1.6;
+}
+
+#ii-art .ii-quote-attr {
+  margin-top: 8px;
+  font-size: 11px;
+  color: #888;
+}
+
+/* ── DIRECTORIO ── */
+#ii-art .ii-directorio {
+  margin: 28px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#ii-art .ii-dir-card {
+  border: 1px solid #e0e4f0;
+  overflow: hidden;
+}
+
+#ii-art .ii-dir-header {
+  display: grid;
+  grid-template-columns: 4px 1fr;
+}
+
+#ii-art .ii-dir-bar { background: #183577; }
+#ii-art .ii-dir-bar.gold { background: #C89646; }
+#ii-art .ii-dir-bar.red { background: #c0392b; }
+#ii-art .ii-dir-bar.teal { background: #1a7a6a; }
+#ii-art .ii-dir-bar.gray { background: #888; }
+#ii-art .ii-dir-bar.green { background: #1a6b3a; }
+
+#ii-art .ii-dir-top {
+  background: #f7f8fc;
+  padding: 14px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+#ii-art .ii-dir-layer {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #888;
+}
+
+#ii-art .ii-dir-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #183577;
+  margin: 2px 0 3px;
+}
+
+#ii-art .ii-dir-role {
+  font-size: 11px;
+  font-weight: 600;
+  color: #C89646;
+}
+
+#ii-art .ii-dir-exp-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 12px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+#ii-art .ii-dir-exp-badge.alta { background: #c0392b; color: #fff; }
+#ii-art .ii-dir-exp-badge.alta-p { background: #8b0000; color: #fff; }
+#ii-art .ii-dir-exp-badge.interna { background: #C89646; color: #183577; }
+#ii-art .ii-dir-exp-badge.ninguna { background: #1a6b3a; color: #fff; }
+#ii-art .ii-dir-exp-badge.laboral { background: #888; color: #fff; }
+
+#ii-art .ii-dir-body {
+  padding: 16px 18px;
+  border-top: 1px solid #eee;
+}
+
+#ii-art .ii-dir-desc {
+  font-size: 13px;
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+#ii-art .ii-dir-norm {
+  font-size: 11px;
+  color: #888;
+  line-height: 1.6;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+}
+
+/* ── IMPLICACIONES ── */
+#ii-art .ii-implicaciones {
+  margin: 28px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+#ii-art .ii-impl {
+  border-bottom: 1px solid #e0e4f0;
+  padding: 20px 0;
+}
+
+#ii-art .ii-impl:first-child { padding-top: 0; }
+#ii-art .ii-impl:last-child { border-bottom: none; }
+
+#ii-art .ii-impl-para {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #C89646;
+  margin-bottom: 8px;
+}
+
+#ii-art .ii-impl-body {
+  font-size: 13px;
+  color: #333;
+  line-height: 1.75;
+}
+
+#ii-art .ii-impl-body strong { color: #183577; }
+
+/* ── DICTAMEN FINAL ── */
+#ii-art .ii-dictamen {
+  background: #183577;
+  padding: 36px 40px;
+  margin: 40px -48px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 600px) {
+  #ii-art .ii-dictamen { padding: 28px 20px; margin: 36px -20px 0; }
+}
+
+#ii-art .ii-dictamen::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #C89646, #e8b85a, #C89646);
+}
+
+#ii-art .ii-dictamen-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #C89646;
+  margin-bottom: 16px;
+}
+
+#ii-art .ii-dictamen-fallo {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(16px, 2.5vw, 22px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+#ii-art .ii-dictamen-fallo em {
+  color: #C89646;
+  font-style: italic;
+}
+
+#ii-art .ii-dictamen-body {
+  font-size: 13px;
+  color: rgba(255,255,255,.75);
+  line-height: 1.75;
+  margin-bottom: 24px;
+}
+
+#ii-art .ii-dictamen-puntos {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+#ii-art .ii-dictamen-punto {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 12px;
+  color: rgba(255,255,255,.8);
+}
+
+#ii-art .ii-dictamen-punto::before {
+  content: '▸';
+  color: #C89646;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── FOOTER ── */
+#ii-art .ii-footer {
+  background: #f7f8fc;
+  border-top: 3px solid #C89646;
+  padding: 20px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media (max-width: 600px) {
+  #ii-art .ii-footer { padding: 16px 20px; }
+}
+
+#ii-art .ii-footer-brand {
+  font-size: 12px;
+  font-weight: 700;
+  color: #183577;
+}
+
+#ii-art .ii-footer-meta {
+  font-size: 11px;
+  color: #888;
+}
+
+/* ── TEXTO CUERPO GENÉRICO ── */
+#ii-art .ii-prose {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.8;
+  margin: 16px 0;
+}
+
+#ii-art .ii-prose strong { color: #183577; }
+
+#ii-art .ii-h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #183577;
+  margin: 32px 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e0e4f0;
+}
+
+#ii-art .ii-advertencia {
+  border: 1px solid #f0d080;
+  background: #fffbf0;
+  padding: 16px 20px;
+  margin: 20px 0;
+  font-size: 13px;
+  color: #555;
+  line-height: 1.65;
+}
+
+#ii-art .ii-advertencia strong {
+  color: #a06000;
+  display: block;
+  margin-bottom: 4px;
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+#ii-art .ii-nota-clave {
+  background: #f0f3fa;
+  border-left: 4px solid #183577;
+  padding: 16px 20px;
+  margin: 20px 0;
+  font-size: 13px;
+  color: #333;
+  line-height: 1.65;
+}
+
+#ii-art .ii-nota-clave strong {
+  color: #183577;
+  display: block;
+  margin-bottom: 6px;
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+</style>
+</head>
+<body>
+
+<article id="ii-art">
+
+  <!-- ════════════════════════════════════════
+       HERO
+  ════════════════════════════════════════ -->
+  <header class="ii-hero">
+    <div class="ii-masthead">
+      <div class="ii-logo-mark"><span>I</span></div>
+      <div class="ii-brand"><strong>Insur·Insights</strong> · Community of Insurance · Derecho Digital &amp; IA</div>
+    </div>
+    <div class="ii-kicker">Informe especial · Agosto 2026</div>
+    <h1 class="ii-title">¿Quién paga si la <em>IA se equivoca?</em></h1>
+    <p class="ii-subtitle">IA Agéntica y Responsabilidad Legal en el Sector Asegurador. Marco regulatorio global, análisis de responsabilidad civil y dictamen del caso bajo el derecho de la Unión Europea.</p>
+    <div class="ii-meta-row">
+      <div class="ii-meta-item"><strong>Autor</strong>Carlos Biurrun · COI</div>
+      <div class="ii-meta-item"><strong>Publicado</strong>01.09.2026</div>
+      <div class="ii-meta-item"><strong>Lectura</strong>26 minutos</div>
+      <div class="ii-meta-item"><strong>Jurisdicción</strong>España · UE</div>
+    </div>
+  </header>
+
+  <div class="ii-body">
+
+    <!-- Índice -->
+    <nav class="ii-index">
+      <div class="ii-index-title">Contenido del informe</div>
+      <ul class="ii-index-list">
+        <li>
+          <div class="ii-index-num">I</div>
+          <div class="ii-index-text">Marco Regulatorio Global
+            <span class="ii-index-sub">AI Act · Directiva de Productos · 9 marcos en 6 jurisdicciones</span>
+          </div>
+        </li>
+        <li>
+          <div class="ii-index-num">II</div>
+          <div class="ii-index-text">El Caso
+            <span class="ii-index-sub">Error de agente IA en la suscripción · 4 actores · Cadena de hechos</span>
+          </div>
+        </li>
+        <li>
+          <div class="ii-index-num">III</div>
+          <div class="ii-index-text">Dictamen Jurídico
+            <span class="ii-index-sub">Matriz de imputación · Tres acciones concurrentes · Cadena de regreso</span>
+          </div>
+        </li>
+        <li>
+          <div class="ii-index-num">IV</div>
+          <div class="ii-index-text">Directorio e Implicaciones Sectoriales
+            <span class="ii-index-sub">Roles, exposición · Corredores · Aseguradoras · Proveedores IA</span>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- ── NOTA INTRODUCTORIA ── -->
+    <div class="ii-intro">
+      <div class="ii-intro-label">Nota introductoria · COI</div>
+      <p>En los últimos meses hemos conocido casos de uso de IA agéntica para la contratación de seguros de hogar. Fue objeto de noticia en muchos medios del mundo la fuerte caída de la cotización de los grandes brokers y de algunas compañías aseguradoras como consecuencia de la noticia difundida por OpenAI: que los usuarios de ChatGPT podrían contratar seguros de hogar directamente. El caso dado a conocer tenía como sujeto activo una correduría que además es un MGA (Managing General Agent) y generó —pocos— comentarios sobre el alcance de responsabilidades ante posibles daños al asegurado.</p>
+      <p>Este informe profundiza sobre eventuales responsabilidades y la compensación de daños derivados de una responsabilidad profesional por defectos generados en la contratación de un seguro. <strong>Estaremos encantados de que los excelentes juristas del derecho de seguros y digital aporten su conocimiento a la comunidad iberoamericana del conocimiento asegurador.</strong></p>
+    </div>
+
+    <div class="ii-advertencia">
+      <strong>Advertencia</strong>
+      El presente informe no pretende más que llamar la atención y abrir un debate sobre aspectos jurídicos relacionados con eventuales responsabilidades derivadas del uso de la IA agéntica. Es una derivada que nos parece importante al hacer seguimiento del estado de la IA aplicada a seguros. Cada cual es libre de poner nombres a los actores que intervienen en el caso que planteamos.
+    </div>
+
+    <!-- ACTORES -->
+    <div class="ii-actores">
+      <div class="ii-actores-title">Los cuatro actores del caso</div>
+      <div class="ii-actor-grid">
+        <div class="ii-actor-card">
+          <div class="ii-actor-num">Actor 1</div>
+          <div class="ii-actor-name">El Cliente</div>
+          <div class="ii-actor-desc">Inicia el proceso de solicitar y contratar una póliza de seguro de hogar a través de ChatGPT.</div>
+        </div>
+        <div class="ii-actor-card">
+          <div class="ii-actor-num">Actor 2</div>
+          <div class="ii-actor-name">Capa Facilitadora de IA</div>
+          <div class="ii-actor-desc">La capa de software IA que enlaza al cliente con la plataforma del Corredor a través de ChatGPT (capa MCP).</div>
+        </div>
+        <div class="ii-actor-card">
+          <div class="ii-actor-num">Actor 3</div>
+          <div class="ii-actor-name">El Corredor</div>
+          <div class="ii-actor-desc">Plataforma del Corredor, gestionada por su personal, conectada con ChatGPT a través de la Capa Facilitadora. Opera también como MGA.</div>
+        </div>
+        <div class="ii-actor-card">
+          <div class="ii-actor-num">Actor 4</div>
+          <div class="ii-actor-name">El Asegurador</div>
+          <div class="ii-actor-desc">Acepta la cobertura del riesgo de hogar mediante la emisión de la póliza por El Corredor, recogiendo los datos facilitados a través de la Capa Facilitadora.</div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ════════════════════════════════════════
+         PARTE I
+    ════════════════════════════════════════ -->
+    <div class="ii-part-header">
+      <div class="ii-part-eyebrow">Parte I · Marco Regulatorio Global</div>
+      <h2 class="ii-part-title">La IA Agéntica Desborda los Marcos de <em>Responsabilidad</em> Vigentes</h2>
+      <p class="ii-part-desc">Ningún ordenamiento del mundo ha resuelto aún de forma satisfactoria la atribución de responsabilidad cuando el daño proviene de una decisión autónoma de un agente de IA sin instrucción humana identificable.</p>
+      <div class="ii-part-pills">
+        <span class="ii-pill">AI Act UE 2024/1689</span>
+        <span class="ii-pill">Dir. 2024/2853</span>
+        <span class="ii-pill">9 marcos · 6 jurisdicciones</span>
+      </div>
+    </div>
+
+    <div class="ii-resumen">
+      <div class="ii-resumen-label">Resumen ejecutivo</div>
+      <h3>La paradoja regulatoria de 2026: el marco más ambicioso no indemniza</h3>
+      <p>La IA agéntica —sistemas que actúan de forma autónoma, encadenan decisiones y ejecutan acciones en el mundo real sin supervisión humana continua— representa el salto cualitativo que convierte la regulación en urgencia. A diferencia de la IA generativa, que produce contenido, los agentes <em>hacen cosas</em>: contratan, ejecutan transacciones y toman decisiones con consecuencias patrimoniales directas.</p>
+      <p>El panorama regulatorio en 2026 muestra una paradoja de fondo: el <strong>AI Act europeo</strong> (Reglamento UE 2024/1689), el marco más ambicioso del mundo, opera en clave preventiva pero no atribuye responsabilidad civil cuando el daño ya se ha producido. La Directiva específica de Responsabilidad por IA fue retirada formalmente en 2025. El instrumento que hoy llena ese vacío —de forma parcial— es la <strong>Directiva de Productos Defectuosos</strong> (UE 2024/2853), que por primera vez extiende la responsabilidad objetiva al software y los sistemas de IA, con transposición obligatoria antes del 9 de diciembre de 2026.</p>
+    </div>
+
+    <h3 class="ii-h3">El problema jurídico central: cuando la máquina decide sola</h3>
+    <p class="ii-prose">Los sistemas de IA agéntica presentan tres características que los hacen radicalmente distintos de cualquier herramienta jurídicamente regulada hasta hoy: <strong>autonomía de decisión</strong> —actúan sin instrucción humana en cada paso—, <strong>opacidad causal</strong> —la trayectoria entre instrucción inicial y acción ejecutada es ininteligible para el perjudicado— y <strong>delegación en cadena</strong> —un agente puede delegar en sub-agentes, diluyendo la cadena de custodia—.</p>
+
+    <div class="ii-quote">
+      <p>Si un agente de IA, correctamente programado y desplegado, causa un daño al adoptar una decisión que ningún humano anticipó ni ordenó, ¿responde el fabricante del modelo, el desarrollador que configuró el agente, el operador que lo activó, o el usuario que inició la tarea?</p>
+      <div class="ii-quote-attr">Community of Insurance · COI · Agosto 2026</div>
+    </div>
+
+    <h3 class="ii-h3">El marco europeo: tres capas que no encajan perfectamente</h3>
+
+    <div class="ii-instrumentos">
+      <div class="ii-instrumento">
+        <div class="ii-instrumento-bar"></div>
+        <div class="ii-instrumento-body">
+          <div class="ii-instrumento-estado">🇪🇺 Vigente — fases desde ago. 2024</div>
+          <div class="ii-instrumento-nombre">AI Act · Reglamento (UE) 2024/1689</div>
+          <div class="ii-instrumento-desc">Marco preventivo por niveles de riesgo. Exige gestión de riesgos, documentación técnica y supervisión humana efectiva (art. 14) para sistemas de alto riesgo. <strong>No atribuye responsabilidad civil</strong> cuando el daño se produce: sus sanciones son administrativas. Los agentes con capacidad de actuar en el mundo real —como los que participan en la contratación de seguros— pueden quedar clasificados como alto riesgo bajo el Anexo III.</div>
+          <div class="ii-instrumento-tag">Gobernanza ex ante · No indemnizatorio</div>
+        </div>
+      </div>
+      <div class="ii-instrumento">
+        <div class="ii-instrumento-bar gold"></div>
+        <div class="ii-instrumento-body">
+          <div class="ii-instrumento-estado">🇪🇺 Transposición: 9 dic. 2026</div>
+          <div class="ii-instrumento-nombre">Directiva de Productos Defectuosos (UE) 2024/2853</div>
+          <div class="ii-instrumento-desc">Ampliación expresa al software y los sistemas de IA. <strong>Responsabilidad objetiva:</strong> basta probar el defecto, el daño y el nexo causal; no es necesario acreditar culpa. La carga de la prueba se invierte: es el fabricante o desarrollador quien debe demostrar la ausencia de defecto. Principal instrumento de compensación disponible hasta que aparezca una norma específica para IA.</div>
+          <div class="ii-instrumento-tag">Responsabilidad objetiva · Carga invertida</div>
+        </div>
+      </div>
+      <div class="ii-instrumento">
+        <div class="ii-instrumento-bar gray"></div>
+        <div class="ii-instrumento-body">
+          <div class="ii-instrumento-estado">🇪🇺 Retirada formal, 2025</div>
+          <div class="ii-instrumento-nombre">Propuesta de Directiva de Responsabilidad por IA (COM/2022/496)</div>
+          <div class="ii-instrumento-desc">Retirada por la Comisión Europea en 2025 tras el rechazo del comité IMCO, que la consideró prematura. Incluía presunción de causalidad a favor de la víctima y obligación de revelar evidencias por parte del proveedor. Su retirada deja el vacío que cubre solo parcialmente la Directiva de Productos. <strong>Sin reemplazo anunciado.</strong></div>
+          <div class="ii-instrumento-tag">Retirada · Vacío sin cubrir</div>
+        </div>
+      </div>
+      <div class="ii-instrumento">
+        <div class="ii-instrumento-bar gray"></div>
+        <div class="ii-instrumento-body">
+          <div class="ii-instrumento-estado">🇪🇸 Régimen residual</div>
+          <div class="ii-instrumento-nombre">Código Civil · Art. 1902 · AESIA</div>
+          <div class="ii-instrumento-desc">Responsabilidad extracontractual clásica: la víctima soporta la carga de probar la culpa del causante. Difícilmente aplicable cuando el agente actúa autónomamente. España creó la AESIA (Agencia Española de Supervisión de IA, agosto 2023) para supervisión administrativa, pero sin régimen indemnizatorio propio.</div>
+          <div class="ii-instrumento-tag">Carga sobre la víctima · Insuficiente</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ii-nota-clave">
+      <strong>Clave práctica — Calendario 2026-2027</strong>
+      El AI Act exige cumplimiento de transparencia desde agosto de 2026. Los requisitos para sistemas de alto riesgo (Anexo III) se aplican desde diciembre de 2027 —aplazados por el Reglamento Ómnibus Digital UE 2026/1744—. La Directiva de Productos genera exposición desde diciembre de 2026. <strong>Entre agosto y diciembre de 2026 opera la brecha más peligrosa:</strong> el AI Act exige supervisión pero no indemniza, y la Directiva de Productos aún no ha sido transpuesta en todos los Estados miembros.
+    </div>
+
+    <h3 class="ii-h3">Cuadro comparativo: 9 marcos regulatorios en perspectiva global</h3>
+
+    <div class="ii-table-wrap">
+      <div class="ii-table-cap">Análisis comparativo · Agosto 2026 · Responsabilidad Legal de la IA Agéntica</div>
+      <table class="ii-table">
+        <thead>
+          <tr>
+            <th>Jurisdicción / Instrumento</th>
+            <th>Tipo · Estado</th>
+            <th>Modelo de responsabilidad</th>
+            <th>Carga probatoria</th>
+            <th>Sujeto imputado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>🇪🇺 AI Act (UE 2024/1689)</td>
+            <td>Reglamento UE · En vigor</td>
+            <td>Preventivo · No indemnizatorio</td>
+            <td>No aplica (sanción adm.)</td>
+            <td>Proveedor y desplegador</td>
+          </tr>
+          <tr>
+            <td>🇪🇺 Dir. Productos (UE 2024/2853)</td>
+            <td>Directiva UE · Transposición dic. 2026</td>
+            <td>Responsabilidad objetiva por defecto en software/IA</td>
+            <td>Invertida: fabricante prueba ausencia de defecto</td>
+            <td>Fabricante/desplegador si configuró mal</td>
+          </tr>
+          <tr>
+            <td>🇪🇺 Dir. Responsabilidad IA</td>
+            <td>Propuesta CE · Retirada 2025</td>
+            <td>Culpa + presunción de causalidad</td>
+            <td>Facilitada para víctima</td>
+            <td>Proveedor, operador, usuario</td>
+          </tr>
+          <tr>
+            <td>🇪🇸 CC art. 1902</td>
+            <td>Derecho nacional · Vigente · Insuf.</td>
+            <td>Culpa o negligencia</td>
+            <td>Sobre la víctima</td>
+            <td>Causante del daño (difuso en IA)</td>
+          </tr>
+          <tr>
+            <td>🇺🇸 Texas TRAIGA (ene. 2026)</td>
+            <td>Ley estatal · Vigente</td>
+            <td>Negligencia del operador</td>
+            <td>Sobre la víctima</td>
+            <td>Operador del agente</td>
+          </tr>
+          <tr>
+            <td>🇺🇸 California SB 243 (sep. 2025)</td>
+            <td>Ley estatal · Vigente</td>
+            <td>Negligencia + salvaguardas razonables</td>
+            <td>Acción privada directa</td>
+            <td>Desarrollador y operador</td>
+          </tr>
+          <tr>
+            <td>🇸🇬 IMDA Agentic AI Framework</td>
+            <td>Marco voluntario · En evolución</td>
+            <td>Supervisión humana como eje de atribución</td>
+            <td>Quien ejerce control efectivo</td>
+            <td>Operador/desplegador con control</td>
+          </tr>
+          <tr>
+            <td>🇨🇳 Medidas IA Gen. + Ley Ciberseg. 2026</td>
+            <td>Reglamento estatal · Vigente</td>
+            <td>Autorización previa + responsabilidad del proveedor</td>
+            <td>Control estatal preventivo</td>
+            <td>Proveedor del servicio</td>
+          </tr>
+          <tr>
+            <td>🌐 G7 Código de Conducta IA (2023)</td>
+            <td>Soft law · No vinculante</td>
+            <td>Principios guía sin fuerza vinculante</td>
+            <td>No aplica</td>
+            <td>Buenas prácticas voluntarias</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+    <!-- ════════════════════════════════════════
+         PARTE II
+    ════════════════════════════════════════ -->
+    <div class="ii-part-header">
+      <div class="ii-part-eyebrow">Parte II · El Caso · Análisis Jurídico</div>
+      <h2 class="ii-part-title">Error de Agente IA en la Suscripción: <em>Capa Facilitadora / El Corredor / El Asegurador</em></h2>
+      <p class="ii-part-desc">Un error de fecha cometido por un agente IA en la capa MCP de distribución pone a prueba la arquitectura legal del seguro digital y la supervisión humana exigida por el AI Act.</p>
+      <div class="ii-part-pills">
+        <span class="ii-pill">RDL 3/2020</span>
+        <span class="ii-pill">LCS 50/1980</span>
+        <span class="ii-pill">AI Act</span>
+        <span class="ii-pill">Dir. 2024/2853</span>
+      </div>
+    </div>
+
+    <h3 class="ii-h3">Supuesto de hecho y cadena de hechos</h3>
+
+    <div class="ii-cadena">
+      <div class="ii-hecho">
+        <div class="ii-hecho-icon">
+          <div class="icon">🤖</div>
+        </div>
+        <div class="ii-hecho-body">
+          <div class="ii-hecho-actor">Capa Facilitadora de IA · Agente IA / MCP</div>
+          <div class="ii-hecho-titulo">El agente genera un dato de fecha de efecto incorrecto</div>
+          <div class="ii-hecho-desc">El agente procesa la solicitud de contratación y genera un dato de fecha de efecto incorrecto, que traslada estructurado al sistema de suscripción de El Corredor / El Asegurador.</div>
+          <span class="ii-hecho-tag">⚠ Error causal originario</span>
+        </div>
+      </div>
+      <div class="ii-hecho">
+        <div class="ii-hecho-icon">
+          <div class="icon warn">👤</div>
+        </div>
+        <div class="ii-hecho-body">
+          <div class="ii-hecho-actor">Supervisor Humano · El Corredor</div>
+          <div class="ii-hecho-titulo">Valida sin detectar el error</div>
+          <div class="ii-hecho-desc">El supervisor humano asignado al proceso de revisión valida sin detectar el error. Fallo de supervisión significativa que exige el art. 14 del AI Act y que la normativa de mediación requiere. El fenómeno de <em>automation bias</em> —tendencia a validar sin verificar en entornos de alta frecuencia— explica sin justificar el fallo.</div>
+          <span class="ii-hecho-tag">⚠ Fallo de diligencia profesional del mediador</span>
+        </div>
+      </div>
+      <div class="ii-hecho">
+        <div class="ii-hecho-icon">
+          <div class="icon">📋</div>
+        </div>
+        <div class="ii-hecho-body">
+          <div class="ii-hecho-actor">El Corredor (MGA) · En nombre de El Asegurador</div>
+          <div class="ii-hecho-titulo">La póliza se emite con la fecha errónea</div>
+          <div class="ii-hecho-desc">La póliza se emite con la fecha errónea, dentro del mandato delegado de suscripción. El acto de emisión es, en sus efectos frente al cliente, un acto de El Asegurador.</div>
+          <span class="ii-hecho-tag ok">Acto del mandatario vincula al mandante</span>
+        </div>
+      </div>
+      <div class="ii-hecho">
+        <div class="ii-hecho-icon">
+          <div class="icon warn">🔥</div>
+        </div>
+        <div class="ii-hecho-body">
+          <div class="ii-hecho-actor">El Asegurador</div>
+          <div class="ii-hecho-titulo">Rechaza el siniestro — daño efectivo al cliente</div>
+          <div class="ii-hecho-desc">El Asegurador rechaza el siniestro alegando que ocurrió fuera del período de vigencia consignado en la póliza —período erróneo fijado por el agente IA—. El rechazo genera el perjuicio patrimonial al cliente.</div>
+          <span class="ii-hecho-tag">⚠ Rechazo indebido · Daño efectivo al cliente</span>
+        </div>
+      </div>
+      <div class="ii-hecho">
+        <div class="ii-hecho-icon">
+          <div class="icon ok">👤</div>
+        </div>
+        <div class="ii-hecho-body">
+          <div class="ii-hecho-actor">El Cliente · Perjudicado</div>
+          <div class="ii-hecho-titulo">Actuó de buena fe en todo momento</div>
+          <div class="ii-hecho-desc">Contrató a través del canal digital habilitado, recibió una póliza y pagó primas. No tuvo ninguna intervención en la fijación de la fecha de efecto.</div>
+          <span class="ii-hecho-tag ok">Sin intervención culpable · Perjudicado</span>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="ii-h3">Arquitectura real de partes: cuatro sujetos, cuatro roles jurídicos</h3>
+
+    <div class="ii-capas">
+      <div class="ii-capa">
+        <div class="ii-capa-layer">Capa 01 · IA</div>
+        <div class="ii-capa-name">Capa Facilitadora de IA</div>
+        <div class="ii-capa-role">Proveedor IA · MCP</div>
+        <div class="ii-capa-desc">Infraestructura de distribución conversacional. Traduce lenguaje natural en datos estructurados de suscripción. Comete el error de fecha de efecto.</div>
+        <div class="ii-capa-norm">AI Act art. 3.3 · Proveedor del sistema</div>
+        <span class="ii-capa-exp high">Exposición alta</span>
+      </div>
+      <div class="ii-capa gold">
+        <div class="ii-capa-layer">Capa 02 · Distribución</div>
+        <div class="ii-capa-name">El Corredor</div>
+        <div class="ii-capa-role">Corredor DGSFP · Mediador registrado</div>
+        <div class="ii-capa-desc">Correduría registrada. Usa la Capa Facilitadora como herramienta de distribución. Su supervisor valida el dato erróneo. Responsabilidad profesional propia.</div>
+        <div class="ii-capa-norm">RDL 3/2020 · AI Act art. 3.4 (desplegador)</div>
+        <span class="ii-capa-exp high">Exposición alta · Propia e intransferible</span>
+      </div>
+      <div class="ii-capa">
+        <div class="ii-capa-layer">Capa 02b · Suscripción</div>
+        <div class="ii-capa-name">El Corredor (MGA)</div>
+        <div class="ii-capa-role">Agencia de Suscripción delegada</div>
+        <div class="ii-capa-desc">Agencia de suscripción delegada de El Asegurador. Sus actos dentro del mandato son actos de El Asegurador frente al cliente.</div>
+        <div class="ii-capa-norm">CC arts. 1709 y ss. · Mandato · RDL 3/2020</div>
+        <span class="ii-capa-exp med">Exposición interna frente a El Asegurador</span>
+      </div>
+      <div class="ii-capa red">
+        <div class="ii-capa-layer">Capa 03 · Riesgo</div>
+        <div class="ii-capa-name">El Asegurador</div>
+        <div class="ii-capa-role">Entidad aseguradora · Porta el riesgo</div>
+        <div class="ii-capa-desc">La póliza emitida —con error de fecha— es su contrato frente al cliente. Responde por los actos de su mandataria (El Corredor MGA).</div>
+        <div class="ii-capa-norm">LCS 50/1980 · LOSSP · Supervisada DGSFP</div>
+        <span class="ii-capa-exp high">Exposición muy alta · Principal frente al cliente</span>
+      </div>
+    </div>
+
+    <div class="ii-nota-clave">
+      <strong>La distinción que lo cambia todo</strong>
+      El Corredor (corredor) actúa como intermediario independiente con responsabilidad propia por el asesoramiento y la tramitación. El Corredor (MGA) actúa como mandataria de El Asegurador con poderes delegados para emitir pólizas: sus actos dentro del mandato son, frente al cliente de buena fe, <strong>actos de El Asegurador.</strong> Ambas figuras coexisten en el mismo grupo y generan cadenas de responsabilidad diferenciadas.
+    </div>
+
+
+    <!-- ════════════════════════════════════════
+         PARTE III
+    ════════════════════════════════════════ -->
+    <div class="ii-part-header">
+      <div class="ii-part-eyebrow">Parte III · Dictamen Jurídico</div>
+      <h2 class="ii-part-title">Análisis de Responsabilidad y <em>Acciones del Cliente</em></h2>
+      <p class="ii-part-desc">Marco normativo aplicable, matriz de imputación por sujeto, las tres acciones concurrentes del cliente y la cadena de regreso interna entre los actores.</p>
+      <div class="ii-part-pills">
+        <span class="ii-pill">LCS 50/1980</span>
+        <span class="ii-pill">RDL 3/2020</span>
+        <span class="ii-pill">AI Act arts. 9, 14, 26</span>
+        <span class="ii-pill">Dir. 2024/2853</span>
+      </div>
+    </div>
+
+    <h3 class="ii-h3">Marco normativo: cuatro planos que convergen</h3>
+
+    <div class="ii-planos">
+      <div class="ii-plano">
+        <div class="ii-plano-bar"></div>
+        <div class="ii-plano-body">
+          <div class="ii-plano-tag">Plano de Mediación</div>
+          <div class="ii-plano-nombre">RDL 3/2020 · Distribución de Seguros (IDD)</div>
+          <div class="ii-plano-desc">El corredor responde personalmente por los daños causados al cliente derivados de su actividad de mediación (arts. 130 y 179). RC profesional propia obligatoria: mínimo <strong>1.564.610 € por siniestro.</strong> El error en la tramitación y la validación incorrecta del dato de fecha son actividades de mediación, con independencia de que se hayan ejecutado con apoyo de un agente de IA.</div>
+          <div class="ii-plano-accion">→ Responsabilidad propia e intransferible del corredor</div>
+        </div>
+      </div>
+      <div class="ii-plano">
+        <div class="ii-plano-bar p2"></div>
+        <div class="ii-plano-body">
+          <div class="ii-plano-tag">Plano del Contrato de Seguro</div>
+          <div class="ii-plano-nombre">LCS 50/1980 · Ley de Contrato de Seguro</div>
+          <div class="ii-plano-desc">La póliza es el contrato entre El Asegurador y el cliente. Art. 8: debe reflejar exactamente las condiciones pactadas. <strong>Art. 20: mora del asegurador ante denegación injustificada</strong> (recargo del 20% anual superados dos años). El rechazo del siniestro basado en un error de la propia cadena emisora es impugnable como incumplimiento contractual directo.</div>
+          <div class="ii-plano-accion">→ Acción contractual directa del cliente contra El Asegurador</div>
+        </div>
+      </div>
+      <div class="ii-plano">
+        <div class="ii-plano-bar p3"></div>
+        <div class="ii-plano-body">
+          <div class="ii-plano-tag">Plano de Gobernanza IA</div>
+          <div class="ii-plano-nombre">AI Act (UE 2024/1689) · Arts. 9, 14 y 26</div>
+          <div class="ii-plano-desc">La Capa Facilitadora (proveedor) y El Corredor (desarrollador) asumen obligaciones de gestión de riesgos y supervisión humana efectiva —no meramente formal—. El incumplimiento no genera indemnización directa a la víctima, pero <strong>acredita la negligencia del mediador</strong> y refuerza las acciones de regreso frente al proveedor IA.</div>
+          <div class="ii-plano-accion">→ Acredita negligencia · Refuerza acciones de regreso</div>
+        </div>
+      </div>
+      <div class="ii-plano">
+        <div class="ii-plano-bar p4"></div>
+        <div class="ii-plano-body">
+          <div class="ii-plano-tag">Plano de Responsabilidad Civil</div>
+          <div class="ii-plano-nombre">Directiva de Productos (UE) 2024/2853</div>
+          <div class="ii-plano-desc">Responsabilidad objetiva por defecto en el sistema de IA. La Capa Facilitadora, como proveedor, puede ser demandada directamente por el perjudicado sin necesidad de probar culpa, con carga invertida, <strong>desde la transposición (dic. 2026).</strong></div>
+          <div class="ii-plano-accion">→ Acción directa del consumidor desde dic. 2026</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="ii-h3">Matriz de imputación: quién responde de qué</h3>
+
+    <div class="ii-matriz-wrap">
+      <div class="ii-matriz-cap">Caso: Capa Facilitadora / El Corredor (corredor/MGA) / El Asegurador · Agosto 2026</div>
+      <table class="ii-matriz">
+        <thead>
+          <tr>
+            <th>Sujeto</th>
+            <th>Fallo atribuible</th>
+            <th>Norma principal</th>
+            <th>Acción del cliente</th>
+            <th>Exposición</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>El Asegurador</td>
+            <td>Póliza emitida por su mandataria con fecha errónea; rechazo del siniestro. Error del mandatario = su error frente al cliente.</td>
+            <td>LCS arts. 1, 8 y 20; nemo auditur</td>
+            <td>Acción contractual directa + recargo art. 20 LCS</td>
+            <td><span class="ii-exp-alta">Muy alta · Principal</span></td>
+          </tr>
+          <tr>
+            <td>El Corredor (corredor)</td>
+            <td>Validación incorrecta del dato crítico; despliegue de IA sin supervisión efectiva.</td>
+            <td>RDL 3/2020 arts. 130 y 179; AI Act art. 14</td>
+            <td>RC profesional obligatoria (mín. 1.564.610 €)</td>
+            <td><span class="ii-exp-alta">Alta · Propia e intransferible</span></td>
+          </tr>
+          <tr>
+            <td>El Corredor (MGA)</td>
+            <td>Emisión de póliza con fecha errónea dentro del mandato de suscripción.</td>
+            <td>CC arts. 1709 y ss.; RDL 3/2020</td>
+            <td>No acción directa del cliente. El Asegurador puede ejercer regreso contra El Corredor (MGA).</td>
+            <td><span class="ii-exp-media">Exposición interna</span></td>
+          </tr>
+          <tr>
+            <td>Capa Facilitadora de IA</td>
+            <td>Defecto en el procesamiento del dato de fecha de efecto; ausencia de validación de campo crítico en la capa MCP.</td>
+            <td>Dir. 2024/2853; AI Act art. 9; contrato B2B</td>
+            <td>Acción directa (Dir. 2024/2853, desde dic. 2026) + regreso de El Corredor</td>
+            <td><span class="ii-exp-alta">Alta · Solidaria en cadena de regreso</span></td>
+          </tr>
+          <tr>
+            <td>Supervisor humano</td>
+            <td>Validación sin revisión efectiva; automation bias.</td>
+            <td>Art. 14 AI Act; derecho laboral; normativa interna</td>
+            <td>Sin acción directa del cliente. Refuerza la responsabilidad de El Corredor.</td>
+            <td><span class="ii-exp-baja">Interna laboral únicamente</span></td>
+          </tr>
+          <tr>
+            <td>El Cliente</td>
+            <td>Ninguno identificado.</td>
+            <td>—</td>
+            <td>Tres acciones concurrentes disponibles</td>
+            <td><span class="ii-exp-baja">Sin responsabilidad · Plena protección</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="ii-h3">Las tres acciones del cliente: estrategia de reclamación</h3>
+
+    <div class="ii-acciones">
+      <div class="ii-accion">
+        <div class="ii-accion-num">1</div>
+        <div class="ii-accion-body">
+          <div class="ii-accion-titulo">Acción contractual directa contra El Asegurador (vía preferente y más rápida)</div>
+          <div class="ii-accion-desc">La póliza es el contrato con El Asegurador. El rechazo basado en una fecha incorrecta fijada por el propio sistema emisor de El Asegurador no es oponible al cliente de buena fe: equivale a alegar el propio incumplimiento como causa de exoneración (<em>nemo auditur propriam turpitudinem allegans</em>). El <strong>art. 20 LCS</strong> impone un recargo del 20% anual si el rechazo se sostiene injustificadamente durante más de dos años. La reclamación puede iniciarse ante el Defensor del Asegurado y, si no se resuelve, ante la DGSFP.</div>
+        </div>
+      </div>
+      <div class="ii-accion">
+        <div class="ii-accion-num">2</div>
+        <div class="ii-accion-body">
+          <div class="ii-accion-titulo">Acción por responsabilidad civil profesional contra El Corredor</div>
+          <div class="ii-accion-desc">El corredor responde de los daños causados por su actuación negligente en la distribución con independencia de lo que responda el asegurador. El error de validación y el despliegue de IA sin supervisión efectiva son actividades de mediación que generan responsabilidad propia bajo el <strong>RDL 3/2020 (arts. 130 y 179).</strong> No es necesario acreditar dolo: basta la negligencia profesional. La RC profesional obligatoria de El Corredor (mínimo <strong>1.564.610 € por siniestro</strong>) es el patrimonio con el que responde.</div>
+        </div>
+      </div>
+      <div class="ii-accion">
+        <div class="ii-accion-num">3</div>
+        <div class="ii-accion-body">
+          <div class="ii-accion-titulo">Acción directa contra la Capa Facilitadora de IA (Directiva de Productos · desde dic. 2026)</div>
+          <div class="ii-accion-desc">Basta acreditar el defecto (fecha incorrecta), el daño (siniestro rechazado) y el nexo causal. La carga de probar la ausencia de defecto recae sobre la Capa Facilitadora. Esta acción es subsidiaria en la práctica, pero es especialmente relevante si el error es sistémico y afecta a más clientes, o si los dos primeros sujetos dilatan o niegan el pago.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ii-quote">
+      <p>La supervisión humana que no verifica no es supervisión: es teatro regulatorio. El caso no es una historia sobre IA que falla. Es una historia sobre procesos que confían ciegamente en la IA y sobre modelos de negocio que externalizan en capas técnicas la diligencia que el derecho exige de las personas.</p>
+      <div class="ii-quote-attr">Community of Insurance · COI · Agosto 2026</div>
+    </div>
+
+
+    <!-- ════════════════════════════════════════
+         PARTE IV
+    ════════════════════════════════════════ -->
+    <div class="ii-part-header">
+      <div class="ii-part-eyebrow">Parte IV · Directorio de Sujetos e Implicaciones Sectoriales</div>
+      <h2 class="ii-part-title">Quién es Quién: <em>Roles, Exposición y lo que la IA Agéntica Cambia</em></h2>
+      <p class="ii-part-desc">Un resumen práctico de cada actor del caso, su exposición legal real y las implicaciones que la irrupción de la IA agéntica introduce en los modelos de negocio asegurador.</p>
+    </div>
+
+    <div class="ii-directorio">
+
+      <div class="ii-dir-card">
+        <div class="ii-dir-header">
+          <div class="ii-dir-bar"></div>
+          <div class="ii-dir-top">
+            <div>
+              <div class="ii-dir-layer">Capa IA · Proveedor del sistema</div>
+              <div class="ii-dir-name">Capa Facilitadora de IA</div>
+              <div class="ii-dir-role">Proveedor IA · MCP</div>
+            </div>
+            <span class="ii-dir-exp-badge alta">Exposición: Alta desde dic. 2026</span>
+          </div>
+        </div>
+        <div class="ii-dir-body">
+          <div class="ii-dir-desc">Diseña y comercializa la infraestructura de distribución conversacional que traduce lenguaje natural en datos de suscripción. Comete el error de fecha de efecto. Como proveedor del sistema de IA bajo el AI Act (art. 3.3), debe garantizar la calidad y validación de datos críticos. No tiene relación directa con el cliente, pero puede ser demandada directamente por él desde diciembre de 2026.</div>
+          <div class="ii-dir-norm">AI Act art. 3.3 · Dir. 2024/2853 (responsabilidad objetiva) · Contrato B2B con El Corredor · Gestión de riesgos art. 9</div>
+        </div>
+      </div>
+
+      <div class="ii-dir-card">
+        <div class="ii-dir-header">
+          <div class="ii-dir-bar gold"></div>
+          <div class="ii-dir-top">
+            <div>
+              <div class="ii-dir-layer">Capa distribución · Mediador registrado</div>
+              <div class="ii-dir-name">El Corredor</div>
+              <div class="ii-dir-role">Corredor DGSFP · Mediador independiente</div>
+            </div>
+            <span class="ii-dir-exp-badge alta">Exposición: Alta · Propia e intransferible</span>
+          </div>
+        </div>
+        <div class="ii-dir-body">
+          <div class="ii-dir-desc">Correduría de seguros registrada en la DGSFP. Distribuye el producto de El Asegurador usando la Capa Facilitadora como herramienta de distribución. Su responsabilidad profesional es propia, personal e intransferible: no puede delegarla ni en el asegurador ni en el proveedor de IA. El uso de herramientas tecnológicas no reduce su deber de diligencia; lo traslada al proceso de supervisión de esas herramientas.</div>
+          <div class="ii-dir-norm">RDL 3/2020 arts. 130 y 179 · AI Act art. 3.4 (desplegador) · RC profesional obligatoria · Mín. 1.564.610 €/siniestro</div>
+        </div>
+      </div>
+
+      <div class="ii-dir-card">
+        <div class="ii-dir-header">
+          <div class="ii-dir-bar"></div>
+          <div class="ii-dir-top">
+            <div>
+              <div class="ii-dir-layer">Capa suscripción · Mandataria</div>
+              <div class="ii-dir-name">El Corredor (MGA)</div>
+              <div class="ii-dir-role">Agencia de Suscripción delegada de El Asegurador</div>
+            </div>
+            <span class="ii-dir-exp-badge interna">Exposición: Interna frente a El Asegurador</span>
+          </div>
+        </div>
+        <div class="ii-dir-body">
+          <div class="ii-dir-desc">Actúa con poderes delegados para emitir pólizas en nombre del asegurador. Sus actos dentro del mandato son actos de El Asegurador frente al cliente de buena fe. Es la pieza que conecta el error del agente IA con la responsabilidad del asegurador. Internamente, El Asegurador puede ejercer regreso contra ella por la emisión negligente.</div>
+          <div class="ii-dir-norm">CC arts. 1709 y ss. (mandato) · RDL 3/2020 · Contrato de mandato/delegación con El Asegurador</div>
+        </div>
+      </div>
+
+      <div class="ii-dir-card">
+        <div class="ii-dir-header">
+          <div class="ii-dir-bar red"></div>
+          <div class="ii-dir-top">
+            <div>
+              <div class="ii-dir-layer">Capa riesgo · Porta el riesgo asegurador</div>
+              <div class="ii-dir-name">El Asegurador</div>
+              <div class="ii-dir-role">Entidad aseguradora · Supervisada DGSFP</div>
+            </div>
+            <span class="ii-dir-exp-badge alta-p">Exposición: Muy alta · Principal frente al cliente</span>
+          </div>
+        </div>
+        <div class="ii-dir-body">
+          <div class="ii-dir-desc">La póliza emitida —con error de fecha— es su contrato con el cliente. Responde contractualmente por los actos de su mandataria (El Corredor MGA). El rechazo del siniestro basado en el error de su propio sistema de distribución es jurídicamente indefendible. Su única vía de salida económica es el regreso interno contra El Corredor (MGA) y/o El Corredor, no la denegación de cobertura al cliente.</div>
+          <div class="ii-dir-norm">LCS 50/1980 arts. 1, 8 y 20 · LOSSP · Supervisada DGSFP · Principio nemo auditur · Recargo mora art. 20</div>
+        </div>
+      </div>
+
+      <div class="ii-dir-card">
+        <div class="ii-dir-header">
+          <div class="ii-dir-bar gray"></div>
+          <div class="ii-dir-top">
+            <div>
+              <div class="ii-dir-layer">Control humano · Proceso interno</div>
+              <div class="ii-dir-name">Supervisor Humano</div>
+              <div class="ii-dir-role">Control Art. 14 AI Act</div>
+            </div>
+            <span class="ii-dir-exp-badge laboral">Exposición: Interna laboral únicamente</span>
+          </div>
+        </div>
+        <div class="ii-dir-body">
+          <div class="ii-dir-desc">Persona física asignada por El Corredor para revisar las salidas del agente IA antes de emitir la póliza. Valida sin detectar el error de fecha —fenómeno de automation bias—. No es el responsable final: lo es El Corredor por haberle situado en un proceso de supervisión inadecuado. Su actuación ilustra el problema central del AI Act: la supervisión debe ser efectiva y significativa, no meramente presente.</div>
+          <div class="ii-dir-norm">AI Act art. 14 · Derecho laboral · Normativa interna El Corredor · Sin acción directa del cliente contra él</div>
+        </div>
+      </div>
+
+      <div class="ii-dir-card">
+        <div class="ii-dir-header">
+          <div class="ii-dir-bar green"></div>
+          <div class="ii-dir-top">
+            <div>
+              <div class="ii-dir-layer">Perjudicado · Sin responsabilidad</div>
+              <div class="ii-dir-name">El Cliente</div>
+              <div class="ii-dir-role">Consumidor · Plena protección jurídica</div>
+            </div>
+            <span class="ii-dir-exp-badge ninguna">Sin responsabilidad · 3 acciones disponibles</span>
+          </div>
+        </div>
+        <div class="ii-dir-body">
+          <div class="ii-dir-desc">Actuó de buena fe en todo momento. Contrató a través de un canal digital habilitado y regulado, pagó sus primas y tenía una expectativa legítima de cobertura. No intervino en la fijación de la fecha de efecto. El sistema jurídico europeo —imperfecto pero operativo— le otorga tres acciones concurrentes para reclamar. La protección existe; el problema es que el cliente tiene que ejercerla activamente.</div>
+          <div class="ii-dir-norm">LCS 50/1980 (contrato) · RDL 3/2020 (mediación) · Dir. 2024/2853 (producto defectuoso)</div>
+        </div>
+      </div>
+
+    </div>
+
+    <h3 class="ii-h3">Lo que la IA agéntica cambia para el sector</h3>
+
+    <div class="ii-implicaciones">
+      <div class="ii-impl">
+        <div class="ii-impl-para">Para los corredores</div>
+        <div class="ii-impl-body">El uso de herramientas de IA agéntica en la distribución no reduce la responsabilidad profesional del corredor: <strong>la traslada al proceso de supervisión de esas herramientas.</strong> Un corredor que integra un agente de IA en su flujo de contratación sin diseñar un proceso de supervisión efectiva no está digitalizando su negocio. Está asumiendo riesgo profesional adicional sin cobertura adecuada, porque sus pólizas de RC profesional fueron suscritas antes de que la IA agéntica formara parte de su proceso. La revisión de coberturas es urgente y no es opcional.</div>
+      </div>
+      <div class="ii-impl">
+        <div class="ii-impl-para">Para las aseguradoras</div>
+        <div class="ii-impl-body">Delegar la distribución en canales digitales que usan IA agéntica no externaliza el riesgo contractual: <strong>lo concentra.</strong> La póliza que emite la MGA delegada es la póliza del asegurador. El error que comete el agente de la cadena de distribución es el error del asegurador frente al cliente. Diseñar contratos de mandato robustos con cláusulas de responsabilidad operacional claras frente al proveedor de IA no es una opción de arquitectura legal: es la única forma de gestionar el riesgo de regreso cuando el fallo ocurra. Y ocurrirá.</div>
+      </div>
+      <div class="ii-impl">
+        <div class="ii-impl-para">Para los proveedores de IA</div>
+        <div class="ii-impl-body">La Directiva de Productos Defectuosos convierte el error del sistema en responsabilidad objetiva desde diciembre de 2026. La carga de la prueba se invierte. No bastará con demostrar que el sistema funcionaba bien en promedio: habrá que demostrar que no tenía defecto en el caso concreto. <strong>Los proveedores de infraestructura IA para distribución de seguros deben tratar la validación de datos críticos como un requisito de seguridad del producto, no como una funcionalidad opcional.</strong></div>
+      </div>
+      <div class="ii-impl">
+        <div class="ii-impl-para">El vacío que ninguna regulación ha cerrado aún</div>
+        <div class="ii-impl-body">La normativa de distribución de seguros (IDD/RDL 3/2020) no contempla el uso de agentes de IA como herramienta de mediación, ni fija estándares de diligencia del corredor cuando delega en sistemas de IA la estructuración de datos de contratación. El AI Act exige supervisión humana efectiva pero no integra esa exigencia con el régimen específico de responsabilidad del mediador. Ese punto de intersección es <strong>el territorio jurídico sin mapa donde vivirá la litigiosidad de los próximos años.</strong></div>
+      </div>
+    </div>
+
+  </div><!-- /ii-body -->
+
+  <!-- ════════════════════════════════════════
+       DICTAMEN FINAL
+  ════════════════════════════════════════ -->
+  <div class="ii-body" style="padding-top:0; padding-bottom:0;">
+  <div class="ii-dictamen">
+    <div class="ii-dictamen-label">Dictamen Final · Community of Insurance · Agosto 2026</div>
+    <div class="ii-dictamen-fallo">El Asegurador debe cubrir el siniestro. El Corredor asume responsabilidad profesional propia. La Capa Facilitadora de IA responde en la cadena de regreso. <em>Y el sector tiene un problema que no es de tecnología: es de arquitectura de responsabilidad.</em></div>
+    <div class="ii-dictamen-body">El error de fecha desencadenó una cadena de consecuencias que revela tres fallos simultáneos: un fallo técnico en la validación de datos críticos, un fallo humano en la supervisión de las salidas del agente, y un fallo institucional en el rechazo de un siniestro que el asegurador estaba contractualmente obligado a cubrir. Los tres son corregibles. Ninguno es inevitable. Pero mientras no exista una regulación específica que integre las obligaciones de mediación, las de supervisión de IA y las de responsabilidad del producto, el riesgo de que vuelvan a ocurrir es estructural.</div>
+    <div class="ii-dictamen-puntos">
+      <div class="ii-dictamen-punto">El Asegurador: responsabilidad contractual · principal frente al cliente</div>
+      <div class="ii-dictamen-punto">El Corredor: RC profesional obligatoria · RDL 3/2020</div>
+      <div class="ii-dictamen-punto">El Corredor (MGA): acto del mandatario vincula al mandante</div>
+      <div class="ii-dictamen-punto">Capa Facilitadora de IA: responsabilidad objetiva · Dir. 2024/2853 desde dic. 2026</div>
+      <div class="ii-dictamen-punto">Rechazo del siniestro: jurídicamente indefendible en los tres planos</div>
+      <div class="ii-dictamen-punto">El Cliente: tres acciones concurrentes · cobertura jurídica plena</div>
+      <div class="ii-dictamen-punto">Sector: urgencia de revisar RC profesional y contratos de mandato con IA</div>
+    </div>
+  </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="ii-footer">
+    <div class="ii-footer-brand">Insur·Insights · Community of Insurance</div>
+    <div class="ii-footer-meta">Carlos Biurrun · carlos.biurrun@communityofinsurance.com · communityofinsurance.com · Agosto 2026</div>
+  </footer>
+
+</article>
+
+</body>
+</html>
