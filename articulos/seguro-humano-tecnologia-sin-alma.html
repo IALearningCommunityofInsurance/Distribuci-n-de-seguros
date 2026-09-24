@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tecnología sin alma · Factor Humano y Seguro nº1 · Insur·Insights</title>
+<meta name="description" content="Lo que la inteligencia artificial no puede hacer por el cliente de seguros, y por qué eso importa más de lo que el sector admite. Serie «Factor Humano y Seguro» · Carlos Biurrun · COI.">
+<meta name="author" content="Carlos Biurrun Murillo">
+<link rel="canonical" href="https://hub.communityofinsurance.com/articulos/seguro-humano-tecnologia-sin-alma.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tecnología sin alma — Lo que la IA no puede hacer por ti · Insur·Insights">
+<meta property="og:description" content="Lo que la inteligencia artificial no puede hacer por el cliente de seguros, y por qué eso importa más de lo que el sector admite. Serie «Factor Humano y Seguro» · Carlos Biurrun · COI.">
+<meta property="og:url" content="https://hub.communityofinsurance.com/articulos/seguro-humano-tecnologia-sin-alma.html">
+<meta property="og:image" content="https://hub.communityofinsurance.com/Insur-Insights.png">
+<meta property="og:site_name" content="Insur·Insights · Community of Insurance">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tecnología sin alma — Lo que la IA no puede hacer por ti · Insur·Insights">
+<meta name="twitter:description" content="Lo que la inteligencia artificial no puede hacer por el cliente de seguros, y por qué eso importa más de lo que el sector admite. Serie «Factor Humano y Seguro» · Carlos Biurrun · COI.">
+<meta name="twitter:image" content="https://hub.communityofinsurance.com/Insur-Insights.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Tecnología sin alma — Lo que la IA no puede hacer por ti · Insur·Insights",
+  "description": "Lo que la inteligencia artificial no puede hacer por el cliente de seguros, y por qué eso importa más de lo que el sector admite. Serie «Factor Humano y Seguro» · Carlos Biurrun · COI.",
+  "author": {"@type": "Person", "name": "Carlos Biurrun Murillo", "url": "https://communityofinsurance.com"},
+  "publisher": {"@type": "Organization", "name": "Community of Insurance", "url": "https://communityofinsurance.com"},
+  "isPartOf": {"@type": "CreativeWorkSeries", "name": "Factor Humano y Seguro"},
+  "url": "https://hub.communityofinsurance.com/articulos/seguro-humano-tecnologia-sin-alma.html"
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #183577;
+    --gold: #C89646;
+    --red: #E4382E;
+    --coral: #F1957C;
+    --charcoal: #595959;
+    --offwhite: #F8F7F4;
+    --white: #FFFFFF;
+    --border: #E2E0DB;
+    --text: #1A1A1A;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--offwhite);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--navy);
+    padding: 28px 40px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 3px solid var(--gold);
+  }
+  .header-brand { display: flex; flex-direction: column; gap: 2px; }
+  .header-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -0.3px;
+  }
+  .header-logo span { color: var(--gold); }
+  .header-sub {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .header-nav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .header-series {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.5px;
+  }
+  .header-badge {
+    background: rgba(200,150,70,0.15);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 20px;
+  }
+
+  /* SERIE NAV */
+  .serie-nav {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .serie-nav::-webkit-scrollbar { display: none; }
+  .serie-item {
+    padding: 14px 20px;
+    font-size: 12px;
+    color: var(--charcoal);
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .serie-item.active {
+    color: var(--navy);
+    font-weight: 700;
+    border-bottom-color: var(--navy);
+  }
+  .serie-item.done { color: #aaa; }
+  .serie-item.done .serie-num {
+    background: #e8e8e8;
+    color: #aaa;
+  }
+  .serie-num {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: var(--white);
+    font-size: 10px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .serie-item.active .serie-num {
+    background: var(--gold);
+    color: var(--navy);
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(160deg, #0c1a3d 0%, #183577 55%, #1a2f5c 100%);
+    padding: 56px 40px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    left: -100px;
+    bottom: -100px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(200,150,70,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: 'IA';
+    font-family: 'Playfair Display', serif;
+    font-size: 200px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.03);
+    position: absolute;
+    right: 30px;
+    bottom: -20px;
+    line-height: 1;
+    pointer-events: none;
+    letter-spacing: -8px;
+  }
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .hero-serie-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .hero-sep { color: rgba(255,255,255,0.2); font-size: 12px; }
+  .hero-num-tag {
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4.5vw, 48px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.12;
+    margin-bottom: 8px;
+    max-width: 700px;
+  }
+  .hero-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(15px, 2vw, 19px);
+    font-style: italic;
+    color: rgba(255,255,255,0.58);
+    margin-bottom: 28px;
+    max-width: 600px;
+    line-height: 1.5;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .hero-meta-item {
+    font-size: 11px;
+    color: rgba(255,255,255,0.38);
+    letter-spacing: 0.3px;
+  }
+  .hero-meta-item strong { color: rgba(255,255,255,0.62); }
+
+  /* ARTICLE BODY */
+  .article-wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 56px 40px 80px;
+  }
+
+  .art-lead {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    line-height: 1.7;
+    color: var(--navy);
+    font-style: italic;
+    margin-bottom: 44px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .art-h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 23px;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 48px 0 18px;
+    line-height: 1.28;
+  }
+
+  .art-p {
+    font-size: 16px;
+    line-height: 1.82;
+    color: #252525;
+    margin-bottom: 22px;
+  }
+  .art-p strong { color: var(--navy); font-weight: 600; }
+  .art-p em { font-style: italic; color: var(--charcoal); }
+
+  /* PULL QUOTE */
+  .pull-quote {
+    margin: 40px 0;
+    padding: 30px 36px;
+    background: var(--offwhite);
+    border-left: 5px solid var(--gold);
+    border-radius: 0 12px 12px 0;
+    position: relative;
+  }
+  .pull-quote::before {
+    content: '\201C';
+    font-family: 'Playfair Display', serif;
+    font-size: 80px;
+    color: rgba(200,150,70,0.18);
+    position: absolute;
+    top: -8px;
+    left: 14px;
+    line-height: 1;
+  }
+  .pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--navy);
+    line-height: 1.58;
+    padding-left: 8px;
+  }
+  .pull-quote .pq-source {
+    font-size: 12px;
+    color: var(--charcoal);
+    margin-top: 12px;
+    padding-left: 8px;
+    font-style: normal;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* RED PULL — énfasis editorial fuerte */
+  .pull-red {
+    margin: 40px 0;
+    padding: 28px 32px;
+    background: #FFF3F2;
+    border-left: 5px solid var(--red);
+    border-radius: 0 12px 12px 0;
+  }
+  .pull-red p {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    font-style: italic;
+    color: #8B1A15;
+    line-height: 1.55;
+  }
+
+  /* TABLA DE COMPARACIÓN */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 36px 0;
+    font-size: 14px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  }
+  .compare-table thead {
+    background: var(--navy);
+    color: var(--white);
+  }
+  .compare-table thead th {
+    padding: 14px 18px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+  .compare-table thead th:first-child { width: 38%; }
+  .compare-table thead th.ia { background: #223f8a; }
+  .compare-table thead th.human { background: #1a5c3a; }
+  .compare-table tbody tr { border-bottom: 1px solid var(--border); }
+  .compare-table tbody tr:last-child { border-bottom: none; }
+  .compare-table tbody tr:nth-child(even) { background: var(--offwhite); }
+  .compare-table tbody tr:nth-child(odd) { background: var(--white); }
+  .compare-table td {
+    padding: 13px 18px;
+    line-height: 1.5;
+    vertical-align: top;
+    color: #2a2a2a;
+  }
+  .compare-table td:first-child {
+    font-weight: 600;
+    color: var(--navy);
+    font-size: 13px;
+  }
+  .td-ia { color: #1a2f6e !important; }
+  .td-human { color: #1a4a2e !important; }
+  .badge-ia {
+    display: inline-block;
+    background: #e8ecfa;
+    color: #1a2f6e;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  .badge-h {
+    display: inline-block;
+    background: #e2f0e8;
+    color: #1a4a2e;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
+  /* SCENARIO CARDS */
+  .scenario-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 36px 0;
+  }
+  .scenario-card {
+    border-radius: 10px;
+    padding: 22px 22px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .scenario-card.ia-card {
+    background: linear-gradient(135deg, #1a2a5e 0%, #223f8a 100%);
+  }
+  .scenario-card.human-card {
+    background: linear-gradient(135deg, #1a3a28 0%, #2a6644 100%);
+  }
+  .scenario-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .ia-card .scenario-label { color: rgba(180,200,255,0.8); }
+  .human-card .scenario-label { color: rgba(180,230,180,0.8); }
+  .scenario-situation {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 12px;
+    line-height: 1.35;
+  }
+  .scenario-response {
+    font-size: 13px;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.72);
+  }
+  .scenario-verdict {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .ia-card .scenario-verdict { color: rgba(180,200,255,0.9); }
+  .human-card .scenario-verdict { color: rgba(180,230,180,0.9); }
+
+  /* CALLOUT GRANDE */
+  .big-callout {
+    background: linear-gradient(135deg, var(--navy) 0%, #0d1f4a 100%);
+    border-radius: 14px;
+    padding: 40px 44px;
+    margin: 44px 0;
+    text-align: center;
+  }
+  .big-callout-icon {
+    font-size: 36px;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .big-callout-text {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(18px, 3vw, 26px);
+    font-style: italic;
+    color: var(--white);
+    line-height: 1.5;
+    max-width: 540px;
+    margin: 0 auto 16px;
+  }
+  .big-callout-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.48);
+    max-width: 420px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* INSET — nota lateral */
+  .inset-box {
+    float: right;
+    width: 46%;
+    margin: 0 0 28px 32px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--gold);
+    border-radius: 0 0 10px 10px;
+    padding: 20px 22px;
+    font-size: 13px;
+    line-height: 1.65;
+    color: var(--charcoal);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    clear: right;
+  }
+  .inset-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .inset-box ul {
+    padding-left: 16px;
+    margin-top: 8px;
+  }
+  .inset-box ul li {
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+
+  /* CLOSING */
+  .art-closing {
+    margin-top: 56px;
+    padding-top: 40px;
+    border-top: 2px solid var(--navy);
+  }
+  .art-closing-thesis {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--navy);
+    line-height: 1.45;
+    margin-bottom: 22px;
+  }
+  .series-footer {
+    margin-top: 44px;
+    padding: 24px 28px;
+    background: var(--white);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .series-footer-left {
+    font-size: 13px;
+    color: var(--charcoal);
+    line-height: 1.5;
+  }
+  .series-footer-left strong { color: var(--navy); display: block; margin-bottom: 2px; font-size: 14px; }
+  .series-next {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--navy);
+    background: var(--offwhite);
+    border: 1px solid var(--border);
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-align: center;
+    min-width: 180px;
+  }
+  .series-next span { color: var(--gold); display: block; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 3px; }
+
+  .art-tag-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+  }
+  .art-tag {
+    background: var(--offwhite);
+    border: 1px solid var(--border);
+    color: var(--charcoal);
+    font-size: 11px;
+    padding: 5px 12px;
+    border-radius: 14px;
+    font-weight: 500;
+  }
+
+  @media (max-width: 680px) {
+    .header, .article-wrap, .hero, .serie-nav { padding-left: 20px; padding-right: 20px; }
+    .scenario-grid { grid-template-columns: 1fr; }
+    .inset-box { float: none; width: 100%; margin: 0 0 24px 0; }
+    .hero h1 { font-size: 26px; }
+  }
+
+  /* INTRODUCCIÓN DE CONTEXTO */
+  .intro-context-wrap {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+  }
+  .intro-context {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 40px 0 40px 32px;
+    border-left: 4px solid var(--gold);
+  }
+  .intro-context-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+  .intro-context-body p {
+    font-size: 15px;
+    line-height: 1.78;
+    color: #2a2a2a;
+    margin-bottom: 14px;
+    font-family: 'Inter', sans-serif;
+  }
+  .intro-context-body p:last-child { margin-bottom: 0; }
+  .intro-context-body strong { color: var(--navy); font-weight: 600; }
+  .intro-context-body em { font-style: italic; color: var(--charcoal); }
+  .intro-cta {
+    font-style: italic;
+    color: var(--navy) !important;
+    font-weight: 500;
+    border-top: 1px dashed var(--border);
+    padding-top: 14px;
+    margin-top: 14px;
+  }
+  .intro-context-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--charcoal);
+  }
+  .intro-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .intro-context-author strong { color: var(--navy); }
+
+
+  /* HUB BACK BAR */
+  .hub-back-bar {
+    background: #0d1a38;
+    padding: 10px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(200,150,70,0.2);
+  }
+  .hub-back-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: rgba(255,255,255,0.6);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    transition: color 0.2s;
+  }
+  .hub-back-link:hover { color: var(--gold); }
+  .hub-back-arrow { font-size: 14px; }
+  .hub-back-series {
+    font-size: 11px;
+    color: rgba(200,150,70,0.6);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  @media (max-width: 680px) {
+    .hub-back-bar { padding: 10px 20px; }
+    .hub-back-series { display: none; }
+  }
+
+
+  /* SERIE COMPLETA — bloque de cierre */
+  .serie-completa { margin-top: 64px; padding-top: 48px; border-top: 1px solid var(--border); }
+  .serie-completa-label { font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+  .serie-completa-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+  .serie-completa-desc { font-size: 14px; color: var(--charcoal); margin-bottom: 32px; line-height: 1.55; }
+  .serie-cards { display: flex; flex-direction: column; gap: 12px; }
+  .serie-card { background: var(--white); border-radius: 12px; border: 1px solid var(--border); display: flex; align-items: stretch; overflow: hidden; box-shadow: 0 1px 6px rgba(0,0,0,0.05); transition: box-shadow 0.2s, transform 0.15s; text-decoration: none; color: inherit; }
+  .serie-card:hover { box-shadow: 0 6px 24px rgba(24,53,119,0.12); transform: translateY(-1px); }
+  .serie-card-accent { width: 5px; flex-shrink: 0; }
+  .accent-0 { background: var(--charcoal); }
+  .accent-1 { background: var(--navy); }
+  .accent-2 { background: #2255b8; }
+  .accent-3 { background: var(--red); }
+  .serie-card-num-col { width: 64px; min-width: 64px; display: flex; align-items: center; justify-content: center; background: var(--offwhite); border-right: 1px solid var(--border); flex-shrink: 0; }
+  .serie-card-num { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--border); line-height: 1; }
+  .serie-card-num.current { color: var(--gold); }
+  .serie-card-body { flex: 1; padding: 18px 22px; }
+  .serie-card-tag { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 5px; }
+  .serie-card-art-title { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 5px; line-height: 1.3; }
+  .serie-card-art-title em { font-style: italic; color: var(--charcoal); font-weight: 400; font-size: 14px; }
+  .serie-card-subtitle { font-size: 13px; color: var(--charcoal); line-height: 1.5; font-style: italic; }
+  .serie-card-cta { display: flex; align-items: center; justify-content: center; padding: 0 20px; flex-shrink: 0; }
+  .cta-arrow { width: 32px; height: 32px; border-radius: 50%; background: var(--offwhite); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 14px; color: var(--navy); transition: background 0.2s; }
+  .serie-card:hover .cta-arrow { background: var(--navy); color: var(--white); border-color: var(--navy); }
+  .serie-card-current { background: linear-gradient(90deg, #f0f4ff 0%, var(--white) 100%); border-color: var(--navy); }
+  .serie-card-current .serie-card-cta { display: none; }
+  .serie-card-current-badge { display: inline-block; background: var(--navy); color: var(--white); font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 3px 9px; border-radius: 4px; margin-top: 8px; }
+  .author-block { margin-top: 40px; padding: 24px 28px; background: var(--white); border-radius: 12px; border: 1px solid var(--border); display: flex; gap: 20px; align-items: center; }
+  .author-avatar { width: 52px; height: 52px; border-radius: 50%; background: var(--navy); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--gold); flex-shrink: 0; }
+  .author-name { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 3px; }
+  .author-role { font-size: 12px; color: var(--charcoal); line-height: 1.5; }
+  .author-role a { color: var(--navy); }
+  @media (max-width: 680px) {
+    .author-block { flex-direction: column; text-align: center; }
+    .serie-card-cta { padding: 0 12px; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-brand">
+    <div class="header-logo">Insur<span>·</span>Insights</div>
+    <div class="header-sub">Community of Insurance</div>
+  </div>
+  <div class="header-nav">
+    <span class="header-series">Factor Humano y Seguro · Serie</span>
+    <div class="header-badge">Artículo nº 1</div>
+  </div>
+</div>
+
+<!-- NAVEGACIÓN DE SERIE -->
+<div class="serie-nav">
+  <a class="serie-item done" href="/articulos/axa-correos-espana-vaciada.html" target="_blank">
+    <span class="serie-num">0</span> AXA × Correos — El caso
+  </a>
+  <div class="serie-item active">
+    <span class="serie-num">1</span> Tecnología sin alma
+  </div>
+  <div class="serie-item">
+    <span class="serie-num">2</span> Los territorios olvidados
+  </div>
+  <div class="serie-item">
+    <span class="serie-num">3</span> ¿Puede el seguro salvar un pueblo?
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">
+    <span class="hero-serie-tag">Factor Humano y Seguro</span>
+    <span class="hero-sep">·</span>
+    <span class="hero-num-tag">Artículo nº 1 de 3</span>
+  </div>
+  <h1>Tecnología sin alma</h1>
+  <p class="hero-subtitle">Lo que la inteligencia artificial no puede hacer por ti — y por qué eso importa más de lo que el sector admite</p>
+  <div class="hero-meta">
+    <span class="hero-meta-item"><strong>Autor:</strong> Carlos Biurrun Murillo</span>
+    <span class="hero-meta-item"><strong>Publicación:</strong> Insur·Insights · COI</span>
+    <span class="hero-meta-item"><strong>Fecha:</strong> Septiembre 2026</span>
+    <span class="hero-meta-item"><strong>Lectura:</strong> ~8 minutos</span>
+  </div>
+</div>
+
+
+  <!-- ===== INTRODUCCIÓN DE CONTEXTO ===== -->
+  <div class="intro-context-wrap">
+    <div class="intro-context">
+      <div class="intro-context-label">Introducción del autor</div>
+      <div class="intro-context-body">
+        <p>Cuando me puse a analizar el acuerdo de AXA con Correos quise hacerlo desde la perspectiva humana y no tanto desde la estricta de negocio. Obviamente ambas empresas estarán poniendo todos los recursos necesarios para que se cumplan los objetivos económicos.</p>
+        <p>A una semana de escribir mi artículo en LinkedIn y en mi espacio editorial <em>El seguro que viene</em>, ayudado en la búsqueda de fuentes y de datos por mi agente IA, no me podía imaginar que llegase a tener <strong>8.802 impresiones, 871 visualizaciones del artículo y 70 interacciones</strong>.</p>
+        <p>Los datos demuestran que el asunto es de interés, al menos en su vertiente social y humana. Y por esta razón he decidido escribir más sobre el tema.</p>
+        <p>Creo que AXA y Correos, con su plan, están recuperando en clave actual la figura del agente de pueblo en zonas rurales perdidas de la geografía española.</p>
+        <p>He preparado tres artículos —<strong>Tecnología sin alma</strong>, <strong>Los territorios olvidados</strong> y <strong>¿Puede el seguro salvar un pueblo?</strong>— abordando la dicotomía IA vs. factor humano, una visión de las otras regiones vaciadas de Italia, Portugal, Francia y Alemania, para terminar con una conclusión de convertir una acción humana en fuente de negocio por perseverancia y visión a largo plazo.</p>
+        <p class="intro-cta">Apreciado lector, te animo a leer estos tres artículos.</p>
+      </div>
+      <div class="intro-context-author">
+        <span class="intro-avatar">CB</span>
+        <span><strong>Carlos Biurrun Murillo</strong> · Editor, Insur·Insights</span>
+      </div>
+    </div>
+  </div>
+
+<!-- ARTÍCULO -->
+<div class="article-wrap">
+
+  <p class="art-lead">La inteligencia artificial puede leer una póliza en milisegundos, calcular el riesgo de ochocientas variables simultáneas y responder a una reclamación antes de que el cliente termine de escribir el asunto del correo. Lo que no puede hacer es mirar a los ojos a alguien que acaba de perderlo todo y saber exactamente cuánto silencio necesita antes de hablar.</p>
+
+  <div class="art-h2">El malentendido más costoso del sector</div>
+
+  <p class="art-p">Hay una confusión que recorre el sector asegurador desde hace una década, y conviene nombrarla con claridad: <strong>la confusión entre eficiencia y valor.</strong> Son cosas distintas. Pueden coincidir. Muchas veces no coinciden. Y cuando no coinciden en el negocio del seguro, el coste no lo paga la cuenta de resultados —lo paga el cliente.</p>
+
+  <p class="art-p">La inteligencia artificial ha traído ganancias de eficiencia extraordinarias. Procesamiento de siniestros, detección de fraude, personalización de tarifas, automatización de procesos administrativos: son avances reales, mensurables, y el sector ha hecho bien en adoptarlos. La discusión no es si la tecnología sirve. Sirve. La discusión es si sirve para todo.</p>
+
+  <div class="pull-quote">
+    <p>No existe ningún modelo de lenguaje entrenado con cien mil millones de parámetros que pueda sustituir lo que ocurre cuando una persona mira a otra a los ojos y dice: «Yo me encargo.»</p>
+  </div>
+
+  <p class="art-p">Esa frase no es retórica. Es una hipótesis que se puede contrastar con datos, con experiencias de cliente y con la evidencia acumulada de décadas de investigación en comportamiento económico y psicología del consumidor. Y la evidencia dice, de forma consistente, que la confianza —la confianza real, la que mueve a las personas a firmar un contrato de protección con alguien que no conocen— se construye en el espacio interpersonal. No en el espacio digital.</p>
+
+  <div class="art-h2">Lo que la IA hace extraordinariamente bien</div>
+
+  <div class="inset-box">
+    <div class="inset-title">Capacidades IA en seguros</div>
+    Donde la inteligencia artificial supera hoy a cualquier agente humano:
+    <ul>
+      <li>Análisis de riesgo con miles de variables en tiempo real</li>
+      <li>Detección de patrones de fraude en reclamaciones</li>
+      <li>Tarificación personalizada a escala masiva</li>
+      <li>Disponibilidad 24/7 sin coste marginal por consulta</li>
+      <li>Consistencia: misma respuesta en la consulta nº1 y en la nº10.000</li>
+      <li>Velocidad en tramitación documental y gestión administrativa</li>
+    </ul>
+  </div>
+
+  <p class="art-p">Antes de argumentar lo que la IA no puede hacer, es necesario decir con honestidad lo que sí hace. Un sistema de inteligencia artificial bien entrenado puede analizar el perfil de riesgo de un conductor con centenares de variables —tipo de vía, hora, clima, historial— con una precisión que ningún actuario humano podría igualar en el mismo tiempo. Puede procesar una reclamación de hogar, cruzarla con imágenes de satélite y pedir un peritaje en tiempo real. Puede responder a las dudas de un cliente a las tres de la madrugada con la misma precisión que a las diez de la mañana.</p>
+
+  <p class="art-p">Eso es real. No es marketing. Y el sector que ignore estas capacidades estará, en diez años, tan fuera de lugar como la agencia de viajes que ignoró internet en el año 2000.</p>
+
+  <p class="art-p">Pero hay algo que los modelos de lenguaje, los sistemas expertos y los algoritmos de aprendizaje automático no han conseguido en ningún laboratorio del mundo, por más que se haya intentado: <strong>generar confianza interpersonal.</strong> No simularla. Generarla.</p>
+
+  <div class="art-h2">La paradoja de la personalización sin persona</div>
+
+  <p class="art-p">El gran oxímoron del sector insurtech de los últimos años es que, mientras prometía personalización radical, producía experiencias que el cliente percibía como impersonales. El algoritmo sabía exactamente cuántos kilómetros conducías, qué tipo de curvas tomabas a qué velocidad y cuántas noches tu coche dormía fuera del garaje. Y aun así, cuando llamabas con un problema, sentías que hablabas con nadie.</p>
+
+  <p class="art-p">La paradoja no es accidental. Es estructural. <strong>La personalización basada en datos opera sobre comportamientos observados. La confianza opera sobre intenciones percibidas.</strong> Y las intenciones de otra persona —si me va a ayudar de verdad, si entiende mi situación, si va a estar cuando lo necesite— no se detectan en un dataset. Se perciben en un intercambio humano.</p>
+
+  <div class="pull-red">
+    <p>El sistema sabía todo sobre el cliente. Y el cliente no confiaba en el sistema.</p>
+  </div>
+
+  <p class="art-p">La investigación en economía del comportamiento lo documenta con consistencia: en decisiones de protección —seguros, salud, pensiones— el factor determinante para la contratación no es la calidad objetiva del producto. Es la percepción de que quien lo ofrece actúa en tu interés. Y esa percepción se forma, en su mayor parte, en el espacio interpersonal: el tono, la escucha, el lenguaje corporal, la pausa antes de responder. Señales que ningún sistema digital ha sabido replicar de forma que el interlocutor no lo detecte.</p>
+
+  <div class="art-h2">Cinco situaciones donde la IA falla al seguro</div>
+
+  <p class="art-p">No son ejemplos teóricos. Son situaciones que cualquier profesional del sector ha vivido, o ha escuchado de clientes, en los últimos cinco años.</p>
+
+  <div class="scenario-grid">
+    <div class="scenario-card ia-card">
+      <div class="scenario-label">Escenario 1 · IA</div>
+      <div class="scenario-situation">El cliente acaba de enviudar. Llama para preguntar por la póliza de decesos.</div>
+      <div class="scenario-response">El asistente virtual detecta «fallecimiento» y «póliza» y activa el protocolo de siniestros. Solicita número de póliza, DNI y certificado de defunción. Explica los pasos en el orden correcto.</div>
+      <div class="scenario-verdict">✗ El cliente cuelga sintiéndose un número.</div>
+    </div>
+    <div class="scenario-card human-card">
+      <div class="scenario-label">Escenario 1 · Humano</div>
+      <div class="scenario-situation">El cliente acaba de enviudar. Llama para preguntar por la póliza de decesos.</div>
+      <div class="scenario-response">El agente dice: «Lo siento mucho. Tómese el tiempo que necesite. Le explico todo sin prisa.» Cuatro palabras antes de la información. Cuatro palabras que cambian todo lo que viene después.</div>
+      <div class="scenario-verdict">✓ El cliente recuerda esa llamada durante años.</div>
+    </div>
+    <div class="scenario-card ia-card">
+      <div class="scenario-label">Escenario 2 · IA</div>
+      <div class="scenario-situation">Un agricultor de 74 años quiere asegurar su explotación. No entiende los términos del formulario online.</div>
+      <div class="scenario-response">El chatbot le ofrece un glosario de términos, un vídeo tutorial y la opción de hablar con un agente (tiempo de espera estimado: 23 minutos). El agricultor cierra la pestaña.</div>
+      <div class="scenario-verdict">✗ Póliza no contratada. Cliente no captado.</div>
+    </div>
+    <div class="scenario-card human-card">
+      <div class="scenario-label">Escenario 2 · Humano</div>
+      <div class="scenario-situation">Un agricultor de 74 años quiere asegurar su explotación. No entiende los términos del formulario online.</div>
+      <div class="scenario-response">El cartero rural lo conoce. Sabe que tiene 40 hectáreas de cereal y tres hijos en la ciudad. Llega el jueves con el formulario impreso y lo explica en el idioma del campo.</div>
+      <div class="scenario-verdict">✓ Póliza firmada. Relación de confianza iniciada.</div>
+    </div>
+    <div class="scenario-card ia-card">
+      <div class="scenario-label">Escenario 3 · IA</div>
+      <div class="scenario-situation">Un siniestro de hogar grave. La familia ha perdido parte de sus pertenencias en un incendio.</div>
+      <div class="scenario-response">El sistema activa el expediente, solicita documentación fotográfica, asigna un perito remoto y envía un correo con los pasos del proceso. Tiempo de respuesta: 4 minutos.</div>
+      <div class="scenario-verdict">✗ Eficiente. Frío. La familia siente que nadie la acompaña.</div>
+    </div>
+    <div class="scenario-card human-card">
+      <div class="scenario-label">Escenario 3 · Humano</div>
+      <div class="scenario-situation">Un siniestro de hogar grave. La familia ha perdido parte de sus pertenencias en un incendio.</div>
+      <div class="scenario-response">El agente llama en lugar de escribir. Pregunta primero si están todos bien. Explica el proceso después. Hace de interlocutor con el perito y llama para actualizar. Está presente.</div>
+      <div class="scenario-verdict">✓ La familia renueva durante veinte años.</div>
+    </div>
+  </div>
+
+  <div class="art-h2">La tabla que el sector no quiere ver</div>
+
+  <p class="art-p">Hay una comparación que los defensores de la digitalización total prefieren no hacer explícita. No porque los datos les sean desfavorables en eficiencia —no lo son— sino porque cuando se ponen en paralelo todos los vectores de valor que importan al cliente, el cuadro completo es más matizado de lo que la narrativa tecnológica admite.</p>
+
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>Dimensión de valor</th>
+        <th class="ia">Inteligencia Artificial <span class="badge-ia">IA</span></th>
+        <th class="human">Agente Humano <span class="badge-h">H</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Velocidad de respuesta</td>
+        <td class="td-ia">Milisegundos. Disponibilidad 24/7 sin coste marginal.</td>
+        <td class="td-human">Minutos u horas. Horario laboral. Variable por carga.</td>
+      </tr>
+      <tr>
+        <td>Consistencia</td>
+        <td class="td-ia">Idéntica respuesta en consulta nº1 y nº100.000.</td>
+        <td class="td-human">Depende del profesional, su estado y la carga del día.</td>
+      </tr>
+      <tr>
+        <td>Escalabilidad</td>
+        <td class="td-ia">Sin límite práctico. Coste por consulta casi cero.</td>
+        <td class="td-human">Limitada por número de personas y horas disponibles.</td>
+      </tr>
+      <tr>
+        <td>Generación de confianza</td>
+        <td class="td-ia">Funcional para consultas rutinarias. Insuficiente en momentos de alta carga emocional.</td>
+        <td class="td-human">Alta cuando el profesional es competente y empático. Irremplazable en momentos críticos.</td>
+      </tr>
+      <tr>
+        <td>Lectura del contexto emocional</td>
+        <td class="td-ia">Detección de sentimiento básica. No interpreta subcontexto.</td>
+        <td class="td-human">Lectura completa de tono, silencios, contexto vital del cliente.</td>
+      </tr>
+      <tr>
+        <td>Adaptación cultural y territorial</td>
+        <td class="td-ia">Limitada al entrenamiento. Sin sensibilidad local nativa.</td>
+        <td class="td-human">Total. El agente rural conoce el territorio y sus códigos.</td>
+      </tr>
+      <tr>
+        <td>Gestión de situaciones atípicas</td>
+        <td class="td-ia">Derivación al humano cuando sale del árbol de decisión.</td>
+        <td class="td-human">Criterio propio, empatía, improvisación guiada.</td>
+      </tr>
+      <tr>
+        <td>Fidelización a largo plazo</td>
+        <td class="td-ia">Moderada. El cliente cambia cuando encuentra mejor precio.</td>
+        <td class="td-human">Alta cuando hay relación personal. El cliente fideliza a la persona, no al producto.</td>
+      </tr>
+      <tr>
+        <td>Coste operativo</td>
+        <td class="td-ia">Muy bajo a escala. Alta inversión inicial.</td>
+        <td class="td-human">Variable. Proporcional al volumen de clientes atendidos.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="art-p">La conclusión no es que uno sea mejor que el otro en términos absolutos. La conclusión es que son complementarios de forma específica: la IA gana en todo lo que se puede estandarizar. El humano gana en todo lo que requiere criterio, empatía y presencia. <strong>El error estratégico es cuando se sustituye el segundo por el primero en los momentos en que no es posible estandarizar.</strong></p>
+
+  <div class="art-h2">El momento de la verdad no es un proceso</div>
+
+  <p class="art-p">En el sector asegurador existe el concepto de «momento de la verdad»: el instante en que el cliente descubre si la promesa que contrató se cumple. Ese momento suele coincidir con un siniestro. Y en un siniestro, el cliente no está en un estado racional de comparación de precios. Está asustado, o afligido, o desesperado, o simplemente desbordado por la burocracia que viene después de perder algo.</p>
+
+  <p class="art-p">En ese preciso momento, lo que determina si el cliente renueva, si recomienda y si confía, no es la velocidad del sistema. Es si siente que alguien —una persona— está de su lado.</p>
+
+  <div class="big-callout">
+    <span class="big-callout-icon">🤝</span>
+    <p class="big-callout-text">«La tecnología acelera. La relación humana fideliza.»</p>
+    <p class="big-callout-sub">Tesis editorial de Insur·Insights · Community of Insurance. El seguro que viene tendrá que elegir dónde pone a cada uno.</p>
+  </div>
+
+  <p class="art-p">No hay ningún dato que contradiga esta afirmación. Las tasas de renovación más altas en el sector siguen concentrándose en los canales con relación personal. Los NPS más altos no los obtienen los pure players digitales —los obtienen las mutualidades y las medianas corredurías con equipos estables y clientes de larga relación. La satisfacción de cliente en siniestros es consistentemente más alta cuando hay un interlocutor humano identificado y accesible.</p>
+
+  <p class="art-p">¿Por qué, entonces, el sector ha invertido la última década apostando mayoritariamente por reducir el contacto humano en nombre de la eficiencia? La respuesta honesta es que la eficiencia se mide. La confianza, mucho menos. Y lo que no se mide, difícilmente entra en una presentación a un consejo de administración.</p>
+
+  <div class="art-h2">Lo que AXA × Correos le dice al resto del sector</div>
+
+  <p class="art-p">El acuerdo que abrió esta serie no es solo un caso de distribución en territorios rurales. Es una declaración de posicionamiento estratégico: hay valor económico en el contacto humano, y ese valor no ha desaparecido porque apareciera una app.</p>
+
+  <p class="art-p">La apuesta de AXA no ignora la tecnología. El cartero lleva una PDA. El contrato se suscribe en la nube. Los datos fluyen en tiempo real. Pero la tecnología está al servicio del momento humano, no al revés. El algoritmo no sustituye al cartero. El cartero usa el algoritmo para servir mejor al cliente.</p>
+
+  <div class="pull-quote">
+    <p>El cartero no está haciendo venta cruzada. Está haciendo algo que el seguro perdió cuando se digitalizó por completo: presencia humana en el momento justo.</p>
+    <div class="pq-source">— Carlos Biurrun, artículo «AXA × Correos», Insur·Insights, septiembre 2026</div>
+  </div>
+
+  <p class="art-p">Eso es exactamente lo que el sector debería aprender de este modelo: no que la tecnología es mala, sino que tiene un lugar. Y que ese lugar no es el primer plano de la experiencia del cliente en los momentos que más importan.</p>
+
+  <div class="art-h2">La pregunta que cada aseguradora debería hacerse</div>
+
+  <p class="art-p">¿Cuántos momentos de la verdad tiene tu empresa cada año en los que el cliente habla con una máquina cuando necesitaría hablar con una persona? No la respuesta burocrática. La respuesta honesta.</p>
+
+  <p class="art-p">La eficiencia que se gana en esos momentos —segundos de proceso, décimas de coste operativo— tiene un precio. Ese precio se llama confianza. Y la confianza, cuando se pierde, no se recupera con una campaña de marketing. Se recupera, si es que se recupera, con años de comportamiento consistente.</p>
+
+  <p class="art-p"><strong>La inteligencia artificial es extraordinaria. Hace cosas que hace diez años eran ciencia ficción.</strong> Pero no puede darle la mano a alguien que acaba de enviudar. No puede mirar a los ojos a un agricultor de ochenta años y ganarse su confianza con una taza de café. No puede recorrer ocho kilómetros de pista forestal para llevar un documento que nadie más llevaría.</p>
+
+  <p class="art-p">Eso lo hace el cartero. Y detrás del cartero, ahora, está AXA. Lo cual sugiere que al menos una gran aseguradora ha entendido algo que el resto del sector todavía está debatiendo.</p>
+
+  <div class="art-closing">
+    <p class="art-closing-thesis">La mayor paradoja de la era de la inteligencia artificial es que su llegada ha hecho más valiosa, no menos, la inteligencia emocional.</p>
+
+    <p class="art-p">En el siguiente artículo de la serie ampliaremos el foco geográfico: la España Vaciada no es un fenómeno exclusivamente español. Italia, Francia, Portugal y Alemania enfrentan versiones del mismo problema. Y en todos esos territorios, el sector asegurador tiene pendiente la misma deuda con sus habitantes.</p>
+
+    <div class="art-tag-row">
+      <span class="art-tag">InsurTech</span>
+      <span class="art-tag">Inteligencia Artificial</span>
+      <span class="art-tag">Distribución</span>
+      <span class="art-tag">Experiencia de Cliente</span>
+      <span class="art-tag">Factor Humano y Seguro</span>
+    </div>
+  </div>
+  
+  <!-- SERIE COMPLETA -->
+  <div class="serie-completa">
+    <div class="serie-completa-label">Serie completa</div>
+    <div class="serie-completa-title">«Factor Humano y Seguro» · Insur·Insights</div>
+    <div class="serie-completa-desc">Cuatro piezas para entender el seguro que viene — desde un caso concreto hasta una tesis editorial sobre el sector.</div>
+    <div class="serie-cards">
+      <!-- Artículo 0 -->
+      <a class="serie-card" href="https://hub.communityofinsurance.com/articulos/axa-correos-espana-vaciada.html" target="_blank">
+        <div class="serie-card-accent accent-0"></div>
+        <div class="serie-card-num-col"><span class="serie-card-num">0</span></div>
+        <div class="serie-card-body">
+          <div class="serie-card-tag">Artículo 0 · El caso que lo inició todo</div>
+          <div class="serie-card-art-title">AXA × Correos — Cuando el cartero lleva protección</div>
+          <div class="serie-card-subtitle">El acuerdo que generó 8.802 impresiones en LinkedIn y abrió esta serie. Datos, proyecciones y dimensión humana.</div>
+        </div>
+        <div class="serie-card-cta"><div class="cta-arrow">→</div></div>
+      </a>
+
+      <!-- Artículo 1 — actual -->
+      <div class="serie-card serie-card-current">
+        <div class="serie-card-accent accent-1"></div>
+        <div class="serie-card-num-col"><span class="serie-card-num current">1</span></div>
+        <div class="serie-card-body">
+          <div class="serie-card-tag">Artículo nº1 · IA y Factor Humano</div>
+          <div class="serie-card-art-title">Tecnología sin alma <em>— estás aquí</em></div>
+          <div class="serie-card-subtitle">Lo que la inteligencia artificial no puede hacer por el cliente de seguros. Tabla comparativa de 9 dimensiones de valor IA vs. agente humano.</div>
+          <span class="serie-card-current-badge">Artículo actual</span>
+        </div>
+      </div>
+
+      <!-- Artículo 2 -->
+      <a class="serie-card" href="https://hub.communityofinsurance.com/articulos/seguro-humano-territorios-olvidados.html" target="_blank">
+        <div class="serie-card-accent accent-2"></div>
+        <div class="serie-card-num-col"><span class="serie-card-num">2</span></div>
+        <div class="serie-card-body">
+          <div class="serie-card-tag">Artículo nº2 · Panorama europeo</div>
+          <div class="serie-card-art-title">Los territorios olvidados del seguro europeo</div>
+          <div class="serie-card-subtitle">España, Italia, Francia, Portugal y Alemania: el mismo problema con cinco nombres distintos. Análisis comparativo y cuatro conclusiones para el sector.</div>
+        </div>
+        <div class="serie-card-cta"><div class="cta-arrow">→</div></div>
+      </a>
+
+      <!-- Artículo 3 -->
+      <a class="serie-card" href="https://hub.communityofinsurance.com/articulos/seguro-humano-puede-el-seguro-salvar-un-pueblo.html" target="_blank">
+        <div class="serie-card-accent accent-3"></div>
+        <div class="serie-card-num-col"><span class="serie-card-num">3</span></div>
+        <div class="serie-card-body">
+          <div class="serie-card-tag">Artículo nº3 · Cierre de serie</div>
+          <div class="serie-card-art-title">¿Puede el seguro salvar un pueblo?</div>
+          <div class="serie-card-subtitle">Negocio y propósito no son opuestos. Con datos verificados sobre las críticas al acuerdo y una petición razonada a AXA y Correos.</div>
+        </div>
+        <div class="serie-card-cta"><div class="cta-arrow">→</div></div>
+      </a>
+    </div>
+  </div>
+
+  <!-- AUTHOR -->
+  <div class="author-block">
+    <div class="author-avatar">CB</div>
+    <div>
+      <div class="author-name">Carlos Biurrun Murillo</div>
+      <div class="author-role">
+        Editor · Insur·Insights &nbsp;·&nbsp; Presidente · Community of Insurance<br>
+        <a href="mailto:carlos.biurrun@communityofinsurance.com">carlos.biurrun@communityofinsurance.com</a>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /article-wrap -->
+
+</body>
+</html>
