@@ -1,0 +1,671 @@
+<!-- INSUR·INSIGHTS · Revolut · Fragmento para widget HTML de Elementor / bloque HTML de WordPress -->
+<style>
+  #ii-art { box-sizing: border-box; }
+  #ii-art *, #ii-art *::before, #ii-art *::after { box-sizing: inherit; }
+
+  #ii-art {
+    --navy: #183577;
+    --navy-deep: #0f2352;
+    --gold: #C89646;
+    --gold-light: #E4C888;
+    --charcoal: #595959;
+    --coral: #F1957C;
+    --red: #E4382E;
+    --paper: #FBFAF7;
+    --line: #E4E0D6;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #262626;
+    background: var(--paper);
+    line-height: 1.65;
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 0 64px 0;
+  }
+
+  #ii-art h1, #ii-art h2, #ii-art h3 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight: 700;
+    color: var(--navy-deep);
+    line-height: 1.22;
+  }
+
+  #ii-art a { color: var(--navy); }
+
+  /* ---------- HERO ---------- */
+  #ii-art .ii-hero {
+    position: relative;
+    background: linear-gradient(160deg, var(--navy-deep) 0%, var(--navy) 62%, #24408f 100%);
+    color: #fff;
+    padding: 56px 40px 44px;
+    overflow: hidden;
+    border-bottom: 5px solid var(--gold);
+  }
+  #ii-art .ii-hero-skyline {
+    position: absolute;
+    left: 0; right: 0; bottom: -2px;
+    width: 100%;
+    height: auto;
+    opacity: 0.9;
+  }
+  #ii-art .ii-hero-inner { position: relative; z-index: 2; }
+  #ii-art .ii-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    color: var(--gold-light);
+    margin-bottom: 18px;
+    font-family: Georgia, serif;
+    font-style: italic;
+  }
+  #ii-art .ii-kicker .dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--coral);
+    display: inline-block;
+  }
+  #ii-art .ii-hero h1 {
+    color: #fff;
+    font-size: 38px;
+    margin: 0 0 16px 0;
+    max-width: 15ch;
+  }
+  #ii-art .ii-hero p.ii-dek {
+    font-size: 17px;
+    color: #D9E0F2;
+    max-width: 58ch;
+    margin: 0 0 26px 0;
+  }
+  #ii-art .ii-hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+    font-size: 13px;
+    color: #B9C6E8;
+    border-top: 1px solid rgba(255,255,255,0.18);
+    padding-top: 16px;
+  }
+  #ii-art .ii-hero-meta strong { color: #fff; font-weight: 600; }
+
+  /* ---------- BODY LAYOUT ---------- */
+  #ii-art .ii-body { padding: 0 40px; }
+  #ii-art .ii-lede {
+    font-size: 19px;
+    color: var(--charcoal);
+    border-left: 3px solid var(--gold);
+    padding: 4px 0 4px 20px;
+    margin: 36px 0 8px;
+  }
+
+  #ii-art section.ii-sec { margin-top: 46px; }
+  #ii-art .ii-sec-num {
+    display: inline-block;
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+  #ii-art h2 {
+    font-size: 25px;
+    margin: 0 0 18px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--line);
+  }
+  #ii-art h3 {
+    font-size: 17px;
+    color: var(--navy);
+    margin: 26px 0 10px;
+  }
+  #ii-art p { margin: 0 0 16px 0; font-size: 15.5px; }
+  #ii-art ul { margin: 0 0 22px 0; padding-left: 20px; }
+  #ii-art li { font-size: 14.5px; margin-bottom: 7px; }
+  #ii-art li a { text-decoration: none; border-bottom: 1px solid var(--gold); }
+  #ii-art li a:hover { color: var(--coral); border-color: var(--coral); }
+  #ii-art #ii-fuentes h3 { margin-top: 22px; }
+
+  /* ---------- ETIQUETAS DE DATO ---------- */
+  #ii-art .tag {
+    display: inline-block;
+    font-family: Arial, sans-serif;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-left: 6px;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  #ii-art .tag-verificado { background: var(--navy); color: #fff; }
+  #ii-art .tag-estimacion { background: var(--gold); color: #3a2c05; }
+  #ii-art .tag-proyeccion { background: #fff; color: var(--charcoal); border: 1px solid var(--charcoal); }
+  #ii-art .tag-fuente { background: var(--coral); color: #4a1b0f; }
+
+  /* ---------- TABLAS ---------- */
+  #ii-art .ii-table-wrap {
+    overflow-x: auto;
+    margin: 18px 0 22px;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+  }
+  #ii-art table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 480px;
+    font-size: 14px;
+  }
+  #ii-art caption {
+    text-align: left;
+    font-size: 12.5px;
+    color: var(--charcoal);
+    padding: 8px 14px 0;
+    caption-side: top;
+    font-style: italic;
+  }
+  #ii-art th {
+    background: var(--navy-deep);
+    color: #fff;
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 600;
+    font-size: 13px;
+  }
+  #ii-art td {
+    padding: 9px 14px;
+    border-top: 1px solid var(--line);
+  }
+  #ii-art tbody tr:nth-child(even) { background: #F4F2EA; }
+  #ii-art td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  /* ---------- CITAS TEXTUALES ---------- */
+  #ii-art blockquote.ii-quote {
+    margin: 24px 0;
+    padding: 18px 22px;
+    background: #fff;
+    border-left: 4px solid var(--coral);
+    border-radius: 0 4px 4px 0;
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 15.5px;
+    color: #3a2f1f;
+  }
+  #ii-art blockquote.ii-quote footer {
+    margin-top: 10px;
+    font-family: Arial, sans-serif;
+    font-style: normal;
+    font-size: 12.5px;
+    color: var(--charcoal);
+  }
+
+  /* ---------- CAJA DE PULL-QUOTE GRANDE ---------- */
+  #ii-art .ii-pull {
+    background: var(--navy-deep);
+    color: #fff;
+    padding: 28px 30px;
+    border-radius: 6px;
+    margin: 30px 0;
+    position: relative;
+  }
+  #ii-art .ii-pull::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 5px; height: 100%;
+    background: var(--gold);
+    border-radius: 6px 0 0 6px;
+  }
+  #ii-art .ii-pull p {
+    font-family: Georgia, serif;
+    font-size: 19px;
+    line-height: 1.5;
+    margin: 0;
+    color: #F3EFE3;
+  }
+  #ii-art .ii-pull cite {
+    display: block;
+    margin-top: 12px;
+    font-style: normal;
+    font-size: 12.5px;
+    color: var(--gold-light);
+  }
+
+  /* ---------- NOTA METODOLÓGICA ---------- */
+  #ii-art .ii-note {
+    margin-top: 48px;
+    padding: 20px 24px;
+    background: #F1EEE3;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    font-size: 13.5px;
+    color: var(--charcoal);
+  }
+  #ii-art .ii-note strong { color: var(--navy-deep); }
+
+  /* ---------- LEYENDA DE ETIQUETAS ---------- */
+  #ii-art .ii-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin: 30px 0 10px;
+    padding: 14px 18px;
+    background: #fff;
+    border: 1px dashed var(--line);
+    border-radius: 4px;
+    font-size: 12.5px;
+    color: var(--charcoal);
+    align-items: center;
+  }
+
+  /* ---------- FOOTER ---------- */
+  #ii-art .ii-footer {
+    margin-top: 56px;
+    padding-top: 22px;
+    border-top: 2px solid var(--navy-deep);
+    font-size: 12.5px;
+    color: var(--charcoal);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  #ii-art .ii-footer .ii-brand { font-family: Georgia, serif; font-weight: 700; color: var(--navy-deep); }
+
+  @media (max-width: 600px) {
+    #ii-art .ii-hero { padding: 40px 22px 34px; }
+    #ii-art .ii-hero h1 { font-size: 29px; }
+    #ii-art .ii-body { padding: 0 22px; }
+    #ii-art .ii-pull p { font-size: 17px; }
+  }
+
+  /* ---------- REFUERZOS PARA WORDPRESS / ELEMENTOR (todo scoped) ---------- */
+  #ii-art { float: none; clear: both; text-align: left; }
+  #ii-art p, #ii-art ul, #ii-art li, #ii-art h1, #ii-art h2, #ii-art h3,
+  #ii-art table, #ii-art blockquote, #ii-art figure { text-transform: none; letter-spacing: normal; }
+  #ii-art h1, #ii-art h2, #ii-art h3 { font-family: Georgia, 'Times New Roman', serif; }
+  #ii-art table { table-layout: auto; margin: 0; border-spacing: 0; }
+  #ii-art table th, #ii-art table td { border-left: 0; border-right: 0; vertical-align: top; }
+  #ii-art table th { border-top: 0; border-bottom: 0; }
+  #ii-art ul { list-style: disc; }
+  #ii-art li { list-style: disc; }
+  #ii-art li::marker { color: var(--gold); }
+  #ii-art blockquote.ii-quote { quotes: none; }
+  #ii-art blockquote.ii-quote::before, #ii-art blockquote.ii-quote::after { content: none; }
+  #ii-art a { box-shadow: none; }
+  #ii-art .ii-hero h1 { color: #fff; }
+  #ii-art .ii-pull p { color: #F3EFE3; }
+  #ii-art img, #ii-art svg { max-width: 100%; }
+  #ii-art p { line-height: 1.65; }
+  #ii-art .ii-hero h1 { max-width: 20ch; line-height: 1.2; }
+  #ii-art .ii-hero p.ii-dek { line-height: 1.55; font-size: 17px; }
+  #ii-art .ii-lede { line-height: 1.6; font-size: 19px; }
+  #ii-art .ii-pull p { line-height: 1.5; font-size: 19px; }
+  #ii-art li { line-height: 1.5; font-size: 14.5px; }
+  #ii-art td, #ii-art th { line-height: 1.45; font-size: 14px; }
+  #ii-art blockquote.ii-quote { line-height: 1.55; font-size: 15.5px; }
+  #ii-art .ii-note, #ii-art .ii-legend, #ii-art .ii-footer { line-height: 1.5; }
+  #ii-art table td { border-bottom: 0; border-left: 0; border-right: 0; border-top: 1px solid var(--line); background-clip: padding-box; }
+  #ii-art table tbody tr:nth-child(even) td { background: #F4F2EA; }
+  #ii-art table tbody tr:nth-child(odd) td { background: transparent; }
+  #ii-art table th { border: 0; }
+  #ii-art blockquote.ii-quote { border-top: 0; border-right: 0; border-bottom: 0; border-left: 4px solid var(--coral); background: #fff; margin-left: 0; margin-right: 0; }
+  #ii-art .ii-pull { border: 0; }
+</style>
+
+<div id="ii-art">
+
+  <!-- ================= HERO ================= -->
+  <header class="ii-hero">
+    <svg class="ii-hero-skyline" viewBox="0 0 900 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect x="0" y="70" width="34" height="70" fill="#0b1c47" opacity="0.65"/>
+      <rect x="40" y="50" width="26" height="90" fill="#0b1c47" opacity="0.55"/>
+      <rect x="72" y="85" width="20" height="55" fill="#0b1c47" opacity="0.7"/>
+      <polygon points="105,140 105,40 130,20 155,40 155,140" fill="#0b1c47" opacity="0.6"/>
+      <rect x="165" y="60" width="30" height="80" fill="#0b1c47" opacity="0.5"/>
+      <rect x="205" y="95" width="18" height="45" fill="#0b1c47" opacity="0.7"/>
+      <rect x="232" y="30" width="34" height="110" fill="#0b1c47" opacity="0.65"/>
+      <rect x="275" y="75" width="22" height="65" fill="#0b1c47" opacity="0.55"/>
+      <rect x="305" y="55" width="26" height="85" fill="#0b1c47" opacity="0.6"/>
+      <polygon points="340,140 340,45 365,15 390,45 390,140" fill="#0b1c47" opacity="0.7"/>
+      <rect x="400" y="90" width="20" height="50" fill="#0b1c47" opacity="0.5"/>
+      <rect x="428" y="40" width="30" height="100" fill="#0b1c47" opacity="0.6"/>
+      <rect x="466" y="65" width="24" height="75" fill="#0b1c47" opacity="0.55"/>
+      <rect x="498" y="20" width="36" height="120" fill="#0b1c47" opacity="0.7"/>
+      <rect x="542" y="80" width="20" height="60" fill="#0b1c47" opacity="0.5"/>
+      <rect x="570" y="50" width="28" height="90" fill="#0b1c47" opacity="0.6"/>
+      <polygon points="606,140 606,42 630,12 654,42 654,140" fill="#0b1c47" opacity="0.65"/>
+      <rect x="666" y="95" width="18" height="45" fill="#0b1c47" opacity="0.5"/>
+      <rect x="692" y="60" width="26" height="80" fill="#0b1c47" opacity="0.6"/>
+      <rect x="726" y="35" width="30" height="105" fill="#0b1c47" opacity="0.65"/>
+      <rect x="764" y="75" width="20" height="65" fill="#0b1c47" opacity="0.5"/>
+      <rect x="792" y="55" width="26" height="85" fill="#0b1c47" opacity="0.6"/>
+      <rect x="826" y="90" width="18" height="50" fill="#0b1c47" opacity="0.55"/>
+      <rect x="852" y="65" width="24" height="75" fill="#0b1c47" opacity="0.6"/>
+      <line x1="0" y1="140" x2="900" y2="140" stroke="#C89646" stroke-width="2" opacity="0.5"/>
+    </svg>
+    <div class="ii-hero-inner">
+      <div class="ii-kicker"><span class="dot"></span>PRIMER PLANO&nbsp;&middot;&nbsp;Insur&middot;Insights</div>
+      <h1>Revolut: de la tarjeta multidivisa a la aspiración de banco global</h1>
+      <p class="ii-dek">Cronología, cifras, cumplimiento regulatorio y el papel de la inteligencia artificial en la fintech que más ha crecido en la última década — y su incipiente entrada en seguros.</p>
+      <div class="ii-hero-meta">
+        <span><strong>Fuente base:</strong> entrevista de Nik Storonsky, EL PAÍS Negocios, 27&nbsp;sept.&nbsp;2026</span>
+        <span><strong>Elaboración:</strong> Community of Insurance</span>
+        <span><strong>Contraste:</strong> 15+ fuentes independientes verificadas</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= BODY ================= -->
+  <div class="ii-body">
+
+    <p class="ii-lede">En una década, dos exbanqueros londinenses convirtieron una tarjeta multidivisa en una plataforma con más de 80 millones de clientes y una valoración privada superior a los 100.000 millones de dólares. Este informe reconstruye su trayectoria con datos contrastados, distingue lo verificado de lo declarado por su fundador, y responde a la pregunta que más interesa al sector: ¿entra Revolut en el negocio asegurador?</p>
+
+    <div class="ii-legend">
+      <span><span class="tag tag-verificado">VERIFICADO</span> Confirmado por fuente independiente</span>
+      <span><span class="tag tag-fuente">FUENTE CEO</span> Declaración directa del entrevistado</span>
+      <span><span class="tag tag-estimacion">ESTIMACIÓN</span> Cálculo propio o de terceros</span>
+      <span><span class="tag tag-proyeccion">PROYECCIÓN</span> Objetivo futuro no cerrado</span>
+    </div>
+
+    <!-- 1. CRONOLOGÍA -->
+    <section class="ii-sec">
+      <span class="ii-sec-num">01</span>
+      <h2>Cronología de la creación</h2>
+      <p>Revolut nació en julio de 2015, cuando Nikolay Storonsky &mdash;exoperador de derivados de mercados emergentes en Credit Suisse y Lehman Brothers&mdash; y el desarrollador de software Vlad Yatsenko decidieron construir una alternativa a las comisiones y tipos de cambio desfavorables que sufrían al viajar. Storonsky aportó el primer capital, unas 300.000 libras de ahorro personal, e incorporó después a Yatsenko como director técnico. La empresa se constituyó formalmente el 1 de julio de 2015, operando desde una pequeña incubadora en Canary Wharf, Londres. <span class="tag tag-verificado">VERIFICADO</span></p>
+      <p>El reparto accionarial inicial reflejó el peso de cada fundador: Yatsenko recibió un 20% de la compañía en el lanzamiento; Storonsky retuvo el 80% restante. <span class="tag tag-verificado">VERIFICADO</span> Desde entonces, ambos socios han mantenido perfiles públicos distintos: Storonsky renunció a su nacionalidad rusa tras la invasión de Ucrania, adoptando la ciudadanía británica y francesa; Yatsenko, de origen ucraniano, se pronunció públicamente contra la guerra y la compañía donó 1,5 millones de libras a la Cruz Roja.</p>
+    </section>
+
+    <!-- 2. CIFRAS -->
+    <section class="ii-sec">
+      <span class="ii-sec-num">02</span>
+      <h2>Evolución del negocio: cifras, implantación y empleados</h2>
+      <p>El crecimiento de clientes ha sido sostenido y se ha acelerado en los últimos ejercicios:</p>
+      <div class="ii-table-wrap">
+        <table>
+          <caption>Clientes particulares globales de Revolut &mdash; Fuente: Revolut / EL PAÍS Negocios, 27&nbsp;sept.&nbsp;2026 <span class="tag tag-verificado">VERIFICADO</span></caption>
+          <thead><tr><th>Año</th><th>Clientes (millones)</th></tr></thead>
+          <tbody>
+            <tr><td>2016</td><td class="num">0,3</td></tr>
+            <tr><td>2019</td><td class="num">10,0</td></tr>
+            <tr><td>2022</td><td class="num">26,2</td></tr>
+            <tr><td>2024</td><td class="num">52,5</td></tr>
+            <tr><td>2025</td><td class="num">68,3</td></tr>
+            <tr><td>2026 (actual)</td><td class="num">&gt;80</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Revolut opera con más de 150 países y regiones alcanzables desde su app, aunque el número de jurisdicciones con licencia formal es más acotado: a marzo de 2026 operaba en 40 mercados regulados. <span class="tag tag-verificado">VERIFICADO</span> Los clientes de Revolut Business crecieron un 33% en 2025, hasta 767.000. <span class="tag tag-verificado">VERIFICADO</span></p>
+      <p>La plantilla del grupo se sitúa en 12.200 empleados (2025). <span class="tag tag-verificado">VERIFICADO &mdash; Wikipedia/consolidado de grupo</span> A nivel de cumplimiento normativo, el propio CEO detalló en la entrevista de EL PAÍS que la compañía mantiene &ldquo;alrededor de 200 ingenieros&rdquo; dedicados a productos de regulación, y &ldquo;un equipo de unas 250 personas&rdquo; centrado en prevención del crimen financiero. <span class="tag tag-fuente">FUENTE CEO</span></p>
+
+      <h3>Valoración: tres cifras, tres momentos distintos</h3>
+      <p>Conviene no tratar como equivalentes datos que corresponden a operaciones y fechas diferentes:</p>
+      <div class="ii-table-wrap">
+        <table>
+          <thead><tr><th>Valoración</th><th>Momento</th><th>Naturaleza</th></tr></thead>
+          <tbody>
+            <tr><td class="num">75.000 M$</td><td>Noviembre 2025</td><td>Venta secundaria de acciones cerrada <span class="tag tag-verificado">VERIFICADO</span></td></tr>
+            <tr><td class="num">115.000 M$</td><td>Verano 2026</td><td>Declaración del CEO sobre operación más reciente <span class="tag tag-fuente">FUENTE CEO</span></td></tr>
+            <tr><td class="num">~100.000 M$</td><td>Futura OPV</td><td>Estimación de mercado, no confirmada <span class="tag tag-proyeccion">PROYECCIÓN</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Revolut <strong>no cotiza en bolsa</strong>; estas son valoraciones privadas, no capitalización bursátil, y no deben presentarse como cifras intercambiables.</p>
+    </section>
+
+    <!-- 3. CUENTA DE EXPLOTACIÓN -->
+    <section class="ii-sec">
+      <span class="ii-sec-num">03</span>
+      <h2>Cuenta de explotación y resultados 2025</h2>
+      <p>Los resultados anuales, presentados en marzo de 2026, son el mejor ejercicio de la historia de la compañía:</p>
+      <div class="ii-table-wrap">
+        <table>
+          <caption>Resultados 2025 &mdash; Fuente: Reuters, Euronews, informe anual Revolut <span class="tag tag-verificado">VERIFICADO</span></caption>
+          <thead><tr><th>Magnitud</th><th>Cifra</th><th>Variación</th></tr></thead>
+          <tbody>
+            <tr><td>Ingresos</td><td class="num">4.500 MM&pound; (5.200 MM&euro;)</td><td class="num">+46%</td></tr>
+            <tr><td>Beneficio antes de impuestos</td><td class="num">1.700 MM&pound; (2.000 MM&euro;)</td><td class="num">+57%</td></tr>
+            <tr><td>Beneficio neto</td><td class="num">~1.700 M$</td><td>5.&ordm; año consecutivo en positivo</td></tr>
+            <tr><td>Margen</td><td class="num">38%</td><td>Mejora frente a ejercicios previos</td></tr>
+            <tr><td>Cartera de préstamos</td><td class="num">2.200 MM&pound; (2.500 MM&euro;)</td><td class="num">+120%</td></tr>
+            <tr><td>Plantilla</td><td class="num">12.200</td><td>&mdash;</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Por línea de negocio: pagos con tarjeta (1.300 M$), suscripciones (936 M$), gestión de patrimonio (876 M$) y cambio de divisas (&gt;800 M$). Revolut Business ya representa el 16% del negocio total. <span class="tag tag-verificado">VERIFICADO</span></p>
+
+      <blockquote class="ii-quote">
+        &ldquo;Un cálculo propio a partir de nuestras cuentas sitúa la rentabilidad en torno al 35% en 2025, mientras que el Santander cerró el ejercicio con un 16,3% y el BBVA con un 19,3%&rdquo;, aunque &mdash;matiza el propio CEO&mdash; &ldquo;la comparación no es homogénea, porque las entidades cotizadas publican sus ratios bajo criterios normalizados y Revolut no.&rdquo;
+        <footer>Nik Storonsky, CEO de Revolut &mdash; EL PAÍS Negocios, 27&nbsp;sept.&nbsp;2026 <span class="tag tag-fuente">FUENTE CEO</span></footer>
+      </blockquote>
+
+      <p>En euros absolutos, Revolut permanece lejos de la escala de la gran banca: Santander ganó 14.101 millones de euros en 2025 y BBVA, 10.511 millones, frente a los ~2.000 millones de euros de beneficio antes de impuestos de Revolut. <span class="tag tag-verificado">VERIFICADO</span></p>
+    </section>
+
+    <!-- 4. EXPANSIÓN -->
+    <section class="ii-sec">
+      <span class="ii-sec-num">04</span>
+      <h2>Estrategia de expansión y pilares de apoyo</h2>
+
+      <h3>a) Inversión comprometida</h3>
+      <p>10.000 millones de libras (11.600 millones de euros) en cinco años, incluida la creación de 1.000 empleos en Reino Unido. <span class="tag tag-verificado">VERIFICADO</span> El propio CEO citó en la entrevista una cifra ligeramente distinta &mdash;11.500 millones de euros a nivel global&mdash;, por diferencia de conversión y fecha de referencia; no deben tomarse como cifras idénticas. <span class="tag tag-fuente">FUENTE CEO</span></p>
+
+      <h3>b) Escalar con plataforma propia, no por adquisición bancaria</h3>
+      <div class="ii-pull">
+        <p>&ldquo;Normalmente, en los dos primeros casos seguimos un análisis y terminamos descubriendo que para nosotros es más barato construir internamente que comprar. Y en muchos casos también es más barato captar clientes directamente con nuestro producto que comprar una plataforma con nuevos usuarios y después intentar migrarlos.&rdquo;</p>
+        <cite>Nik Storonsky, CEO de Revolut</cite>
+      </div>
+      <p>Las adquisiciones se reservan para casos puntuales: obtener una licencia con rapidez donde el proceso regulatorio autónomo es más lento (caso citado por el propio CEO: Turquía).</p>
+
+      <h3>c) Diversificación geográfica activa</h3>
+      <div class="ii-table-wrap">
+        <table>
+          <caption>Mapa de licencias 2025&ndash;2026 <span class="tag tag-verificado">VERIFICADO &mdash; fuentes cruzadas</span></caption>
+          <thead><tr><th>Mercado</th><th>Hito regulatorio</th><th>Fecha</th></tr></thead>
+          <tbody>
+            <tr><td>Reino Unido</td><td>Banco plenamente autorizado</td><td>Marzo 2026</td></tr>
+            <tr><td>México</td><td>Operaciones bancarias completas</td><td>Enero 2026</td></tr>
+            <tr><td>Francia</td><td>Licencia bancaria obtenida</td><td>2026</td></tr>
+            <tr><td>Australia</td><td>Licencia bancaria obtenida</td><td>2026</td></tr>
+            <tr><td>Emiratos Árabes Unidos</td><td>Aprobación en principio (pagos)</td><td>Sept. 2025</td></tr>
+            <tr><td>Colombia</td><td>Licencia bancaria obtenida</td><td>Sept. 2026</td></tr>
+            <tr><td>Suiza</td><td>Solicitud ante FINMA (en curso)</td><td>Sept. 2026</td></tr>
+            <tr><td>Estados Unidos</td><td>Aprobación condicional OCC &mdash; pendiente FDIC/Fed</td><td>Sept. 2026</td></tr>
+            <tr><td>Perú</td><td>Solicitud presentada (en curso)</td><td>2026</td></tr>
+            <tr><td>India</td><td>Licencia de pagos obtenida</td><td>2026</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>La aprobación de la OCC en EE.&nbsp;UU. es <strong>condicional</strong>, no una licencia operativa: restan las aprobaciones de la FDIC y la Reserva Federal, con lanzamiento previsto para 2027. <span class="tag tag-proyeccion">PROYECCIÓN</span></p>
+
+      <h3>d) Presencia física como refuerzo de confianza</h3>
+      <blockquote class="ii-quote">
+        &ldquo;En la industria bancaria es extremadamente importante la confianza y la reputación [&hellip;] el mundo físico genera confianza y reputación adicional para los bancos. Si no estás presente físicamente en algún sitio, la gente te confiará menos en comparación con las entidades tradicionales.&rdquo;
+        <footer>Nik Storonsky, CEO de Revolut <span class="tag tag-fuente">FUENTE CEO</span></footer>
+      </blockquote>
+      <p>La compañía ya ha desplegado cajeros propios en España y está abriendo oficinas en distintos mercados, incluida su nueva sede europea en París. <span class="tag tag-verificado">VERIFICADO</span></p>
+    </section>
+
+    <!-- 5. CUMPLIMIENTO -->
+    <section class="ii-sec">
+      <span class="ii-sec-num">05</span>
+      <h2>Cumplimiento regulatorio</h2>
+      <blockquote class="ii-quote">
+        &ldquo;Nuestro objetivo siempre ha sido ser lo más seguros posible [&hellip;] no queremos entrar de forma agresiva en el negocio del crédito, el objetivo es ser lo más seguros posibles y no entrar en negocios arriesgados.&rdquo;
+        <footer>Nik Storonsky, CEO de Revolut <span class="tag tag-fuente">FUENTE CEO</span></footer>
+      </blockquote>
+      <p>Revolut cuenta con licencia bancaria en Reino Unido (2025), licencia del Banco Central Europeo y licencia del Banco de Lituania &mdash;su vía histórica de acceso al mercado europeo. <span class="tag tag-verificado">VERIFICADO</span></p>
+      <p>El propio directivo reconoce fricciones regulatorias recientes, sin que este informe las haya contrastado de forma independiente frente a fuente regulatoria primaria: &ldquo;en 2025, el BCE limitó temporalmente el lanzamiento de nuevos productos mientras revisaba si los controles internos de Revolut estaban preparados&rdquo;, y en Reino Unido &ldquo;el proceso para obtener una licencia también se alargó porque el supervisor británico quería asegurarse de que nuestros sistemas de control [&hellip;] estaban listos para una entidad de su tamaño.&rdquo; <span class="tag tag-fuente">FUENTE CEO &mdash; no verificado de forma independiente</span></p>
+    </section>
+
+    <!-- 6. FUTURO -->
+    <section class="ii-sec">
+      <span class="ii-sec-num">06</span>
+      <h2>Orientación de futuro: hacia el banco global</h2>
+      <p>El objetivo declarado es alcanzar 100 millones de clientes a mediados de 2027. <span class="tag tag-verificado">VERIFICADO</span> Pero el propio fundador matiza el discurso de éxito:</p>
+      <div class="ii-pull">
+        <p>&ldquo;Espero poder decir que hemos ganado si somos más grandes que JPMorgan [ríe]. No estoy seguro de que eso sea posible dentro de 15 años. Pero ya veremos.&rdquo;</p>
+        <cite>Nik Storonsky, CEO de Revolut</cite>
+      </div>
+      <p>Sobre el riesgo de su propio modelo: &ldquo;crecer para ser uno de los grandes bancos del mundo [puede] transformarse en una organización lenta y burocrática como las que él mismo desafía.&rdquo; Y sobre Europa como entorno regulatorio: &ldquo;nunca ha existido el entorno tecnológico inicial ni personas que hayan tenido éxito financiando nuevas compañías [&hellip;] hay mucha regulación y muchos reguladores por el propio diseño del sistema.&rdquo; <span class="tag tag-fuente">FUENTE CEO</span></p>
+      <p>Sobre una eventual salida a bolsa: &ldquo;Faltan dos años&rdquo;, indicó Storonsky a Bloomberg. <span class="tag tag-proyeccion">PROYECCIÓN &mdash; no compromiso firme</span></p>
+    </section>
+
+    <!-- 7. IA -->
+    <section class="ii-sec">
+      <span class="ii-sec-num">07</span>
+      <h2>Inteligencia artificial en expansión y atención al cliente</h2>
+
+      <h3>a) Atención al cliente automatizada</h3>
+      <p>Revolut implementó ElevenLabs Agents como primera línea de soporte por voz en Reino Unido y Europa: gestiona llamadas en directo, detecta y cambia de idioma en tiempo real, y se conecta a sistemas internos. Resultado reportado por la propia compañía: tickets resueltos en menos de 5 minutos (frente a un tiempo medio 8 veces mayor con agentes humanos) y más del 99,7% de llamadas completadas con éxito. <span class="tag tag-estimacion">DATO DE PROVEEDOR &mdash; no auditado</span></p>
+
+      <h3>b) Asistente financiero personal (AIR)</h3>
+      <p>Desde el 1 de septiembre de 2026, Revolut despliega en Europa AIR (AI by Revolut), un asistente que analiza gastos, inversiones y viajes accediendo en tiempo real a los datos del cliente, y que <strong>ejecuta operaciones reales</strong>, no solo respuestas automatizadas. Incluye registro de toda acción ejecutada y permite anularla en menos de 30 segundos. Lanzamiento escalonado: primero Reino Unido (13.000 clientes), después la UE. <span class="tag tag-verificado">VERIFICADO</span></p>
+
+      <h3>c) Modelos fundacionales propios: Revolut Research y PRAGMA</h3>
+      <p>El movimiento más estratégico: una división de investigación en IA propia, bajo la filosofía &mdash;en palabras de Pavel Nesterov, responsable de IA de Revolut&mdash; de &ldquo;construir en lugar de parchear&rdquo;. Revolut Research entrena modelos propios con datos operativos a escala global, en lugar de apoyarse en software genérico sobre sistemas heredados, y será el motor de <strong>PRAGMA</strong>, modelo fundacional exclusivo desarrollado con NVIDIA, orientado a evaluación de riesgos y prevención del fraude. <span class="tag tag-verificado">VERIFICADO</span></p>
+      <p>Contexto que justifica la inversión: las pérdidas globales por fraude bancario alcanzaron 579.400 millones de dólares en 2025, según el Global Financial Crime Report 2026 de Nasdaq Verafin. <span class="tag tag-estimacion">ESTIMACIÓN DE INDUSTRIA</span></p>
+    </section>
+
+    <!-- 8. VOCES DEL SECTOR -->
+    <section class="ii-sec">
+      <span class="ii-sec-num">08</span>
+      <h2>Voces del sector: qué dicen otros banqueros sobre Revolut</h2>
+      <p>Ningún gran banco desestima a Revolut como amenaza, pero tampoco lo trata como un rival existencial. El patrón dominante entre sus máximos responsables es reconocer la presión competitiva y responder imitando &mdash;plataformas digitales propias&mdash; antes que combatiendo de frente.</p>
+
+      <h3>Jamie Dimon, CEO de JPMorgan Chase</h3>
+      <div class="ii-pull">
+        <p>&ldquo;¿Por qué no hacemos que Chase UK sea tan bueno como Revolut?&rdquo;</p>
+        <cite>Jamie Dimon, CEO de JPMorgan Chase, sobre la filial digital de su propio banco en Reino Unido</cite>
+      </div>
+      <p>Es el comentario más citado en el sector: una admisión pública de frustración por parte del banquero más poderoso de Wall Street, en contraste con el discurso previo de Chase UK, que se presentaba como &ldquo;el fintech de más éxito jamás visto en Reino Unido&rdquo;, con 2,5 millones de clientes y más de 20.000 millones de libras en balances &mdash;alcanzados, según su propio argumento, más rápido que Monzo o Revolut. <span class="tag tag-verificado">VERIFICADO &mdash; recogido en medios del sector fintech</span></p>
+
+      <h3>Onur Genç, CEO de BBVA</h3>
+      <blockquote class="ii-quote">
+        &ldquo;Los neobancos como Revolut o N26 son competidores muy importantes&rdquo; para la banca tradicional, porque ofrecen una experiencia de cliente &ldquo;muy buena&rdquo;.
+        <footer>Onur Genç, CEO de BBVA <span class="tag tag-verificado">VERIFICADO</span></footer>
+      </blockquote>
+      <p>Genç defiende, no obstante, que BBVA compite &ldquo;muy bien&rdquo; gracias a su propia capacidad digital: el 66% de sus nuevos clientes en el último año llegaron por canales online, y el banco cerró 2025 con más de un millón de nuevos clientes en España.</p>
+
+      <h3>Ana Botín, presidenta de Banco Santander</h3>
+      <p>La respuesta de Botín ha sido estratégica más que retórica: convertir Openbank en &ldquo;un banco digital con sucursales&rdquo; que compita directamente con Revolut, incluida su expansión en Estados Unidos. Un directivo de Santander (Getnet Platforms, exCIO de Revolut Bank EU) resume la comparación entre ambos modelos: <span class="tag tag-verificado">VERIFICADO</span></p>
+      <blockquote class="ii-quote">
+        &ldquo;Es difícil para una fintech construir un negocio de crédito. Revolut es consciente de que esto lleva tiempo, y van más despacio que en otras áreas.&rdquo;
+        <footer>Felipe Peñacoba Martinez, CEO de Getnet Platforms Payments Hub (Santander), exCIO de Revolut Bank EU</footer>
+      </blockquote>
+
+      <h3>Gonzalo Gortázar, CEO de CaixaBank</h3>
+      <blockquote class="ii-quote">
+        &ldquo;El volumen de negocio de Imagin es muy superior al de competidores&rdquo; como Revolut. &ldquo;Y esto a día de hoy no es el caso de ninguno de los neobancos. Creo que tenemos mimbres para competir.&rdquo;
+        <footer>Gonzalo Gortázar, CEO de CaixaBank <span class="tag tag-verificado">VERIFICADO</span></footer>
+      </blockquote>
+
+      <h3>Marc Armengol, CEO de Banco Sabadell</h3>
+      <blockquote class="ii-quote">
+        &ldquo;En banca de particulares estamos viendo cómo plataformas globales están siendo capaces de traccionar en clientes. Veremos cómo de capaces son de generar primacía con los clientes.&rdquo;
+        <footer>Marc Armengol, CEO de Banco Sabadell <span class="tag tag-verificado">VERIFICADO</span></footer>
+      </blockquote>
+
+      <h3>Francesca Carlesi, CEO de Revolut UK &mdash; la réplica desde dentro</h3>
+      <blockquote class="ii-quote">
+        &ldquo;Históricamente, los bancos tradicionales han descuidado a muchos clientes y productos muy importantes.&rdquo;
+        <footer>Francesca Carlesi, CEO de Revolut UK, en la conferencia Money 20/20 <span class="tag tag-verificado">VERIFICADO</span></footer>
+      </blockquote>
+
+      <p><strong>Lectura de conjunto:</strong> la respuesta común de la gran banca ha sido imitar antes que combatir &mdash;Openbank, Imagin, las ofensivas de captación de clientes jóvenes lanzadas por Santander, BBVA, CaixaBank y Sabadell en 2026&mdash;, mientras Dimon sigue siendo la voz más franca al admitir públicamente que Revolut ha forzado a JPMorgan a replantear su propia filial digital.</p>
+    </section>
+
+    <!-- 9. SEGUROS -->
+    <section class="ii-sec">
+      <span class="ii-sec-num">09</span>
+      <h2>&iquest;Tiene Revolut planes en seguros?</h2>
+      <p><strong>Sí</strong>, y es un movimiento reciente y verificable. Revolut no aspira a operar como aseguradora con balance propio, sino como <strong>distribuidor de seguros embebidos</strong> a través de acuerdos con aseguradoras terceras.</p>
+
+      <h3>a) Nueva alianza con MetLife &mdash; protección de pagos</h3>
+      <p>El 9 de septiembre de 2026, Revolut cerró un acuerdo con MetLife para un seguro de protección de pagos vinculado a préstamos personales. Cobertura inicial en España, Portugal, Francia y Rumanía &mdash;los cuatro mercados donde ya ofrece crédito al consumo&mdash;, con ampliación prevista. Dos niveles: paquete básico (fallecimiento, discapacidad, hospitalización) y paquete completo (añade pérdida de empleo). Ampliación futura a tarjetas de crédito. <span class="tag tag-verificado">VERIFICADO</span></p>
+      <p><strong>Dato clave de gobernanza:</strong> el producto se distribuye a través de <em>Revolut Insurance Europe UAB</em>, entidad autorizada e inscrita por el Banco de Lituania como correduría de seguros &mdash;Revolut opera aquí como bróker, no como asegurador. <span class="tag tag-verificado">VERIFICADO</span></p>
+
+      <h3>b) Seguro de viaje, ya consolidado</h3>
+      <p>Incluido en los planes Metal y Ultra, gestionado por la plataforma de seguros embebidos Cover Genius (marca XCover), con cobertura final asumida por aseguradoras como Steadfast Insurance Partners (Malta). Condicionado a pagar alojamiento y transporte con la cuenta Revolut. <span class="tag tag-verificado">VERIFICADO</span></p>
+
+      <h3>c) Un &ldquo;hub de seguros&rdquo;, no una aseguradora</h3>
+      <div class="ii-pull">
+        <p>&ldquo;Revolut isn&rsquo;t becoming an insurance company&rdquo; &mdash;Revolut no se convierte en aseguradora, sino que construye progresivamente un centro desde el que agregar coberturas de terceros dentro de la app.</p>
+        <cite>Declaración institucional recogida por TechCrunch</cite>
+      </div>
+
+      <p><strong>Lectura para el sector:</strong> el patrón es consistente con el resto de la estrategia &mdash;construir la plataforma y la relación con el cliente, apoyándose en socios especializados (MetLife, Cover Genius/XCover, Steadfast) para el riesgo asegurador propiamente dicho&mdash;, exactamente igual que Revolut evita comprar bancos y prefiere construir infraestructura propia sobre licencias obtenidas caso a caso. La pregunta abierta para corredores y aseguradoras tradicionales no es si Revolut competirá directamente como aseguradora &mdash;hasta ahora no lo hace&mdash;, sino hasta qué punto una distribución embebida de bajo coste, apoyada en 80 millones de clientes y datos transaccionales en tiempo real, erosiona el rol de intermediación tradicional en líneas como protección de pagos, vida-riesgo asociada a crédito, o movilidad.</p>
+    </section>
+
+    <!-- NOTA METODOLÓGICA -->
+    <div class="ii-note">
+      <strong>Nota metodológica:</strong> las cifras de valoración privada (75.000&nbsp;/&nbsp;115.000&nbsp;/&nbsp;~100.000&nbsp;M$) no son comparables entre sí ni con la capitalización de entidades cotizadas como Santander o BBVA. Los datos atribuidos directamente a Nik Storonsky en la entrevista de EL PAÍS Negocios (27/09/2026) se presentan como declaración del directivo, no como dato auditado, salvo cuando coinciden con fuentes independientes verificadas.
+    </div>
+
+    <!-- FUENTES -->
+    <section class="ii-sec" id="ii-fuentes">
+      <span class="ii-sec-num">10</span>
+      <h2>Fuentes verificadas</h2>
+
+      <h3>Entrevista base</h3>
+      <p>Sobrino, R. &ldquo;Nik Storonsky: &lsquo;En los bancos tradicionales es prácticamente imposible desarrollar algo nuevo&rsquo;&rdquo;. <em>EL PAÍS Negocios</em>, 27 de septiembre de 2026, págs. 2&ndash;4. Edición impresa consultada directamente; no se ha localizado una URL pública estable en elpais.com al cierre de este informe &mdash;la pieza pertenece a la edición dominical de Negocios y puede estar disponible solo para suscriptores en <a href="https://elpais.com" target="_blank" rel="noopener">elpais.com</a>. <span class="tag tag-fuente">FUENTE PRIMARIA &mdash; sin enlace directo verificable</span></p>
+
+      <h3>Cronología y perfil de los fundadores</h3>
+      <ul>
+        <li><a href="https://en.wikipedia.org/wiki/Revolut" target="_blank" rel="noopener">Wikipedia &mdash; Revolut (ficha corporativa)</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Vlad_Yatsenko" target="_blank" rel="noopener">Wikipedia &mdash; Vlad Yatsenko</a></li>
+        <li><a href="https://www.telecinco.es/famosos/20260625/nik-storonsky-fundador-revolut-nadador-renuncia-nacionalidad-rusa-casado-hijos_18_019519503.html" target="_blank" rel="noopener">Telecinco &mdash; Perfil de Nik Storonsky</a></li>
+        <li><a href="https://www.ambito.com/negocios/llega-al-pais-el-mayor-banco-digital-europa-que-se-apoya-transferencias-baratas-y-buen-cambio-viajeros-n6326740" target="_blank" rel="noopener">Ámbito &mdash; Historia y desembarco de Revolut en Argentina</a></li>
+      </ul>
+
+      <h3>Resultados financieros 2025</h3>
+      <ul>
+        <li><a href="https://es.finance.yahoo.com/noticias/revolut-logra-resultados-r%C3%A9cord-ingresos-095531257.html" target="_blank" rel="noopener">Yahoo Finanzas &mdash; Resultados récord 2025</a></li>
+        <li><a href="https://euronews.com/business/2026/03/24/revolut-reported-record-financial-results-with-revenue-rising-by-46-to-52bn-in-2025" target="_blank" rel="noopener">Euronews &mdash; Record financial results 2025</a></li>
+        <li><a href="https://www.milenio.com/negocios/revolut-utilidades-beneficios-superiores-2-mil-300-mdd" target="_blank" rel="noopener">Milenio &mdash; Beneficio neto 2025</a></li>
+        <li><a href="https://es.tradingview.com/news/invezz:b871e12cc09cd:0/" target="_blank" rel="noopener">TradingView &mdash; Revolut desafía a la banca británica</a></li>
+        <li><a href="https://www.diariobitcoin.com/bancos-y-pagos-verticales/revolut-dispara-sus-ganancias-a-usd-2-300-millones-en-2025-y-acelera-su-apuesta-cripto/" target="_blank" rel="noopener">DiarioBitcoin &mdash; Ganancias récord 2025</a></li>
+      </ul>
+
+      <h3>Expansión y licencias regulatorias</h3>
+      <ul>
+        <li><a href="https://es-us.noticias.yahoo.com/revolut-solicita-licencia-bancaria-estados-132000561.html" target="_blank" rel="noopener">Yahoo Noticias &mdash; Solicitud de licencia en EE.&nbsp;UU.</a></li>
+        <li><a href="https://www.elnacional.cat/oneconomia/es/empresas/revolut-avanza-expansion-internacional-llega-eeuu-colombia-suiza_1695967_102.html" target="_blank" rel="noopener">El Nacional.cat &mdash; Expansión a EE.&nbsp;UU., Colombia y Suiza</a></li>
+        <li><a href="https://www.territoriobitcoin.com/el-desembarco-de-revolut-en-eeuu-muestra-la-consolidacion-de-un-gigante-bancario-global/" target="_blank" rel="noopener">Territorio Bitcoin &mdash; Desembarco en EE.&nbsp;UU.</a></li>
+        <li><a href="https://en.cryptonomist.ch/2026/09/03/revolut-us-banking-license/" target="_blank" rel="noopener">Cryptonomist &mdash; Aprobación preliminar OCC</a></li>
+        <li><a href="https://www.portafolio.co/negocios/empresas/revolut-obtiene-luz-verde-en-colombia-la-fintech-europea-ya-tiene-licencia-bancaria-y-esto-es-lo-que-ofrece-502561" target="_blank" rel="noopener">Portafolio &mdash; Licencia bancaria en Colombia</a></li>
+        <li><a href="https://www.revolut.com/es-ES/news/" target="_blank" rel="noopener">Revolut Newsroom (ES) &mdash; Comunicados corporativos</a></li>
+      </ul>
+
+      <h3>Inteligencia artificial</h3>
+      <ul>
+        <li><a href="https://elevenlabs.io/es/blog/revolut" target="_blank" rel="noopener">ElevenLabs &mdash; Caso de estudio: atención al cliente por voz</a></li>
+        <li><a href="https://www.siliconweek.com/security/revolut-crea-su-propia-division-de-inteligencia-artificial-para-combatir-el-fraude-bancario-111989" target="_blank" rel="noopener">SiliconWeek &mdash; Revolut Research y PRAGMA</a></li>
+        <li><a href="https://territoriofintech.com/neobancos/revolut-air-asistente-ia-gastos-inversiones-viajes/" target="_blank" rel="noopener">Territorio Fintech &mdash; Lanzamiento de AIR en España</a></li>
+        <li><a href="https://cadenacinco.com/revolut-ia-como-el-asistente-air-esta-transformando-la-banca-digital-en-2026/" target="_blank" rel="noopener">CadenaCinco &mdash; AIR y la banca digital en 2026</a></li>
+      </ul>
+
+      <h3>Seguros</h3>
+      <ul>
+        <li><a href="https://www.elespanol.com/observatorio-seguros/20260909/revolut-alia-metlife-lanzar-seguro-proteccion-pagos/1003744377536_0.html" target="_blank" rel="noopener">El Español, Observatorio Seguros &mdash; Alianza con MetLife</a></li>
+        <li><a href="https://www.eleconomista.es/banca-finanzas/noticias/14012672/09/26/revolut-se-alia-con-la-estadounidense-metlife-para-ofrecer-seguros-de-proteccion-de-pago-a-sus-clientes.html" target="_blank" rel="noopener">El Economista &mdash; Revolut y MetLife</a></li>
+        <li><a href="https://territoriofintech.com/neobancos/revolut-metlife-seguro-proteccion-pagos-prestamos-espana/" target="_blank" rel="noopener">Territorio Fintech &mdash; Seguro de protección de pagos en España</a></li>
+        <li><a href="https://hellosafe.com/travel-insurance/revolut" target="_blank" rel="noopener">HelloSafe &mdash; Análisis del seguro de viaje Revolut</a></li>
+        <li><a href="https://techcrunch.com/2018/01/16/revolut-launches-geolocation-powered-travel-insurance" target="_blank" rel="noopener">TechCrunch &mdash; Lanzamiento histórico del seguro de viaje</a></li>
+      </ul>
+      <h3>Voces del sector bancario</h3>
+      <ul>
+        <li><a href="https://pl.linkedin.com/in/lbugiera" target="_blank" rel="noopener">LinkedIn (sector fintech) &mdash; Comentario de Jamie Dimon sobre Chase UK y Revolut</a></li>
+        <li><a href="https://www.elnacional.cat/oneconomia/es/empresas/revolut-bbva-arrasan-bancos-mas-clientes-ganan-en-espana_1551611_102.html" target="_blank" rel="noopener">El Nacional.cat &mdash; Declaraciones de Onur Genç (BBVA) y Gonzalo Gortázar (CaixaBank)</a></li>
+        <li><a href="https://gfmag.com/commentary/revolut-vs-santander/" target="_blank" rel="noopener">Global Finance Magazine &mdash; Revolut vs. Banco Santander: la batalla por la neobanca en EE.&nbsp;UU.</a></li>
+        <li><a href="https://www.eldiario.es/economia/bbva-santander-sabadell-caixabank-aceleran-oferta-jovenes-frenar-neobancos-revolut-n26_1_13285324.html" target="_blank" rel="noopener">elDiario.es &mdash; Declaración de Marc Armengol (Banco Sabadell)</a></li>
+        <li><a href="https://www.larepublica.co/globoeconomia/revolut-lanzara-cinco-tarjetas-de-credito-en-el-reino-unido-proximamente-4407651" target="_blank" rel="noopener">La República &mdash; Declaraciones de Francesca Carlesi (Revolut UK)</a></li>
+      </ul>
+    </section>
+
+    <div class="ii-footer">
+      <span class="ii-brand">Community of Insurance &mdash; Insur&middot;Insights</span>
+      <span>Elaborado a partir de EL PAÍS Negocios (27/09/2026) y fuentes públicas contrastadas &mdash; 27 de septiembre de 2026</span>
+    </div>
+
+  </div>
+</div>
