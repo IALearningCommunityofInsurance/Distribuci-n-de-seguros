@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Del software donde el corredor trabaja al software que trabaja para él · Estudio COI</title>
+</head>
+<body style="margin:0;background:#ffffff">
+<!-- ===== INICIO · Copiar desde aquí hasta FIN para el widget HTML de Elementor / WordPress ===== -->
+<style>
+#coi-estudio-broker{--rojo:#E4382E;--rojo-txt:#B3271E;--coral:#F1957C;--coral-claro:#FBE0D8;--carbon:#595959;--tinta:#242424;--gris-1:#F3F4F6;--gris-2:#DEE1E6;--blanco:#ffffff;font-family:Arial,"Helvetica Neue",Helvetica,sans-serif;font-size:17px;line-height:1.68;color:var(--tinta);background:#fff;max-width:1080px;margin:0 auto;padding:0 20px 64px;box-sizing:border-box}
+#coi-estudio-broker *,#coi-estudio-broker *::before,#coi-estudio-broker *::after{box-sizing:border-box}
+#coi-estudio-broker a{color:var(--rojo-txt);text-decoration-thickness:1px;text-underline-offset:2px}
+#coi-estudio-broker a:focus-visible,#coi-estudio-broker summary:focus-visible{outline:3px solid var(--rojo);outline-offset:2px}
+#coi-estudio-broker .cab{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 24px;border-top:6px solid var(--rojo);padding:14px 0 12px;color:var(--carbon);font-size:.86rem}
+#coi-estudio-broker .cab strong{color:var(--tinta)}
+#coi-estudio-broker h1{font-family:Georgia,"Times New Roman",serif;font-weight:700;font-size:clamp(2.05rem,4.7vw,3.35rem);line-height:1.12;letter-spacing:-.012em;margin:28px 0 18px;max-width:20em}
+#coi-estudio-broker .sub{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.1rem,2vw,1.32rem);line-height:1.5;color:var(--carbon);max-width:36em;margin:0 0 26px}
+#coi-estudio-broker .ficha{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1px;background:var(--gris-2);border:1px solid var(--gris-2);margin:0 0 40px;font-size:.88rem}
+#coi-estudio-broker .ficha div{background:#fff;padding:10px 14px}
+#coi-estudio-broker .ficha dt{color:var(--carbon);margin:0 0 2px}
+#coi-estudio-broker .ficha dd{margin:0;font-weight:700}
+#coi-estudio-broker .escalera{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;align-items:end;margin:0 0 14px}
+#coi-estudio-broker .peldano{padding:16px 16px 18px;border-radius:2px;color:var(--tinta)}
+#coi-estudio-broker .peldano h2{font-family:Georgia,serif;font-size:1.35rem;margin:0 0 6px;border:0;padding:0}
+#coi-estudio-broker .peldano p{margin:0;font-size:.9rem;line-height:1.5}
+#coi-estudio-broker .p1{background:var(--gris-2);min-height:150px}
+#coi-estudio-broker .p2{background:var(--coral-claro);min-height:196px}
+#coi-estudio-broker .p3{background:var(--coral);min-height:242px}
+#coi-estudio-broker .p4{background:var(--rojo);color:#fff;min-height:288px}
+#coi-estudio-broker .p4 h2,#coi-estudio-broker .p4 p{color:#fff}
+#coi-estudio-broker .peldano .quien{margin-top:10px;font-size:.8rem;opacity:.92}
+#coi-estudio-broker .pie-escalera{font-size:.86rem;color:var(--carbon);margin:0 0 44px;max-width:52em}
+#coi-estudio-broker h2{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.5rem,3vw,1.95rem);line-height:1.2;margin:58px 0 16px;padding-top:22px;border-top:1px solid var(--gris-2)}
+#coi-estudio-broker h3{font-family:Georgia,serif;font-size:1.2rem;line-height:1.3;margin:30px 0 8px}
+#coi-estudio-broker p{margin:0 0 1.05em}
+#coi-estudio-broker .prosa{max-width:44em}
+#coi-estudio-broker .ancho{max-width:100%}
+#coi-estudio-broker ul.lista,#coi-estudio-broker ol.lista{padding-left:1.2em;margin:0 0 1.2em;max-width:44em}
+#coi-estudio-broker .lista li{margin-bottom:.55em}
+#coi-estudio-broker .llamada{background:var(--gris-1);border-left:5px solid var(--rojo);padding:16px 22px;margin:26px 0;max-width:46em}
+#coi-estudio-broker .llamada p:last-child{margin-bottom:0}
+#coi-estudio-broker .llamada strong{font-family:Georgia,serif;font-size:1.08rem}
+#coi-estudio-broker .tag{display:inline-block;font-size:.72rem;font-weight:700;line-height:1;padding:4px 7px;border-radius:2px;white-space:nowrap;vertical-align:middle;margin-left:4px}
+#coi-estudio-broker .tv{background:#E3F1E7;color:#1D5B34;border:1px solid #9FCDAF}
+#coi-estudio-broker .te{background:#FFF2D6;color:#7A4F00;border:1px solid #E8C984}
+#coi-estudio-broker .tp{background:#E6EAF7;color:#2A3A7A;border:1px solid #A9B5E0}
+#coi-estudio-broker .ref{font-size:.72rem;vertical-align:super;line-height:0;margin-left:1px;text-decoration:none;font-weight:700}
+#coi-estudio-broker .resumen{list-style:none;padding:0;margin:0;max-width:52em}
+#coi-estudio-broker .resumen li{display:grid;grid-template-columns:34px 1fr;gap:4px 14px;padding:14px 0;border-bottom:1px solid var(--gris-2)}
+#coi-estudio-broker .resumen li:first-child{border-top:1px solid var(--gris-2)}
+#coi-estudio-broker .resumen .n{font-family:Georgia,serif;font-size:1.5rem;font-weight:700;color:var(--rojo);line-height:1.1}
+#coi-estudio-broker .resumen p{margin:0}
+#coi-estudio-broker figure.fig{margin:28px 0 34px;border:1px solid var(--gris-2);padding:18px 18px 12px;background:#fff}
+#coi-estudio-broker figure.fig svg{width:100%;height:auto;display:block}
+#coi-estudio-broker figure.fig svg text{font-family:Arial,Helvetica,sans-serif;fill:var(--tinta)}
+#coi-estudio-broker figcaption{font-size:.84rem;color:var(--carbon);line-height:1.5;margin-top:10px;border-top:1px solid var(--gris-2);padding-top:10px}
+#coi-estudio-broker figcaption strong{color:var(--tinta)}
+#coi-estudio-broker .tabla-wrap{overflow-x:auto;margin:22px 0 30px;border:1px solid var(--gris-2)}
+#coi-estudio-broker table{border-collapse:collapse;width:100%;min-width:720px;font-size:.88rem;line-height:1.5}
+#coi-estudio-broker caption{text-align:left;font-weight:700;padding:12px 14px;font-family:Georgia,serif;font-size:1rem;background:#fff;border-bottom:1px solid var(--gris-2)}
+#coi-estudio-broker th{background:var(--tinta);color:#fff;text-align:left;padding:10px 12px;font-weight:700;vertical-align:bottom}
+#coi-estudio-broker td{padding:11px 12px;border-top:1px solid var(--gris-2);vertical-align:top}
+#coi-estudio-broker tbody tr:nth-child(even) td{background:#FAFAFB}
+#coi-estudio-broker td.b{font-weight:700}
+#coi-estudio-broker .dos{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:24px 0}
+#coi-estudio-broker .dos > div{border-top:4px solid var(--carbon);padding-top:12px}
+#coi-estudio-broker .dos > div.rojo{border-top-color:var(--rojo)}
+#coi-estudio-broker .dos h3{margin-top:0}
+#coi-estudio-broker .dos ul{padding-left:1.1em;margin:0}
+#coi-estudio-broker .dos li{margin-bottom:.5em}
+#coi-estudio-broker .preguntas{counter-reset:q;list-style:none;padding:0;margin:20px 0;max-width:46em}
+#coi-estudio-broker .preguntas li{counter-increment:q;padding:12px 0 12px 46px;position:relative;border-bottom:1px solid var(--gris-2)}
+#coi-estudio-broker .preguntas li::before{content:counter(q);position:absolute;left:0;top:10px;width:30px;height:30px;border-radius:50%;background:var(--rojo);color:#fff;font-weight:700;display:grid;place-items:center;font-size:.9rem}
+#coi-estudio-broker .nota-rigor{border:1px solid var(--gris-2);margin:18px 0;max-width:52em}
+#coi-estudio-broker .nota-rigor summary{cursor:pointer;padding:12px 16px;font-weight:700;background:var(--gris-1)}
+#coi-estudio-broker .nota-rigor div{padding:4px 16px 12px}
+#coi-estudio-broker .leyenda{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:.84rem;color:var(--carbon);margin:0 0 8px;align-items:center}
+#coi-estudio-broker .fuentes{font-size:.82rem;line-height:1.5;color:var(--carbon);padding-left:1.6em;max-width:60em;word-break:break-word}
+#coi-estudio-broker .fuentes li{margin-bottom:.45em}
+#coi-estudio-broker .cierre{margin-top:56px;padding:26px 0 0;border-top:6px solid var(--rojo);max-width:46em}
+#coi-estudio-broker .cierre .lema{font-family:Georgia,serif;font-size:1.35rem;font-weight:700;margin:18px 0 6px}
+#coi-estudio-broker .firma{font-size:.9rem;color:var(--carbon)}
+#coi-estudio-broker .hero{background:#183577;border-top:6px solid #C89646;padding:0 28px 32px;margin:0 0 34px}
+#coi-estudio-broker .hero .cab{border-top:0;border-bottom:1px solid rgba(255,255,255,.22);padding:16px 0 12px;color:#C9D3EA}
+#coi-estudio-broker .hero .cab strong{color:#fff}
+#coi-estudio-broker .hero h1{color:#fff;margin:28px 0 16px}
+#coi-estudio-broker .hero .sub{color:#DCE3F2;margin:0}
+@media (max-width:760px){#coi-estudio-broker .hero{padding:0 18px 26px}}
+@media (max-width:760px){
+#coi-estudio-broker{font-size:16.5px;padding:0 16px 48px}
+#coi-estudio-broker .escalera{grid-template-columns:1fr;gap:8px}
+#coi-estudio-broker .peldano,#coi-estudio-broker .p1,#coi-estudio-broker .p2,#coi-estudio-broker .p3,#coi-estudio-broker .p4{min-height:0}
+#coi-estudio-broker .dos{grid-template-columns:1fr}
+#coi-estudio-broker .resumen li{grid-template-columns:28px 1fr}
+}
+</style>
+
+<div id="coi-estudio-broker">
+
+<div class="hero">
+<div class="cab">
+  <span><strong>Community of Insurance</strong> · Insur·Insights</span>
+  <span>Estudio · 5 de octubre de 2026</span>
+</div>
+
+<h1>Del software donde el corredor trabaja al software que trabaja para él</h1>
+<p class="sub">Estudio sobre aplicaciones insurtech y plataformas integrales para la gestión del corredor y del agente de seguros. Mapa de mercado en Europa, España, Latinoamérica y Estados Unidos.</p>
+</div>
+
+<dl class="ficha">
+  <div><dt>Autor</dt><dd>Equipo editorial de Community of Insurance</dd></div>
+  <div><dt>Datos actualizados a</dt><dd>5 de octubre de 2026</dd></div>
+  <div><dt>Punto de partida</dt><dd>Artículo de Florian Graillot (astorya.vc) y conferencia de Carlos Biurrun en el Congreso de APECOSE 2026 en Ica</dd></div>
+  <div><dt>Etiquetado de cifras</dt><dd>Verificado · Estimación · Proyección, con fuente y año</dd></div>
+</dl>
+
+<h2 style="margin-top:6px;border-top:0;padding-top:0">Introducción</h2>
+<div class="prosa">
+<p>La publicación del artículo de Florian Graillot sobre el estado de situación de las insurtech con soluciones para brokers y la conferencia de Carlos Biurrun en Ica sobre la automatización y digitalización de procesos de los Corredores de seguros nos lleva a hacer un análisis, si no completo porque las fuentes están enormemente dispersas y muchas veces poco fiables en su rigor, del panorama de Insurtech y cómo se benefician la gran masa de corredores de estos movimientos.</p>
+<p>Es nuestra contribución a algo que nos parece totalmente necesario, la aceleración de la digitalización integral de las Corredurías como factor decisivo de competitividad y calidad de gestión.</p>
+</div>
+
+<div class="escalera" role="img" aria-label="Escalera de cuatro peldaños: digitalizar, automatizar, aumentar y delegar">
+  <div class="peldano p1"><h2 style="margin:0 0 6px">Digitalizar</h2><p>Centralizar datos, contratos y documentos. Es la primera ola del software para corredores.</p><p class="quien">CRM y ERP de correduría</p></div>
+  <div class="peldano p2"><h2 style="margin:0 0 6px">Automatizar</h2><p>Conectar con aseguradoras y programar tareas repetitivas: documentos, relaciones, renovaciones.</p><p class="quien">Conectividad, RPA, flujos</p></div>
+  <div class="peldano p3"><h2 style="margin:0 0 6px">Aumentar</h2><p>La IA lee documentos, clasifica solicitudes y propone la siguiente acción al corredor.</p><p class="quien">Asistentes y «compañeros» IA</p></div>
+  <div class="peldano p4"><h2 style="margin:0 0 6px">Delegar</h2><p>Agentes que ejecutan tareas y flujos completos, con trazabilidad y supervisión humana.</p><p class="quien">Operadores y agentes IA</p></div>
+</div>
+<p class="pie-escalera">La escalera la formula Lya Protect en la entrevista incluida en el artículo de Florian Graillot<a class="ref" href="#f6">[6]</a>. La usamos como hilo de este estudio porque permite situar a cada proveedor en el peldaño que realmente ocupa, no en el que anuncia.</p>
+
+<h2>Resumen ejecutivo</h2>
+<div class="leyenda"><span>Cómo leer las cifras:</span><span><span class="tag tv">Verificado</span> hecho documentado en fuente contrastada</span><span><span class="tag te">Estimación</span> cifra declarada por una parte interesada o calculada por un analista</span><span><span class="tag tp">Proyección</span> previsión a futuro</span></div>
+<ol class="resumen">
+  <li><span class="n">1</span><p><strong>El capital ya no discute si la IA llega a la distribución. Discute quién la ejecuta.</strong> El 99,1 % de la financiación insurtech mundial del segundo trimestre de 2026 fue a empresas centradas en IA<a class="ref" href="#f1">[1]</a><span class="tag tv">Verificado</span></p></li>
+  <li><span class="n">2</span><p><strong>La distribución es el centro de gravedad del ecosistema.</strong> El 48 % de las insurtech latinoamericanas se dedica a distribuir seguros<a class="ref" href="#f7">[7]</a><span class="tag tv">Verificado</span> y en Europa «IA para corredores» ha emergido como categoría propia<a class="ref" href="#f5">[5]</a><span class="tag tv">Verificado</span></p></li>
+  <li><span class="n">3</span><p><strong>El salto es de registrar a ejecutar.</strong> En los últimos meses, Applied, Vertafore y Zywave en Estados Unidos, y ebroker y SoftQS en España, han presentado agentes de IA dentro de sus plataformas<a class="ref" href="#f10">[10]</a><a class="ref" href="#f12">[12]</a><a class="ref" href="#f13">[13]</a><a class="ref" href="#f22">[22]</a><a class="ref" href="#f23">[23]</a><span class="tag tv">Verificado</span></p></li>
+  <li><span class="n">4</span><p><strong>La batalla podría decidirse por la integración, no por el modelo de IA.</strong> España tiene una ventaja poco comentada, el estándar EIAC y la plataforma CIMA<a class="ref" href="#f24">[24]</a>. Pero los operadores de IA que trabajan sobre los portales de las aseguradoras plantean una pregunta abierta: ¿necesitan el sistema de gestión o pueden sortearlo?</p></li>
+  <li><span class="n">5</span><p><strong>El riesgo es para el trabajo de baja complejidad, no para el asesoramiento.</strong> Bank of America estima que más de 15.000 millones de dólares en comisiones, pagadas en 2025 a agentes independientes de EE. UU. por seis aseguradoras y concentradas en riesgos de baja complejidad, están expuestos a una posible desintermediación por IA<a class="ref" href="#f20">[20]</a><span class="tag te">Estimación</span> Es el volumen de comisiones en riesgo, no una pérdida prevista ni una caída bursátil. La respuesta que se repite es reinvertir el tiempo liberado en asesorar.</p></li>
+</ol>
+
+<h2>1. Qué dicen los datos de 2026</h2>
+<div class="prosa">
+<p>Florian Graillot, inversor de astorya.vc, plantea en su artículo una pregunta que este estudio comparte: ¿está la inteligencia artificial creando una nueva categoría de software para corredores y agentes?<a class="ref" href="#f6">[6]</a> Antes de responder conviene separar tres planos que a menudo se mezclan: cuánto capital llega, cuántas empresas hay y qué se está lanzando al mercado.</p>
+<h3>El capital: concentración casi total en IA</h3>
+<p>Según Gallagher Re, la financiación insurtech mundial alcanzó 2.440 millones de dólares en el segundo trimestre de 2026, el mayor total trimestral desde 2022. De esa cifra, 2.420 millones fueron a empresas centradas en IA, y todas las rondas superiores a 5 millones de dólares tuvieron ese perfil<a class="ref" href="#f1">[1]</a><a class="ref" href="#f2">[2]</a><span class="tag tv">Verificado</span> Hay un matiz importante: la financiación en fase temprana cayó un 51,8 % respecto al trimestre anterior<a class="ref" href="#f1">[1]</a><span class="tag tv">Verificado</span> Es decir, el dinero crece, pero se concentra en menos empresas y en rondas más grandes.</p>
+</div>
+
+<figure class="fig">
+<svg viewBox="0 0 720 196" role="img" aria-label="Cuota de la financiación insurtech mundial que recibieron empresas de IA: 77,9 % en el cuarto trimestre de 2025, 95,2 % en el primero de 2026 y 99,1 % en el segundo de 2026">
+  <g stroke="#DEE1E6" stroke-width="1"><line x1="170" y1="14" x2="170" y2="150"/><line x1="415" y1="14" x2="415" y2="150"/><line x1="660" y1="14" x2="660" y2="150"/></g>
+  <g font-size="13" fill="#595959"><text x="170" y="172" text-anchor="middle" style="fill:#595959">0 %</text><text x="415" y="172" text-anchor="middle" style="fill:#595959">50 %</text><text x="660" y="172" text-anchor="middle" style="fill:#595959">100 %</text></g>
+  <g font-size="14">
+    <text x="0" y="46">4.º trim. 2025</text><rect x="170" y="28" width="381.7" height="28" fill="#F1957C"/><text x="560" y="48" font-weight="700">77,9 %</text>
+    <text x="0" y="94">1.er trim. 2026</text><rect x="170" y="76" width="466.5" height="28" fill="#F1957C"/><text x="645" y="96" font-weight="700" style="fill:#242424">95,2 %</text>
+    <text x="0" y="142">2.º trim. 2026</text><rect x="170" y="124" width="485.6" height="28" fill="#E4382E"/><text x="607" y="143" font-weight="700" fill="#fff" style="fill:#fff">99,1 %</text>
+  </g>
+</svg>
+<figcaption><strong>Cuota de la financiación insurtech mundial recibida por empresas centradas en IA.</strong> Fuente: Gallagher Re, informes del 4.º trim. 2025 y del 2.º trim. 2026<a class="ref" href="#f1">[1]</a><a class="ref" href="#f3">[3]</a><a class="ref" href="#f4">[4]</a>. <span class="tag tv">Verificado</span> Se excluye el 2.º trim. de 2025 (57,1 %) porque Gallagher Re lo midió sobre el número de operaciones, no sobre el volumen de capital.</figcaption>
+</figure>
+
+<div class="prosa">
+<h3>Las empresas: casi la mitad se dedica a distribuir</h3>
+<p>El último informe <em>Latam Insurtech Journey</em>, elaborado por Digital Insurance LATAM con el patrocinio de Mapfre, cuenta 576 insurtech activas en Latinoamérica, un 14 % más que un año antes. El 48 % se centra en la distribución y el 52 % restante son «habilitadoras». Dentro de estas, la categoría más numerosa es la de soluciones para digitalizar la intermediación tradicional, con un 18 %, por delante de las de fraude, datos, precios y suscripción (7 %) y de los agentes de IA (6 %)<a class="ref" href="#f7">[7]</a><span class="tag tv">Verificado</span> El propio informe destaca que las soluciones para agentes y corredores tradicionales son una categoría que crece un 36 % anual<a class="ref" href="#f7">[7]</a><span class="tag te">Estimación</span> (cifra del director del informe).</p>
+</div>
+
+<figure class="fig">
+<svg viewBox="0 0 720 236" role="img" aria-label="Composición del ecosistema insurtech latinoamericano: 48 % distribución y 52 % habilitadoras; entre estas, 18 % digitalizan la intermediación tradicional, 7 % fraude, datos y suscripción y 6 % agentes de IA">
+  <rect x="0" y="12" width="345.6" height="40" fill="#E4382E"/><rect x="345.6" y="12" width="374.4" height="40" fill="#DEE1E6"/>
+  <text x="14" y="38" font-size="15" font-weight="700" style="fill:#fff">Distribución · 48 %</text>
+  <text x="360" y="38" font-size="15" font-weight="700">Habilitadoras · 52 %</text>
+  <text x="0" y="92" font-size="13" style="fill:#595959">Principales categorías dentro de las habilitadoras (porcentaje sobre el ecosistema)</text>
+  <g font-size="14">
+    <text x="286" y="122" text-anchor="end">Digitalizar la intermediación tradicional</text><rect x="300" y="106" width="144" height="22" fill="#F1957C"/><text x="452" y="123" font-weight="700">18 %</text>
+    <text x="286" y="156" text-anchor="end">Fraude, datos, precios y suscripción</text><rect x="300" y="140" width="56" height="22" fill="#F1957C"/><text x="364" y="157" font-weight="700">7 %</text>
+    <text x="286" y="190" text-anchor="end">Agentes de IA</text><rect x="300" y="174" width="48" height="22" fill="#F1957C"/><text x="356" y="191" font-weight="700">6 %</text>
+  </g>
+  <text x="0" y="226" font-size="12.5" style="fill:#595959">Las tres categorías suman 31 %; la fuente no detalla el resto de las habilitadoras.</text>
+</svg>
+<figcaption><strong>Composición del ecosistema insurtech de Latinoamérica, primer semestre de 2026 (576 empresas).</strong> Fuente: Latam Insurtech Journey, 12.ª edición, Digital Insurance LATAM y Mapfre<a class="ref" href="#f7">[7]</a>. <span class="tag tv">Verificado</span> La base de los porcentajes no se explicita en la fuente; se asume el total de 576 empresas.</figcaption>
+</figure>
+
+<div class="prosa">
+<p>Para Europa no hemos encontrado una cifra equivalente. Lo que sí documenta Graillot en su informe del primer semestre de 2026 es que «IA para corredores» se ha convertido en una categoría destacada: nuevos actores que automatizan la operativa diaria para que corredores y agentes se concentren en tareas de asesoramiento. Sobre el resto de datos europeos, el semestre superó los 900 millones de euros, con Alan por encima de la mitad del capital, y alrededor del 30 % de las operaciones correspondió a empresas «AI-first»<a class="ref" href="#f5">[5]</a><span class="tag tv">Verificado</span> En su artículo del 5 de octubre añade que la distribución concentró más de la mitad de las rondas europeas en la primera década insurtech<a class="ref" href="#f6">[6]</a><span class="tag te">Estimación</span> (declarado por el autor, sin fuente enlazada).</p>
+<div class="llamada"><p><strong>Una cautela sobre «casi la mitad».</strong> El 48 % mide el número de empresas dedicadas a distribuir, no el capital que reciben ni su dedicación exclusiva a herramientas para el corredor: incluye también corredores y MGA digitales. El mismo informe señala que Vida y Salud concentró el 76 % de la financiación del semestre<a class="ref" href="#f7">[7]</a>. La cifra respalda la tesis de que la distribución es central, pero no permite afirmar cuánto dinero va específicamente a herramientas para mediadores.</p></div>
+</div>
+
+<h2>2. Mapa de mercado: cinco tipos de solución</h2>
+<div class="prosa"><p>Hablar de «software para corredores» mezcla productos con funciones muy distintas. Proponemos separar cinco tipos. La columna final recoge dónde podría estar el valor de cada uno, una lectura editorial de Community of Insurance, no un dato.</p></div>
+
+<div class="tabla-wrap">
+<table>
+<caption>Cinco tipos de solución para la gestión del corredor y del agente</caption>
+<thead><tr><th>Tipo</th><th>Qué resuelve</th><th>Ejemplos documentados</th><th>Dónde podría estar el valor</th></tr></thead>
+<tbody>
+<tr><td class="b">Sistemas de gestión (ERP, AMS, SGC)</td><td>Registro de cartera, contratos, recibos, documentos y relación con el cliente.</td><td>EE. UU.: Applied Epic, Vertafore AMS360 y Sagitta<a class="ref" href="#f10">[10]</a><a class="ref" href="#f12">[12]</a>. Francia: Lya Protect<a class="ref" href="#f6">[6]</a>. España: ebroker, SoftQS, Mediator, MPM Software, Codeoscopic<a class="ref" href="#f22">[22]</a><a class="ref" href="#f23">[23]</a><a class="ref" href="#f28">[28]</a>. Latinoamérica: BrokAI (marca de Dumaco, con contacto en Perú), plataforma «Agent Control» que centraliza pólizas, lee PDF, genera informes y atiende por WhatsApp; su web muestra como clientes a Mapfre, Pacífico Seguros, La Positiva, Rímac y Vivir Seguros<a class="ref" href="#f29">[29]</a> <span class="tag te">Estimación</span> (declaración de la propia empresa).</td><td>En los datos y los procesos acumulados, y en una base instalada con confianza ya ganada.</td></tr>
+<tr><td class="b">Conectividad con aseguradoras</td><td>Intercambio estandarizado de pólizas, recibos y siniestros entre compañías y corredores.</td><td>España: estándar EIAC y plataforma CIMA, promovidos por UNESPA y TIREA con corredores y proveedores<a class="ref" href="#f24">[24]</a>. Francia: iniciativas como Penelop y EDI Courtage, según el CEO de Lya Protect, todavía dispares<a class="ref" href="#f6">[6]</a>.</td><td>En el estándar. Cuando existe, el agente trabaja sobre datos y no sobre pantallas.</td></tr>
+<tr><td class="b">Operadores y agentes de IA</td><td>Ejecutan tareas de principio a fin: leen un correo o un PDF, entran en portales, cotizan, actualizan datos.</td><td>FRANK (Portugal), Panora (Francia), Rosella (Australia y EE. UU.), Outmarket (EE. UU.), Foliume (España), Segura (Brasil), Epic Conductor (Applied)<a class="ref" href="#f14">[14]</a><a class="ref" href="#f15">[15]</a><a class="ref" href="#f17">[17]</a><a class="ref" href="#f16">[16]</a><a class="ref" href="#f25">[25]</a><a class="ref" href="#f8">[8]</a><a class="ref" href="#f11">[11]</a>.</td><td>En la ejecución fiable y supervisable de tareas, y en la cantidad de portales y sistemas que cada operador domina.</td></tr>
+<tr><td class="b">Asistentes comerciales y de relación</td><td>Prospección, seguimiento, renovaciones y atención al cliente, a menudo por WhatsApp o voz.</td><td>Zywave Apex, Wilfredo de Foliume, CRM 360 de ebroker, agente «PV invisible» de SoftQS, agente de DANAconnect para corredores en WhatsApp<a class="ref" href="#f13">[13]</a><a class="ref" href="#f25">[25]</a><a class="ref" href="#f22">[22]</a><a class="ref" href="#f23">[23]</a><a class="ref" href="#f9">[9]</a>.</td><td>En la retención y la venta cruzada, donde el vínculo humano sigue pesando.</td></tr>
+<tr><td class="b">Canales directos y comparadores en entornos de IA</td><td>El cliente pide y compara seguros dentro de un asistente conversacional.</td><td>Insurify y Tuio en ChatGPT; Compara.ai en Latinoamérica<a class="ref" href="#f18">[18]</a><a class="ref" href="#f9">[9]</a>.</td><td>En la captación de riesgos simples. Es la categoría que más debate genera entre corredores.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="prosa"><p>Esta separación explica por qué conviene no leer toda la oferta como «lo mismo con IA». Un ERP que incorpora agentes y un operador de IA que se coloca por encima de varios ERP compiten por el mismo presupuesto del corredor, pero parten de ventajas distintas.</p></div>
+
+<h2>3. Quién ocupa cada peldaño</h2>
+<div class="prosa">
+<p>La entrevista a Arnaud Fournier, cofundador y CEO de Lya Protect, distingue tres niveles de «agente» que sirven para ordenar el ruido comercial<a class="ref" href="#f6">[6]</a>:</p>
+<ul class="lista">
+<li><strong>El compañero.</strong> Cambia cómo se interactúa con el software, por ejemplo mediante voz. No hace nada por sí solo.</li>
+<li><strong>El agente de tareas.</strong> Transforma texto o imagen: resume una ficha de cliente, prepara un correo, crea una ficha a partir de un contrato en PDF y encadena pasos.</li>
+<li><strong>El agente de negocio.</strong> Analiza una situación y actúa llamando a las API del sistema: consulta un expediente, lanza una tarificación, crea un acto de gestión. Es el nivel que más rigor exige en seguridad y trazabilidad.</li>
+</ul>
+<p>Según Fournier, el segundo nivel es hoy el que aporta más valor diario a sus clientes<a class="ref" href="#f6">[6]</a><span class="tag te">Estimación</span> (declaración del proveedor). Aplicando esa vara, los anuncios recientes se situarían así:</p>
+</div>
+
+<div class="tabla-wrap">
+<table>
+<caption>Anuncios de plataformas con agentes de IA durante 2026</caption>
+<thead><tr><th>Proveedor</th><th>Qué ha presentado</th><th>Lectura por peldaños</th></tr></thead>
+<tbody>
+<tr><td class="b">Applied Systems (EE. UU.)</td><td>Epic Conductor, IA nativa dentro de Epic que orquesta flujos de la agencia a lo largo del ciclo de la póliza, bajo los controles de seguridad existentes (29 de septiembre)<a class="ref" href="#f10">[10]</a><a class="ref" href="#f11">[11]</a>.</td><td>Delegar, dentro del propio sistema de registro. Aprovecha la base instalada: Applied afirma que equipa a nueve de las diez mayores corredurías estadounidenses<a class="ref" href="#f10">[10]</a> <span class="tag te">Estimación</span></td></tr>
+<tr><td class="b">Vertafore (EE. UU.)</td><td>Estrategia «Agentic Agency» y cuatro agentes de la plataforma Velocity AI para atención de pólizas, investigación de documentos y operativa de agencia (28 de septiembre)<a class="ref" href="#f12">[12]</a>.</td><td>Delegar en tareas acotadas. Vertafore declara una admisión «hasta un 87 % más rápida» <span class="tag te">Estimación</span></td></tr>
+<tr><td class="b">Zywave (EE. UU.)</td><td>Zywave Apex (julio de 2026), con agentes de prospección y vigilancia de renovaciones; agentes para más de 35 adoptantes tempranos desde febrero<a class="ref" href="#f13">[13]</a>.</td><td>Aumentar el frente comercial, no la trastienda.</td></tr>
+<tr><td class="b">ebroker (España)</td><td>Agentes de IA, CRM 360 y retarificación inteligente: integración con Merlín para analizar, comparar y cotizar grupos de pólizas sin intervención humana<a class="ref" href="#f22">[22]</a>.</td><td>Delegar en renovaciones, con el mediador al mando.</td></tr>
+<tr><td class="b">SoftQS (España)</td><td>Suite con cinco agentes operativos desde el primer trimestre de 2026 (Conversa, Supervisor, Gestor, Comercial y Web), multitarificador con 28 compañías y conectividad EIAC<a class="ref" href="#f23">[23]</a>.</td><td>Aumentar y delegar sobre un sistema con conectividad estándar.</td></tr>
+<tr><td class="b">Lya Protect (Francia)</td><td>Creación de contactos desde correos y formularios, análisis de documentos, clasificación de solicitudes, detección de oportunidades; agentes en despliegue<a class="ref" href="#f6">[6]</a>.</td><td>Aumentar, con experimentación interna previa de dos años.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>4. Plataformas consolidadas frente a nativos de IA</h2>
+<div class="prosa"><p>Es el debate central del artículo de Graillot y de la entrevista a Fournier. Lo resumimos con los mejores argumentos de cada lado, sin anticipar un ganador.</p></div>
+
+<div class="dos">
+  <div>
+    <h3>El argumento de las plataformas consolidadas</h3>
+    <ul>
+      <li>Ya están en el día a día del corredor, conocen sus datos y tienen su confianza<a class="ref" href="#f6">[6]</a>.</li>
+      <li>Distribuir una herramienta en un mercado atomizado es más difícil que construirla. Lo ya instalado resuelve esa mitad.</li>
+      <li>Un agente que conoce cartera, contratos y reglas de la correduría actúa con más contexto que uno genérico.</li>
+      <li>La garantía regulatoria de una solución ya auditada facilita la adopción.</li>
+    </ul>
+  </div>
+  <div class="rojo">
+    <h3>El argumento de los nativos de IA</h3>
+    <ul>
+      <li>Pueden atacar un flujo concreto sin reemplazar el sistema de gestión: FRANK describe un operador que entra en portales y sistemas e introduce datos por el corredor<a class="ref" href="#f14">[14]</a>.</li>
+      <li>El propio Fournier reconoce que las barreras de entrada caen y que aparecen competidores casi cada semana<a class="ref" href="#f6">[6]</a>.</li>
+      <li>Una encuesta de Ivans de agosto de 2026 indica que el 74 % de los agentes señala reintroducir datos en portales de aseguradoras como su principal problema, y que la fricción al enviar propuestas ha superado a producto y precio como criterio para colocar negocio<a class="ref" href="#f11">[11]</a><span class="tag tv">Verificado</span> (encuesta a agentes estadounidenses).</li>
+    </ul>
+  </div>
+</div>
+
+<div class="llamada"><p><strong>La pregunta abierta.</strong> Si un operador de IA puede trabajar sobre los portales sin integrarse con el sistema de gestión, ¿qué parte del valor de los datos acumulados seguirá siendo una ventaja de la plataforma? La respuesta podría depender de si el agente necesita acceso nativo a la cartera o le basta con leer pantallas y documentos. Hoy las fuentes no permiten resolverlo.</p></div>
+
+<div class="prosa"><p>No es una crítica al software de gestión actual. Es una invitación a preguntarse qué parte del trabajo seguirá haciéndose a mano dentro de tres años y qué proveedor estará mejor situado para absorberla.</p></div>
+
+<h2>5. Dónde está yendo el dinero</h2>
+<div class="prosa"><p>Las rondas del último semestre ofrecen una pista de qué se considera defendible. Todas son de empresas que automatizan trabajo del corredor sobre la base de sistemas y portales existentes.</p></div>
+
+<div class="tabla-wrap">
+<table>
+<caption>Rondas recientes en herramientas de IA para corredores y agentes (MM$ = millones de dólares; MM€ = millones de euros)</caption>
+<thead><tr><th>Empresa</th><th>País</th><th>Ronda</th><th>Importe</th><th>Fecha</th><th>Qué hace (según fuentes)</th></tr></thead>
+<tbody>
+<tr><td class="b">Outmarket</td><td>EE. UU.</td><td>Serie B, liderada por SignalFire</td><td>34,5 MM$ (total 56,5 MM$)</td><td>Sep. 2026</td><td>Automatiza trabajo documental de agencias y corredores, sobre todo en seguro comercial. Más de 300 agencias clientes y 10.000 usuarios, según la compañía<a class="ref" href="#f16">[16]</a> <span class="tag te">Estimación</span></td></tr>
+<tr><td class="b">Segura</td><td>Brasil</td><td>Inicial, con a16z y Kaszek</td><td>8 MM$</td><td>Abr. 2026</td><td>Capa operativa entre aseguradoras y corredores, con asistente en WhatsApp<a class="ref" href="#f8">[8]</a>.</td></tr>
+<tr><td class="b">Panora</td><td>Francia</td><td>Semilla, liderada por Isai</td><td>5 MM$</td><td>Jul. 2026</td><td>Automatiza recogida de documentos, cotización, controles de cumplimiento y conciliación de comisiones. 40 corredores clientes tres meses tras el lanzamiento, según la fuente<a class="ref" href="#f15">[15]</a> <span class="tag te">Estimación</span></td></tr>
+<tr><td class="b">Rosella</td><td>Australia y EE. UU.</td><td>Preseed</td><td>3,7 MM$</td><td>Abr. 2026</td><td>Agente que envía solicitudes a más de 100 portales de aseguradoras y compara pólizas<a class="ref" href="#f17">[17]</a>.</td></tr>
+<tr><td class="b">FRANK</td><td>Portugal</td><td>Liderada por Armilar y Start Ventures</td><td>2,9 MM€</td><td>Sep. 2026</td><td>«Operador IA» que lee correos y mensajes, entra en sistemas y portales y devuelve el resultado al corredor. 70.000 tareas al mes y unas diez horas semanales ahorradas por corredor, según la empresa<a class="ref" href="#f14">[14]</a> <span class="tag te">Estimación</span></td></tr>
+<tr><td class="b">Foliume</td><td>España</td><td>Semilla, liderada por Pitchdrive e Íope Ventures</td><td>1 millón (dólares según Telefónica; algunos medios lo dan en euros)</td><td>2025</td><td>Asistentes de IA para corredurías, agencias y bancaseguros; asistente Wilfredo por WhatsApp<a class="ref" href="#f25">[25]</a>.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="prosa">
+<p>Sobre Outmarket, la prensa especializada informa de una valoración en torno a 335 millones de dólares<a class="ref" href="#f16">[16]</a><span class="tag te">Estimación</span> Es una cifra de prensa que no hemos podido contrastar con un comunicado oficial; no debe equipararse a una valoración declarada por la compañía. Entre las empresas que, según esa misma cobertura, compiten con Outmarket en capas operativas para corredores figuran Fulcrum AI y FurtherAI.</p>
+</div>
+
+<h2>6. España y Latinoamérica: la ventaja del estándar</h2>
+<div class="prosa">
+<p>España cuenta con un activo que rara vez aparece en las comparativas internacionales. El estándar EIAC (Estándar de Intercambio de información entre Aseguradoras y Corredores) define un esquema de datos y procesos comunes, y la plataforma CIMA, creada por TIREA, canaliza ese intercambio con un único desarrollo por parte del proveedor de software. Participaron aseguradoras, UNESPA, organizaciones de corredores y proveedores tecnológicos, y la versión 7.1 del estándar está disponible<a class="ref" href="#f24">[24]</a><span class="tag tv">Verificado</span></p>
+<p>La relevancia para la IA es práctica. Un agente que dispone de datos estructurados de pólizas y recibos puede trabajar sobre información fiable. Uno que depende de leer pantallas de portales asume más riesgo de error cuando una pantalla cambia. Fournier lo describe al hablar del RPA: funciona, pero es rígido y se rompe cuando cambia una interfaz<a class="ref" href="#f6">[6]</a><span class="tag te">Estimación</span> (testimonio del proveedor). En Francia, según el mismo directivo, las API no están normalizadas, y las iniciativas existentes, como Penelop o EDI Courtage, siguen siendo dispares<a class="ref" href="#f6">[6]</a>.</p>
+<p>Los datos más recientes de CIMA muestran una adopción ya muy avanzada. En su VI Reunión Annual, celebrada en abril de 2026, TIREA informó de que trabaja con unos 2.300 corredores, el 92 % del objetivo de 2.500, y del 69 % de los 3.346 corredores que operan bajo el estándar EIAC. Participan 47 aseguradoras, que suman en torno al 90 % del volumen de primas intermediadas, y 28 empresas tecnológicas. Solo en marzo de 2026 se intercambiaron más de 860.000 ficheros, un 20 % más que un año antes, y el estándar ha alcanzado la versión 7.1<a class="ref" href="#f27">[27]</a><span class="tag tv">Verificado</span> (cifras de CIMA/TIREA recogidas por Grupo Aseguranza).</p>
+<p>Seis meses antes, en la V Reunión Annual de noviembre de 2025, CIMA contaba 2.022 corredores adheridos y 2.236 «en curso» (el 89 % de ellos ya presentes en la plataforma), y 8,3 millones de ficheros enviados en el año, frente a 3,4 millones en 2022<a class="ref" href="#f34">[34]</a><span class="tag tv">Verificado</span> Los 2.300 de 2026 y los 2.022 de 2025 no son directamente comparables: la organización distingue entre corredores adheridos y corredores en curso, y las fuentes de 2026 no detallan qué cuenta cada cifra.</p>
+<p>Si el estándar refuerza la fiabilidad de los agentes, el 69 % de corredores EIAC ya conectados a CIMA sugiere que una parte importante del mercado español podría estar en condiciones de delegar con datos estructurados. Queda un tercio por conectar, que es donde probablemente se concentre la brecha entre corredurías.</p>
+<h3>Latinoamérica: más ecosistema que estándar</h3>
+<p>La región suma 576 insurtech y 90 millones de dólares de financiación en el primer semestre de 2026, un 26 % menos que en el mismo periodo del año anterior<a class="ref" href="#f7">[7]</a><span class="tag tv">Verificado</span> Brasil lidera con 217 empresas, seguido de México (150), Chile (112) y Argentina (110). Hay 18 compañías especializadas en IA agéntica, una categoría que hace dos años casi no existía<a class="ref" href="#f7">[7]</a><span class="tag tv">Verificado</span> En ITC Vegas 2026 se presentaron, entre otros, el agente de DANAconnect para corredores en WhatsApp, el ecosistema de herramientas de Figuro para asesores y el motor Compara.ai<a class="ref" href="#f9">[9]</a><span class="tag tv">Verificado</span> (anuncios de las propias compañías).</p>
+<p>La pregunta que deja este contraste es si un modelo de conectividad como el español, nacido de un acuerdo entre aseguradoras, corredores y tecnólogos, podría trasladarse a mercados donde cada compañía opera con sus propios extranets. Es una de las líneas que planteamos en APECOSE 2026.</p>
+</div>
+
+<h2>7. El 9 de febrero y el matiz que falta</h2>
+<div class="prosa">
+<p>El 9 de febrero de 2026 dos aplicaciones de seguros se lanzaron dentro de ChatGPT: un comparador de seguro de auto de Insurify y una aplicación de cotización de hogar de Tuio, aseguradora digital española. Ese día, Willis Towers Watson cayó entre un 11 % y un 12 % según la fuente, su peor sesión desde noviembre de 2008, Aon perdió entre un 8,9 % y un 9,9 % y Arthur J. Gallagher entre un 9,3 % y un 9,9 %<a class="ref" href="#f18">[18]</a><a class="ref" href="#f19">[19]</a><a class="ref" href="#f31">[31]</a><span class="tag tv">Verificado</span> La aplicación de Insurify compara, pero no emite pólizas<a class="ref" href="#f21">[21]</a>; la de Tuio ofrecía cotizaciones de hogar y, según una de las crónicas, la compra llegaría más adelante<a class="ref" href="#f32">[32]</a>. Las fuentes no coinciden en cuál de las dos noticias pesó más: Bloomberg destaca la herramienta de Insurify<a class="ref" href="#f18">[18]</a>, otra crónica la aprobación de la app de Tuio<a class="ref" href="#f32">[32]</a>, y un analista de Bloomberg Intelligence añadió las nuevas herramientas de IA de Anthropic presentadas la semana anterior<a class="ref" href="#f33">[33]</a>. Tuio se construyó sobre la infraestructura de WaniWani, que en junio de 2026 cerró una ronda semilla de 8 millones de dólares liderada por Seedcamp<a class="ref" href="#f26">[26]</a><span class="tag tv">Verificado</span></p>
+</div>
+
+<figure class="fig">
+<svg viewBox="0 0 720 262" role="img" aria-label="Caída bursátil el 9 de febrero de 2026: WTW entre 11 y 12 por ciento; Aon entre 8,9 y 9,9; Arthur J. Gallagher entre 9,3 y 9,9 según la fuente; índice de corredores de MarshBerry 8,9 por ciento; índice S&amp;P de corredores 10,7 por ciento en la semana">
+  <g stroke="#DEE1E6"><line x1="230" y1="10" x2="230" y2="208"/><line x1="394.3" y1="10" x2="394.3" y2="208"/><line x1="558.6" y1="10" x2="558.6" y2="208"/></g>
+  <g font-size="13" style="fill:#595959"><text x="230" y="228" text-anchor="middle" style="fill:#595959">0 %</text><text x="394.3" y="228" text-anchor="middle" style="fill:#595959">5 %</text><text x="558.6" y="228" text-anchor="middle" style="fill:#595959">10 %</text></g>
+  <g font-size="14">
+    <text x="0" y="31">Willis Towers Watson</text><rect x="230" y="14" width="361.5" height="26" fill="#E4382E"/><rect x="591.5" y="14" width="32.8" height="26" fill="#F1957C"/><text x="632" y="33" font-weight="700">11–12 %</text>
+    <text x="0" y="71">Aon</text><rect x="230" y="54" width="292.5" height="26" fill="#E4382E"/><rect x="522.5" y="54" width="32.9" height="26" fill="#F1957C"/><text x="563" y="73" font-weight="700">8,9–9,9 %</text>
+    <text x="0" y="111">Arthur J. Gallagher</text><rect x="230" y="94" width="305.7" height="26" fill="#E4382E"/><rect x="535.7" y="94" width="19.7" height="26" fill="#F1957C"/><text x="563" y="113" font-weight="700">9,3–9,9 %</text>
+    <text x="0" y="151">Índice MarshBerry (cotizados)</text><rect x="230" y="134" width="292.5" height="26" fill="#E4382E"/><text x="530" y="153" font-weight="700">8,9 %</text>
+    <text x="0" y="191">S&amp;P Insurance Brokers (semana)</text><rect x="230" y="174" width="351.6" height="26" fill="#595959"/><text x="590" y="193" font-weight="700">10,7 %</text>
+  </g>
+</svg>
+<figcaption><strong>Caída bursátil tras el lanzamiento de las aplicaciones de IA en ChatGPT (9 de febrero de 2026).</strong> Fuentes: Bloomberg<a class="ref" href="#f18">[18]</a>, MarshBerry<a class="ref" href="#f19">[19]</a>, Fintool<a class="ref" href="#f31">[31]</a> y S&amp;P Global Market Intelligence vía Insurance Intel<a class="ref" href="#f21">[21]</a>. <span class="tag tv">Verificado</span> Las fuentes no coinciden: Bloomberg da WTW −12 %, Gallagher −9,9 % y Aon −9,3 %; MarshBerry intercambia estos dos últimos (−9,3 % y −9,9 %); Fintool da WTW −11 %, Gallagher −9,3 % y Aon −8,9 %. Mostramos el rango. Otra crónica con cifras de sesión, probablemente intradía, daba WTW −13 %<a class="ref" href="#f32">[32]</a>. La barra gris recoge la variación de la semana, no de la sesión.</figcaption>
+</figure>
+
+<div class="prosa">
+<p>Bank of America puso cifra al riesgo, no a la caída bursátil. Su informe, publicado a comienzos de marzo, identifica más de 15.000 millones de dólares en comisiones pagadas en 2025 a agentes independientes por seis aseguradoras estadounidenses (Travelers, Hartford, Progressive, Cincinnati Financial, Hanover y Selective), concentradas en riesgos de baja complejidad: líneas personales y pequeña empresa. Solo Progressive aporta más de 6.000 millones; Travelers, unos 3.350 millones; Hartford, unos 1.250 millones<a class="ref" href="#f20">[20]</a><span class="tag te">Estimación</span> (análisis de un banco, no una medición). Es una cifra de base: comisiones ya pagadas que el banco considera expuestas, no una pérdida prevista ni un cálculo del valor bursátil perdido. El propio informe sitúa entre un 10 % y un 20 % del negocio actual en posible riesgo de desintermediación y estima que un crecimiento orgánico del 3–7 % podría bajar al 1–5 %<a class="ref" href="#f20">[20]</a><span class="tag tp">Proyección</span> Ninguna de las fuentes consultadas calcula en dólares la capitalización perdida el 9 de febrero; solo hablan, de forma cualitativa, de «miles de millones». Tres semanas después de la caída, las acciones de distribución habían recuperado un 7 %<a class="ref" href="#f20">[20]</a><span class="tag tv">Verificado</span> y varios analistas habían calificado la reacción de excesiva, por tratarse de líneas personales<a class="ref" href="#f21">[21]</a>.</p>
+<div class="llamada"><p><strong>Lectura editorial.</strong> Si la exposición está en las tareas simples, la defensa del corredor parece estar en subir de peldaño en valor, no en resistir la automatización. Esa es la tesis que defiende Community of Insurance desde hace años: la tecnología acelera, pero la relación humana es la que fideliza. Fournier lo formula desde el lado del proveedor: el conjunto de tareas sin valor añadido está listo para la IA, y el conocimiento del cliente, el consejo y la decisión siguen siendo humanos<a class="ref" href="#f6">[6]</a>.</p></div>
+</div>
+
+<h2>8. Qué puede hacer una correduría ahora</h2>
+<div class="prosa"><p>La tabla siguiente ordena tareas habituales según su madurez para delegarlas. La columna de madurez combina las listas de tareas que cita Fournier con los lanzamientos descritos en este estudio. Es un criterio editorial de Community of Insurance, no una medición, y debe contrastarse con cada proveedor.</p></div>
+
+<div class="tabla-wrap">
+<table>
+<caption>Tareas de una correduría según madurez para delegar en IA (criterio editorial COI)</caption>
+<thead><tr><th>Tarea</th><th>Madurez percibida</th><th>Supervisión recomendada</th><th>Qué piden las fuentes</th></tr></thead>
+<tbody>
+<tr><td class="b">Conocimiento del cliente, prevención del blanqueo, recogida de documentos y firmas</td><td>Alta</td><td>El asesor relee antes de dar por válido.</td><td>Fournier las sitúa entre las tareas «listas»<a class="ref" href="#f6">[6]</a>.</td></tr>
+<tr><td class="b">Alta de ficha de cliente desde contratos o correos</td><td>Alta</td><td>Revisión por muestreo y alertas de datos faltantes.</td><td>Casos descritos por Lya Protect, FRANK y Panora<a class="ref" href="#f6">[6]</a><a class="ref" href="#f14">[14]</a><a class="ref" href="#f15">[15]</a>.</td></tr>
+<tr><td class="b">Reintroducción de datos en portales de aseguradoras</td><td>Media-alta</td><td>Registro de cada acción del agente.</td><td>La encuesta de Ivans la señala como principal fricción<a class="ref" href="#f11">[11]</a>.</td></tr>
+<tr><td class="b">Conciliación de comisiones</td><td>Media-alta</td><td>Cuadre final por una persona.</td><td>Panora, Applied y Vertafore anuncian capacidades en este terreno<a class="ref" href="#f15">[15]</a><a class="ref" href="#f10">[10]</a><a class="ref" href="#f12">[12]</a>.</td></tr>
+<tr><td class="b">Renovaciones, retarificación y comparación de presupuestos en ramos sencillos</td><td>Media</td><td>El corredor decide qué propuesta presenta.</td><td>Disponible en ebroker, SoftQS, Foliume<a class="ref" href="#f22">[22]</a><a class="ref" href="#f23">[23]</a><a class="ref" href="#f25">[25]</a> y GAUSS (Damantia), un bot de recotización que extrae los datos de las pólizas de las webs de las compañías, cotiza en los multitarificadores con los criterios de la correduría y entrega propuestas listas para presentar<a class="ref" href="#f30">[30]</a>. Rosillo Hnos. declara un 23 % menos de anulaciones en Autos y Motos tras un año con MelmacIA y GAUSS<a class="ref" href="#f30">[30]</a> <span class="tag te">Estimación</span> (caso declarado por la correduría).</td></tr>
+<tr><td class="b">Asesoramiento en riesgos complejos, negociación y decisión</td><td>Humana</td><td>No delegar.</td><td>Fournier: el consejo sigue siendo humano<a class="ref" href="#f6">[6]</a>.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Cinco preguntas antes de comprar nada</h3>
+<ol class="preguntas">
+  <li>¿Cuánto tiempo del equipo se va hoy en reintroducir los mismos datos en distintos sistemas y portales?</li>
+  <li>En el seguro español, ¿está mi sistema de gestión conectado a las aseguradoras mediante EIAC o depende todavía de ficheros y pantallas?</li>
+  <li>¿Puedo ver, tarea por tarea, qué hizo el agente y por qué lo hizo?</li>
+  <li>¿Dónde se alojan los datos de mis clientes y qué modelo de IA se utiliza? Fournier cita impacto ambiental, coste, seguridad y soberanía de datos como criterios de elección<a class="ref" href="#f6">[6]</a>.</li>
+  <li>Si libero la mitad del trabajo administrativo, ¿qué haré con ese tiempo para que mi cliente lo note?</li>
+</ol>
+
+<div class="prosa">
+<h3>La parte que no es tecnología</h3>
+<p>Fournier cuenta que, tras dos años de uso intensivo de IA en su empresa, dos colaboradores se fueron en parte por cómo se habían introducido esas herramientas, y atribuye el error a haber ido demasiado rápido<a class="ref" href="#f6">[6]</a><span class="tag te">Estimación</span> (testimonio de un directivo). Su conclusión es que la tecnología es la parte fácil y la difícil es acompañar a las personas. Para una correduría, esa lección parece igual de aplicable: delegar tareas obliga a redefinir funciones.</p>
+</div>
+
+<div class="cierre">
+<h2 style="margin:0 0 12px;border:0;padding:0">Conclusión: una pregunta antes que una respuesta</h2>
+<div class="prosa">
+<p>Los datos apuntan a que la IA no solo añade funciones al software del corredor, sino que cambia su trabajo de sitio: de registrar lo que ocurre a ejecutar parte de lo que hay que hacer. Que el capital se concentre en esa dirección y que los proveedores consolidados reaccionen en cuestión de semanas sugiere que no es una moda pasajera.</p>
+<p>Lo que sigue abierto es quién captura el valor: las plataformas con datos y conectividad, los operadores de IA que trabajan sobre ellas o los canales directos que llegan antes al cliente. Y, más importante para un corredor, qué hará con el tiempo que recupere.</p>
+</div>
+<p class="lema">La tecnología acelera, la relación humana fideliza.</p>
+<p class="firma">Equipo editorial de Community of Insurance · Insur·Insights y COI Magazine</p>
+</div>
+
+<h2>Fuentes</h2>
+<ol class="fuentes">
+<li id="f1">Gallagher Re, <em>Global InsurTech Report Q2 2026</em>, 6 de agosto de 2026. <a href="https://www.ajg.com/gallagherre/news-and-insights/global-insurtech-report-q2-2026/">ajg.com/gallagherre</a></li>
+<li id="f2">Reinsurance News, «InsurTech funding hits four-year high as AI firms capture 99% of investment», 6 de agosto de 2026. <a href="https://www.reinsurancene.ws/insurtech-funding-hits-four-year-high-as-ai-firms-capture-99-of-investment-gallagher-re/">reinsurancene.ws</a></li>
+<li id="f3">Insurance Business, «AI takes 99.1% of insurtech funding as data centre risk mounts» (dato del 1.er trim. 2026: 95,2 %), agosto de 2026. <a href="https://www.insurancebusinessmag.com/reinsurance/news/breaking-news/ai-takes-99-1-of-insurtech-funding-as-data-centre-risk-mounts-gallagher-re-finds-585180.aspx">insurancebusinessmag.com</a></li>
+<li id="f4">Carrier Management, «Global InsurTech Funding Surges on Record Re/Insurance Investments» (4.º trim. 2025: 77,9 %), 19 de febrero de 2026. <a href="https://www.carriermanagement.com/news/2026/02/19/284727.htm">carriermanagement.com</a></li>
+<li id="f5">Florian Graillot (astorya.vc), «InsurTech Europe is hot again! (H1 2026)», 23 de julio de 2026. <a href="https://fgtrends.wordpress.com/2026/07/23/insurtech-europe-is-hot-again-h1-2026/">fgtrends.wordpress.com</a></li>
+<li id="f6">Florian Graillot, «De la digitalisation à l'automatisation, quand l'IA transforme les logiciels des courtiers [avec Lya Protect]», LinkedIn, 5 de octubre de 2026 (incluye entrevista a Arnaud Fournier, CEO de Lya Protect; contenido en colaboración con Lya Protect). <a href="https://www.linkedin.com/pulse/de-la-digitalisation-%C3%A0-lautomatisation-quand-lia-les-des-graillot-zwjse/">linkedin.com</a></li>
+<li id="f7">Digital Insurance LATAM y Mapfre, <em>Latam Insurtech Journey</em>, 12.ª edición, julio de 2026. <a href="https://www.dineromasseguro.com/buenas-ideas/insurtechlatam1s26">dineromasseguro.com</a> · <a href="https://www.mapfre.com/comunicacion/innovacion-comunicacion/financiacion-insurtech-latinoamerica-primer-semestre-2026/">mapfre.com</a></li>
+<li id="f8">LatamFintech, «Insurtech brasileña Segura levanta US$8 millones para llevar IA a los corredores de seguros», 27 de abril de 2026. <a href="https://www.latamfintech.co/articles/insurtech-brasilena-segura-levanta-us-8-millones-para-llevar-ia-a-los-corredores-de-seguros">latamfintech.co</a></li>
+<li id="f9">100% Seguro, «La IA entra en acción: las insurtech latinoamericanas revelaron sus novedades en el Breaking News de la AIP en ITC Vegas 2026», octubre de 2026. <a href="https://100seguro.com.ar/la-ia-entra-en-accion-las-insurtech-latinoamericanas-revelaron-sus-novedades-en-el-breaking-news-de-la-aip-en-itc-vegas-2026/">100seguro.com.ar</a></li>
+<li id="f10">Applied Systems, notas de prensa de 2026 (Epic Conductor, 29 de septiembre; «Applied Powers 9 of the Top 10», 30 de septiembre). <a href="https://www1.appliedsystems.com/en-us/news/press-releases/2026/">appliedsystems.com</a></li>
+<li id="f11">Insurance Business, «Applied Systems builds AI directly into Epic to automate agency workflows» (encuesta de Ivans, agosto de 2026), septiembre de 2026. <a href="https://www.insurancebusinessmag.com/us/news/technology/applied-systems-builds-ai-directly-into-epic-to-automate-agency-workflows-591593.aspx">insurancebusinessmag.com</a></li>
+<li id="f12">FinTech Global, «Vertafore brings AI agents to independent insurance agencies», 28 de septiembre de 2026. <a href="https://fintech.global/2026/09/28/vertafore-brings-ai-agents-to-independent-insurance-agencies/">fintech.global</a></li>
+<li id="f13">Zywave, «Winter 2026 Release» y «Summer 2026 Release» (Zywave Apex). <a href="https://www.zywave.com/blog/zywave-unveils-winter-2026-release-to-help-brokers-win-more-deals-faster/">zywave.com</a></li>
+<li id="f14">Tech.eu, «FRANK raises €2.9M to cut paperwork for insurance brokers», 1 de octubre de 2026. <a href="https://tech.eu/2026/10/01/frank-raises-eur29m-to-cut-paperwork-for-insurance-brokers">tech.eu</a></li>
+<li id="f15">SaasRise, «Panora raises $5M seed to modernize insurance brokerage», 7 de julio de 2026. <a href="https://www.saasrise.com/deals/panora-bags-5m-to-modernise-insurance-brokerage-across-europe-aadb3af4-e2dd-4e71-b5f5-4d414bda2e88">saasrise.com</a></li>
+<li id="f16">American Bazaar, «AI startup Outmarket raises $34.5 million to automate insurance paperwork», 30 de septiembre de 2026 · Beinsure, 28 de septiembre de 2026. <a href="https://americanbazaaronline.com/2026/09/30/ai-startup-outmarket-raises-34-5-million-to-automate-insurance-paperwork-489127/">americanbazaaronline.com</a> · <a href="https://beinsure.com/news/outmarket-ai-raises-34-5-mn-series-b-for-insurance-automation/">beinsure.com</a></li>
+<li id="f17">Startup Daily, «AI insurance broker platform Rosella raises $3.7 million in pre-Seed», 3 de abril de 2026. <a href="https://www.startupdaily.net/topic/funding/ai-insurance-broker-platform-rosella-raises-3-7-million-in-pre-seed/">startupdaily.net</a></li>
+<li id="f18">Bloomberg, «Insurance Broker Stocks Sink as AI App Sparks Disruption Fears», 9 de febrero de 2026. <a href="https://www.bloomberg.com/news/articles/2026-02-09/insurance-broker-stocks-sink-as-ai-app-sparks-disruption-fears">bloomberg.com</a></li>
+<li id="f19">MarshBerry, «Is AI rewriting the rules of insurance distribution and valuation?», 11 de febrero de 2026. <a href="https://www.marshberry.com/eu/blog/is-ai-rewriting-the-rules-of-insurance-distribution-and-valuation/">marshberry.com</a></li>
+<li id="f20">Fortune, «$15 billion of the insurance industry is at risk from AI, BofA says», 3 de marzo de 2026 (resume el informe de BofA Global Research). <a href="https://fortune.com/2026/03/03/15-billion-of-the-insurance-industry-is-at-risk-from-ai-bofa-says">fortune.com</a></li>
+<li id="f21">Insurance Intel, «AI Quoting Hits Retail. Specialty Gains Leverage» (datos de S&amp;P Global Market Intelligence). <a href="https://insuranceintel.substack.com/p/did-ai-just-break-retail-brokerage">insuranceintel.substack.com</a></li>
+<li id="f22">ebroker, «Los Agentes IA abren la posibilidad de evolucionar de la automatización a la delegación inteligente». <a href="https://www.ebroker.es/agentes-ia-para-mediadores-de-seguros-abren-la-posibilidad-de-evolucionar">ebroker.es</a></li>
+<li id="f23">Grupo QS (SoftQS), suite de agentes de IA para corredurías. <a href="https://softqs.com/">softqs.com</a></li>
+<li id="f24">CIMA (TIREA), plataforma de conectividad y estándar EIAC. <a href="https://www.cimaseg.es/">cimaseg.es</a></li>
+<li id="f25">Telefónica, «Íope Ventures refuerza la transformación digital en seguros con su inversión en Foliume»; Grupo Aseguranza, acuerdo Foliume–Grupo HiB. <a href="https://www.telefonica.com/es/sala-comunicacion/prensa/iope-ventures-refuerza-transformacion-digital-seguros-inversion-foliume/">telefonica.com</a> · <a href="https://www.grupoaseguranza.com/noticias-de-mediacion/foliume-grupo-hib-facilitan-integracion-ia-entre-corredurias">grupoaseguranza.com</a></li>
+<li id="f26">Tech Funding News, «FRANK lands €2.9M seed…» (contexto de la caída de WTW y de la ronda de Waniwani), 1 de octubre de 2026. <a href="https://techfundingnews.com/frank-raises-2-9m-insurtech-ai-operator-armilar-portugal/">techfundingnews.com</a></li>
+<li id="f27">Grupo Aseguranza, «CIMA alcanza el 92% de su objetivo de corredores adheridos y pone el foco en la ciberseguridad» (VI Reunión Annual CIMA), 30 de abril de 2026. <a href="https://www.grupoaseguranza.com/noticias-de-mediacion/cima-alcanza-92-objetivo-corredores-adheridos-pone-foco">grupoaseguranza.com</a></li>
+<li id="f28">Mediator, comparativa de software para corredores de seguros 2026. <a href="https://www.mediator.es/tecnologia/mejor-software-para-corredores-de-seguros/">mediator.es</a></li>
+<li id="f29">BrokAI (Dumaco), web corporativa: plataforma Agent Control y relación de clientes publicada por la propia empresa. <a href="https://www.brokai.ai/">brokai.ai</a></li>
+<li id="f30">Community of Insurance, «Rosillo Hnos. concentra semanas de trabajo en apenas una mañana y reduce un 23 % las anulaciones de Autos y Motos gracias a MelmacIA y GAUSS», 13 de diciembre de 2025 (GAUSS, bot recotizador de Damantia). <a href="https://communityofinsurance.com/2025/12/13/rosillo-hnos-concentra-semanas-de-trabajo-en-apenas-una-manana-y-reduce-un-23-las-anulaciones-de-autos-y-motos-gracias-a-melmacia-y-gauss/">communityofinsurance.com</a></li>
+<li id="f31">Fintool, «Insurance Brokers Crash as ChatGPT Enters the Business: WTW Suffers Worst Day Since 2008» (cifras de cierre), febrero de 2026. <a href="https://fintool.com/news/insurance-brokers-ai-disruption-chatgpt-selloff">fintool.com</a></li>
+<li id="f32">Investing.com, «Insurance broker stocks tumble as OpenAI approves first AI insurance app», 9 de febrero de 2026. <a href="https://finance.yahoo.com/news/insurance-broker-stocks-tumble-openai-204925570.html">finance.yahoo.com</a></li>
+<li id="f33">Carrier Management, «Insurance Broker Stocks Sink as AI App Sparks Disruption Fears» (comentario de Matthew Palazola, Bloomberg Intelligence), 10 de febrero de 2026. <a href="https://www.carriermanagement.com/news/2026/02/10/284413.htm">carriermanagement.com</a></li>
+<li id="f34">SegurosNews, «CIMA prevé alcanzar los 2.500 corredores a final de año» (V Reunión Annual CIMA), 6 de noviembre de 2025. <a href="https://segurosnews.com/news/cima-busca-alcanzar-los-2-500-corredores-en-curso">segurosnews.com</a></li>
+</ol>
+
+</div>
+<!-- ===== FIN ===== -->
+</body>
+</html>
