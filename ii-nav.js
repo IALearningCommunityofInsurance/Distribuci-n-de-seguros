@@ -10,7 +10,7 @@
  *
  * Instalación: una sola línea antes de </body> en cada artículo
  *   <script src="../ii-nav.js" defer></script>
- * (el script instalador lo hace solo para los 34 artículos).
+ * (el script instalador lo hace solo para los 36 artículos).
  *
  * Mantenimiento: al publicar un artículo nuevo, añade UNA línea a la lista ARTICULOS.
  * Colores COI (#E4382E · #F1957C · #595959) y tipografías Lora/Inter del hub.
@@ -72,7 +72,8 @@
     /* Mercados e Informes */
     { f: 'mercados-emergentes-seguros-2026.html', t: 'Mercados emergentes del seguro en 2026: dónde está el crecimiento real', c: 5, m: 8 },
     { f: 'damantia-allianz-coi-magazine.html', t: 'Damantia y Allianz: fusiones y concentración en el mercado asegurador europeo', c: 5, m: 6 },
-    { f: 'informe-vullierme-waniwani.html', t: 'Informe Vullierme-Waniwani: microaseguramiento e inclusión financiera', c: 5, m: 6 }
+    { f: 'informe-vullierme-waniwani.html', t: 'Informe Vullierme-Waniwani: microaseguramiento e inclusión financiera', c: 5, m: 6 },
+    { f: 'seguro-vida-prima-de-relevancia.html', t: 'Capgemini y LIMRA 2027: el seguro de vida tiene un problema de traducción', c: 5, m: 11, n: 1 }
   ];
 
   /* ───────────── 2 · UTILIDADES ───────────── */
