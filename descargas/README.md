@@ -7,6 +7,10 @@
 
 ## 🎥 Vídeo
 
-[![Ver el vídeo en YouTube](https://img.youtube.com/vi/RdoY-6UXXeo/maxresdefault.jpg)](https://youtu.be/RdoY-6UXXeo)
+### El modelo CX de Sabadell: seguros para la retención de clientes
 
-▶️ [Ver en YouTube](https://youtu.be/RdoY-6UXXeo)
+Webinar de Community of Insurance con **Carlos Biurrun**, **Enric Aliguer** y **José Luis Calderón** (22 de octubre de 2026, 60 minutos).
+
+[![El modelo CX de Sabadell: seguros para la retención de clientes](https://img.youtube.com/vi/RdoY-6UXXeo/maxresdefault.jpg)](https://youtu.be/RdoY-6UXXeo)
+
+▶️ [Ver el webinar completo en YouTube](https://youtu.be/RdoY-6UXXeo)
