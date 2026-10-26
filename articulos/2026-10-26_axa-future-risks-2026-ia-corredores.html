@@ -1,0 +1,264 @@
+<!-- Insur·Insights · Artículo para el hub · Todo el CSS está acotado bajo #ii-art (apto para Elementor/WordPress) -->
+<div id="ii-art">
+<style>
+#ii-art{--rojo:#E4382E;--coral:#F1957C;--grafito:#595959;--navy:#183577;--oro:#C89646;--tinta:#262626;--gris:#F4F2F0;--linea:#E3DEDA;
+  font-family:Arial,Helvetica,sans-serif;color:var(--tinta);line-height:1.65;font-size:17px;background:#fff;max-width:880px;margin:0 auto;padding:0 20px 48px;box-sizing:border-box}
+#ii-art *,#ii-art *::before,#ii-art *::after{box-sizing:border-box}
+#ii-art h1,#ii-art h2,#ii-art h3{font-family:Georgia,'Times New Roman',serif;color:var(--tinta);line-height:1.2;margin:0}
+#ii-art p{margin:0 0 1.05em}
+#ii-art a{color:var(--rojo);text-decoration:underline;text-underline-offset:2px}
+#ii-art .ii-hero{background:var(--navy);background-image:linear-gradient(135deg,#183577 0%,#142B61 100%);padding:44px 40px 34px;margin:24px 0 34px;border-radius:10px;border-bottom:5px solid var(--rojo);position:relative;overflow:hidden}
+#ii-art .ii-hero::after{content:"";position:absolute;right:-70px;top:-70px;width:240px;height:240px;border-radius:50%;border:1px solid rgba(200,150,70,.35);box-shadow:0 0 0 28px rgba(200,150,70,.07)}
+#ii-art .ii-hero>*{position:relative;z-index:1}
+#ii-art .ii-eyebrow{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--oro);margin-bottom:18px}
+#ii-art .ii-eyebrow span.ii-sep{width:28px;height:2px;background:var(--oro);display:inline-block}
+#ii-art .ii-eyebrow em{font-style:normal;color:#BFC9E0}
+#ii-art h1{font-size:clamp(30px,5.4vw,46px);letter-spacing:-.01em;margin-bottom:20px}
+#ii-art .ii-hero h1{color:#fff}
+#ii-art h1 span{color:var(--coral)}
+#ii-art .ii-lead{font-family:Georgia,'Times New Roman',serif;font-size:clamp(19px,2.6vw,22px);line-height:1.5;color:#DCE3F2;margin-bottom:22px}
+#ii-art .ii-meta{font-size:13.5px;color:#BFC9E0;display:flex;flex-wrap:wrap;gap:6px 18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.18)}
+#ii-art .ii-meta b{color:#fff}
+#ii-art .ii-fuente-hero{display:inline-block;font-family:Arial,Helvetica,sans-serif;font-size:13.5px;font-weight:700;color:var(--oro);background:rgba(255,255,255,.08);border-left:3px solid var(--oro);padding:7px 14px;border-radius:0 4px 4px 0;margin:0 0 20px}
+#ii-art .ii-fuente-hero a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.45)}
+#ii-art .ii-tldr{background:var(--gris);border-left:5px solid var(--rojo);padding:18px 22px;margin:0 0 38px;border-radius:0 6px 6px 0}
+#ii-art .ii-tldr h3{font-family:Arial,Helvetica,sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--rojo);margin-bottom:8px}
+#ii-art .ii-tldr ul{margin:0;padding-left:20px}
+#ii-art .ii-tldr li{margin:4px 0}
+#ii-art h2{font-size:clamp(23px,3.6vw,30px);margin:50px 0 6px}
+#ii-art h2 .ii-n{display:block;font-family:Arial,Helvetica,sans-serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--rojo);margin-bottom:8px;font-weight:700}
+#ii-art .ii-sub{color:var(--grafito);font-size:15.5px;margin-bottom:22px}
+#ii-art .ii-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:26px 0 8px}
+#ii-art .ii-kpi{border:1px solid var(--linea);border-top:4px solid var(--rojo);border-radius:6px;padding:16px 14px 14px;background:#fff}
+#ii-art .ii-kpi:nth-child(2){border-top-color:var(--coral)}
+#ii-art .ii-kpi:nth-child(3){border-top-color:var(--grafito)}
+#ii-art .ii-kpi:nth-child(4){border-top-color:var(--oro)}
+#ii-art .ii-kpi b{display:block;font-family:Georgia,serif;font-size:34px;line-height:1;color:var(--tinta);margin-bottom:8px;letter-spacing:-.02em}
+#ii-art .ii-kpi small{display:block;font-size:13px;line-height:1.4;color:var(--grafito)}
+#ii-art .ii-src{font-size:12.5px;color:var(--grafito);margin:10px 0 0}
+#ii-art .ii-tag{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:3px;background:#EAF3EC;color:#1F6B3A;vertical-align:middle;white-space:nowrap}
+#ii-art .ii-tag.ii-warn{background:#FFF1DC;color:#8A5A00}
+#ii-art .ii-rank{display:grid;grid-template-columns:1fr 1fr;gap:0 26px;margin:20px 0 6px}
+#ii-art .ii-rank h3{font-family:Arial,Helvetica,sans-serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--grafito);padding-bottom:8px;border-bottom:2px solid var(--tinta);margin-bottom:6px}
+#ii-art .ii-rank ol{list-style:none;margin:0;padding:0}
+#ii-art .ii-rank li{display:flex;gap:12px;align-items:baseline;padding:7px 8px;border-bottom:1px solid var(--linea);font-size:15px}
+#ii-art .ii-rank li i{font-style:normal;font-family:Georgia,serif;font-weight:700;color:var(--grafito);width:22px;flex:none}
+#ii-art .ii-rank li.ii-ia{background:#FDE9E6;font-weight:700}
+#ii-art .ii-rank li.ii-ia i{color:var(--rojo)}
+#ii-art .ii-rank li.ii-cl{background:#FEF1EC;font-weight:700}
+#ii-art .ii-rank li.ii-cl i{color:var(--coral)}
+#ii-art .ii-grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:22px 0}
+#ii-art .ii-card{border:1px solid var(--linea);border-radius:6px;padding:18px 18px 8px;background:#fff}
+#ii-art .ii-card h3{font-family:Arial,Helvetica,sans-serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--rojo);margin-bottom:10px}
+#ii-art .ii-card p{font-size:15.5px}
+#ii-art .ii-card p b.ii-big{font-family:Georgia,serif;font-size:28px;color:var(--tinta);margin-right:4px}
+#ii-art .ii-bars{margin:22px 0 6px}
+#ii-art .ii-bar{display:grid;grid-template-columns:minmax(150px,230px) 1fr;gap:6px 14px;align-items:center;margin-bottom:10px;font-size:14.5px}
+#ii-art .ii-track{background:var(--gris);border-radius:4px;height:28px;position:relative;overflow:hidden}
+#ii-art .ii-fill{height:100%;background:var(--coral);border-radius:4px;display:flex;align-items:center;justify-content:flex-end;padding-right:9px;color:#fff;font-weight:700;font-size:13.5px}
+#ii-art .ii-fill.ii-top{background:var(--rojo)}
+#ii-art .ii-quote{font-family:Georgia,serif;font-size:clamp(22px,3.4vw,28px);line-height:1.3;color:var(--tinta);border-left:5px solid var(--oro);padding:4px 0 4px 22px;margin:34px 0}
+#ii-art .ii-quote span{color:var(--rojo)}
+#ii-art .ii-broker{background:var(--navy);color:#fff;border-radius:8px;padding:34px 30px 30px;margin:46px 0 10px;position:relative}
+#ii-art .ii-broker::before{content:"";position:absolute;left:30px;top:0;width:64px;height:4px;background:var(--oro)}
+#ii-art .ii-broker h2{color:#fff;margin:8px 0 12px}
+#ii-art .ii-broker h2 .ii-n{color:var(--oro)}
+#ii-art .ii-broker p{color:#E8ECF5}
+#ii-art .ii-broker .ii-aviso{font-size:13.5px;background:rgba(255,255,255,.1);border-radius:5px;padding:10px 14px;margin:14px 0 22px;color:#fff}
+#ii-art .ii-q{display:grid;grid-template-columns:44px 1fr;gap:4px 14px;padding:16px 0;border-top:1px solid rgba(255,255,255,.2)}
+#ii-art .ii-q b.ii-qn{font-family:Georgia,serif;font-size:30px;color:var(--oro);line-height:1}
+#ii-art .ii-q h3{font-family:Georgia,serif;color:#fff;font-size:19px;margin-bottom:6px}
+#ii-art .ii-q p{margin:0;font-size:15.5px}
+#ii-art .ii-nota{border:1px solid var(--linea);background:var(--gris);border-radius:6px;padding:18px 22px;margin:26px 0}
+#ii-art .ii-nota h3{font-family:Arial,Helvetica,sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--grafito);margin-bottom:8px}
+#ii-art .ii-nota ul{margin:0;padding-left:20px}
+#ii-art .ii-nota li{margin:5px 0;font-size:15.5px}
+#ii-art .ii-tabwrap{overflow-x:auto;margin:20px 0 6px;border:1px solid var(--linea);border-radius:6px}
+#ii-art table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:680px}
+#ii-art th{background:var(--tinta);color:#fff;text-align:left;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;padding:10px 12px}
+#ii-art td{padding:10px 12px;border-bottom:1px solid var(--linea);vertical-align:top}
+#ii-art tr:nth-child(even) td{background:#FAF8F7}
+#ii-art td.ii-v{font-family:Georgia,serif;font-weight:700;font-size:15px;white-space:nowrap}
+#ii-art .ii-cierre{margin-top:46px;padding:28px 0 0;border-top:3px solid var(--rojo)}
+#ii-art .ii-cierre h2{margin-top:0}
+#ii-art .ii-firma{margin-top:26px;font-size:14px;color:var(--grafito)}
+#ii-art .ii-firma b{color:var(--tinta)}
+#ii-art .ii-fuentes{font-size:14px;color:var(--grafito);margin-top:32px;padding-top:18px;border-top:1px solid var(--linea)}
+#ii-art .ii-fuentes h3{font-family:Arial,Helvetica,sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;color:var(--tinta)}
+#ii-art .ii-fuentes ul{margin:0;padding-left:20px}
+#ii-art .ii-fuentes li{margin:4px 0;word-break:break-word}
+@media (max-width:720px){
+  #ii-art{font-size:16.5px;padding:0 16px 40px}
+  #ii-art .ii-hero{padding:30px 22px 24px;margin-top:16px}
+  #ii-art .ii-kpis{grid-template-columns:1fr 1fr}
+  #ii-art .ii-rank,#ii-art .ii-grid2{grid-template-columns:1fr}
+  #ii-art .ii-bar{grid-template-columns:1fr}
+  #ii-art .ii-broker{padding:30px 20px 22px}
+  #ii-art .ii-broker::before{left:20px}
+  #ii-art .ii-q{grid-template-columns:34px 1fr}
+}
+</style>
+
+<header class="ii-hero">
+  <div class="ii-eyebrow"><span>Insur·Insights</span><span class="ii-sep"></span><span>IA y Tecnología</span><span class="ii-sep"></span><em>Informes · Nuevo</em></div>
+  <h1>La IA ya encabeza la lista de riesgos de los expertos. <span>¿Qué papel tendrán los brokers?</span></h1>
+  <p class="ii-lead">Por primera vez en 13 años, los expertos consultados por AXA sitúan la inteligencia artificial por delante del cambio climático. Y el 85&nbsp;% cree que buena parte de lo que más preocupa puede prevenirse. Si el riesgo se vuelve más difícil de entender, quizá la pregunta ya no sea solo quién lo cubre, sino quién acompaña al cliente a comprenderlo y a prevenirlo.</p>
+  <p class="ii-fuente-hero">Fuente: <a href="https://www.axa.com/en/news/future-risks-report" target="_blank" rel="noopener">AXA, Future Risks Report 2026</a></p>
+  <div class="ii-meta"><span><b>Community of Insurance</b></span><span>26 de octubre de 2026</span><span>Lectura: 7 min</span></div>
+</header>
+
+<aside class="ii-tldr">
+  <h3>En 30 segundos</h3>
+  <ul>
+    <li><b>Cambio de orden:</b> la IA y el big data pasan del 4.º al 1.º puesto entre los expertos; entre el público, del 7.º al 2.º. El clima sigue siendo el n.º 1 para los ciudadanos.</li>
+    <li><b>Poca preparación percibida:</b> solo el 9&nbsp;% de los expertos cree que las autoridades están bien preparadas ante la IA (3&nbsp;% en Europa).</li>
+    <li><b>Qué piden al asegurador:</b> soluciones innovadoras (66&nbsp;%), conocimiento y educación sobre riesgos (65&nbsp;%) y apoyo en prevención (59&nbsp;%).</li>
+    <li><b>La pregunta abierta:</b> ¿qué papel desempeñarán los brokers ante estos riesgos emergentes? El informe no la responde; aquí la planteamos.</li>
+  </ul>
+</aside>
+
+<section>
+  <h2><span class="ii-n">Los datos</span>Lo que dice el informe, en cuatro cifras</h2>
+  <p class="ii-sub">AXA Future Risks Report 2026, 13.ª edición, elaborado con Ipsos. Trabajo de campo del 14 de mayo al 24 de junio de 2026.</p>
+  <div class="ii-kpis">
+    <div class="ii-kpi"><b>1.º</b><small>puesto de la IA y el big data entre los expertos (4.º en 2025). Primera vez que superan al clima.</small></div>
+    <div class="ii-kpi"><b>7.º → 2.º</b><small>salto de la IA entre el público general. El clima sigue en el 1.º puesto en todas las generaciones.</small></div>
+    <div class="ii-kpi"><b>85&nbsp;%</b><small>de expertos y público cree que los riesgos que más les preocupan pueden evitarse, al menos en parte, con prevención.</small></div>
+    <div class="ii-kpi"><b>68&nbsp;%</b><small>del público general considera que los aseguradores tienen un papel importante frente a los riesgos emergentes.</small></div>
+  </div>
+  <p class="ii-src"><span class="ii-tag">Verificado</span> AXA, <em>Future Risks Report 2026</em>, pp. 4, 14, 62 y 65. Datos de percepción declarada por los encuestados. Muestra: 4.345 expertos de 62 países y regiones y 24.000 ciudadanos de 19 países y regiones (p. 8-9).</p>
+</section>
+
+<section>
+  <h2><span class="ii-n">1 · Dos miradas</span>Expertos y ciudadanos no miran al mismo horizonte</h2>
+  <p>La IA lidera el ranking de los expertos, pero el público sigue poniendo el clima en cabeza. Ambos grupos, eso sí, coinciden en que la IA ya es una de sus dos grandes preocupaciones. Es un cambio notable respecto al informe de 2025, en el que las percepciones habían sido bastante estables.</p>
+  <div class="ii-rank">
+    <div>
+      <h3>Expertos</h3>
+      <ol>
+        <li class="ii-ia"><i>1</i>IA y big data</li>
+        <li class="ii-cl"><i>2</i>Cambio climático</li>
+        <li><i>3</i>Inestabilidad geopolítica</li>
+        <li><i>4</i>Riesgos cibernéticos</li>
+        <li><i>5</i>Riesgos energéticos</li>
+        <li><i>6</i>Tensiones y movimientos sociales</li>
+        <li><i>7</i>Fragmentación social</li>
+        <li><i>8</i>Estabilidad financiera</li>
+        <li><i>9</i>Riesgos macroeconómicos</li>
+        <li><i>10</i>Recursos naturales y biodiversidad</li>
+      </ol>
+    </div>
+    <div>
+      <h3>Población general</h3>
+      <ol>
+        <li class="ii-cl"><i>1</i>Cambio climático</li>
+        <li class="ii-ia"><i>2</i>IA y big data</li>
+        <li><i>3</i>Pandemias y enfermedades infecciosas</li>
+        <li><i>4</i>Riesgos cibernéticos</li>
+        <li><i>5</i>Nuevas amenazas de seguridad y terrorismo</li>
+        <li><i>6</i>Estabilidad financiera</li>
+        <li><i>7</i>Inestabilidad geopolítica</li>
+        <li><i>8</i>Tensiones y movimientos sociales</li>
+        <li><i>9</i>Riesgos energéticos</li>
+        <li><i>10</i>Enfermedades crónicas y salud mental</li>
+      </ol>
+    </div>
+  </div>
+  <p class="ii-src"><span class="ii-tag">Verificado</span> AXA, <em>Future Risks Report 2026</em>, pp. 7 y 14. Cada persona elige sus cinco riesgos principales; el ranking se calcula por puntos (5 al primero, 4 al segundo, etc.), no por porcentaje de elecciones.</p>
+</section>
+
+<section>
+  <h2><span class="ii-n">2 · La brecha</span>Preocupa mucho… y se percibe poca preparación</h2>
+  <p>El informe describe la IA como un riesgo que avanza más deprisa que la capacidad de la sociedad para gestionarlo. Entre quienes la eligieron como riesgo principal, más de la mitad de los expertos la considera «rápidamente emergente», y una mayoría dice sentirse vulnerable en su vida diaria. Al mismo tiempo, la confianza en la preparación de las autoridades es de las más bajas de toda la encuesta.</p>
+  <div class="ii-grid2">
+    <div class="ii-card"><h3>Riesgo «rápidamente emergente»</h3><p><b class="ii-big">54&nbsp;%</b> de expertos y <b class="ii-big">48&nbsp;%</b> del público que eligió la IA entre sus riesgos principales.</p></div>
+    <div class="ii-card"><h3>Se sienten vulnerables</h3><p><b class="ii-big">65&nbsp;%</b> de expertos y <b class="ii-big">67&nbsp;%</b> del público, entre quienes eligieron la IA como riesgo principal.</p></div>
+    <div class="ii-card"><h3>Autoridades «bien preparadas»</h3><p><b class="ii-big">9&nbsp;%</b> de los expertos, empatada con la fragmentación social como la cifra más baja. <b class="ii-big">3&nbsp;%</b> en Europa.</p></div>
+    <div class="ii-card"><h3>Principal motivo de preocupación</h3><p><b class="ii-big">34&nbsp;%</b> señala los riesgos éticos (derechos humanos, sesgos, uso indebido de datos), tanto expertos como público. Les siguen el empleo (28-30&nbsp;%) y el «efecto caja negra».</p></div>
+  </div>
+  <p>Lo que los expertos piden a las autoridades: reforzar la regulación (40&nbsp;%) y mejorar los marcos de gobernanza del riesgo (36&nbsp;%). Hay también un dato cercano para el lector español: solo el 33&nbsp;% de los españoles se siente personalmente preparado para afrontar una gran crisis; el 65&nbsp;% no se siente preparado (media global: 38&nbsp;% preparado).</p>
+  <p class="ii-src"><span class="ii-tag">Verificado</span> AXA, <em>Future Risks Report 2026</em>, pp. 4, 22-23 y 64. Las bases de los porcentajes sobre vulnerabilidad y rapidez son quienes eligieron la IA entre sus riesgos principales, no el conjunto de la muestra.</p>
+</section>
+
+<section>
+  <h2><span class="ii-n">3 · La demanda</span>Qué esperan los clientes del asegurador</h2>
+  <p>Aquí está el dato que más interesa a quienes trabajamos en distribución. Cuando el riesgo se vuelve complejo e interconectado, las expectativas no se agotan en la indemnización. Después de las soluciones innovadoras de gestión y transferencia de riesgo, los dos puntos siguientes no son un producto: son conocimiento y acompañamiento.</p>
+  <div class="ii-bars">
+    <div class="ii-bar"><span>Gestión y transferencia de riesgo con soluciones innovadoras</span><div class="ii-track"><div class="ii-fill ii-top" style="width:66%">66&nbsp;%</div></div></div>
+    <div class="ii-bar"><span>Intercambio de conocimiento y educación sobre riesgos</span><div class="ii-track"><div class="ii-fill ii-top" style="width:65%">65&nbsp;%</div></div></div>
+    <div class="ii-bar"><span>Apoyo en prevención y construcción de resiliencia</span><div class="ii-track"><div class="ii-fill ii-top" style="width:59%">59&nbsp;%</div></div></div>
+    <div class="ii-bar"><span>Servicios de asesoramiento (p. ej. evaluación de impacto)</span><div class="ii-track"><div class="ii-fill" style="width:47%">47&nbsp;%</div></div></div>
+    <div class="ii-bar"><span>Construir una cultura común del riesgo</span><div class="ii-track"><div class="ii-fill" style="width:42%">42&nbsp;%</div></div></div>
+    <div class="ii-bar"><span>Protección de colectivos vulnerables / seguro inclusivo</span><div class="ii-track"><div class="ii-fill" style="width:39%">39&nbsp;%</div></div></div>
+  </div>
+  <p class="ii-src"><span class="ii-tag">Verificado</span> AXA, <em>Future Risks Report 2026</em>, pp. 65-66. <span class="ii-tag ii-warn">Matiz</span> El texto atribuye estas cifras a los «socios comerciales» (clientes corporativos) de AXA; el gráfico las rotula como «Expertos». Aquí las leemos como expectativas de clientes corporativos, según el texto del informe.</p>
+  <p>Y una pista generacional: el 72&nbsp;% de los menores de 45 años considera importante el papel de los aseguradores, frente al 65&nbsp;% de los mayores de 45. <span class="ii-tag">Verificado</span> <span class="ii-src" style="display:inline">(p. 65)</span></p>
+</section>
+
+<div class="ii-quote">Los clientes piden cada vez más <span>criterio</span>, no solo cobertura. La tecnología acelera; la relación humana fideliza.</div>
+
+<section class="ii-broker">
+  <h2><span class="ii-n">La pregunta que dejamos abierta</span>¿Qué papel desempeñarán los brokers ante estos riesgos emergentes?</h2>
+  <p>El informe de AXA mide percepciones de expertos y ciudadanos, y las expectativas de clientes corporativos hacia los aseguradores. No analiza el papel del corredor. Solo lo menciona de pasada: AXA afirma haber entregado más de 19.000 soluciones y servicios de adaptación climática a clientes e intermediarios en los dos últimos años (p. 67). Lo que sigue es, por tanto, reflexión editorial. Son preguntas, no conclusiones.</p>
+  <div class="ii-aviso"><b>Reflexión editorial, no dato del informe.</b> Podríamos incorporar la voz de los corredores en una próxima entrega: sería la forma más honesta de responder.</div>
+
+  <div class="ii-q"><b class="ii-qn">1</b><div>
+    <h3>¿Podría ser el traductor del riesgo?</h3>
+    <p>Si el 65&nbsp;% de los clientes corporativos pide conocimiento y educación sobre riesgos y el 59&nbsp;% apoyo en prevención, ¿quién está mejor situado para aterrizarlos en cada empresa: quien diseña el producto o quien conoce el día a día del cliente?</p></div></div>
+
+  <div class="ii-q"><b class="ii-qn">2</b><div>
+    <h3>¿Y si el valor pasara del producto al criterio?</h3>
+    <p>Los riesgos éticos, el uso de datos y el «efecto caja negra» son las principales inquietudes ante la IA. Antes de hablar de coberturas, ¿tendría sentido ayudar al cliente a entender dónde y cómo usa ya la IA en su negocio?</p></div></div>
+
+  <div class="ii-q"><b class="ii-qn">3</b><div>
+    <h3>¿Puede la prevención convertirse en servicio recurrente?</h3>
+    <p>El 85&nbsp;% cree en la prevención y el 75&nbsp;% del público dice estar dispuesto a adoptar algún comportamiento que reduzca su riesgo, o ya lo hace (p. 62). ¿Cómo se traduce esa disposición en un servicio continuo que justifique la relación entre renovaciones?</p></div></div>
+
+  <div class="ii-q"><b class="ii-qn">4</b><div>
+    <h3>¿Qué ocurre si nadie ocupa ese espacio?</h3>
+    <p>Con tan poca confianza en la preparación de las autoridades (9&nbsp;%), el cliente buscará criterio en algún sitio. ¿Querrá el sector que lo encuentre en una pantalla, o junto a alguien que conoce su negocio?</p></div></div>
+</section>
+
+<section>
+  <h2><span class="ii-n">Datos</span>Ficha de datos</h2>
+  <p class="ii-sub">Cada cifra, con su base, etiqueta y página del informe.</p>
+  <div class="ii-tabwrap">
+  <table>
+    <thead><tr><th>Dato</th><th>Cifra</th><th>Base</th><th>Etiqueta</th><th>Fuente y página</th></tr></thead>
+    <tbody>
+      <tr><td>Muestra de expertos</td><td class="ii-v">4.345</td><td>62 países y regiones; 89&nbsp;% trabaja en AXA</td><td><span class="ii-tag">Verificado</span></td><td>AXA/Ipsos 2026, p. 8</td></tr>
+      <tr><td>Muestra de población general</td><td class="ii-v">24.000</td><td>19 países y regiones, mayores de 18 años</td><td><span class="ii-tag">Verificado</span></td><td>AXA/Ipsos 2026, p. 9</td></tr>
+      <tr><td>Posición de la IA y el big data</td><td class="ii-v">1.º / 2.º</td><td>Expertos (4.º en 2025) / público (7.º en 2025)</td><td><span class="ii-tag">Verificado</span></td><td>AXA/Ipsos 2026, pp. 4 y 14</td></tr>
+      <tr><td>«Rápidamente emergente»</td><td class="ii-v">54&nbsp;% / 48&nbsp;%</td><td>Quienes eligieron la IA: expertos / público</td><td><span class="ii-tag">Verificado</span></td><td>AXA/Ipsos 2026, pp. 4 y 23</td></tr>
+      <tr><td>Se sienten vulnerables</td><td class="ii-v">65&nbsp;% / 67&nbsp;%</td><td>Quienes eligieron la IA: expertos / público</td><td><span class="ii-tag">Verificado</span></td><td>AXA/Ipsos 2026, p. 22</td></tr>
+      <tr><td>Autoridades bien preparadas ante la IA</td><td class="ii-v">9&nbsp;% (3&nbsp;% Europa)</td><td>Expertos</td><td><span class="ii-tag">Verificado</span></td><td>AXA/Ipsos 2026, pp. 4 y 23</td></tr>
+      <tr><td>Riesgos éticos como principal motivo</td><td class="ii-v">34&nbsp;% / 34&nbsp;%</td><td>Quienes eligieron la IA: expertos / público</td><td><span class="ii-tag">Verificado</span></td><td>AXA/Ipsos 2026, pp. 22-23</td></tr>
+      <tr><td>Prevención: riesgos evitables al menos en parte</td><td class="ii-v">85&nbsp;%</td><td>Expertos y público (ambos)</td><td><span class="ii-tag">Verificado</span></td><td>AXA/Ipsos 2026, pp. 4 y 62</td></tr>
+      <tr><td>Disposición a adoptar conductas que reduzcan riesgo</td><td class="ii-v">75&nbsp;%</td><td>Público: dispuesto o ya lo hace</td><td><span class="ii-tag">Verificado</span></td><td>AXA/Ipsos 2026, p. 62</td></tr>
+      <tr><td>Aseguradores con papel importante</td><td class="ii-v">68&nbsp;%</td><td>Población general (72&nbsp;% menores de 45; 65&nbsp;% mayores)</td><td><span class="ii-tag">Verificado</span></td><td>AXA/Ipsos 2026, p. 65</td></tr>
+      <tr><td>Expectativas hacia aseguradores</td><td class="ii-v">66 / 65 / 59&nbsp;%</td><td>Clientes corporativos (socios comerciales de AXA)</td><td><span class="ii-tag">Verificado</span> <span class="ii-tag ii-warn">Matiz de rotulado</span></td><td>AXA/Ipsos 2026, pp. 65-66</td></tr>
+      <tr><td>España: se siente preparado ante una gran crisis</td><td class="ii-v">33&nbsp;%</td><td>Población general en España (65&nbsp;% no preparado; media global 38&nbsp;%)</td><td><span class="ii-tag">Verificado</span></td><td>AXA/Ipsos 2026, p. 64</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="ii-src">Todas las cifras son percepciones declaradas en la encuesta de AXA e Ipsos (2026). Ninguna es estimación ni proyección propia.</p>
+</section>
+
+<section class="ii-cierre">
+  <h2>Una invitación, no una conclusión</h2>
+  <p>La IA acelera el cambio y también la incertidumbre. Pero el informe deja un dato esperanzador: el 85&nbsp;% cree que prevenir sirve. Si prevenir exige entender, y entender exige confianza, quizá el valor de quien acompaña al cliente esté ganando peso, no perdiéndolo.</p>
+  <p>No es una crítica a nadie. Es una invitación a revisar el enfoque: <b>¿qué parte de tu relación con el cliente es hoy criterio, y qué parte es trámite?</b></p>
+  <p>Si trabajas en la distribución, nos interesa tu respuesta. ¿Qué papel crees que desempeñarán los brokers ante estos riesgos emergentes?</p>
+  <p class="ii-firma"><b>Community of Insurance</b></p>
+</section>
+
+<footer class="ii-fuentes">
+  <h3>Fuentes</h3>
+  <ul>
+    <li>AXA, <em>Future Risks Report 2026: The Intergenerational Moment</em> (PDF, 69 pp.): <a href="https://www-axa-com.cdn.prismic.io/www-axa-com/eMEnYiKwHj5OU0wX_axa_futurerisksreport_2026_va.pdf" target="_blank" rel="noopener">informe completo</a></li>
+    <li>AXA, página del informe y herramienta Risk Radar: <a href="https://www.axa.com/en/news/future-risks-report" target="_blank" rel="noopener">axa.com/en/news/future-risks-report</a></li>
+    <li>Ipsos, ficha del estudio: <a href="https://www.ipsos.com/en-us/axa-future-risks-report-2026" target="_blank" rel="noopener">ipsos.com/en-us/axa-future-risks-report-2026</a></li>
+  </ul>
+  <p style="margin-top:12px;font-size:12.5px">Las páginas citadas corresponden a la numeración impresa del informe. Traducción al español y selección de datos de Insur·Insights.</p>
+</footer>
+</div>
