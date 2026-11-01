@@ -157,6 +157,9 @@
   .dl-btn svg { width: 16px; height: 16px; }
   .dl-btn.dl-off { background: var(--gris-claro); color: var(--gris-oscuro); cursor: default; border: 1px dashed #bdbdbd; }
   .dl-btn.dl-off:hover { background: var(--gris-claro); transform: none; }
+  .dl-group { font-family: 'Inter', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #F1957C; margin: 0 0 1rem; }
+  .dl-group span { display: block; margin-top: 0.4rem; font-size: 0.92rem; font-weight: 300; letter-spacing: 0; text-transform: none; color: rgba(255,255,255,0.78); max-width: 680px; }
+  .descargas-inner > .dl-informe { margin: 0 0 2.5rem; }
   .dl-informe { margin-top: 1.5rem; flex-direction: row; align-items: center; gap: 2rem; }
   .dl-informe-img { flex: 0 0 210px; display: block; border: 0; padding: 0; background: none; cursor: pointer; }
   .dl-informe-img img { display: block; width: 100%; height: auto; border-radius: 6px; box-shadow: 0 10px 28px rgba(0,0,0,0.28); transition: transform 0.2s; }
@@ -208,7 +211,7 @@
       </a>
       <a href="#descargas" class="cta-descargas">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
-        Descargar las ponencias del webinar
+        Descargas de informes y ponencias
       </a>
       <a href="https://www.linkedin.com/newsletters/insur-insights-6904496542087274496" target="_blank" class="cta-secondary">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
@@ -225,9 +228,21 @@
 
 <section class="descargas" id="descargas">
   <div class="descargas-inner">
-    <div class="section-label">Webinar · 22 de octubre de 2026</div>
-    <h2>Descarga las ponencias del webinar</h2>
-    <p class="descargas-sub">«El modelo CX de Sabadell Seguros para la retención de clientes», organizado conjuntamente por Sabadell Seguros y Community of Insurance.</p>
+    <div class="section-label">Descargas</div>
+    <h2>Descargas de informes y ponencias</h2>
+    <p class="descargas-sub">Ofrecemos conocimiento compartido de seguros en RED.</p>
+    <h3 class="dl-group">Informes</h3>
+    <article class="dl-card dl-informe" id="descarga-informe">
+      <button type="button" class="dl-informe-img ii-open-form" data-pdf="descargas/Distribucion-seguro-vida-mundo_InsurInsights.pdf" data-ponencia="informe-vida-2026" data-titulo="Informe distribución seguro de vida 2026" data-eyebrow="Informe · Seguro de vida 2026" data-boton="Descargar el informe" data-brevo="https://01c5f59e.sibforms.com/serve/MUIFAFg6xYeyQV7RRefDq7MOaTnobyuzEeoQ9zxFdFFLhur4eMTNTQVZwJXujI8DwTMb6r-E74k-Ay1GUptm6nuo3xAszjUkjUqQC-d1l1P-TR6_VNm0-HwDqoMgZYgsMody7pRbeRzmft027HSedca8sJIur6Ltm5gYjldnWTVh-mne0LCBK_MBjM-nsqZ9KbsZkGSe1c8t6ZnfcA==" aria-label="Descargar el informe en PDF"><img src="informe-vida-portada.jpg" alt="Portada del informe: Seguro de vida, quién controla el acceso al cliente" width="640" height="905" loading="lazy"></button>
+      <div class="dl-informe-body">
+      <div class="dl-who">Informe · 31 de octubre de 2026</div>
+        <div class="dl-role">Insur·Insights · Community of Insurance · 20 páginas</div>
+        <h3 class="dl-title">Seguro de vida: quién controla el acceso al cliente y qué espacio queda para el intermediario</h3>
+        <button type="button" class="dl-btn ii-open-form" data-pdf="descargas/Distribucion-seguro-vida-mundo_InsurInsights.pdf" data-ponencia="informe-vida-2026" data-titulo="Informe distribución seguro de vida 2026" data-eyebrow="Informe · Seguro de vida 2026" data-boton="Descargar el informe" data-brevo="https://01c5f59e.sibforms.com/serve/MUIFAFg6xYeyQV7RRefDq7MOaTnobyuzEeoQ9zxFdFFLhur4eMTNTQVZwJXujI8DwTMb6r-E74k-Ay1GUptm6nuo3xAszjUkjUqQC-d1l1P-TR6_VNm0-HwDqoMgZYgsMody7pRbeRzmft027HSedca8sJIur6Ltm5gYjldnWTVh-mne0LCBK_MBjM-nsqZ9KbsZkGSe1c8t6ZnfcA=="><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>Descargar el informe en PDF</button>
+      </div>
+    </article>
+
+    <h3 class="dl-group">Webinar · 22 de octubre de 2026<span>«El modelo CX de Sabadell Seguros para la retención de clientes», organizado conjuntamente por Sabadell Seguros y Community of Insurance.</span></h3>
     <div class="descargas-grid">
 
       <article class="dl-card">
@@ -260,15 +275,6 @@
       </div>
     </article>
 
-    <article class="dl-card dl-informe" id="descarga-informe">
-      <button type="button" class="dl-informe-img ii-open-form" data-pdf="descargas/Distribucion-seguro-vida-mundo_InsurInsights.pdf" data-ponencia="informe-vida-2026" data-titulo="Informe distribución seguro de vida 2026" data-eyebrow="Informe · Seguro de vida 2026" data-boton="Descargar el informe" data-brevo="https://01c5f59e.sibforms.com/serve/MUIFAFg6xYeyQV7RRefDq7MOaTnobyuzEeoQ9zxFdFFLhur4eMTNTQVZwJXujI8DwTMb6r-E74k-Ay1GUptm6nuo3xAszjUkjUqQC-d1l1P-TR6_VNm0-HwDqoMgZYgsMody7pRbeRzmft027HSedca8sJIur6Ltm5gYjldnWTVh-mne0LCBK_MBjM-nsqZ9KbsZkGSe1c8t6ZnfcA==" aria-label="Descargar el informe en PDF"><img src="informe-vida-portada.jpg" alt="Portada del informe: Seguro de vida, quién controla el acceso al cliente" width="640" height="905" loading="lazy"></button>
-      <div class="dl-informe-body">
-      <div class="dl-who">Informe · 31 de octubre de 2026</div>
-        <div class="dl-role">Insur·Insights · Community of Insurance · 20 páginas</div>
-        <h3 class="dl-title">Seguro de vida: quién controla el acceso al cliente y qué espacio queda para el intermediario</h3>
-        <button type="button" class="dl-btn ii-open-form" data-pdf="descargas/Distribucion-seguro-vida-mundo_InsurInsights.pdf" data-ponencia="informe-vida-2026" data-titulo="Informe distribución seguro de vida 2026" data-eyebrow="Informe · Seguro de vida 2026" data-boton="Descargar el informe" data-brevo="https://01c5f59e.sibforms.com/serve/MUIFAFg6xYeyQV7RRefDq7MOaTnobyuzEeoQ9zxFdFFLhur4eMTNTQVZwJXujI8DwTMb6r-E74k-Ay1GUptm6nuo3xAszjUkjUqQC-d1l1P-TR6_VNm0-HwDqoMgZYgsMody7pRbeRzmft027HSedca8sJIur6Ltm5gYjldnWTVh-mne0LCBK_MBjM-nsqZ9KbsZkGSe1c8t6ZnfcA=="><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>Descargar el informe en PDF</button>
-      </div>
-    </article>
 
   </div>
 </section>
