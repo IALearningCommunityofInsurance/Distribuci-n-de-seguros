@@ -38,6 +38,7 @@
   var ORDEN = [2, 0, 1, 3, 4, 5, 6, 7];
   var ARTICULOS = [
     /* Corredores y Distribución */
+    { f: 'distribucion-vida-mundo.html', t: 'Seguro de vida: quién controla el acceso al cliente y qué espacio queda para el intermediario', c: [2, 5], m: 25, n: 1 },
     { f: 'mapfre-inchausti-ia-captacion-debate.html', t: 'Mapfre prioriza captar clientes sobre acumular pólizas', c: [2, 0], m: 4, n: 1 },
     { f: 'articulo-gpbk-alvarado.html', t: 'La estructura que permite a una correduría trascender a su fundador', c: [2, 6], m: 6 },
     { f: 'estudio-software-broker-seguros.html', t: 'Estudio de software para brokers de seguros', c: 2, m: 8 },
