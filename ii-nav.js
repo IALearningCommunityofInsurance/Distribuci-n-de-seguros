@@ -50,6 +50,7 @@
     { f: 'seguros_embebidos_brokers_2026.html', t: 'Seguros embebidos y el corredor: ¿amenaza o nueva oportunidad?', c: 2, m: 7 },
     { f: 'mga-informe-coi.html', t: 'MGA: el auge del modelo de agencia gestora en el mercado asegurador', c: 2, m: 7 },
     /* IA y Tecnología */
+    { f: '2026-11-10_murga-de-resistirme-a-la-ia-dashboard-seguro-peruano.html', t: 'De resistirme a la IA a centralizar los datos del mercado asegurador peruano', c: [0, 6], m: 6, n: 1 },
     { f: 'IA_FACTOR_HUMANO_HORIZONTE_2030.html', t: 'Cuando el cliente llama para irse, la IA ayuda y la decisión sigue siendo de una persona', c: [0, 3], m: 3, n: 1 },
     { f: '2026-10-26_axa-future-risks-2026-ia-corredores.html', t: 'La IA, el principal riesgo para los expertos', c: 0, m: 7 },
     { f: 'bcg-modelo-ia-transparente.html', t: 'BCG y el modelo de IA transparente', c: 0, m: 7 },
