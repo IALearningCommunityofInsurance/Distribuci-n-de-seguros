@@ -141,6 +141,8 @@
   nav a.nav-desc svg { width: 14px; height: 14px; }
   .cta-descargas { background: #fff; color: var(--navy); text-decoration: none; padding: 0.85rem 1.6rem; border-radius: 4px; font-weight: 700; font-size: 0.9rem; transition: background 0.2s, transform 0.15s; display: inline-flex; align-items: center; gap: 0.5rem; }
   .cta-descargas:hover { background: #F1957C; color: #fff; transform: translateY(-1px); }
+  .cta-actualidad { background: #2E9E5B; color: #fff; text-decoration: none; padding: 0.85rem 1.6rem; border-radius: 4px; font-weight: 600; font-size: 0.9rem; transition: background 0.2s, transform 0.15s; display: inline-flex; align-items: center; gap: 0.5rem; }
+  .cta-actualidad:hover { background: #247A47; transform: translateY(-1px); }
   .descargas { background: var(--navy); padding: 4.5rem 2rem; scroll-margin-top: 64px; }
   .descargas-inner { max-width: 1100px; margin: 0 auto; }
   .descargas .section-label { color: #F1957C; }
@@ -209,6 +211,10 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
         Explorar la biblioteca
       </a>
+      <a href="/articulos/2026-11-14_actualidad-insurtech.html" class="cta-actualidad">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg>
+        Actualidad insurtech
+      </a>
       <a href="#descargas" class="cta-descargas">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
         Descargas de informes y ponencias
@@ -219,8 +225,8 @@
       </a>
     </div>
     <div class="hero-stats">
-      <div class="stat"><div class="stat-num">44</div><div class="stat-label">Artículos publicados</div></div>
-      <div class="stat"><div class="stat-num">10</div><div class="stat-label">Áreas temáticas</div></div>
+      <div class="stat"><div class="stat-num">45</div><div class="stat-label">Artículos publicados</div></div>
+      <div class="stat"><div class="stat-num">11</div><div class="stat-label">Áreas temáticas</div></div>
       <div class="stat"><div class="stat-num">50+</div><div class="stat-label">Años de expertise</div></div>
     </div>
   </div>
@@ -314,7 +320,7 @@
     <div class="biblioteca-header">
       <div>
         <div class="section-label">Biblioteca de análisis</div>
-        <h2>Todos los artículos <span class="biblioteca-count">— 43 publicaciones</span></h2>
+        <h2>Todos los artículos <span class="biblioteca-count">— 44 publicaciones</span></h2>
       </div>
     </div>
 
@@ -324,6 +330,7 @@
       <button class="cat-btn" onclick="filtrar('ciberriesgos', this)">Ciberriesgos</button>
       <button class="cat-btn" onclick="filtrar('corredores', this)">Corredores y Distribución</button>
       <button class="cat-btn" onclick="filtrar('factor-humano', this)">Factor Humano y Seguro</button>
+      <button class="cat-btn" onclick="filtrar('actualidad', this)">Actualidad Insurtech</button>
       <button class="cat-btn" onclick="filtrar('insurtech', this)">Insurtech</button>
       <button class="cat-btn" onclick="filtrar('mercados', this)">Mercados e Informes</button>
       <button class="cat-btn" onclick="filtrar('lideres', this)">Líderes en acción</button>
@@ -467,7 +474,7 @@
 
     <!-- CORREDORES Y DISTRIBUCIÓN -->
     <div class="cat-section" data-cat="corredores">
-      <div class="cat-title"><div class="cat-title">Corredores y Distribución <span class="cat-count-badge">12</span></div>
+      <div class="cat-title">Corredores y Distribución <span class="cat-count-badge">12</span></div>
       <div class="articulos-grid">
         <a href="/articulos/2026-11-12_corredores-agentes-ia-relacion-humana.html" class="articulo-card">
           <span class="card-nuevo">Nuevo</span>
@@ -578,6 +585,20 @@
           <span class="card-tag">Factor Humano · Territorio</span>
           <div class="card-titulo">¿Puede el seguro salvar un pueblo?</div>
           <div class="card-meta"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 9 min</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- ACTUALIDAD INSURTECH -->
+    <div class="cat-section" data-cat="actualidad">
+      <div class="cat-title">Actualidad Insurtech <span class="cat-count-badge">1</span></div>
+      <div class="articulos-grid">
+        <a href="/articulos/2026-11-14_actualidad-insurtech.html" class="articulo-card">
+          <span class="card-nuevo">Nuevo</span>
+          <span class="card-tag">Actualidad Insurtech · 4 al 13 de noviembre</span>
+          <div class="card-titulo">La IA ya prepara, cotiza y asegura. ¿Quién firma?</div>
+          <div class="card-frase">Seis noticias del insurtech mundial en una sola lectura</div>
+          <div class="card-meta"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 2 min</div>
         </a>
       </div>
     </div>
