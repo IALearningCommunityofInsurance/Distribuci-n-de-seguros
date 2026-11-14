@@ -32,11 +32,14 @@
     'Insurtech',
     'Mercados e Informes',
     'Líderes en acción',
-    'Risks Management'
+    'Risks Management',
+    'Actualidad Insurtech'
   ];
   /* Orden de los bloques en el panel (índices de AREAS) */
-  var ORDEN = [2, 0, 1, 3, 4, 5, 6, 7];
+  var ORDEN = [8, 2, 0, 1, 3, 4, 5, 6, 7];
   var ARTICULOS = [
+    /* Actualidad Insurtech */
+    { f: '2026-11-14_actualidad-insurtech.html', t: 'La IA ya prepara, cotiza y asegura. ¿Quién firma?', c: [8, 4], m: 2, n: 1 },
     /* Corredores y Distribución */
     { f: '2026-11-12_corredores-agentes-ia-relacion-humana.html', t: '3.442 corredores y un nuevo colega que no duerme: ¿qué queda para la relación humana?', c: [2, 0], m: 6, n: 1 },
     { f: 'distribucion-vida-mundo.html', t: 'Seguro de vida: quién controla el acceso al cliente y qué espacio queda para el intermediario', c: [2, 5], m: 25, n: 1 },
