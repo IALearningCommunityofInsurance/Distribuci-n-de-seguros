@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Apagón tecnológico y seguro · Marcelo Rodríguez Valentini · Insur·Insights</title>
+<meta name="description" content="El error se multiplica pero la póliza no responde. Siete incidentes en seis días y cinco preguntas que el mediador debe hacer a su cliente.">
+<meta property="og:title" content="Apagón tecnológico y seguro"><meta property="og:type" content="article">
+<meta property="og:description" content="El error se multiplica pero la póliza no responde.">
+<meta property="og:image" content="img/apagon/01_hero.jpg">
+<style>html,body{margin:0;background:#fff}</style></head><body>
+<style>
+#ii-art{--rojo:#E4382E;--coral:#F1957C;--carbon:#595959;--tinta:#262626;--tenue:#fdeee9;--linea:#e4dedb;--gris:#f6f4f2;font-family:Georgia,'Times New Roman',serif;color:var(--tinta);font-size:18px;line-height:1.72;max-width:880px;margin:0 auto;padding:0 18px 48px;box-sizing:border-box}
+#ii-art *,#ii-art *::before,#ii-art *::after{box-sizing:border-box}
+#ii-art p{margin:0 0 1.1em}
+#ii-art a{color:var(--rojo)}
+#ii-art .ii-sans{font-family:Arial,Helvetica,sans-serif}
+#ii-art .ii-kicker{font:700 12px/1 Arial,Helvetica,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--rojo);margin:32px 0 14px;display:flex;align-items:center;gap:10px}
+#ii-art .ii-kicker::before{content:"";width:28px;height:3px;background:var(--rojo);display:inline-block}
+#ii-art h1{font:700 40px/1.12 Georgia,'Times New Roman',serif;margin:0 0 12px;color:var(--tinta);letter-spacing:-.01em}
+#ii-art .ii-sub{font:400 20px/1.4 Arial,Helvetica,sans-serif;color:var(--carbon);margin:0 0 18px}
+#ii-art .ii-byline{font:400 13px/1.5 Arial,Helvetica,sans-serif;color:var(--carbon);padding:12px 0;border-top:1px solid var(--linea);border-bottom:1px solid var(--linea);margin-bottom:28px}
+#ii-art .ii-byline strong{color:var(--tinta)}
+#ii-art .ii-lead{border-left:4px solid var(--rojo);background:var(--tenue);padding:18px 22px;margin:0 0 30px;font-size:19px;line-height:1.6;font-style:italic;color:#3a3a3a}
+#ii-art h2{font:700 25px/1.25 Georgia,'Times New Roman',serif;margin:44px 0 14px;color:var(--tinta);display:flex;gap:12px;align-items:baseline}
+#ii-art h2 .ii-n{font:700 14px/1 Arial,Helvetica,sans-serif;color:#fff;background:var(--rojo);border-radius:3px;padding:6px 8px;flex:none;position:relative;top:-3px}
+#ii-art strong{color:#1c1c1c}
+
+/* Resumen visual */
+#ii-art .ii-res{background:var(--gris);border:1px solid var(--linea);border-top:5px solid var(--rojo);border-radius:6px;padding:0;margin:0 0 34px;font-family:Arial,Helvetica,sans-serif}
+#ii-art .ii-res>summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr auto;column-gap:16px;row-gap:2px;align-items:center;padding:14px 20px}
+#ii-art .ii-res>summary::-webkit-details-marker{display:none}
+#ii-art .ii-res>summary::marker{content:''}
+#ii-art .ii-res-btn{grid-column:2;grid-row:1 / span 2;background:var(--rojo);color:#fff;font:700 13px/1 Arial,Helvetica,sans-serif;padding:10px 14px;border-radius:4px;white-space:nowrap}
+#ii-art .ii-res-btn::before{content:'Ver resumen \25BE'}
+#ii-art .ii-res[open]>summary .ii-res-btn::before{content:'Ocultar \25B4'}
+#ii-art .ii-res[open]>summary{border-bottom:1px solid var(--linea)}
+#ii-art .ii-res-body{padding:18px 24px 8px}
+#ii-art .ii-res-tag{display:block;grid-column:1;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--rojo);margin:0}
+#ii-art .ii-res-tit{display:block;grid-column:1;font:700 22px/1.25 Georgia,'Times New Roman',serif;margin:0;color:var(--tinta)}
+#ii-art .ii-res-sub{font-size:15px;color:var(--carbon);margin:0 0 22px;line-height:1.5}
+#ii-art .ii-res h3{font:700 13px/1.3 Arial,Helvetica,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--carbon);margin:26px 0 12px;display:flex;gap:8px;align-items:center}
+#ii-art .ii-res h3 b{background:var(--carbon);color:#fff;border-radius:50%;width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;font-size:12px;letter-spacing:0}
+#ii-art .ii-tl{list-style:none;margin:0;padding:0;border-left:3px solid var(--coral)}
+#ii-art .ii-tl li{display:grid;grid-template-columns:96px 150px 1fr;gap:10px;padding:8px 0 8px 16px;position:relative;font-size:14.5px;line-height:1.45;border-bottom:1px solid var(--linea)}
+#ii-art .ii-tl li:last-child{border-bottom:0}
+#ii-art .ii-tl li::before{content:"";position:absolute;left:-8px;top:14px;width:13px;height:13px;border-radius:50%;background:#fff;border:3px solid var(--rojo)}
+#ii-art .ii-tl .d{font-weight:700;color:var(--rojo)}
+#ii-art .ii-tl .p{font-weight:700;color:var(--tinta)}
+#ii-art .ii-tl .i{color:#3d3d3d}
+#ii-art .ii-chain{display:flex;gap:26px;align-items:stretch;margin:0;padding:0;list-style:none}
+#ii-art .ii-chain li{flex:1;background:#fff;border:1px solid var(--linea);border-radius:6px;padding:12px 12px;font-size:14px;line-height:1.4;position:relative;font-weight:700;color:#333;display:flex;align-items:center}
+#ii-art .ii-chain li:not(:last-child)::after{content:"\2192";position:absolute;right:-22px;top:50%;transform:translateY(-50%);color:var(--rojo);font-size:20px;font-weight:700}
+#ii-art .ii-chain li.fin{background:var(--rojo);border-color:var(--rojo);color:#fff}
+#ii-art .ii-notas{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+#ii-art .ii-nota{font-size:13.5px;line-height:1.5;color:#3d3d3d;background:#fff;border:1px solid var(--linea);border-radius:6px;padding:10px 12px}
+#ii-art .ii-nota b{color:var(--rojo)}
+#ii-art .ii-dos{display:grid;grid-template-columns:1.25fr 1fr;gap:18px;align-items:start}
+#ii-art .ii-sla{font-size:14px;line-height:1.5;margin:0 0 10px;color:#3d3d3d}
+#ii-art .ii-mini{width:100%;border-collapse:collapse;font-size:13.5px;line-height:1.4;background:#fff;border:1px solid var(--linea)}
+#ii-art .ii-mini th{background:var(--carbon);color:#fff;text-align:left;padding:8px 9px;font-size:12px;letter-spacing:.04em}
+#ii-art .ii-mini td{padding:7px 9px;border-top:1px solid var(--linea);vertical-align:top}
+#ii-art .ii-mini td:first-child{font-weight:700}
+#ii-art .ii-param{background:#fff;border:1px solid var(--linea);border-left:4px solid var(--coral);border-radius:6px;padding:12px 14px;font-size:14px;line-height:1.5}
+#ii-art .ii-param ol{margin:6px 0 8px 18px;padding:0}
+#ii-art .ii-param li{margin:0 0 4px}
+#ii-art .ii-param .ii-gat{color:var(--carbon);font-size:13px}
+#ii-art .ii-pre{list-style:none;margin:0 0 18px;padding:0;counter-reset:q}
+#ii-art .ii-pre li{counter-increment:q;display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--linea);border-radius:6px;padding:9px 12px;margin-bottom:8px;font-size:14.5px;line-height:1.45}
+#ii-art .ii-pre li::before{content:counter(q);flex:none;background:var(--rojo);color:#fff;font-weight:700;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px}
+#ii-art .ii-cierre{font:italic 700 17px/1.4 Georgia,serif;text-align:center;color:var(--rojo);margin:4px 0 14px}
+
+/* Tablas del artículo */
+#ii-art .ii-tw{overflow-x:auto;margin:22px 0 8px;-webkit-overflow-scrolling:touch}
+#ii-art table.ii-t{width:100%;border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.5;min-width:560px}
+#ii-art table.ii-t th{background:var(--carbon);color:#fff;text-align:left;padding:11px 12px;font-size:12.5px;letter-spacing:.05em;text-transform:uppercase}
+#ii-art table.ii-t td{padding:10px 12px;border-bottom:1px solid var(--linea);vertical-align:top}
+#ii-art table.ii-t tr:nth-child(even) td{background:var(--gris)}
+#ii-art table.ii-t td:first-child{font-weight:700;color:var(--tinta)}
+#ii-art table.ii-t td.v{color:var(--rojo);font-weight:700}
+#ii-art .ii-fuente{font:12px/1.4 Arial,Helvetica,sans-serif;color:var(--carbon);margin:0 0 26px}
+#ii-art ul.ii-ul{margin:0 0 1.2em;padding:0;list-style:none}
+#ii-art ul.ii-ul li{border-left:3px solid var(--coral);padding:2px 0 2px 16px;margin:0 0 14px}
+#ii-art ol.ii-ol{margin:0 0 1.2em;padding:0;list-style:none;counter-reset:p}
+#ii-art ol.ii-ol li{counter-increment:p;position:relative;padding:0 0 0 52px;margin:0 0 18px}
+#ii-art ol.ii-ol li::before{content:counter(p);position:absolute;left:0;top:2px;width:34px;height:34px;border-radius:50%;background:var(--rojo);color:#fff;font:700 16px/34px Arial,Helvetica,sans-serif;text-align:center}
+#ii-art .ii-destacada{font-size:21px;line-height:1.5;font-weight:700;color:var(--tinta);border-top:3px solid var(--rojo);border-bottom:1px solid var(--linea);padding:16px 0;margin:28px 0}
+#ii-art .ii-lema{font:700 24px/1.3 Georgia,serif;color:var(--rojo);margin:34px 0 24px;text-align:center}
+
+/* Autor */
+#ii-art .ii-autor{display:grid;grid-template-columns:200px 1fr;gap:26px;background:var(--gris);border:1px solid var(--linea);border-top:5px solid var(--rojo);border-radius:6px;padding:24px;margin-top:36px;font-family:Arial,Helvetica,sans-serif}
+#ii-art .ii-autor img{width:100%;height:auto;border-radius:4px;display:block}
+#ii-art .ii-autor .ii-a-tag{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--rojo);margin:0 0 4px}
+#ii-art .ii-autor h3{font:700 24px/1.2 Georgia,serif;margin:0 0 12px;color:var(--tinta)}
+#ii-art .ii-autor ul{margin:0;padding:0;list-style:none;font-size:14.5px;line-height:1.5}
+#ii-art .ii-autor li{padding:0 0 8px 16px;position:relative}
+#ii-art .ii-autor li::before{content:"";position:absolute;left:0;top:8px;width:7px;height:7px;background:var(--rojo);border-radius:50%}
+#ii-art .ii-pie{font:12px/1.5 Arial,Helvetica,sans-serif;color:var(--carbon);margin-top:26px;padding-top:14px;border-top:1px solid var(--linea)}
+
+@media (max-width:720px){
+ #ii-art{font-size:17px}
+ #ii-art h1{font-size:30px}
+ #ii-art .ii-sub{font-size:17px}
+ #ii-art .ii-res>summary{padding:12px 14px}
+ #ii-art .ii-res-tit{font-size:18px}
+ #ii-art .ii-res-btn{padding:9px 11px;font-size:12px}
+ #ii-art .ii-res-body{padding:14px 14px 4px}
+ #ii-art .ii-tl li{grid-template-columns:1fr;gap:2px}
+ #ii-art .ii-chain{flex-direction:column;gap:22px}
+ #ii-art .ii-chain li:not(:last-child)::after{content:"\2193";right:auto;left:50%;top:auto;bottom:-23px;transform:translateX(-50%)}
+ #ii-art .ii-notas,#ii-art .ii-dos{grid-template-columns:1fr}
+ #ii-art .ii-autor{grid-template-columns:1fr}
+ #ii-art .ii-autor img{max-width:220px}
+ #ii-art h2{font-size:22px}
+}
+#ii-art .ii-fig{margin:6px 0 30px;padding:0}#ii-art .ii-fig img{width:100%;height:auto;display:block;border-radius:6px;aspect-ratio:16/9;object-fit:cover}#ii-art .ii-fig figcaption{font:13px/1.45 Arial,Helvetica,sans-serif;color:var(--carbon);margin-top:8px}</style>
+
+<div id="ii-art">
+
+<div class="ii-kicker">Insur·Insights · Opinión</div>
+<h1>Interrupción global de servicios informáticos y sus consecuencias</h1>
+<p class="ii-sub">Recomendaciones estratégicas para el mediador de seguros</p>
+<div class="ii-byline">Por <strong>Marcelo Rodríguez Valentini</strong> · Presidente de RiskGroup Argentina · Noviembre de 2026</div>
+
+<blockquote class="ii-lead" style="margin-left:0;margin-right:0">La red de la NSA, Microsoft, Apple, los radares de la FAA, Chase, Zelle, las líneas aéreas, todo caído en una semana. Afirman que es solo un problema de software, no un ciberataque. Hasta ahí la noticia. El artículo propone una lectura entre líneas de lo que pasó y cómo nos afecta en la industria del seguro.</blockquote><figure class="ii-fig"><img src="img/apagon/01_hero.jpg" alt="Una semana de noviembre de 2026 dejó al descubierto la fragilidad del andamiaje digital." loading="lazy"><figcaption>Una semana de noviembre de 2026 dejó al descubierto la fragilidad del andamiaje digital.</figcaption></figure>
+
+<!-- ===== RESUMEN VISUAL ===== -->
+<details class="ii-res">
+  <summary><span class="ii-res-tag">Resumen visual del artículo</span><span class="ii-res-tit">El error se multiplica pero la póliza no responde.</span><span class="ii-res-btn"></span></summary>
+  <div class="ii-res-body">
+  <p class="ii-res-sub">Cinco bloques para entender la semana de noviembre de 2026 y qué debe hacer el mediador.</p>
+
+  <h3><b>1</b> La semana, día por día</h3>
+  <ul class="ii-tl">
+    <li><span class="d">12–13 nov</span><span class="p">Microsoft</span><span class="i">Exchange Online caído; correo corporativo afectado en 74 países.</span></li>
+    <li><span class="d">13 nov</span><span class="p">FAA</span><span class="i">Paro nacional de despegues en EE. UU.</span></li>
+    <li><span class="d">13–14 nov</span><span class="p">Workday</span><span class="i">Pruebas conectadas por error a datos reales; nóminas paralizadas.</span></li>
+    <li><span class="d">16 nov</span><span class="p">Chase y Zelle</span><span class="i">Pagos bloqueados en varias entidades a la vez.</span></li>
+    <li><span class="d">16 nov</span><span class="p">United Airlines</span><span class="i">90 minutos con la operación en tierra congelada.</span></li>
+    <li><span class="d">17 nov</span><span class="p">Apple</span><span class="i">Caída de iCloud y Apple Pay.</span></li>
+    <li><span class="d">17 nov</span><span class="p">NSA</span><span class="i">Fallos en sistemas internos no críticos.</span></li>
+  </ul>
+
+  <h3><b>2</b> Por qué: una cadena de errores internos</h3>
+  <ol class="ii-chain">
+    <li>La IA encuentra fallos más rápido de lo que se pueden corregir</li>
+    <li>Parches urgentes, instalados sin medir efectos</li>
+    <li>Código escrito con IA y menos control de calidad</li>
+    <li>Choca con sistemas viejos y proveedores compartidos</li>
+    <li class="fin">Fallos en cadena, sin atacante</li>
+  </ol>
+  <div class="ii-notas">
+    <div class="ii-nota"><b>Única excepción:</b> ciberataque a Optimizely (16 nov), con código malicioso en comercio electrónico.</div>
+    <div class="ii-nota"><b>No es nuevo:</b> United y NYSE (2015), AWS (dic. 2021), AWS, Azure y Cloudflare (oct.–nov. 2025).</div>
+  </div>
+
+  <h3><b>3</b> Letra pequeña: ni el proveedor ni la póliza pagan</h3>
+  <div class="ii-dos">
+    <div>
+      <p class="ii-sla"><strong>SLA del proveedor:</strong> bajo 99,9 % de disponibilidad, crédito del 25 %; bajo 99 %, del 50 %; bajo 95 %, del 100 % del mes. Nunca cubre el lucro cesante.</p>
+      <table class="ii-mini">
+        <tr><th>Cláusula</th><th>El asegurado cree</th><th>El liquidador aplica</th></tr>
+        <tr><td>Causa</td><td>Cualquier caída cubre</td><td>Solo ataque o intrusión</td></tr>
+        <tr><td>Proveedor</td><td>Cualquier nube cubre</td><td>Solo los nominados en póliza</td></tr>
+        <tr><td>Espera</td><td>Cobro desde la hora 1</td><td>Primeras 8–12 h sin pago</td></tr>
+        <tr><td>Sublímite</td><td>Suma asegurada completa</td><td>Evento masivo: 20–30 %</td></tr>
+        <tr><td>Daño material</td><td>Cubre el lucro cesante</td><td>Sin daño físico, rechazo</td></tr>
+      </table>
+    </div>
+    <div class="ii-param">
+      <strong>Una salida: pólizas paramétricas</strong>
+      <ol>
+        <li>La nube de un proveedor concreto se cae más de un tiempo pactado.</li>
+        <li>Se paga sola una indemnización fija por cada hora de caída.</li>
+        <li>Sin balances en rojo ni meses de peritaje contable.</li>
+      </ol>
+      <span class="ii-gat">Ya las lanzan aseguradoras de primer nivel como AIG y sindicatos de Lloyd's. Letra pequeña: si no se alcanza el umbral, no hay cobro.</span>
+    </div>
+  </div>
+
+  <h3><b>4</b> Del tramitador de pólizas al consultor de resiliencia: 5 preguntas al cliente</h3>
+  <ol class="ii-pre">
+    <li><span><strong>Lo vital:</strong> ¿qué procesos no pueden parar y quién activa la contingencia?</span></li>
+    <li><span><strong>Alternativa en frío:</strong> ¿hay comunicación fuera del proveedor caído?</span></li>
+    <li><span><strong>IA y código:</strong> ¿quién revisa lo que escribe la IA antes de tocar datos vivos?</span></li>
+    <li><span><strong>Recuperación:</strong> ¿se concilian datos y pagos antes de dar el servicio por restablecido?</span></li>
+    <li><span><strong>Reclamo desde el minuto cero:</strong> hora exacta, partes del fabricante y notificación formal.</span></li>
+  </ol>
+  <p class="ii-cierre">«Si parchea sus sistemas, parchee sus seguros.»</p>
+  </div>
+</details>
+<!-- ===== FIN RESUMEN VISUAL ===== -->
+
+<p>Por un momento aceptemos que eso es lo que sucedió y que no nos están vendiendo gato por liebre...</p>
+
+<p>En julio de 2024 ya los usuarios habíamos experimentado el apagón atribuido a CrowdStrike. ¿Un anticipo?</p>
+
+<p>Hace siete años, en 2019, cuando todavía la IA no era moda, me tocó escribir una columna para <em>Prensa Energética</em> que titulé con una advertencia que para muchos sonaba exagerada: <strong><em>«Prepararse para lo inevitable. La seguridad cibernética es asunto de todos»</em></strong>.</p>
+
+<p>El texto arrancaba con una casi ridícula escena doméstica que me tocó vivir en carne propia mientras investigaba para esa nota. Buscando datos en la red tropecé con un sitio web que me pedía una autorización para descargar un archivo. Se la di. En segundos, un malware me reventó el sistema operativo. La máquina se desconectó del wifi, se reiniciaba cada treinta segundos y me bloqueó todos los accesos bancarios. Estuve dos días enteros formateando e instalando programas. Luego, cinco días más peregrinando para recuperar mis cuentas. Una semana entera de trabajo tirada a la basura. En aquel artículo dejé una frase grabada en mayúsculas: <strong>«TODOS ESTAMOS EXPUESTOS»</strong>.</p>
+
+<p>Por aquel entonces cité a mi colega, el profesor Lorenzo Preve, que se preguntaba con lucidez en una publicación especializada: <em>«Una vez que los hackers hayan dejado una ciudad sin luz, aviones sin volar, bancos sin poder operar, coches sin control o semáforos sin sincronización, nos vamos a acordar de que debemos tomar este tema con la debida seriedad. ¿No será el momento de que el Congreso o algún organismo regulador tome cartas en el asunto?»</em>.</p>
+
+<p>Lee ese párrafo despacio. Vuelve a leerlo hoy, a finales de noviembre de 2026, a la luz de lo que está ocurriendo. Parece escrito hace diez minutos.</p>
+
+<p>Aquel futuro temido ya llegó, se instaló en el salón de nuestra casa y se sienta a cenar con nosotros todas las noches. Pero vino con una vuelta de tuerca perversa que en 2019 apenas comenzábamos a vislumbrar. En aquellos años mirábamos con estupor el robo de datos de 143 millones de usuarios en Equifax, el apagón provocado por piratas informáticos en la subestación eléctrica de Ucrania en 2016, la epidemia global de WannaCry que tumbó el 85 % de los sistemas telefónicos y los hospitales británicos, o el golpe de NotPetya que paralizó a la marítima Maersk, a la farmacéutica Merck y a las petroleras mundiales.</p>
+
+<p>Todos esos desastres tenían un villano visible. Alguien a quien señalar con el dedo. Un pirata, una banda delictiva, un país agresor, un malware diseñado para extorsionar o destruir.</p>
+
+<p>Lo que acabamos de presenciar en esta semana fatídica de noviembre no necesitó de ningún ejército invisible ni de ningún atacante malvado. El avión se quedó en tierra, el banco suspendió pagos, el radar se apagó y la agencia de inteligencia más vigilante del planeta admitió fallos internos. Pero no porque un hacker los hackeó, cayeron solos.</p>
+
+<p>La profecía del profesor Preve se cumplió al pie de la letra, pero despojada de su épica cinematográfica. Entonces, si no da para una serie de espías, ¿qué podemos aprender de lo que pasó?</p>
+
+<h2><span class="ii-n">1</span>La semana trágica, día por día</h2><figure class="ii-fig"><img src="img/apagon/02_aeropuerto.jpg" alt="Paro nacional de despegues en EE. UU.: el 13 de noviembre la FAA detuvo los vuelos." loading="lazy"><figcaption>Paro nacional de despegues en EE. UU.: el 13 de noviembre la FAA detuvo los vuelos.</figcaption></figure>
+
+<p>Para entender la dimensión del desastre hay que abandonar las generalizaciones de la prensa tremendista y mirar los informes con ojos expertos. Excluimos de este análisis el ataque a los supermercados franceses, por tratarse de una causa parecida, pero en esencia distinta.</p>
+
+<p>Lo que sucedió no fue un hecho aislado, ni una mala tarde. Fue la dramática exposición a la vista de todos de la fragilidad estructural de nuestro andamiaje digital corporativo. Ni más, ni menos.</p>
+
+<div class="ii-tw"><table class="ii-t">
+<thead><tr><th>Fecha</th><th>Protagonista</th><th>Causa técnica declarada</th><th>Impacto operativo inmediato</th></tr></thead>
+<tbody>
+<tr><td>12–13 nov</td><td>Microsoft</td><td>Defecto de software latente desde julio. Emerge tras cambios en el tráfico de red mientras otros servidores estaban fuera de línea.</td><td>Colapso de Exchange Online. Afectación masiva de correo corporativo y herramientas en 74 países.</td></tr>
+<tr><td>13 nov</td><td>FAA (Aviación Civil EE. UU.)</td><td>Equipos de interconexión saturaron con peticiones a sistemas <em>legacy</em> (viejos). Radares y comunicaciones inestables.</td><td><em>Nationwide Ground Stop</em>. Paralización total de despegues aéreos en todos los Estados Unidos.</td></tr>
+<tr><td>13–14 nov</td><td>Workday</td><td>Rutinas de prueba en entorno de recuperación se conectaron por error a bases de datos vivas de clientes reales.</td><td>Inconsistencia de datos, parálisis de liquidación de sueldos y RR. HH. Desconexión forzada de entornos afectados.</td></tr>
+<tr><td>16 nov</td><td>Chase y Zelle</td><td>Fallo de software interno que demoró transacciones y arrastró transferencias interbancarias.</td><td>Clientes con saldos en el limbo, pagos bloqueados en múltiples entidades financieras simultáneas.</td></tr>
+<tr><td>16 nov</td><td>United Airlines</td><td>Incidente interno de sistemas que congeló la operación en tierra durante 90 minutos.</td><td>Demoras masivas en vuelos nacionales e internacionales en plena hora punta de conexiones.</td></tr>
+<tr><td>17 nov</td><td>Apple</td><td>Actualización de software interno defectuosa que tumbó la infraestructura operativa de servicios centrales.</td><td>Caída generalizada de iCloud y Apple Pay. Millones de usuarios imposibilitados de pagar o acceder a archivos.</td></tr>
+<tr><td>17 nov</td><td>NSA</td><td>Problemas operativos severos durante tareas rutinarias de mantenimiento de infraestructura interna.</td><td>Afectación de sistemas internos no críticos de la mayor agencia de ciberinteligencia global.</td></tr>
+</tbody></table></div>
+<p class="ii-fuente">© 2026 TechAssure Association Inc.</p>
+
+<p>¿Seguramente quieren saber si hubo ciberataques masivos reales esa misma semana? Sí, uno solo confirmado. El 16 de noviembre en <strong>Optimizely</strong>, donde delincuentes informáticos aprovecharon una vulnerabilidad en su servicio de experimentación web para inyectar un código malicioso en los scripts del comercio electrónico. Un incidente puntual, peligroso y bajo investigación para determinar si se robaron datos de tarjetas de crédito.</p>
+
+<p>Pero ese ataque solitario fue la excepción que confirmó la regla. El verdadero estrago de la semana, el que paralizó aeropuertos, congeló pagos de nóminas en Workday, enmudeció las transacciones de Chase y dejó a la NSA pidiendo explicaciones, se informa que no provino de ningún ciberterrorista. Provino de actualizaciones mal probadas, de parches tecnológicos apresurados y de la convivencia forzada entre sistemas modernos y cacharros viejos que ya no dan más.</p>
+
+<h2><span class="ii-n">2</span>La IA y la paradoja del parche</h2><figure class="ii-fig"><img src="img/apagon/03_codigo.jpg" alt="Código generado con IA, menos control de calidad y parches a la carrera." loading="lazy"><figcaption>Código generado con IA, menos control de calidad y parches a la carrera.</figcaption></figure>
+
+<p>Pero, ¿por qué se rompió todo junto en una sola semana? ¿Es casualidad? Podríamos decir que la inteligencia artificial se metió de lleno en esta ecuación y está armando un buen lío. Por un lado soluciona a gran velocidad lo que los ciberataques descifran en una milésima de segundo. Y viceversa...</p>
+
+<p>Para aclarar, la IA generativa y los modelos de análisis automatizado están encontrando fallos de seguridad a una velocidad que la mente humana no puede procesar. Los atacantes la usan para escanear debilidades en segundos. Eso genera un pánico atroz en los equipos de tecnología de las grandes corporaciones y organismos de defensa que trabajan a destajo para generar soluciones. El propio senador Mark Warner y reportes de inteligencia en Washington señalaron que la urgencia por tapar agujeros detectados por IA forzó al personal de la NSA y de otros organismos a instalar parches en tiempo récord. Se corre tanto para que el enemigo no te descubra la grieta que se termina instalando software de mantenimiento a toda prisa, sin medir los efectos colaterales. <strong>El miedo a la vulnerabilidad externa engendra el error operativo interno.</strong></p>
+
+<p>Por otro lado, está lo que pasa con los programadores, y no es por defender el valor humano. La IA escribe código de sol a sol y sin pausa. Frente a equipos de desarrollo cada vez más jóvenes, con menos horas de vuelo y menor experiencia en arquitecturas complejas, usan copilotos de inteligencia artificial para generar miles de líneas de software en minutos. Los CFO, fascinados con la reducción de costos en nombre de la «eficiencia», aprovechan esa velocidad para recortar personal experimentado de control de calidad o acortar los tiempos de prueba.</p>
+
+<p>El código parece que funciona y pasa las pruebas básicas. Pero ¿qué le pasa a ese código cuando se conecta con un sistema operativo viejo de los años noventa —como le pasó a la FAA con sus pasarelas de enlace— o cuando choca contra el tráfico sobreexcitado de un lunes por la mañana en un banco como el Chase?</p>
+
+<p>Las investigaciones del equipo DORA de Google (<em>DevOps Research and Assessment</em>) publicadas en marzo de 2026 lo sintetizaron así: <em>«A mayor uso desmedido de la IA para producir código rápido, mayor inestabilidad operativa»</em>. El tiempo que te ahorras programando a toda máquina lo tienes que gastar —multiplicado por tres— en revisar, depurar y probar. Si no, lo que se está haciendo es lanzar al mercado una bomba de tiempo con mecha corta.</p>
+
+<h2><span class="ii-n">3</span>Los tecnólogos tendrían que estudiar Historia</h2>
+
+<p>Lo enfatizo porque a muchos les da la sensación de que esto no había pasado nunca antes, que vivir una sucesión casi diaria de colapsos es una anomalía inédita. Lo cual no es verdad.</p>
+
+<p>La memoria corporativa es corta y complaciente. Si repasas los anales del riesgo tecnológico, vas a encontrar que los «cúmulos de fallos» (<em>outage clusters</em>) son una constante histórica cada vez que la complejidad tecnológica supera la capacidad humana de control:</p>
+
+<ul class="ii-ul">
+<li><strong>8 de julio de 2015:</strong> en un lapso de pocas horas, United Airlines dejó sus aviones en tierra por un fallo de routers. La Bolsa de Nueva York (NYSE) suspendió operaciones durante casi cuatro horas por un error tras una actualización de software, mientras la portada digital del <em>Wall Street Journal</em> colapsaba por sobrecarga. En aquel momento el pánico a un ciberataque coordinado sacudió a los mercados. La investigación oficial confirmó que fueron fallos operativos y de configuración simultáneos y no vinculados.</li>
+<li><strong>Diciembre de 2021:</strong> Amazon Web Services (AWS) sufrió dos caídas separadas por apenas ocho días (el 7 y el 15 de diciembre), tumbando desde servicios universitarios y plataformas bancarias hasta dispositivos domésticos conectados en toda la costa este de los Estados Unidos.</li>
+<li><strong>Octubre y noviembre de 2025:</strong> tres gigantes en menos de treinta días. AWS el 20 de octubre, Azure el 29 de octubre y Cloudflare el 18 de noviembre. Tres fallos de configuración y enrutamiento independientes que apagaron miles de negocios en cadena.</li>
+</ul>
+
+<p>La lección que nos dejan estos antecedentes es superlativa. La industria tecnológica es como un «crucigrama». Encaje perfecto o queda incompleto. No hace falta una conspiración centralizada para que todo se caiga al mismo tiempo. Basta con que compartamos los mismos proveedores de nube, las mismas herramientas de desarrollo y la misma presión desquiciada por actualizar antes de que termine el trimestre contable.</p>
+
+<p class="ii-destacada">Esto hoy es aún más grave. El escándalo Nvidia nos demostró que toda la IA depende de cuatro proveedores críticos para todo el mundo...</p>
+
+<h2><span class="ii-n">4</span>La letra pequeña de los SLA</h2>
+
+<p>Cuando se corta el hilo digital, el cliente tecnológico sufre una caída al abismo. Porque se caen sus ventas, se pasan los plazos de entrega, no se pueden liquidar los sueldos a fin de mes y los compradores furiosos empiezan a enviar burofaxes.</p>
+
+<p>Entonces, ¿qué podemos reclamarle al gigante de la nube cuando tienes un apagón? Nada, o casi nada. Sacan a relucir los Acuerdos de Nivel de Servicio (SLA) y nos cierran la boca.</p>
+
+<div class="ii-tw"><table class="ii-t">
+<thead><tr><th>Disponibilidad mensual real</th><th>La compensación del proveedor tecnológico</th><th>La realidad contable de tu empresa</th></tr></thead>
+<tbody>
+<tr><td>Inferior al 99,9 %</td><td>Crédito del <strong>25 %</strong> del abono mensual de la licencia caída.</td><td>Te descuentan unos centavos de la licencia mientras perdiste cientos de miles en transacciones.</td></tr>
+<tr><td>Inferior al 99,0 %</td><td>Crédito del <strong>50 %</strong> del abono mensual de ese servicio.</td><td>Una limosna que no cubre ni las horas extras del equipo de sistemas que redujo el problema tanto como le fue posible.</td></tr>
+<tr><td>Inferior al 95,0 %</td><td>Crédito del <strong>100 %</strong> de la factura de ese producto en el mes.</td><td>Te regalan el mes siguiente de una plataforma que demostró que puede volver a caerse en horas.</td></tr>
+</tbody></table></div>
+
+<p>Microsoft, Amazon, Apple o Workday no van a pagar el lucro cesante. No se hacen cargo del daño reputacional. No nos devuelven al cliente que se fue con la competencia porque no pudiste procesarle el pedido.</p>
+
+<p>TechAssure, la red global de brokers de seguros especializados en riesgos tecnológicos y a la cual tengo el orgullo de pertenecer, les recuerda sabiamente a las empresas proveedoras de tecnología: <em>«Que se haya caído mi proveedor de nube explica lo que pasó, pero no nos exime automáticamente de la responsabilidad frente a los propios clientes»</em>.</p>
+
+<p>Lo que se prometió en los contratos de servicio nos obliga a nosotros, no les vale la excusa de culpar a Microsoft.</p>
+
+<h2><span class="ii-n">5</span>La letra pequeña de la póliza cyber</h2>
+
+<p>Desengañado del proveedor tecnológico, el director financiero la toma con el Gerente de Riesgos de la empresa, quien a su vez corre a buscar la póliza de seguro cibernético. Si es que la tiene...</p>
+
+<p>Es ahí donde el mediador de seguros tiene que plantarse con solvencia para desmontar las trampas del clausulado antes de que la aseguradora decline el siniestro sin más.</p>
+
+<div class="ii-tw"><table class="ii-t">
+<thead><tr><th>Cláusula de la póliza</th><th>Lo que piensa el asegurado</th><th>La realidad del liquidador</th><th>Veredicto ante caída operativa</th></tr></thead>
+<tbody>
+<tr><td>Causa originaria (<em>Trigger</em>)</td><td>Cree que cualquier fallo informático masivo activa el reclamo.</td><td>La póliza estándar exige un acto malicioso o intrusión (<em>Security Failure</em>).</td><td class="v">Declinado de plano si no cuenta con el endoso específico de <em>Dependent System Failure</em> (fallo no malicioso de proveedores).</td></tr>
+<tr><td>Identidad del proveedor (DBI)</td><td>Supone que cualquier nube que utilice está amparada.</td><td>Muchos textos de póliza limitan la cobertura a proveedores expresamente nominados en póliza.</td><td class="v">Sin cobertura si los hiperescaladores SaaS de terceros no fueron formalmente declarados en el contrato.</td></tr>
+<tr><td>Período de espera (<em>Waiting Period</em>)</td><td>Si el apagón dura 24 horas y la franquicia es de 8 h, espera cobrar el día entero.</td><td>Las primeras 8 a 12 horas son franquicia temporal absoluta. Solo se liquida el daño posterior.</td><td class="v">Recorte: la mayor parte de las caídas cortas (como las de United o Apple) quedan por debajo del umbral indemnizable.</td></tr>
+<tr><td>Sublímites en el agregado</td><td>Confía en que tiene disponible el 100 % de la suma asegurada de la póliza.</td><td>Cláusulas de eventos masivos (<em>Widespread Outage</em>) que limitan expresamente el pago.</td><td class="v">Sublimitado al 20 % o 30 % del límite principal si el evento afectó a múltiples asegurados simultáneamente.</td></tr>
+<tr><td>Daño material exigido</td><td>Pretende cobrar el lucro cesante por su póliza tradicional de Todo Riesgo Operativo.</td><td>Las pólizas patrimoniales exigen daño físico previo (<em>Physical Damage</em>) y aplican exclusiones <em>Silent Cyber</em>.</td><td class="v">Rechazo total: sin fuego, rotura mecánica o inundación visible en los servidores, no hay cobertura patrimonial tradicional.</td></tr>
+</tbody></table></div>
+<p class="ii-fuente">© 2026 TechAssure Association Inc.</p>
+
+<p>Tomemos como ejemplo el período de espera (<em>waiting period</em>). Muchas empresas sufrieron pérdidas millonarias con el parón de 90 minutos de United Airlines o las pocas horas de caída de Apple Pay y de los sistemas de Chase. Para esas empresas, el impacto financiero fue directo e inmediato. Sin embargo, en una póliza cyber tradicional con un franquicia temporal de 8 o 10 horas, el siniestro simplemente <em>no existe</em> para la aseguradora. Ni siquiera llegó a afectarse la cobertura.</p>
+
+<p>Por eso el mercado internacional está empezando a explorar soluciones alternativas, como las <em>pólizas paramétricas de interrupción en la nube</em> (lanzadas recientemente por aseguradoras de primer nivel como AIG y sindicatos de Lloyd's). Las coberturas paramétricas no piden demostrar balances en rojo ni esperar meses de peritajes contables. Si la nube de un proveedor específico se cae durante más de un tiempo prefijado, el contrato dispara automáticamente una indemnización fija preacordada por hora de inactividad. Es el mismo criterio que para un terremoto o un huracán. Pero en tecnología. Son herramientas útiles, aunque tengan su propia letra pequeña. Si no se alcanza el «umbral», la cobertura «no se disipa».</p>
+
+<h2><span class="ii-n">6</span>«Si parchea sus sistemas, parchee sus seguros»</h2>
+
+<p>Retomo, entonces, con más fuerza que nunca la máxima que escribí en 2019 en <em>Prensa Energética</em>: <strong>«SI PARCHEA SUS SISTEMAS, PARCHEE SUS SEGUROS»</strong>.</p>
+
+<p>No sirve de nada tener al equipo de sistemas corriendo carreras contra la inteligencia artificial para parchear servidores si tu programa de seguros sigue anclado en el siglo pasado.</p>
+
+<p>Definamos cómo debe actuar una organización madura frente a este desafío:</p>
+
+<div class="ii-tw"><table class="ii-t">
+<thead><tr><th>En la empresa</th><th>Práctica habitual</th><th>Práctica recomendada</th></tr></thead>
+<tbody>
+<tr><td>Gestión de parches</td><td>Instalar actualizaciones automáticamente en producción masiva apenas el fabricante las publica.</td><td>Despliegue escalonado en grupos reducidos (<em>Canary</em>), pruebas en entornos aislados y capacidad de marcha atrás (<em>Rollback</em>).</td></tr>
+<tr><td>Continuidad del negocio</td><td>Asumir que la nube no se cae y tener los procedimientos de contingencia guardados en la misma nube caída.</td><td>Identificar qué procesos no pueden detenerse (pagos, nóminas, entregas), asignar responsables y tener instrucciones fuera de línea.</td></tr>
+<tr><td>Redundancia operativa</td><td>Contratar un proveedor secundario que depende de las mismas claves de acceso y del mismo sistema de autenticación.</td><td>Asegurar que el sistema alternativo de comunicaciones y respaldo opere de forma completamente independiente del proveedor principal.</td></tr>
+<tr><td>Gestión documental del reclamo</td><td>Confiar en que las noticias periodísticas bastan para que la aseguradora pague el siniestro.</td><td>Registrar la hora exacta de la afectación, preservar tickets de soporte, guardar notificaciones del proveedor y auditar pérdidas netas.</td></tr>
+<tr><td>Alineación contractual</td><td>Creer que la póliza cyber estándar cubre automáticamente cualquier interrupción de software.</td><td>Auditar las cláusulas de <em>Dependent Business Interruption</em>, eliminar exclusiones de fallos no maliciosos y revisar los límites de Tech E&amp;O.</td></tr>
+</tbody></table></div>
+
+<p>Si se cambia la arquitectura informática, hay que cambiar la redacción de las pólizas. Si la empresa usa herramientas de código asistido por IA, tiene que preguntarse quién revisa este código antes de que toque las bases de datos vivas de los clientes —el error fatal que cometió Workday esta semana—. Si se parchea la tecnología pero se deja la póliza de seguros desactualizada, se está comprando una falsa sensación de seguridad que se evapora ante la primera caída.</p>
+
+<h2><span class="ii-n">7</span>Tramitador de pólizas o consultor de resiliencia</h2><figure class="ii-fig"><img src="img/apagon/04_reunion.jpg" alt="El mediador, de tramitador de pólizas a consultor de resiliencia." loading="lazy"><figcaption>El mediador, de tramitador de pólizas a consultor de resiliencia.</figcaption></figure>
+
+<p>Lo hablamos en el último <em>Insurance World Challenge</em> en Madrid. El corretaje tradicional se murió. El intermediario que se sienta a esperar que la compañía de seguros le envíe una oferta para luego reenviársela al cliente por correo electrónico no tiene espacio en este nuevo escenario. La vida se acaba al primer inconveniente y, lo que es peor, el que a precio mata, a precio muere... Sin valor añadido no hay permanencia ni preferencia de ningún cliente.</p>
+
+<p>El rol que debemos asumir —como muestran las mejores prácticas de las firmas globales y los debates en <em>Community of Insurance</em> sobre la digitalización de la mediación— es el de un verdadero <strong>consultor estratégico de riesgos (<em>Risk Advisor</em>)</strong>.</p>
+
+<p><strong>Tenemos la obligación profesional de ejercer de docentes.</strong> De sentarnos delante del cliente y hacerle las preguntas que le incomodan:</p>
+
+<ol class="ii-ol">
+<li><strong>Identificar lo vital.</strong> ¿Cuáles son los procesos que no pueden parar bajo ninguna circunstancia? Pagos a proveedores, nóminas, despacho de aduanas, atención de urgencias. Hay que definir quién tiene la autoridad de pulsar el botón de contingencia cuando el sistema principal se apaga.</li>
+<li><strong>Probar la alternativa en frío.</strong> Si mañana se muere el correo corporativo, ¿cómo se comunican los empleados? ¿Tienen las listas de teléfonos y los contactos clave impresos en papel o guardados en dispositivos aislados? Un segundo proveedor no sirve para nada si usa la misma puerta de entrada que el que acaba de colapsar.</li>
+<li><strong>Auditar la IA y su desarrollo.</strong> Si la empresa o sus proveedores usan IA para escribir software, ¿quién revisa lo que se produce? ¿Qué filtros de calidad se aplican? La prisa por lanzar funciones nuevas no puede reemplazar la disciplina del control.</li>
+<li><strong>Verificar la recuperación antes de cantar victoria.</strong> Cuando el proveedor dice «el servicio está restablecido», empieza el trabajo más difícil. Hay que conciliar bases de datos, la integridad de esa información, comprobar que no haya transacciones duplicadas o pagos perdidos en el limbo, tal como tuvieron que hacer Chase y Zelle tras su apagón de software.</li>
+<li><strong>Blindar el reclamo desde el minuto cero.</strong> La aseguradora no paga por compasión. Paga contra pruebas. Hay que registrar el minuto exacto del corte, archivar los partes oficiales del fabricante, guardar las facturas de gastos extraordinarios y notificar formalmente a la compañía dentro de los plazos estrictos de la póliza. Avisarle únicamente al broker por WhatsApp muchas veces no cumple con la carga legal de notificación fehaciente que exige el contrato.</li>
+</ol>
+
+<h2><span class="ii-n">8</span>El puente que nos lleva al futuro</h2>
+
+<p>La gran lección de esta semana de noviembre de 2026 no es técnica ni tampoco informática. Es una lección de <em>Risk Management</em>, además de profundamente humana y existencial.</p>
+
+<p>Nos hemos dejado encandilar por la velocidad. Nos enamoramos de la ilusión del control absoluto, creímos por un momento que la eficiencia algorítmica nos eximía de la fragilidad del mundo real. Pero la realidad, que tiene la paciencia infinita de las cosas verdaderas, nos acaba de demostrar que una sola coma mal puesta en un <em>script</em> de mantenimiento puede mandar a la lona a las mayores empresas del planeta.</p>
+
+<p>No podemos seguir gestionando el riesgo desde la comodidad del trámite burocrático. El software va a volver a fallar. Las actualizaciones automáticas van a volver a romperse. La inteligencia artificial va a seguir encontrando fallos y generando código a una velocidad que nos va a seguir asombrando.</p>
+
+<p>Lo único que nos queda, al final del día, es la lucidez con la que decidimos prepararnos para lo inevitable. La integridad de las empresas y la serenidad de las personas que las componen no dependen de que un servidor nunca se apague. Dependen de la madurez, la sensatez y la disciplina con la que sepamos construir nuestras defensas antes de que el cielo digital se nuble.</p>
+
+<p>Las tormentas no piden permiso. Por eso, ratifico lo que escribí en 2019.</p>
+
+<p class="ii-lema">Estar bien asesorado es estar bien asegurado.</p>
+
+<section class="ii-autor" aria-label="Sobre el autor">
+  <img src="img/apagon/marcelo-rodriguez-valentini.jpg" alt="Marcelo Rodríguez Valentini con su libro «20 mitos y paradigmas del liderazgo»" width="200" height="266">
+  <div>
+    <p class="ii-a-tag">Sobre el autor</p>
+    <h3>Marcelo Rodríguez Valentini</h3>
+    <ul>
+      <li>Presidente de RiskGroup Argentina y cofundador de EspacioECCTA.</li>
+      <li>Asesor de seguros y reaseguros, académico, escritor, emprendedor y especialista en management.</li>
+      <li>Miembro de TechAssure, la red global de brokers de seguros especializados en riesgos tecnológicos.</li>
+      <li>Autor de <em>20 mitos y paradigmas del liderazgo. Pensamientos prácticos para jóvenes líderes</em> (Claridad).</li>
+      <li>En 2019 publicó en <em>Prensa Energética</em> la columna «Prepararse para lo inevitable. La seguridad cibernética es asunto de todos».</li>
+    </ul>
+  </div>
+</section>
+
+<p class="ii-pie">Artículo de opinión publicado en Insur·Insights · Community of Insurance. Las cifras y hechos citados son los expuestos por el autor.</p>
+
+</div>
+
+</body></html>
