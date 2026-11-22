@@ -255,6 +255,17 @@
       </div>
     </article>
 
+    <article class="dl-card dl-informe" id="descarga-informe-apagon">
+      <button type="button" class="dl-informe-img ii-open-form" data-pdf="descargas/Apagon-tecnologico-y-seguro_InsurInsights.pdf" data-ponencia="informe-apagon-2026" data-titulo="Informe Apagón tecnológico y seguro" data-eyebrow="Informe · Apagón tecnológico 2026" data-boton="Descargar el informe" data-brevo="https://01c5f59e.sibforms.com/serve/MUIFAFg6xYeyQV7RRefDq7MOaTnobyuzEeoQ9zxFdFFLhur4eMTNTQVZwJXujI8DwTMb6r-E74k-Ay1GUptm6nuo3xAszjUkjUqQC-d1l1P-TR6_VNm0-HwDqoMgZYgsMody7pRbeRzmft027HSedca8sJIur6Ltm5gYjldnWTVh-mne0LCBK_MBjM-nsqZ9KbsZkGSe1c8t6ZnfcA==" aria-label="Descargar el informe en PDF"><img src="informe-apagon-portada.jpg" alt="Portada del informe: Apagón tecnológico y seguro, el error se multiplica pero la póliza no responde" width="640" height="905" loading="lazy"></button>
+      <div class="dl-informe-body">
+      <div class="dl-who">Informe · Noviembre de 2026</div>
+        <div class="dl-role">Marcelo Rodríguez Valentini · Insur·Insights · Community of Insurance · 16 páginas</div>
+        <h3 class="dl-title">Apagón tecnológico y seguro: el error se multiplica, pero la póliza no responde</h3>
+        <button type="button" class="dl-btn ii-open-form" data-pdf="descargas/Apagon-tecnologico-y-seguro_InsurInsights.pdf" data-ponencia="informe-apagon-2026" data-titulo="Informe Apagón tecnológico y seguro" data-eyebrow="Informe · Apagón tecnológico 2026" data-boton="Descargar el informe" data-brevo="https://01c5f59e.sibforms.com/serve/MUIFAFg6xYeyQV7RRefDq7MOaTnobyuzEeoQ9zxFdFFLhur4eMTNTQVZwJXujI8DwTMb6r-E74k-Ay1GUptm6nuo3xAszjUkjUqQC-d1l1P-TR6_VNm0-HwDqoMgZYgsMody7pRbeRzmft027HSedca8sJIur6Ltm5gYjldnWTVh-mne0LCBK_MBjM-nsqZ9KbsZkGSe1c8t6ZnfcA=="><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>Descargar el informe en PDF</button>
+      </div>
+    </article>
+
+
     <h3 class="dl-group">Webinar · 22 de octubre de 2026<span>«El modelo CX de Sabadell Seguros para la retención de clientes», organizado conjuntamente por Sabadell Seguros y Community of Insurance.</span></h3>
     <div class="descargas-grid">
 
@@ -327,7 +338,7 @@
     <div class="biblioteca-header">
       <div>
         <div class="section-label">Biblioteca de análisis</div>
-        <h2>Todos los artículos <span class="biblioteca-count">— 47 publicaciones</span></h2>
+        <h2>Todos los artículos <span class="biblioteca-count">— 48 publicaciones</span></h2>
       </div>
     </div>
 
@@ -472,8 +483,15 @@
 
     <!-- CIBERRIESGOS -->
     <div class="cat-section" data-cat="ciberriesgos">
-      <div class="cat-title">Ciberriesgos y Seguro <span class="cat-count-badge">2</span></div>
+      <div class="cat-title">Ciberriesgos y Seguro <span class="cat-count-badge">3</span></div>
       <div class="articulos-grid">
+        <a href="/articulos/apagon-tecnologico-y-seguro.html" class="articulo-card">
+          <span class="card-nuevo">Nuevo</span>
+          <span class="card-tag">Ciberriesgos · Informe</span>
+          <div class="card-titulo">Apagón tecnológico y seguro: el error se multiplica, pero la póliza no responde</div>
+          <div class="card-frase">Marcelo Rodríguez Valentini · PDF gratuito</div>
+          <div class="card-meta"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 19 min</div>
+        </a>
         <a href="/articulos/ciberriesgos-y-seguros.html" class="articulo-card">
           <span class="card-tag">Ciberriesgos · IA</span>
           <div class="card-titulo">La IA ya ataca. Las pólizas, todavía no se han enterado</div>
@@ -1098,6 +1116,15 @@ document.querySelectorAll('[data-ponencia]').forEach(function (a) {
         if (bi) {
           var go = function () { openModal(bi.getAttribute("data-pdf"), bi.getAttribute("data-titulo"), bi.getAttribute("data-eyebrow"), bi.getAttribute("data-boton"), bi.getAttribute("data-brevo")); };
           if (document.readyState === "loading") { document.addEventListener("DOMContentLoaded", go); } else { go(); }
+        }
+      }
+    } catch (err) {}
+    try {
+      if (new URLSearchParams(window.location.search).get("descargar") === "apagon") {
+        var ba = document.querySelector("#descarga-informe-apagon .ii-open-form");
+        if (ba) {
+          var goa = function () { openModal(ba.getAttribute("data-pdf"), ba.getAttribute("data-titulo"), ba.getAttribute("data-eyebrow"), ba.getAttribute("data-boton"), ba.getAttribute("data-brevo")); };
+          if (document.readyState === "loading") { document.addEventListener("DOMContentLoaded", goa); } else { goa(); }
         }
       }
     } catch (err) {}
