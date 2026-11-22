@@ -71,6 +71,7 @@
     { f: 'aseguramiento-ia-agentica.html', t: 'El mapa legal y el aseguramiento de la responsabilidad ante los errores de la IA', c: 0, m: 12 },
     { f: 'Sabadell_Seguros_cx.html', t: 'El modelo de experiencia de cliente de Sabadell Seguros: IA con intervención humana', c: 0, m: 7 },
     /* Ciberriesgos */
+    { f: 'apagon-tecnologico-y-seguro.html', t: 'Apagón tecnológico y seguro: el error se multiplica, pero la póliza no responde', c: [1, 5], m: 19, n: 1 },
     { f: 'ciberriesgos-y-seguros.html', t: 'La IA ya ataca. Las pólizas, todavía no se han enterado', c: 1, m: 9 },
     { f: 'ciberseguro-informe-coi.html', t: 'Ciberseguro: estado del mercado y brechas de cobertura', c: 1, m: 7 },
     /* Factor Humano y Seguro */
