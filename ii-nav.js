@@ -39,13 +39,13 @@
   var ORDEN = [8, 2, 0, 1, 3, 4, 5, 6, 7];
   var ARTICULOS = [
     /* El pulso del seguro (antes Actualidad Insurtech) */
-    { f: '2026-11-20_actualidad-mundo-seguro.html', t: 'Los reguladores fijan las reglas de la IA en el seguro mientras el mercado sigue vendiendo', c: [8, 0], m: 2, n: 1 },
+    { f: '2026-11-20_actualidad-mundo-seguro.html', t: 'Los reguladores fijan las reglas de la IA en el seguro mientras el mercado sigue vendiendo', c: [8, 0], m: 2 },
     { f: '2026-11-14_actualidad-insurtech.html', t: 'La IA ya prepara, cotiza y asegura. ¿Quién firma?', c: [8, 4], m: 2 },
     /* Corredores y Distribución */
-    { f: '2026-11-19_ia-libera-horas-corredor-reinversion.html', t: 'La IA libera horas del corredor: ¿quién decide en qué se reinvierten?', c: [2, 0], m: 5, n: 1 },
-    { f: '2026-11-12_corredores-agentes-ia-relacion-humana.html', t: '3.442 corredores y un nuevo colega que no duerme: ¿qué queda para la relación humana?', c: [2, 0], m: 6, n: 1 },
-    { f: 'distribucion-vida-mundo.html', t: 'Seguro de vida: quién controla el acceso al cliente y qué espacio queda para el intermediario', c: [2, 5], m: 25, n: 1 },
-    { f: 'mapfre-inchausti-ia-captacion-debate.html', t: 'Mapfre prioriza captar clientes sobre acumular pólizas', c: [2, 0], m: 4, n: 1 },
+    { f: '2026-11-19_ia-libera-horas-corredor-reinversion.html', t: 'La IA libera horas del corredor: ¿quién decide en qué se reinvierten?', c: [2, 0], m: 5 },
+    { f: '2026-11-12_corredores-agentes-ia-relacion-humana.html', t: '3.442 corredores y un nuevo colega que no duerme: ¿qué queda para la relación humana?', c: [2, 0], m: 6 },
+    { f: 'distribucion-vida-mundo.html', t: 'Seguro de vida: quién controla el acceso al cliente y qué espacio queda para el intermediario', c: [2, 5], m: 25 },
+    { f: 'mapfre-inchausti-ia-captacion-debate.html', t: 'Mapfre prioriza captar clientes sobre acumular pólizas', c: [2, 0], m: 4 },
     { f: 'articulo-gpbk-alvarado.html', t: 'La estructura que permite a una correduría trascender a su fundador', c: [2, 6], m: 6 },
     { f: 'estudio-software-broker-seguros.html', t: 'Estudio de software para brokers de seguros', c: 2, m: 8 },
     { f: 'revolut-informe-hub.html', t: 'Revolut: de la tarjeta multidivisa a la aspiración de banco global', c: 2, m: 9 },
@@ -56,8 +56,8 @@
     { f: 'seguros_embebidos_brokers_2026.html', t: 'Seguros embebidos y el corredor: ¿amenaza o nueva oportunidad?', c: 2, m: 7 },
     { f: 'mga-informe-coi.html', t: 'MGA: el auge del modelo de agencia gestora en el mercado asegurador', c: 2, m: 7 },
     /* IA y Tecnología */
-    { f: '2026-11-10_murga-de-resistirme-a-la-ia-dashboard-seguro-peruano.html', t: 'De resistirme a la IA a centralizar los datos del mercado asegurador peruano', c: [0, 6], m: 6, n: 1 },
-    { f: 'IA_FACTOR_HUMANO_HORIZONTE_2030.html', t: 'Cuando el cliente llama para irse, la IA ayuda y la decisión sigue siendo de una persona', c: [0, 3], m: 3, n: 1 },
+    { f: '2026-11-10_murga-de-resistirme-a-la-ia-dashboard-seguro-peruano.html', t: 'De resistirme a la IA a centralizar los datos del mercado asegurador peruano', c: [0, 6], m: 6 },
+    { f: 'IA_FACTOR_HUMANO_HORIZONTE_2030.html', t: 'Cuando el cliente llama para irse, la IA ayuda y la decisión sigue siendo de una persona', c: [0, 3], m: 3 },
     { f: '2026-10-26_axa-future-risks-2026-ia-corredores.html', t: 'La IA, el principal riesgo para los expertos', c: 0, m: 7 },
     { f: 'bcg-modelo-ia-transparente.html', t: 'BCG y el modelo de IA transparente', c: 0, m: 7 },
     { f: 'infinitewatch-openai.html', t: 'InfiniteWatch entra en la órbita de OpenAI', c: 0, m: 7 },
@@ -71,7 +71,7 @@
     { f: 'aseguramiento-ia-agentica.html', t: 'El mapa legal y el aseguramiento de la responsabilidad ante los errores de la IA', c: 0, m: 12 },
     { f: 'Sabadell_Seguros_cx.html', t: 'El modelo de experiencia de cliente de Sabadell Seguros: IA con intervención humana', c: 0, m: 7 },
     /* Ciberriesgos */
-    { f: 'apagon-tecnologico-y-seguro.html', t: 'Apagón tecnológico y seguro: el error se multiplica, pero la póliza no responde', c: [1, 5], m: 19, n: 1 },
+    { f: 'apagon-tecnologico-y-seguro.html', t: 'Apagón tecnológico y seguro: el error se multiplica, pero la póliza no responde', c: [1, 6], m: 19, n: 1 },
     { f: 'ciberriesgos-y-seguros.html', t: 'La IA ya ataca. Las pólizas, todavía no se han enterado', c: 1, m: 9 },
     { f: 'ciberseguro-informe-coi.html', t: 'Ciberseguro: estado del mercado y brechas de cobertura', c: 1, m: 7 },
     /* Factor Humano y Seguro */
@@ -92,8 +92,8 @@
     { f: 'informe-vullierme-waniwani.html', t: 'Informe Vullierme-Waniwani: microaseguramiento e inclusión financiera', c: 5, m: 6 },
     { f: 'seguro-vida-prima-de-relevancia.html', t: 'Capgemini y LIMRA 2027: el seguro de vida tiene un problema de traducción', c: 5, m: 11 },
     /* Risks Management · Líderes en acción */
-    { f: '2026-11-10_salsi-ciberataque-derretir-negocio.html', t: '¿Quién dijo que un ciberataque no puede derretir un negocio?', c: [7, 6], m: 6, n: 1 },
-    { f: '2026-10-28_salsi-gestionar-riesgos-no-es-suficiente.html', t: 'Gestionar riesgos no es suficiente', c: [7, 6], m: 5, n: 1 }
+    { f: '2026-11-10_salsi-ciberataque-derretir-negocio.html', t: '¿Quién dijo que un ciberataque no puede derretir un negocio?', c: [7, 6], m: 6 },
+    { f: '2026-10-28_salsi-gestionar-riesgos-no-es-suficiente.html', t: 'Gestionar riesgos no es suficiente', c: [7, 6], m: 5 }
   ];
 
   /* ───────────── 2 · UTILIDADES ───────────── */
