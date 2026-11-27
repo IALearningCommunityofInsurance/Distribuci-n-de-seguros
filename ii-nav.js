@@ -93,6 +93,7 @@
     { f: 'informe-vullierme-waniwani.html', t: 'Informe Vullierme-Waniwani: microaseguramiento e inclusión financiera', c: 5, m: 6 },
     { f: 'seguro-vida-prima-de-relevancia.html', t: 'Capgemini y LIMRA 2027: el seguro de vida tiene un problema de traducción', c: 5, m: 11 },
     /* Risks Management · Líderes en acción */
+    { f: '2026-11-27_salsi-cuanto-vale-un-corredor-de-seguros.html', t: '¿Cuánto vale un corredor de seguros… y para quién?', c: [6, 2], m: 5, n: 1 },
     { f: '2026-11-10_salsi-ciberataque-derretir-negocio.html', t: '¿Quién dijo que un ciberataque no puede derretir un negocio?', c: [7, 6], m: 6 },
     { f: '2026-10-28_salsi-gestionar-riesgos-no-es-suficiente.html', t: 'Gestionar riesgos no es suficiente', c: [7, 6], m: 5 }
   ];
